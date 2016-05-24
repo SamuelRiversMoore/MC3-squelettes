@@ -13,13 +13,8 @@
 				</BOUCLE_auteurs>
 			</span>
 		</div>
-		<div class="controls">
-			<div class="modification boutons">
-
-			</div>
-			[(#AFFICHER|=={editer_ville}|oui)
-				[(#FORMULAIRE_EDITION_VILLE{ #ID_VILLE,'','',[(#URL_VILLE|parametre_lang|parametre_url{afficher, ville_ok})]})]
-			]
-		</div>
+		[(#AFFICHER|=={editer_ville}|oui)
+			[(#FORMULAIRE_EDITION_VILLE{ #ID_VILLE,'','',[(#URL_VILLE|parametre_lang|parametre_url{afficher, ville_ok})]})]
+		]
 	</BOUCLE_ville>
 </section>

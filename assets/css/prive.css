@@ -441,7 +441,7 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 	background: #88ABC1;
 }
 .bouton.ajouter.externe{
-	background: #3C87B6;
+	background: #FFC200;
 }
 #menu .bouton.ajouter.pays{
 	background: rgb(226, 223, 215);
@@ -487,9 +487,6 @@ section.administration {
 	color: #999;
 	margin-bottom: 8px;
 	margin-top: 1em;
-}
-section.administration .controls{
-	margin-bottom: 0;
 }
 section.page-standard section.administration {
 	margin-top: 0;

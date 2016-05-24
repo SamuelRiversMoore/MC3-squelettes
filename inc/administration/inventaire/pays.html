@@ -12,13 +12,9 @@
 				</BOUCLE_auteurs>
 			</span>
 		</div>
-		<div class="controls">
-			<div class="modification boutons">
+		[(#AFFICHER|=={editer_pays}|oui)
+			[(#FORMULAIRE_EDITION_PAY{#ID_PAY,[(#URL_PAY|parametre_lang|parametre_url{'afficher','pays_ok'})]})]
+		]
 
-			</div>
-			[(#AFFICHER|=={editer_pays}|oui)
-				[(#FORMULAIRE_EDITION_PAY{#ID_PAY,[(#URL_PAY|parametre_lang|parametre_url{'afficher','pays_ok'})]})]
-			]
-		</div>
 	</section>
 </BOUCLE_pays>

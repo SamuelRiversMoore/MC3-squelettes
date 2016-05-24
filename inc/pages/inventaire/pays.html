@@ -8,14 +8,17 @@
 
 			[(#REM) on affiche le panneau d'administration]
 			[(#AUTORISER{modifier,pay,#ID_PAY}|oui) <INCLURE{fond=inc/administration/inventaire/pays, afficher, id_pay} /> ]
-		</header>
 
-		[(#REM) pour ajouter une ville]
-		[(#AUTORISER{creer,ville}|oui)
-			[(#AFFICHER|=={'nouvelle_ville'}|oui)
-				[(#FORMULAIRE_EDITION_VILLE{'new', 'pay', #ID_PAY} )] </section>  ]
+			[(#REM) pour ajouter une ville]
+			[(#AUTORISER{creer,ville}|oui)
+				[(#AFFICHER|=={'nouvelle_ville'}|oui)
+					[(#FORMULAIRE_EDITION_VILLE{'new', 'pay', #ID_PAY} )] 
+				]
+
 				<a class="bouton moyen ajouter externe" href="[(#URL_PAY{#ID_PAY}|parametre_lang|parametre_url{afficher, nouvelle_ville})]"><:lped:ville_ajouter:></a>
-		]
+
+			]
+		</header>
 
 		<!-- inclusion thematiques -->
 		<INCLURE{fond=inc/pages/inventaire/thematiques, afficher, thematique, chapitre, document, id_pay} />

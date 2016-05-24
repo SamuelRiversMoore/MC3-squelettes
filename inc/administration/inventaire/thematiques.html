@@ -12,12 +12,8 @@
                 </BOUCLE_auteurs>
             </span>
         </div>
-        <div class="controls">
-            <div class="modification boutons">
-            </div>
-            [(#AFFICHER|=={editer_thematique}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui)
-                [(#FORMULAIRE_EDITION_THEMATIQUE{#ID_THEMATIQUE, '' , '' , [(#SELF|parametre_url{'afficher','thematique_ok'}|parametre_url{'thematique',#THEMATIQUE})] })]
-            ]
-        </div>
+        [(#AFFICHER|=={editer_thematique}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui)
+            [(#FORMULAIRE_EDITION_THEMATIQUE{#ID_THEMATIQUE, '' , '' , [(#SELF|parametre_url{'afficher','thematique_ok'}|parametre_url{'thematique',#THEMATIQUE})] })]
+        ]
     </BOUCLE_thematiques>
 </section>

@@ -13,7 +13,9 @@
 
 	<BOUCLE_nouvelles(ARTICLES){id_rubrique=9} {par statut, maj} {inverse} {statut IN #GET{statut}}>
 		[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)
-			<INCLURE{fond=inc/pages/journal/apercu, env, id_article} />
+			<article class="nouvelle extrait">
+				<INCLURE{fond=inc/pages/journal/apercu, env, id_article} />
+			</article>
 		]
 	</BOUCLE_nouvelles>
 </B_nouvelles>
