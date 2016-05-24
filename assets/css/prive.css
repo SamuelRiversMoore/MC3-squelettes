@@ -2,7 +2,7 @@
 
 input[type="submit"], input[type="button"]{ cursor:pointer; }
 input[type="submit"]:hover, input[type="button"]:hover{ opacity: .8; }
-label.icon{ font-size: 14px; }
+label.icon{ font-size: .85rem; }
 
 section form input[type="file"].hiddeninput,
 section form input[type="checkbox"].hiddeninput,
@@ -39,7 +39,7 @@ div.dashboard ul li>span{
 .tabs-wrapper table tr .status{
 	padding: 0;
 }
-.tabs-wrapper table tr .status:before, .tabs-wrapper table tr .status:after{
+.tabs-wrapper table tr .status::before, .tabs-wrapper table tr .status::after{
 	vertical-align: baseline;
 }
 div.compte ul li h3{
@@ -54,12 +54,12 @@ div.compte ul li h3{
 	position: relative;
 	min-height: 20rem; /* This part sucks */
 	clear: both;
-	margin: 25px 0;
+	margin: 1.5rem 0;
 	text-align: right;
 }
 .onglets header{
 	float: left;
-	margin-top:8px;
+	margin-top:.5rem;
 }
 .onglet {
 	display: inline-block;
@@ -68,10 +68,10 @@ div.compte ul li h3{
 	background: #eee;
 	margin-left: 1px;
 	position: relative;
-	right: 0px;
-	height: 32px;
-	line-height: 32px;
-	padding: 0 8px;
+	right: 0;
+	height: 2rem;
+	line-height: 2rem;
+	padding: 0 .5rem;
 	cursor: pointer;
 }
 .onglets [type=radio] {
@@ -79,12 +79,12 @@ div.compte ul li h3{
 }
 .onglet-content {
 	position: absolute;
-	top: 32px;
+	top: 2rem;
 	left: 0;
 	background: #F2EFE4;
 	right: 0;
 	bottom: 0;
-	padding: 20px;
+	padding: 1.25rem;
 	text-align: left;
 	font-size: 1rem;
 	border: 1px solid #cdcdcd;
@@ -98,10 +98,10 @@ div.compte ul li h3{
 	vertical-align: middle;
 	max-width: 99%;
 }
-.onglet-content.centered:before{
+.onglet-content.centered::before{
 	content: "";
 	height: 98%;
-	width: 0px;
+	width: 0;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -141,7 +141,7 @@ section.edition input[type="file"].fileupload + label.hasFile {
 	color: #333;
 }
 section.edition #inputImg img{
-	max-width: 150px;
+	max-width: 10rem;
 	width: 100%;
 	height: auto;
 }
@@ -167,7 +167,7 @@ section.edition #inputImg .fichier{
 	display: inline-block;
 	vertical-align: middle;
 	position: relative;
-	height: 22px;
+	height: 1.5rem;
 }
 .select-menu ul{
 	background: #fff;
@@ -175,42 +175,42 @@ section.edition #inputImg .fichier{
 	z-index: 99;
 	display: none;
 	box-shadow: 0 0 10px rgba(0,0,0,.4);
-	top: 30px;
-	left: -3px;
-	min-width: 115px;
+	top: 2rem;
+	left: -.25rem;
+	min-width: 7.5rem;
 }
 span.select-title{
 	display: inline-block;
-	padding: 4px;
-	height: 22px;
+	padding: .25rem;
+	height: 1.5rem;
 }
-span.select-title:after{
+span.select-title::after{
 	content:"\f0dc";
 	font: normal normal normal 10px/1 FontAwesome;
-	width: 14px;
-	height: 14px;
-	line-height: 14px;
+	width: .85rem;
+	height: .85rem;
+	line-height: .85rem;
 	display: inline-block;
 	text-align: center;
 	vertical-align: top;
 	color: rgba(0, 0, 0, 0.2);
-	margin-left: 3px;
+	margin-left: .25rem;
 }
-span.select-title:hover:after{
+span.select-title:hover::after{
 	color: rgba(0, 0, 0, 0.4);
 }
 span.select-title>.status{
 	display: inline-block;
-	height: 14px;
+	height: .85rem;
 	padding: 0;
 }
 
-.select-menu .select-title.open + ul:before{
+.select-menu .select-title.open + ul::before{
 	content: "";
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: 22px;
+	left: 1.5rem;
 	top: 0;
 	box-sizing: border-box;
 	border: 6px solid black;
@@ -246,26 +246,26 @@ div.switch input.switchlang + label {
 	cursor: pointer;
 	outline: none;
 	user-select: none;
-	top: 0px;
-	right: 0px;
+	top: 0;
+	right: 0;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none;   /* Chrome/Safari/Opera */
 	-khtml-user-select: none;    /* Konqueror */
 	-moz-user-select: none;      /* Firefox */
 	-ms-user-select: none;       /* Internet Explorer/Edge */
-	width: 84px;
-	height: 32px;
-	margin: 25px;
+	width: 5rem;
+	height: 2rem;
+	margin: 1.5rem;
 	background: #eee;
 	z-index: 9;
 }
 div.switch > section{ z-index: 0; }
 input.switchlang + label>span{
 	position: absolute;
-	width: 42px;
-	height: 32px;
-	line-height: 32px;
-	font-size: 16px;
+	width: 2.5rem;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 1rem;
 	text-align: center;
 	color: #666;
 	color: rgba(0, 0, 0, 0.56);
@@ -274,19 +274,19 @@ input.switchlang + label>span{
 }
 input.switchlang + label>span:first-child{ left:0; }
 input.switchlang + label>span:last-child{ right:0; }
-input.switchlang + label:before {
+input.switchlang + label::before {
 	display: block;
 	position: absolute;
 	content:"";
 	top: 0;
 	bottom: 0;
-	width: 42px;
+	width: 2.5rem;
 	background-color: #FFAA16;
 	transition: margin 0.4s;
-	margin-left: 42px;
+	margin-left: 2.5rem;
 }
-input.switchlang:checked + label:before {
-	margin-left: 0px;
+input.switchlang:checked + label::before {
+	margin-left: 0;
 }
 input.switchlang:checked + label>span:last-child, input.switchlang:not(:checked) + label>span:first-child{
 	color: #999;
@@ -308,22 +308,22 @@ input.switchlang:checked + label>span:last-child, input.switchlang:not(:checked)
 	padding:5rem;
 }
 .inline{ display: inline-block; }
-h1.inline{ margin-right: 5px; }
+h1.inline{ margin-right: .25rem; }
 
 
 body.logged a.item {
-	padding-right: 30px !important;
+	padding-right: 2rem !important;
 }
 .tabs-wrapper #nav-tabs li.new a.bouton{
 	margin: 0;
-	border-radius: 0 0 5px 5px;
+	border-radius: 0 0 .25rem .25rem;
 	color:rgba(0, 0, 0, 0.5);
 	background: #fff;
-	padding-left: 4px;
+	padding-left: .25rem;
 	text-align: left;
 }
 .tabs-wrapper #nav-tabs .chapitres li.new a.bouton{
-	padding-left: 20px;
+	padding-left: 1.5rem;
 }
 
 
@@ -340,48 +340,48 @@ span.status, div.status, li.status{
 	margin: inherit;
 }
 li.status{ padding: 7px 6px; height: 28px; }
-span.status { height: 23px; position: absolute; right: 0; top: -1px; opacity: .7; font-size: 0; padding: 5px 6px; }
+span.status { height: 1.5rem; position: absolute; right: 0; top: -1px; opacity: .7; font-size: 0; padding: 5px 6px; }
 span.status:hover { background: #FFF; color: #555; opacity: .9; }
-#nav-tabs span.status { top: 9px; }
-#ville-projet span.status { top: 8px; right: 8px; }
+#nav-tabs span.status { top: .5rem; }
+#ville-projet span.status { top: .5rem; right: .5rem; }
 
-span.status:before, div.status:after, li.status:after{
+span.status::before, div.status::after, li.status::after{
 	padding-left: 3px;
-	font-size: 12px;
+	font-size: .75rem;
 	vertical-align: top;
 	text-transform: uppercase;
-	line-height: 15px;
+	line-height: 1rem;
 }
-span.status:after, div.status:before, li.status:before{
-	font: normal normal normal 14px/1 FontAwesome;
-	width: 14px;
-	height: 14px;
+span.status::after, div.status::before, li.status::before{
+	font: normal normal normal .85rem/1 FontAwesome;
+	width: 1rem;
+	height: 1rem;
 	display: inline-block;
 	text-align: center;
 	vertical-align: top;
 }
 
-span.status:before{ display: none; }
-span.status:hover:before{ display: inline; }
-div.status:before, li.status:before{ margin-right: 2px; }
-span.status:after{ margin-left: 7px; }
+span.status::before{ display: none; }
+span.status:hover::before{ display: inline; }
+div.status::before, li.status::before{ margin-right: 2px; }
+span.status::after{ margin-left: .5rem; }
 
-span.status.prepa:after, div.status.prepa:before, li.status.prepa:before{ content: "\f1db"; content:"\f110"; }
-span.status.prop:after, div.status.prop:before, li.status.prop:before{ content: "\f29c"; }
-span.status.publie:after, div.status.publie:before, li.status.publie:before{ content: "\f00c"; }
-span.status.refuse:after, div.status.refuse:before, li.status.refuse:before{ content: "\f05e"; }
-span.status.poubelle:after, div.status.poubelle:before, li.status.poubelle:before{ content: "\f014"; }
+span.status.prepa::after, div.status.prepa::before, li.status.prepa::before{ content: "\f1db"; content:"\f110"; }
+span.status.prop::after, div.status.prop::before, li.status.prop::before{ content: "\f29c"; }
+span.status.publie::after, div.status.publie::before, li.status.publie::before{ content: "\f00c"; }
+span.status.refuse::after, div.status.refuse::before, li.status.refuse::before{ content: "\f05e"; }
+span.status.poubelle::after, div.status.poubelle::before, li.status.poubelle::before{ content: "\f014"; }
 
-span.status.prepa.fr:before, div.status.prepa.fr:after, li.status.prepa.fr:after{ content:"brouillon"; }
-span.status.prepa.en:before, div.status.prepa.en:after, li.status.prepa.en:after{ content:"draft"; }
-span.status.prop.fr:before, div.status.prop.fr:after, li.status.prop.fr:after{ content:"proposé"; }
-span.status.prop.en:before, div.status.prop.en:after, li.status.prop.en:after{ content:"proposed"; }
-span.status.publie.fr:before, div.status.publie.fr:after, li.status.publie.fr:after{ content:"publié"; }
-span.status.publie.en:before, div.status.publie.en:after, li.status.publie.en:after{ content:"published"; }
-span.status.refuse.fr:before, div.status.refuse.fr:after, li.status.refuse.fr:after{ content:"refusé"; }
-span.status.refuse.en:before, div.status.refuse.en:after, li.status.refuse.en:after{ content:"refused"; }
-span.status.poubelle.fr:before, div.status.poubelle.fr:after, li.status.poubelle.fr:after{ content:"à la poubelle"; }
-span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle.en:after{ content:"trash"; }
+span.status.prepa.fr::before, div.status.prepa.fr::after, li.status.prepa.fr::after{ content:"brouillon"; }
+span.status.prepa.en::before, div.status.prepa.en::after, li.status.prepa.en::after{ content:"draft"; }
+span.status.prop.fr::before, div.status.prop.fr::after, li.status.prop.fr::after{ content:"proposé"; }
+span.status.prop.en::before, div.status.prop.en::after, li.status.prop.en::after{ content:"proposed"; }
+span.status.publie.fr::before, div.status.publie.fr::after, li.status.publie.fr::after{ content:"publié"; }
+span.status.publie.en::before, div.status.publie.en::after, li.status.publie.en::after{ content:"published"; }
+span.status.refuse.fr::before, div.status.refuse.fr::after, li.status.refuse.fr::after{ content:"refusé"; }
+span.status.refuse.en::before, div.status.refuse.en::after, li.status.refuse.en::after{ content:"refused"; }
+span.status.poubelle.fr::before, div.status.poubelle.fr::after, li.status.poubelle.fr::after{ content:"à la poubelle"; }
+span.status.poubelle.en::before, div.status.poubelle.en::after, li.status.poubelle.en::after{ content:"trash"; }
 
 
 
@@ -393,16 +393,16 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 .boutons.right .bouton, .boutons.center .bouton{ display: inline-block; }
 .boutons.right .bouton:last-child, .boutons.center .bouton:last-child{ margin-right: 0;}
 
-.bouton.gros{ font-size: 16px; padding: 8px 12px; margin-right: 10px; }
-.bouton.moyen{ font-size: 14px; padding: 4px 8px; margin-right: 10px;}
-.bouton.petit{ font-size: 12px;  padding: 0px 4px;	height: 19px;}
+.bouton.gros{ font-size: 1rem; padding: .5rem .75rem; margin-right: .625rem; }
+.bouton.moyen{ font-size: .85rem; padding: .25rem .5rem; margin-right: .625rem;}
+.bouton.petit{ font-size: .75rem;  padding: 0 .25rem;	height: 1.25rem;}
 
 .bouton{
 	font-weight: normal;
 	text-decoration: none;
 	display: inline-block;
 	color: rgba(0, 0, 0, 0.5);
-	border-radius: 3px;
+	border-radius: .25rem;
 	text-align: center;
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
@@ -412,22 +412,22 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 	border-radius: 0;
 	display: inline-block;
 	vertical-align: baseline;
-	font-size: 14px;
-	padding: 0px 4px;
-	height: 19px;
+	font-size: .85rem;
+	padding: 0 .25rem;
+	height: 1.25rem;
 }
 .bouton.modifier:not(:last-child){
 	border-right: 1px solid #bbb;
-	padding-right: 8px;
-	margin-right: 6px;
+	padding-right: .5rem;
+	margin-right: .5rem;
 }
 .bouton.modifier:not(:first-child){
 	border-left: 1px solid #bbb;
-	padding-left: 8px;
-	margin-left: 6px;
+	padding-left: .5rem;
+	margin-left: .5rem;
 }
 
-.bouton.icon:before{
+.bouton.icon::before{
 	font-size: inherit;
 	text-align: center;
 	margin-right: .5em;
@@ -445,10 +445,10 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 }
 #menu .bouton.ajouter.pays{
 	background: rgb(226, 223, 215);
-	margin: 10px 0 5px;
+	margin: .5rem 0 .25rem;
 	color: #8D8D8D;
 	color: rgba(0,0,0,.4);
-	font-size: 16px;
+	font-size: 1rem;
 	display: block;
 }
 #menu .bouton.ajouter.pays:hover{
@@ -463,39 +463,37 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 	color: #fff;
 }
 .bouton.ok{
-	/* line-height: 24px; */
 	text-decoration: underline;
 	color: #0AD534;
 	vertical-align: middle;
-	/* height: 22px; */
 	padding: 0;
-	margin-right: 8px;
+	margin-right: .5rem;
 	background: none;
 }
 
 .auteurs .auteur { /* border-bottom: 1px solid #ddd; */ position: relative; margin-right: 5px;}
-.auteurs .auteur:after {position: absolute; right: -3px;}
+.auteurs .auteur::after {position: absolute; right: -3px;}
 .auteurs .auteur:nth-last-child(2){margin-right: 17px;}
-.auteurs .auteur:not(:last-child):after{content:', '; line-height: 19px;}
-.auteurs .auteur:nth-last-child(2):after{content:' \& '; right: -15px; line-height: 19px;}
+.auteurs .auteur:not(:last-child)::after{content:', '; line-height: 1.25rem;}
+.auteurs .auteur:nth-last-child(2)::after{content:' \& '; right: -15px; line-height: 1.25rem;}
 
 
 
 
 section.administration {
-	font-size: 12px;
+	font-size: .75rem;
 	color: #999;
-	margin-bottom: 8px;
+	margin-bottom: 1em;
 	margin-top: 1em;
 }
 section.page-standard section.administration {
 	margin-top: 0;
-	margin-bottom: 20px;
+	margin-bottom: 1.5rem;
 }
 section.page-standard .meta, section.page-standard .modification{
 	display: inline-block;
 	width: auto;
-	max-width: 460px;
+	max-width: 28rem;
 	vertical-align: middle;
 }
 section.thematique-document section.administration{
@@ -522,8 +520,8 @@ section.thematique-document section.administration{
 .modal>section.edition{
 	position:relative;
 	z-index:2020;
-	max-width: 800px;
-	margin: 30px auto;
+	max-width: 50rem;
+	margin: 2rem auto;
 	background: #fff;
 }
 
@@ -545,17 +543,17 @@ section.administration .meta{
 }
 section.administration .meta>span:not(.moderation){
 	vertical-align: middle;
-	margin-right: 10px;
+	margin-right: .75rem;
 	display: inline-block;
 }
-section.administration .meta>span.icon:before{
-	margin-right: 4px;
+section.administration .meta>span.icon::before{
+	margin-right: .25rem;
 }
 
 
 section.edition textarea, section.edition input[type="text"], section.edition input[type="date"] {
 	padding : 0.5rem;
-	font-size: 16px;
+	font-size: 1rem;
 	font-family: "karmilla";
 	border: 1px solid #CDCDCD;
 }
@@ -573,24 +571,24 @@ section.edition textarea.small{
 
 section.edition form input[type="file"] {
 	padding: 0 0.5rem;
-	line-height: 30px;
+	line-height: 2rem;
 }
 .message  {
 	display: inline-block;
-	font-size: 12px;
+	font-size: .75rem;
 	font-family: "Inconsolata";
 	vertical-align: middle;
 }
-.message:before {
-	margin-right: 5px;
+.message::before {
+	margin-right: .25rem;
 }
 .bouton .message{
 	height: 1.5em;
 	vertical-align: baseline;
 }
-.bouton .message:before {
-	margin-right: 0px;
-	margin-left: 5px;
+.bouton .message::before {
+	margin-right: 0;
+	margin-left: .25rem;
 }
 
 .message.erreur {
@@ -601,7 +599,7 @@ section.edition form input[type="file"] {
 }
 
 section.edition section header{
-	margin-bottom: 13px;
+	margin-bottom: .75rem;
 }
 section.edition header, section.edition label{
 	font-size:1rem;
@@ -610,14 +608,14 @@ section.edition header, section.edition label{
 
 section.edition input[type="text"], section.edition input[type="date"], section.edition .input-block label{
 	border: 1px solid #CDCDCD;
-	height: 32px;
+	height: 2rem;
 }
 section.edition .input-block label{
-	min-width: 42px;
+	min-width: 2.5rem;
 	padding: 0.5rem;
 	background: #ddd;
 	display: inline-block;
-	line-height: 15px;
+	line-height: 1rem;
 	text-align: center;
 	vertical-align: top;
 	float: left;
@@ -634,7 +632,7 @@ section.edition .input-block input{
 }
 .row{
 	font-size: 0;
-	padding: 25px;
+	padding: 1.5rem;
 }
 .full, .demi{
 	display: inline-block;
@@ -643,11 +641,11 @@ section.edition .input-block input{
 	vertical-align: top;
 	-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
-		box-sizing: border-box;
+			box-sizing: border-box;
 }
 section.edition .affichage-document{
-	padding: 15px 0;
-	font-size: 16px;
+	padding: 1rem 0;
+	font-size: 1rem;
 	text-align: center;
 	background: #F2EFE4;
 }
@@ -658,16 +656,16 @@ section.edition .affichage-document .fichier{
 
 section.edition .diaporama{
 	font-size: 0;
-	margin-right: -12.5px;
-	margin-left: -12.5px;
+	margin-right: -.75rem;
+	margin-left: -.75rem;
 }
 section.edition .diaporama .diapositive{
 	display: inline-block;
 	font-size: 16px;
 	vertical-align: top;
-	margin: 0 12.5px 25px 12.5px;
-	width: 225px;
-	height: 160px;
+	margin: 0 .75rem 1.5rem .75rem;
+	width: 15rem;
+	height: 10rem;
 	overflow: hidden;
 	border: 1px solid #999;
 	position: relative;
@@ -685,7 +683,7 @@ section.edition .diapositive .supprimer{
 	height: 100%;
 	background: rgba(0,0,0,.5);
 	color: #fff;
-	padding: 10px;
+	padding: .75rem;
 	text-align: center;
 	display: none;
 }
@@ -693,11 +691,11 @@ section.edition .diapositive .supprimer-button{
 	position: absolute;
 	top: 0;
 	right: 0;
-	font-size: 20px;
+	font-size: 1.5rem;
 	background: rgba(0, 0, 0, 0.72);
-	width: 35px;
-	height: 35px;
-	line-height: 35px;
+	width: 2rem;
+	height: 2rem;
+	line-height: 2rem;
 	text-align: center;
 	opacity: .3;
 	color: #fff;
@@ -712,7 +710,7 @@ section.edition .diapositive.deletemode .supprimer-button{
 section.edition .diapositive.deletemode .supprimer{
 	display: block;
 }
-section.edition .diapositive .supprimer:before{
+section.edition .diapositive .supprimer::before{
 	content: "";
 	display: inline-block;
 	height: 100%;
@@ -728,16 +726,16 @@ section.edition .diaporama .diapositive.fake{
 	background: #ddd;
 	text-align: center;
 }
-section.edition .diaporama .diapositive.fake:before{
+section.edition .diaporama .diapositive.fake::before{
 	content:"";
 	height:100%;
-	width: 0px;
+	width: 0;
 	display: inline-block;
 	vertical-align: middle;
 }
 section.edition .diaporama .diapositive.fake a.bouton{
 	vertical-align: middle;
-	margin-right: 4px;
+	margin-right: .25rem;
 }
 section.edition .diaporama .diapositive.ajout{
 	display: block;
@@ -760,9 +758,9 @@ section.edition .diaporama .diapositive.fake section.edition.document{
 		width: 50%;
 	}
 	.row .demi:first-of-type{
-		padding-right: 15px;
+		padding-right: 1rem;
 	}
 	.row .demi:last-of-type{
-		padding-left: 15px;
+		padding-left: 1rem;
 	}
 }

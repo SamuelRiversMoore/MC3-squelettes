@@ -1,7 +1,7 @@
 <section class="administration">
     <BOUCLE_chapitre (CHAPITRES) {id_chapitre} {tout}>
         <div class="meta">
-            <a class="bouton moyen modifier icon fa-pencil" alt="<:lped:chapitre_modifier:>" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_chapitre}|parametre_url{chapitre, #ID_CHAPITRE})]"><:lped:chapitre_modifier:>[(#AFFICHER|=={chapitre_ok}|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui)<span class="message ok icon fa-check"></span>]</a>
+            <a class="bouton moyen modifier icon fa-pencil" alt="<:lped:chapitre_modifier:>" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_chapitre}|parametre_url{chapitre, #ID_CHAPITRE})]"><:lped:editer:>[(#AFFICHER|=={chapitre_ok}|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui)<span class="message ok icon fa-check"></span>]</a>
 
             [(#FORMULAIRE_MODERATION_OBJET{chapitres,chapitre,#ID_CHAPITRE})]
             <span class="icon fa-calendar-o" alt="<:lped:creation:>" title="<:lped:creation:>">[(#DATE|affdate)]</span>

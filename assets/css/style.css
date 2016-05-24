@@ -69,14 +69,14 @@ body {
 	min-height: 1px;
 }
 .grid-2>div:last-child {
-	padding-left: 15px;
+	padding-left: 1rem;
 }
 .grid-2>div:first-child {
 	padding-left: 0;
 }
 .col-wrap{ font-size: 0;}
 .col25, .col33, .col40, .col50, .col60, .col66, .col75{
-	min-width: 150px;
+	min-width: 10rem;
 	display: inline-block;
 	font-size: 1rem;
 	vertical-align: top;
@@ -112,32 +112,32 @@ h1 a, h2 a, h3 a, h4 a, h5 a, a.pdf {
 	text-decoration: none;
 }
 h1, .h1 {
-	font-size: 48px;
+	font-size: 3rem;
 	line-height: 1.2em;
-	margin: 18px 0;
+	margin: 1rem 0;
 	font-weight: normal;
 }
 h2, .h2 {
-	font-size: 30px;
+	font-size: 2rem;
 	line-height: 1.2em;
-	margin-bottom: 18px;
+	margin-bottom: 1rem;
 	font-weight: normal;
 }
 h3, .h3 {
-	font-size: 18px;
+	font-size: 1.25rem;
 	line-height: 1.2em;
 	font-weight: normal;
 }
 h4, .h4 {
-	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.2em;
 	font-weight: normal;
 }
 h5, .h5 {
-	font-size: 12px;
+	font-size: .75rem;
 	line-height: 1.2em;
 	font-weight: normal;
-	margin: 18px 0 12px 0;
+	margin: 1rem 0 1em 0;
 }
 h6, .h6 {
 	font-weight: normal;
@@ -152,47 +152,44 @@ h6, .h6 {
 	font-family: 'Inconsolata';
 }
 .small{
-	font-size: 11px;
+	font-size: .75rem;
 	line-height: 1.2em;
 }
 .medium {
-	font-size: 18px;
+	font-size: 1.125rem;
 	line-height: 1.2em;
 }
 .big {
-	font-size: 21px;
+	font-size: 1.25rem;
 	line-height: 1.2em;
 }
 ul {
-	margin-left: 48px;
+	margin-left: 3rem;
 }
 ul.liste-lettres {
 	list-style-type: upper-alpha;
 }
-.texte-courant p , .texte-courant ul, .texte-courant iframe {
-	margin-bottom: 18px;
+h3, p {
+	margin-bottom: 1em;
+	line-height: 1.32em;
 }
 .texte-courant iframe {
+	margin-bottom: 1em;
 	width: 100%;
 }
 #page-standard {
-	max-width: 780px;
+	max-width: 50rem;
 }
 
-/* ??? */
-article section p, article section h3, article section ul{
-	margin-bottom: 18px;
-    line-height: 1.32em;
-}
 article section h4{
 	margin-bottom: 2px;
 }
 article section .thematique-document-meta{
-	max-width: calc(100% - 100px);
+	max-width: calc(100% - 6.25rem);
 	display: inline-block;
 }
 article section .small{
-	line-height: 18px;
+	line-height: 1em;
 	display: block;
 }
 header h5{
@@ -209,16 +206,16 @@ img.insertion{
 
 /*----------  Footer ----------*/
 #footer {
-	margin-left: 320px;
-	padding: 30px;
+	margin-left: 20rem;
+	padding: 2rem;
 }
 #footer-logos {
 	text-align: left;
 }
 #footer-logos img {
-	max-width: 100px;
-	max-height: 40px;
-	margin: auto 30px;
+	max-width: 6.25rem;
+	max-height: 2.5rem;
+	margin: auto 2rem;
 	display: inline;
 	vertical-align: middle;
 }
@@ -237,7 +234,7 @@ img.insertion{
 	top: -1px;
 	position: absolute;
 	right: 1px;
-	padding: 15px;
+	padding: 1rem;
 	display: none;
 	color: #1A578B;
 }
@@ -248,19 +245,19 @@ img.insertion{
 	z-index: 1500;
 	background: #FFC200;
 	border-radius: 2px;
-	top: 23px;
-	left: 30px;
+	top: 1.5rem;
+	left: 2rem;
 	font-family: 'karmilla', arial, sans-serif;
-	font-size: 18px;
+	font-size: 1.125rem;
 }
 #show-menu:before{
 	padding-right: 3px;
-	font-size: 13px;
+	font-size: .75rem;
 	font-family: 'Glyphicons Halflings';
 }
 
 #menu{
-	width: 320px;
+	width: 20rem;
 	background: rgb(242, 239, 228);
 	color: #007AC8;
 	border-right: 1px solid rgba(0,0,0,.1);
@@ -275,11 +272,11 @@ img.insertion{
 	-moz-transition: left .3s ease-in-out;
 	-o-transition: left .3s ease-in-out;
 	transition: left .3s ease-in-out;
-	padding: 0 20px;
+	padding: 0 1.25rem;
 }
 #menu-logo{
-	margin-left: -20px;
-	margin-right: -21px;
+	margin-left: -1.25rem;
+	margin-right: -1.3rem;
 	display: block;
 }
 #menu-logo img {
@@ -300,35 +297,34 @@ img.insertion{
     color: #9F9F9F;
 }
 ul#menu-header {
-	margin-top: 10px;
+	margin-top: .75rem;
 	font-size: 0;
-	height: 22px;
+	height: 1.5rem;
 }
 #menu-header li {
 	display: inline-block;
-	font-size: 12px;
-	line-height: 22px;
-	margin-right: 10px;
+	font-size: .75rem;
+	line-height: 1.25rem;
+	margin-right: .5rem;
 }
 #menu-header li:last-child {
 	float: right;
 	margin: 0;
 }
-
 ul#menu-footer {
-	margin-bottom: 25px;
+	margin-bottom: 1.5rem;
 	border-top: 1px solid #007AC8;
-	padding-top: 8px;
+	padding-top: .5rem;
 }
 #menu-footer>li {
-	font-size: 12px;
+	font-size: .75rem;
 	line-height: 1.45em;
 }
 #menu-principal>li {
-	font-size: 22px;
+	font-size: 1.25rem;
 	line-height: 1.2em;
 	border-top: 1px solid #007AC8;
-	padding: 10px 0;
+	padding: .75rem 0;
 }
 #menu-principal li.active>a:not(.bouton), #menu-principal li li.active>a:not(.bouton) {
 	font-family: "karmilla";
@@ -337,7 +333,7 @@ ul#menu-footer {
 
 
 #menu .tree{
-	margin-top: 8px;
+	margin-top: .5rem;
 }
 #menu .tree, #menu .tree ul {
     margin-left: 10px;
@@ -402,32 +398,32 @@ ul#menu-footer {
 /* -------- Contenu --------*/
 #contenu{
 	display: block;
-	margin-left: 320px;
+	margin-left: 20rem;
 	min-height: 100%;
 	position: relative;
 }
 
 #contenu .wrapper {
-	padding: 30px;
+	padding: 2rem;
 	position: relative;
 }
 #contenu .wrapper:not(.large){
-	max-width: 1280px;
+	max-width: 80rem;
 }
 /* TO CHECK */
 #contenu.wrapper {
-	padding: 30px;
+	padding: 2rem;
 	position: relative;
 }
 #contenu.wrapper:not(.large){
-	max-width: 1280px;
+	max-width: 80rem;
 }
 
 /*----------  Home ----------*/
 
 
 #welcome-map {
-	height: 450px;
+	height: 28rem;
 }
 
 .leaflet-bottom.leaflet-left, .leaflet-bottom.leaflet-right {
@@ -435,60 +431,63 @@ ul#menu-footer {
 }
 #presentation {
 	background-color: #FFC200;
-	padding: 25px;
+	padding: 1.25rem 1.5rem;
 	position: relative;
-	margin-bottom: 30px;
-	margin-top: -50px;
+	margin-bottom: 2rem;
+	margin-top: -4.25rem;
+}
+#presentation p{
+	margin: 0;
 }
 .mises-a-jour{
-	padding-left: 30px;
-	font-size: .9em;
+	padding-left: 2rem;
+	font-size: .8rem;
 	line-height: 1.2em;
 }
 .mises-a-jour li{
-	margin-bottom: 13px;
+	margin-bottom: .75rem;
 }
 .liste-articles>li, .mises-a-jour li {
 	list-style-type: none;
 }
 
 .liste-articles>article, .liste-articles>li, .journal>article, .nouvelles article  {
-	margin-bottom: 32px;
+	margin-bottom: 2rem;
 	position: relative;
 }
 .article-icone {
-	width: 180px;
+	width: 12rem;
 	float: left;
-	margin-right: 30px;
-	margin-bottom: 16px;
+	margin-right: 2rem;
+	margin-bottom: 1rem;
 	border: 1px solid rgba(0,0,0,.5);
 }
 .accueil .journal.extrait .article-icone{
-	width: 160px;
+	width: 10rem;
 }
 .liste-articles .billet{
 	-webkit-transition: background .2s ease-in-out;
 	-moz-transition: background .2s ease-in-out;
 	-o-transition: background .2s ease-in-out;
 	transition: background .2s ease-in-out;
-	margin: 15px -15px;
-	padding: 15px;
+	margin: 1rem -1rem;
+	padding: 1rem;
 }
 .liste-articles .billet:hover{
 	background: rgb(241, 236, 231);
 }
 .liste-articles .billet h4, .journal>article h4 {
-	font-size: 21px;
+	font-size: 1.25rem;
 	line-height: 1.2em;
-	margin-bottom: 9px;
+	margin-bottom: .5rem;
 }
 .nouvelles article h4 {
 	text-transform: uppercase;
 	line-height: 1.2em;
-	margin-bottom: 9px;
+	margin-bottom: .5rem;
 }
 .nouvelles article .discret{
-	margin-top: 9px;
+	margin-top: .5rem;
 }
 .liste-articles .billet a {
 	text-decoration: none;
@@ -500,17 +499,17 @@ ul#news, .mises-a-jour ul, ul#journal {
 
 /*------------ Inventaire -------------*/
 #arbo {
-	font-size: 12px;
+	font-size: .75rem;
 	position: absolute;
-	top: 30px;
-	left: 30px;
+	top: 2rem;
+	left: 2rem;
 }
 #arbo~h1{
-	margin-top: 64px;
+	margin-top: 4rem;
 }
 #arbo~header{
-	margin: 64px 0 64px 0;
-	max-width: 1000px;
+	margin: 4rem 0 4rem 0;
+	max-width: 62rem;
 }
 #arbo~header h1{
 	margin:0;
@@ -522,27 +521,34 @@ ul#news, .mises-a-jour ul, ul#journal {
 	font-weight: bold;
 }
 #inventaire-introduction {
-    width: 290px;
-    margin-right: 30px;
-    display: inline-block;
-    margin-bottom: 64px;
+    width: 18rem;
+    margin-right: 2rem;
+    margin-bottom: 4rem;
 }
 #inventaire-images {
 	overflow: hidden;
+	width: 66%;
+	width: calc(100% - 20rem);
+
+}
+#inventaire-images, #inventaire-introduction{
+	font-size: 1rem;
+    display: inline-block;
+    vertical-align:top;
 }
 
 /*------------ Syntheses -------------*/
 ul.syntheses {
 	margin-left: 0;
-	margin-top: 30px;
+	margin-top: 2rem;
 }
 ul.syntheses li h3{
 	text-transform: uppercase;
 	line-height: 1.2em;
-	margin-bottom: 9px;
+	margin-bottom: .5rem;
 }
 ul.syntheses p{
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 ul.syntheses li{
 	list-style: none;
@@ -551,16 +557,16 @@ ul.syntheses a{
 	text-decoration: none;
     display: block;
     border-left: 3px solid #FFC200;
-    padding-left: 15px;
-    max-width: 550px;
-    margin-bottom: 30px;
+    padding-left: 1rem;
+    max-width: 34rem;
+    margin-bottom: 2rem;
 }
 
 
 
 /*------------ Slider -------------*/
 .slider-wrapper {
-	margin: 4px 0 48px 0;
+	margin: .25rem 0 3rem 0;
 	width: 100%;
 	display: inline-block;
 	position: relative;
@@ -583,7 +589,7 @@ ul.syntheses a{
 }
 .slick-dots{
 	margin: 0;
-	bottom: -37px;
+	bottom: -2rem;
 }
 figure.slick-slide {
 	background-size: cover !important;
@@ -597,12 +603,12 @@ figure.slick-slide {
 }
 .slick-zoom {
 	position: absolute;
-	bottom: 100px;
-	right: 20px;
+	bottom: 6.25rem;
+	right: 1.25rem;
 	z-index: 9999;
 	background-image: url("../images/zoom.png");
-	height: 31px;
-	width: 31px;
+	height: 2rem;
+	width: 2rem;
 	text-indent: -99999px;
 	cursor: zoom-in;
 }
@@ -644,7 +650,7 @@ figure.slick-slide {
 	margin-top: -50px;
 	left: 0px;
 	z-index: 999;
-	padding: 30px 10px;
+	padding: 2rem 1.25rem;
 	cursor: pointer;
 }
 .slider-arrow-right {
@@ -680,31 +686,31 @@ figure.slick-slide {
 /*------------ Tabs -------------*/
 .tabs-wrapper {
 	position: relative;
-	margin: 6px 0 48px 0;
-	min-height: 300px;
+	margin: .5rem 0 3rem 0;
+	min-height: 20rem;
 }
 .tabs-wrapper #nav-tabs {
-	width: 320px;
+	width: 20rem;
 	margin: 0;
 	background-color: #fff;
-	padding-right: 30px;
+	padding-right: 2rem;
 	position: absolute;
 	z-index: 9;
-	padding-top: 12px;
+	padding-top: .75rem;
 }
 .tabs-wrapper #nav-tabs ul {
 	margin: 0;
 }
 .tabs-wrapper #nav-tabs li {
 	list-style-type: none;
-	font-size: 16px;
+	font-size: 1rem;
 }
 .tabs-wrapper #nav-tabs>ul>li{
 	border-top: 1px solid #999;
 }
 .tabs-wrapper #nav-tabs>ul>li:last-of-type:not(.new) {
 	border-bottom: 1px solid #999;
-	margin-bottom: 10px;
+	margin-bottom: .75rem;
 }
 .tabs-wrapper #nav-tabs li.selected {
 	font-family: "karmilla";
@@ -713,14 +719,14 @@ figure.slick-slide {
 .tabs-wrapper #nav-tabs a {
 	text-decoration: none;
 	display: block;
-	padding: 12px 0;
+	padding: .75rem 0;
 	position: relative;
 }
 
 /* pour les chapitres */
 .tabs-wrapper #nav-tabs ul.chapitres{
 	margin: 0;
-  display:none;
+	display:none;
 }
 .tabs-wrapper #nav-tabs ul.chapitres li{
 	list-style-type: none;
@@ -730,19 +736,19 @@ figure.slick-slide {
 .tabs-wrapper #nav-tabs ul.chapitres li a {
 	text-decoration: none;
 	display: block;
-	padding-left: 18px;
+	padding-left: 1.25rem;
 }
 
 
 .tabs-wrapper article.tab {
 	display: none;
 	background-color: #FFF;
-	padding-left: 320px;
+	padding-left: 20rem;
 	padding-right: calc(100% - 1000px);
 	width: 100%;
-	padding-bottom: 48px;
-	min-height: 300px;
-	padding-top: 12px;
+	padding-bottom: 3rem;
+	min-height: 20rem;
+	padding-top: .75rem;
 }
 .dashboard .tabs-wrapper article.tab{
 	padding-right: 0;
@@ -753,7 +759,7 @@ section.reseaux .tabs-wrapper article {
 
 
 #inventaire-mapbox {
-	height: 350px;
+	height: 24rem;
 }
 #inventaire-mapbox.full {
 	height: 100%;
@@ -767,21 +773,21 @@ section.reseaux .tabs-wrapper article {
 
 /* ------------------ VILLE --------------------- */
 #ville-projet{
-	margin-bottom: 56px;
-    margin-right: -30px;
+	margin-bottom: 3.5rem;
+    margin-right: -2rem;
 }
 #ville-projet h2 {
     position: absolute;
     top: 0;
     left: 0;
-    right: 26px;
+    right: 1.5rem;
     background: rgba(255,255,255,.55);
-    padding-bottom: 6px;
+    padding-bottom: .5rem;
     z-index: 9;
-    padding: 0 10px 6px 5px;
+    padding: .5rem;
 }
 #ville-projet h2 span{
-    padding-right: 5px;
+    padding-right: .25rem;
 }
 #ville-projet a {
     position: relative;
@@ -789,20 +795,20 @@ section.reseaux .tabs-wrapper article {
 }
 #ville-projet article {
     width: 33%;
-    padding-right: 26px;
+    padding-right: 1.5rem;
     display: inline-block;
     vertical-align: top;
-    min-width: 360px;
-    padding-bottom: 40px;
+    min-width: 1.25rem;
+    padding-bottom: 2.5rem;
     position: relative;
 }
 #ville-projet article figure {
-    margin: 0px 0px 8px;
+    margin: 0px 0px .5rem;
     padding-top: 66.66%;
     position: relative;
     background: #FFC200;
     background-size: cover;
-	border-bottom: 3px solid #FFC200;
+	border-bottom: .25rem solid #FFC200;
 	background-color: #FFC200;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
@@ -825,15 +831,15 @@ section.reseaux .tabs-wrapper article {
 }
 .thematique-document {
 	border: 1px solid;
-	padding: 24px 48px;
+	padding: 2rem 3rem;
 	box-shadow: 2px 2px 0px black;
-	margin: 32px 0px;
+	margin: 1.5rem 0px;
 	overflow: hidden;
 }
 .thematique-document-fichiers {
 	display: inline-block;
 	float: left;
-	margin: 0px 36px 12px 0px;
+	margin: 0px 2.25rem .75rem 0px;
 }
 .thematique-document-fichiers>.fichier, .fichier.gros{
 }
@@ -853,7 +859,7 @@ section.reseaux .tabs-wrapper article {
 	width: 3em;
 	height: 3em;
 	line-height: 4em;
-	font-size: 13px;
+	font-size: .75rem;
 	display: block;
 	position: relative;
 	position: relative;
@@ -862,12 +868,12 @@ section.reseaux .tabs-wrapper article {
 	font-weight: bold;
 	margin-top: 1em;
 }
-.fichier.petit{ font-size: 10px; }
-.fichier.moyen{ font-size: 16px; }
-.fichier.gros{ font-size: 20px; }
+.fichier.petit{ font-size: .625rem; }
+.fichier.moyen{ font-size: 1rem; }
+.fichier.gros{ font-size: 1.25rem; }
 .fichier .titre-doc{
 	width: 260px;
-	font-size: .9em;
+	font-size: .75rem;
 	line-height: 1.2em;
 	color: #888;
 	vertical-align: middle;
@@ -927,32 +933,32 @@ section.reseaux .tabs-wrapper article {
 #lexique-lettres {
 	font-family: "karmilla";
 	font-weight: bold;
-	font-size: 21px;
+	font-size: 1.25rem;
 	position: fixed;
-	top: 20px;
-	left: 350px;
+	top: 1.25rem;
+	left: 24rem;
 }
 #lexique-lettres a {
 	text-decoration: none;
 	text-transform:uppercase;
-	width: 30px;
+	width: 2rem;
 	background-color: #FFC200;
 	text-align: center;
-	height: 30px;
-	line-height: 30px;
+	height: 2rem;
+	line-height: 2rem;
 	display: block;
 	float: left;
 }
 #lexique-lettres a:hover {
-	border-bottom: 3px solid #000;
+	border-bottom: .2rem solid #000;
 }
 #lexique-lettres a.active {
 	background-color: #000;
 	color: rgb(255, 255, 255);
 }
 #lexique-mots {
-	margin-top: 36px;
-	max-width: 660px;
+	margin-top: 3rem;
+	max-width: 40rem;
 }
 #lexique-mots h1{
 	text-transform:uppercase;
@@ -970,31 +976,31 @@ section.reseaux .tabs-wrapper article {
 }
 .lexique-wrapper .lexique-titre {
 	display: block;
-	font-size: 18px;
+	font-size: 1.125rem;
 	line-height: 1.2em;
 	text-decoration: none;
 }
 .lexique-wrapper .cible:target ~ .lexique-titre {
-	font-size: 22px;
+	font-size: 1.25rem;
 	line-height: 1.2em;
 	font-family: "karmilla";
 	font-weight: bold;
 	margin-top: 12px;
 }
 .lexique-definition p{
-	margin-bottom: 18px;
+	margin-bottom: 1.5rem;
 }
 .lexique-definition p:last-child {
 	border-left: 1px solid #FFC200;
-	padding-left: 12px;
+	padding-left: .75rem;
 }
 .lexique-definition p.discret{
-	margin: 8px 0;
+	margin: .5rem 0;
 	cursor: help;
 }
 .lexique-wrapper .lexique-definition {
-	margin-left: 24px;
-	margin-bottom: 24px;
+	margin-left: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 
 .lexique-wrapper .lexique-definition .discret{
@@ -1006,20 +1012,20 @@ section.reseaux .tabs-wrapper article {
 	position:absolute;
 	background-color:#044984;
 	color:white;
-	padding:16px;
-	margin-right: 18px;
+	padding:1rem;
+	margin-right: 1.25rem;
     max-width: 800px;
 }
 .lexique-wrapper .lexique-definition .discret:hover ~ .lexique-reference {
 	display: block;
 }
 .lexique-wrapper .lexique-voisins {
-	margin-bottom: 24px;
-	font-size: 12px;
+	margin-bottom: 1.5rem;
+	font-size: .75rem;
 }
 .lexique-wrapper .source{
 	font-family: 'inconsolata';
-	font-size: 14px;
+	font-size: .8rem;
 	letter-spacing: 1px;
 	margin-right: 1px;
 	color: #A9ACCF;
@@ -1027,8 +1033,8 @@ section.reseaux .tabs-wrapper article {
 
 /*--------------- Reseaux -------------*/
 .bloc-membre {
-	width: 280px;
-	margin: 0 30px 30px 0;
+	width: 18rem;
+	margin: 0 2rem 2rem 0;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -1046,7 +1052,7 @@ table thead {
 	text-align: left;
 }
 table th {
-	padding: 8px 5px;
+	padding: .5rem .25rem;
 	cursor: pointer;
 }
 table th:last-child {
@@ -1055,7 +1061,7 @@ table tr {
 	padding: 0px;
 }
 table td {
-	padding: 8px 5px;
+	padding: .5rem .25rem;
 	vertical-align: top;
 	min-width: 100px;
 	border-bottom: 1px solid #FFC200;
@@ -1085,25 +1091,25 @@ article.extrait p{
 article.extrait p:last-of-type::after{
 	content: "";
 	background-image: url("../images/long-arrow-right4.png");
-	width: 25px;
-	height: 11px;
+	width: 1.5rem;
+	height: .75rem;
 	display: inline-block;
-	margin-left: 3px;
+	margin-left: .25rem;
 	background-repeat: no-repeat;
 }
 
 section.nouvelles {
 	display: inline-block;
-	max-width: 290px;
+	max-width: 18rem;
 	vertical-align: top;
 }
 
 section.journal {
 	display: inline-block;
 	vertical-align: top;
-	max-width: 780px;
+	max-width: 50rem;
 	margin-right: 0;
-	padding-right: 60px;
+	padding-right: 4rem;
 }
 
 /*-------------- Article ------------*/
@@ -1111,19 +1117,19 @@ section.journal {
 section.page-standard {
 	display: inline-block;
 	vertical-align: top;
-	max-width: 780px;
-	margin-right: 30px;
-	padding-top: 48px;
+	max-width: 50rem;
+	margin-right: 2rem;
+	padding-top: 3rem;
 }
 section.page-standard article .grid-2>div:first-child {
-	width: 195px;
-	padding-right: 15px;
+	width: 12rem;
+	padding-right: 1rem;
 }
 section.page-standard article .grid-2>div:last-child {
-	width: calc(100% - 195px);
+	width: calc(100% - 12rem);
 }
 article.apropos{
-	margin-bottom:96px;
+	margin-bottom:6rem;
 }
 
 /*----------  LOGIN  ----------*/
@@ -1137,7 +1143,7 @@ article.apropos{
 
 @media screen and (max-width: 1100px){
 	#welcome-map {
-		height: 300px;
+		height: 18rem;
 	}
 	.big{
 		font-size: 20px;
