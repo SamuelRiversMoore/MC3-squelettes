@@ -13,7 +13,9 @@
 	[(#THEMATIQUE|oui|et{#CHAPITRE|non}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui) #SET{courant, oui}]
 	[(#CHAPITRE|oui|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui) #SET{courant, oui}]
 
-	[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={new}}|et{#GET{courant}|=={oui}}|oui) GROSLOLO
+	GROSLOLOUN
+
+	[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={new}}|et{#GET{courant}|=={oui}}|oui) GROSLOLODEUX
 			[(#FORMULAIRE_EDITION_DOC{'new',#GET{lien_objet},#GET{lien_id_objet},[(#SELF|parametre_url{'afficher',''}|parametre_url{'document',''})]})]
 	]
 
