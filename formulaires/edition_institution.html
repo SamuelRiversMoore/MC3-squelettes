@@ -1,0 +1,45 @@
+[<span class="message ok icon fa-check">(#ENV**{message_ok})</span>]
+[<span class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</span>]
+
+
+[(#EDITABLE|oui)
+<div class="modal">
+    <section class="edition">
+        <form action='#ENV{action}' method='post'>
+            #ACTION_FORMULAIRE{#ENV{action}}
+            <section class="row head">
+                <h2 class="full"><:lped:institution_edition_titre:></h2>
+                [<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
+                [<p class="message ok icon fa-check">(#ENV*{message_ok})</p>]
+            </section>
+
+            <section class="row">
+                <header class="full"><:lped:institution_nom:></header>
+                <div class="input-block demi"><label for='nom'>Nom</label><span><input type='text' name='nom' value='#ENV{nom}' autocomplete="off"/></span></div>
+                <div class="input-block demi"><label for='lien' class="icon fa-link"><span><input type='text' name='lien' value='#ENV{lien}' autocomplete="off"/></span></div>
+            </section>
+    
+            <div class="row switch"> 
+                <input  id="newinstitutiontxtlangueuniqueid" class="switchlang hideninput" type="checkbox"[(#LANG|=={fr}|oui) checked]>
+                <label for="newinstitutiontxtlangueuniqueid"><span class="fr">FR</span><span class="en">EN</span></label>
+
+                <section class="langue fr full">
+                    <header for='description_fr'><:lped:institution_description_fr:></header>
+                    <textarea name='description_fr'>#ENV{description_fr}</textarea>
+                </section>               
+                <section class="langue en full">
+                    <header for='description_en'><:lped:institution_description_en:></header>
+                    <textarea name='description_en'>#ENV{description_en}</textarea>
+                </section>               
+            </div>
+
+            <section class="row boutons right">
+                <div class="full">                
+                    <input type='button' class="gros bouton fermer"  value='<:lped:annuler:>'/>
+                    <input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
+                </div>
+            </section>
+        </form>
+    </section>
+</div>
+]

@@ -1,0 +1,17 @@
+    <section class="edition">
+        <!-- <form action='#ENV{action}' method='post' enctype='multipart/form-data'> -->
+            #ACTION_FORMULAIRE{#ENV{action}}
+            <section class="row head">
+                <h2 class="full"><:lped:rubrique_supression_titre:></h2>
+                [<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
+                [<p class="message ok icon fa-check">(#ENV*{message_ok})</p>]
+            </section>
+
+            <section class="row boutons right">
+                <div class="full">                
+                    <input type='submit' class="bouton gros annuler"  value='<:lped:annuler:>'/>
+                    <input type='submit' class="bouton gros enregistrer" name='ok' value='<:lped:enregistrer:>' />
+                </div>
+            </section>
+  <!--      </form> -->
+    </section>   

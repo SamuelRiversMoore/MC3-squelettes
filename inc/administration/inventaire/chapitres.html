@@ -1,0 +1,33 @@
+<section class="administration">
+    <BOUCLE_chapitre (CHAPITRES) {id_chapitre} {tout}>
+        <div class="meta">
+            <a class="bouton moyen modifier icon fa-pencil" alt="<:lped:chapitre_modifier:>" href="[(#URL_VILLE|parametre_lang|parametre_url{afficher, editer_ville})]"><:lped:chapitre_modifier:>[(#AFFICHER|=={chapitre_ok}|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui)<span class="message ok icon fa-check"></span>]</a>
+            
+            [(#FORMULAIRE_MODERATION_OBJET{chapitres,chapitre,#ID_CHAPITRE})]
+            <span class="icon fa-calendar-o" alt="<:lped:creation:>" title="<:lped:creation:>">[(#DATE|affdate)]</span>
+            <span class="icon fa-pencil-square-o" alt="<:lped:modification:>" title="<:lped:modification:>">[(#MAJ|affdate)]</span>
+            <span class="auteurs icon fa-user" alt="<:lped:contributeurs:>" title="<:lped:contributeurs:>">
+                <span class="auteurs">
+                    <BOUCLE_auteurs (AUTEURS) {id_chapitre}>
+                        <span class="auteur">#NOM</span>
+                    </BOUCLE_auteurs>
+                </span>
+            </span>
+        </div>
+        <div class="controls">
+            <div class="modification boutons">
+            </div>
+            [(#AFFICHER|=={editer_chapitre}|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui)
+                [(#FORMULAIRE_EDITION_CHAPITRE{#ID_CHAPITRE, '' , '' , [(#SELF|parametre_url{'afficher','chapitre_ok'})] })]
+            ]
+        </div>
+
+        <!--
+        Autoriser à modifier:
+        [(#AUTORISER{modifier,chapitre,#ID_CHAPITRE}|oui) oui ]
+
+        Autoriser à voir:
+        [(#AUTORISER{voir,chapitre,#ID_CHAPITRE}|oui) oui ]
+        -->
+    </BOUCLE_chapitre>
+</section>

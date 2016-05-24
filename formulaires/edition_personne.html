@@ -1,0 +1,38 @@
+
+[(#EDITABLE|oui)
+<div class="modal">
+    <section class="edition">
+        <form action='#ENV{action}' method='post'>
+            #ACTION_FORMULAIRE{#ENV{action}}
+            <section class="row head">
+                <h2 class="full"><:lped:personne_edition_titre:></h2>
+                [<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
+                [<p class="message ok icon fa-check">(#ENV*{message_ok})</p>]
+            </section>
+
+            <section class="row">
+                <header class="full"><:lped:personne_nom:></header>
+                <div class="input-block demi"><label for='prenom'><:lped:personne_prenom:></label><span><input type='text' name='prenom' value='#ENV{prenom}' autocomplete="off"/></span></div>
+                <div class="input-block demi"><label for='nom'><:lped:personne_nom:></label><span><input type='text' name='nom' value='#ENV{nom}' autocomplete="off"/></span></div>
+            </section>
+
+            <section class="row">
+                <div class="input-block demi"><label for='societe'><:lped:personne_societe:></label><span><input type='text' name='societe' value='#ENV{societe}' autocomplete="off"/></span></div>
+                <div class="input-block demi"><label for='fonction'><:lped:personne_fonction:></label><span><input type='text' name='fonction' value='#ENV{fonction}' autocomplete="off"/></span></div>
+            </section>
+
+            <section class="row">
+                <div class="input-block demi"><label for='pays'><:lped:personne_pays:></label><span><input type='text' name='societe' value='#ENV{societe}' autocomplete="off"/></span></div>
+                <div class="input-block demi"><label for='fonction'><:lped:personne_email:></label><span><input type='text' name='fonction' value='#ENV{fonction}' autocomplete="off"/></span></div>
+            </section>
+
+            <section class="row boutons right">
+                <div class="full">                
+                    <input type='button' class="gros bouton fermer"  value='<:lped:annuler:>'/>
+                    <input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
+                </div>
+            </section>
+        </form>
+    </section> 
+</div>
+]

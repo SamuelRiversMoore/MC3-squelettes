@@ -1,0 +1,143 @@
+<BOUCLE_auteur (AUTEURS) {id_auteur} {tout}>
+<div id="contenu" class="wrapper compte">
+	<h1>#NOM</h1>
+	<dl>
+		<dt><:lped:role:></dt>
+		<dd>#STATUT</dd>
+
+		<dt><:lped:email:></dt>
+		<dd>#EMAIL</dd>
+
+		<dt><:lped:login:></dt>
+		<dd>#LOGIN</dd>
+	</dl>
+
+
+	<h1><:lped:tableau_de_bord:></h1>
+	<section class="dashboard">	
+		<div class="tabs-wrapper">
+			<nav id="nav-tabs" class="gauche">
+				<ul>
+					<li class=""><a href="#tab-pays" data-cible="tab-pays"><:lped:pays:></a></li>
+					<li class=""><a href="#tab-villes" data-cible="tab-villes"><:lped:villes:></a></li>
+					<li class=""><a href="#tab-projets" data-cible="tab-projets"><:lped:projets:></a></li>
+					<li class=""><a href="#tab-thematiques" data-cible="tab-thematiques"><:lped:thematiques:></a></li>
+					<li class=""><a href="#tab-chapitres" data-cible="tab-chapitres"><:lped:chapitres:></a></li>
+					<li class=""><a href="#tab-documents" data-cible="tab-documents"><:lped:documents:></a></li>
+				</ul>
+				<footer id="topButton">
+					<span class="discret glyphicon glyphicon-arrow-up"></span>
+					<span class="discret"> Remonter</span>
+				</footer>
+			</nav>
+			<article class="tab" id="tab-pays">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Nom</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_pays (PAYS) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,pay,#ID_PAY}|oui) <INCLURE{fond=inc/administration/compte/pays, env, id_pay}> ]
+						</BOUCLE_pays>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-villes">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Nom</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_villes (VILLES) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,ville,#ID_VILLE}|oui) <INCLURE{fond=inc/administration/compte/villes, env, id_ville}> ]
+						</BOUCLE_villes>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-projets">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_projets (PROJETS) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,projet,#ID_PROJET}|oui) <INCLURE{fond=inc/administration/compte/projets, env, id_projet}> ]
+						</BOUCLE_projets>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-thematiques">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_thematiques (THEMATIQUES) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,thematique,#ID_THEMATIQUE}|oui) <INCLURE{fond=inc/administration/compte/thematiques, env, id_thematique}> ]
+						</BOUCLE_thematiques>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-chapitres">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_chapitres (CHAPITRES) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,chapitre,#ID_CHAPITRE}|oui) <INCLURE{fond=inc/administration/compte/chapitres, env, id_chapitre}> ]
+						</BOUCLE_chapitres>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-documents">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_documents (DOCUMENTS) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,document,#ID_DOCUMENT}|oui) <INCLURE{fond=inc/administration/compte/documents, env, id_document}> ]
+						</BOUCLE_documents>
+					</tbody>
+				</table>
+			</article>
+		</div>
+	</section>
+</div>
+</BOUCLE_auteur>

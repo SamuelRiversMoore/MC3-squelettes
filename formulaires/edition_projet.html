@@ -1,0 +1,70 @@
+
+[(#EDITABLE|oui)
+<div class="modal">
+	<section class="edition">
+		<form action='#ENV{action}' method='post'>
+			#ACTION_FORMULAIRE{#ENV{action}}
+			<section class="row head">
+				<h2 class="full"><:lped:projet_edition_titre:></h2>
+				[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
+				[<p class="message ok icon fa-check">(#ENV*{message_ok})</p>]
+			</section>
+
+			<section class="row">
+				<header class="full"><:lped:projet_titre:></header>
+				<div class="input-block demi"><label for='titre_fr'>FR</label><span><input type='text' name='titre_fr' value='#ENV{titre_fr}' autocomplete="off"/></span></div>
+				<div class="input-block demi"><label for='titre_en'>EN</label><span><input type='text' name='titre_en' value='#ENV{titre_en}' autocomplete="off"/></span></div>
+			</section>
+ 
+			 <section class="row">
+				<header class="full"><:lped:projet_coordonnees:></header>
+				<div class="input-block demi"><label for='latitude'>LAT.</label><span><input type='text' name='latitude' value='#ENV{latitude}' autocomplete="off"/></span></div>
+				<div class="input-block demi"><label for='longitude'>LON.</label><span><input type='text' name='longitude' value='#ENV{longitude}' autocomplete="off"/></span></div>
+			</section>
+
+			<div class="row switch"> 
+				<input  id="newprojettxtlangueuniqueid" class="switchlang hideninput" type="checkbox"[(#LANG|=={fr}|oui) checked]>
+				<label for="newprojettxtlangueuniqueid"><span class="fr">FR</span><span class="en">EN</span></label>
+
+				<section class="langue fr full">
+					<header for='description_fr'><:lped:projet_description_fr:></header>
+					<textarea name='description_fr' class="small">#ENV{description_fr}</textarea>
+				</section>               
+				<section class="langue en full">
+					<header for='description_en'><:lped:projet_description_en:></header>
+					<textarea name='description_en' class="small">#ENV{description_en}</textarea>
+				</section>               
+			</div>
+			<section class="row boutons right">
+				<div class="full">                
+					<input type='button' class="gros bouton fermer"  value='<:lped:annuler:>'/>
+					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
+				</div>
+			</section>
+		</form>
+		
+		<section class="row">
+			<header class="full"><:lped:projet_documents:></header>
+			<div class="diaporama">
+				<BOUCLE_images (DOCUMENTS) {id_projet} {extension==jpg|png|gif} {par num titre} {tout}>
+					<div class="diapositive">
+						<img src="[(#FICHIER|image_passe_partout{225,160}|image_recadre{225,160,'center center','#ffffff'}|extraire_attribut{src})]"/>
+						<div class="supprimer">
+						   [(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'projet', #ID_PROJET})]
+						</div>                        
+					</div>
+				</BOUCLE_images>
+				[(#REM) les documents du diaporama — Est-ce qu'on l'afficherait pas tout le temps ce truc là? ]
+				[(#AFFICHER|=={ajouter_image}|oui)
+				]
+				<div class="diapositive fake">
+					<a class="bouton gros ajouter" href="[(#URL_PROJET|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:projet_ajouter_image:></a>
+				</div>
+
+			</div>
+		</section>
+
+
+	</section>
+</div>
+]

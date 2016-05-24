@@ -1,0 +1,15 @@
+<section class="administration">
+    <BOUCLE_rubrique (RUBRIQUES) {id_rubrique} {tout}>
+
+        [(#AFFICHER|=={rubrique_ok}|et{#CIBLE|=={#ID_RUBRIQUE}}|oui)<span class="message ok icon fa-check"></span>]
+
+        [(#AFFICHER|=={editer_rubrique}|et{#CIBLE|=={#ID_RUBRIQUE}}|oui)
+            [(#FORMULAIRE_EDITION_RUBRIQUE{#ID_RUBRIQUE,'',[(#SELF|parametre_url{afficher,rubrique_ok}|parametre_url{cible,#ID_RUBRIQUE})] })]
+        ]
+
+        [(#AFFICHER|=={editer_rubrique}|et{#CIBLE|=={#ID_RUBRIQUE}}|non)
+            <a class="bouton moyen modifier" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_rubrique}|parametre_url{cible,#ID_RUBRIQUE})]"><:lped:rubrique_modifier:></a>
+        ]
+
+    </BOUCLE_rubrique>
+</section>

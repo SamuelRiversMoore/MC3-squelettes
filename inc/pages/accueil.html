@@ -1,0 +1,27 @@
+<div id="contenu" class="accueil">
+	<div id="welcome-map"></div>
+	<div class="wrapper col-wrap">
+		<section class="journal col60">
+			<h5>— <:lped:derniers_articles:></h5>
+			<INCLURE{fond=inc/pages/journal/journal, accueil=oui} />
+		</section>
+		<div class="col40">
+			<div id="presentation" class="medium strong">
+				<BOUCLE_presentation (ARTICLES){id_article=1}>
+					[(#ENV{lang}|=={fr}|oui) [(#TEXTE)] ] 
+					[(#ENV{lang}|=={en}|oui) [(#TEXTE_EN|sinon{#TEXTE})] ] 	
+				</BOUCLE_presentation>
+			</div>
+			<div class="col-wrap">
+				<section class="nouvelles col60">
+					<h5>— <:lped:dernieres_nouvelles:></h5>
+					<INCLURE{fond=inc/pages/journal/nouvelles, accueil=oui} />
+				</section>
+				<section class="mises-a-jour col40">
+					<h5>— <:lped:dernieres_maj:></h5>
+					<INCLURE{fond=inc/pages/accueil/maj} />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

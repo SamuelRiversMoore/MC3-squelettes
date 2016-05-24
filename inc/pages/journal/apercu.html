@@ -1,0 +1,18 @@
+<BOUCLE_apercu (ARTICLES) {id_article} {tout}>
+	<article class="journal extrait">
+		<a href="[(#URL_ARTICLE|parametre_lang)]">
+			<BOUCLE_document (DOCUMENTS){id_article}{extension==jpg|png|gif}{0,1}>
+				<img class="article-icone" src="[(#FICHIER|image_passe_partout{225,315}|image_recadre{225,315,'center center','#ffffff'}|extraire_attribut{src})]" />
+			</BOUCLE_document>
+			<h4>[(#ENV{lang}|=={fr}|oui)[(#TITRE)]] [(#ENV{lang}|=={en}|oui)[(#TITRE_EN|sinon{#TITRE})]]</h4>
+			[(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
+			<div class="medium">
+				[ (#ENV{lang}|=={fr}|oui) [ (#CHAPO) ] ]
+				[ (#ENV{lang}|=={en}|oui) [ (#CHAPO_EN|sinon{#CHAPO}) ] ]
+			</div>
+			<div class="discret">— [(#DATE|affdate)], par 
+				<span class="auteurs"><BOUCLE_auteur (AUTEURS){id_article}><span class="auteur">#NOM</span></BOUCLE_auteur></span>
+			</div>
+		</a>
+	</article>
+</BOUCLE_apercu>

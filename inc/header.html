@@ -1,0 +1,66 @@
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>
+            <BOUCLE_rubrique (RUBRIQUES){id_rubrique}{tout}>
+                [ (#ENV{lang}|=={fr}|oui)#TITRE ]
+                [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+                /
+            </BOUCLE_rubrique>
+            <BOUCLE_article (ARTICLES){id_article}>
+                [ (#ENV{lang}|=={fr}|oui)#TITRE ]
+                [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+                /
+            </BOUCLE_article>
+            <BOUCLE_pays (PAYS){id_pay}>
+                [ (#ENV{lang}|=={fr}|oui) #NOM_FR ]
+                [ (#ENV{lang}|=={en}|oui) [ (#NOM_EN|sinon{#NOM_FR}) ] ]
+                /
+            </BOUCLE_pays>
+            <BOUCLE_villes (VILLES){id_ville}>
+                [ (#ENV{lang}|=={fr}|oui) #NOM_FR ]
+                [ (#ENV{lang}|=={en}|oui) [ (#NOM_EN|sinon{#NOM_FR}) ] ]
+                /
+            </BOUCLE_villes>
+            <BOUCLE_projets (PROJETS){id_projet}>
+                [ (#ENV{lang}|=={fr}|oui) #TITRE_FR ]
+                [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE_FR}) ] ]
+                /
+            </BOUCLE_projets>
+            #NOM_SITE_SPIP
+        </title>
+		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+		<!-- Jquery -->
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+		<!-- Icons font -->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="squelettes/assets/css/font-awesome.css">
+
+		<!-- Slider -->
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css"/>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+        <!-- Perfect Scrollbar -->
+        <link rel="stylesheet" type="text/css" href="squelettes/assets/css/perfect-scrollbar.min.css"/>
+        <script type="text/javascript" src="squelettes/assets/js/perfect-scrollbar.min.js"></script>
+		<!-- Mapbox -->
+		<script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+		<link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+		<!-- Sorttable -->
+		<script type="text/javascript" src="squelettes/assets/js/sorttable.js"></script>
+		<!-- Sticky-->
+		<script type="text/javascript" src="squelettes/assets/js/jquery.sticky-kit.min.js"></script>
+		<!-- MC3 -->
+		<link rel="stylesheet" href="squelettes/assets/css/style.css">
+		<!-- Privé -->
+		<link rel="stylesheet" href="squelettes/assets/css/prive.css">
+		<!-- Bootstrap -->
+		<!-- <link rel="stylesheet" href="squelettes/assets/css/bootstrap.css"> -->
+		<script type="text/javascript" src="squelettes/assets/js/script.js"></script>
+
+	</head>

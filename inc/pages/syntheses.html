@@ -1,0 +1,78 @@
+#SET{statut, #ARRAY{1,prepa,2,prop,3,publie,4,refuse,5,poubelle} }
+[ (#SESSION{statut}|non) #SET{statut, publie}  ]
+
+<BOUCLE_rubrique (RUBRIQUES) {id_rubrique} {tout} >
+	<div id="contenu" class="wrapper">
+		<div id="arbo">
+			<a href="[(#URL_SITE_SPIP|parametre_lang)]">#NOM_SITE_SPIP</a> >
+			<span class="arbo-current-page">
+				[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+				[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+			</span>
+		</div>
+		<h1>
+			[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+			[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+		</h1>
+
+		<section>
+			<div class="tabs-wrapper cf">
+				<B_rubriques>
+					<nav id="nav-tabs" class="gauche">
+						<ul>
+							<BOUCLE_rubriques (RUBRIQUES) {id_parent} {tout} {par num titre} >
+								<li>
+									<a class="item" href="[(#URL_RUBRIQUE{24}|parametre_lang|parametre_url{rubrique,#ID_RUBRIQUE})]">
+										[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+										[(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
+									</a>
+								</li>
+							</BOUCLE_rubriques>
+							[(#AUTORISER{creer,rubrique}|oui)
+								<li>
+									<a href="[(#URL_RUBRIQUE{24}|parametre_lang|parametre_url{afficher,'nouvelle_rubrique'}|parametre_url{rubrique,'new'})]">
+										<:lped:rubrique_ajouter:>
+									</a>
+								</li>
+							]
+						</ul>
+						<footer id="topButton">
+							<span class="discret glyphicon glyphicon-arrow-up"></span>
+							<span class="discret"> Remonter</span>
+						</footer>
+					</nav>
+				</B_rubriques>
+
+				<BOUCLE_liste(RUBRIQUES) {id_parent} {tout} {par num titre} >
+					<article class="tab texte-courant" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
+						<h2>
+							[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+							[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+						</h2>
+						[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE})	<INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
+
+						<h5>— Articles</h5>
+						[(#AUTORISER{creer,article}|oui)
+							[(#AFFICHER|=={'nouvel_article'}|oui) <section class="administration">[(#FORMULAIRE_EDITION_ART{'new',#ID_RUBRIQUE} )] </section>  ]
+							[(#AFFICHER|=={'nouvel_article'}|non) <a class="bouton prive arbo-nom" href="[(#SELF|parametre_url{afficher, nouvel_article})]"><:lped:synthese_ajouter:></a> ]
+						]
+
+						<ul class="syntheses">
+							<BOUCLE_article(ARTICLES) {id_rubrique} {par statut, num titre} {statut IN #GET{statut}}>
+								[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)	<INCLURE{fond=inc/pages/syntheses/apercu, env, id_article} />	]
+							</BOUCLE_article>
+						</ul>
+					</article>
+				</BOUCLE_liste>
+
+				[(#AUTORISER{creer,rubrique}|oui)
+					<article class="tab texte-courant" [(#RUBRIQUE|=={new}|oui) style="display:block;"]>
+						<section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{ 'new' , '24' ,[(#URL_RUBRIQUE{24}|parametre_lang)]})]</section>
+					</article>
+				]
+			</div>
+		</section>
+
+	</div>
+</BOUCLE_rubrique>

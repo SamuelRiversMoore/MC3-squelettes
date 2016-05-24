@@ -1,0 +1,19 @@
+<BOUCLE_article (ARTICLES) {id_article} {tout}>
+    <a href="[(#URL_ARTICLE|parametre_lang)]">
+        <li class="synthese">
+            <h3>
+                [ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+                [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+                [(#SESSION{statut}|oui)<span class='status [(#STATUT)]'> [(#STATUT)]</span>]
+            </h3>
+                [ (#ENV{lang}|=={fr}|oui) [ (#CHAPO) ] ]
+                [ (#ENV{lang}|=={en}|oui) [ (#CHAPO_EN|sinon{#CHAPO}) ] ]
+            <div class="discret">
+                    — [(#DATE|affdate)], par
+                    <BOUCLE_auteur(AUTEURS){id_article}>
+                        #NOM
+                    </BOUCLE_auteur>
+            </div>
+        </li>
+    </a>
+</BOUCLE_article>

@@ -1,0 +1,267 @@
+L.mapbox.accessToken = 'pk.eyJ1IjoicGllcnJlcGllcnJlcGllcnJlIiwiYSI6IkdXdE5CRFEifQ.3zLbKVYfHituW8BVU-bl5g';
+
+
+
+$( document ).ready(function() {
+	
+
+	/* UPLOAD FILES INPUT */
+	var inputs = document.querySelectorAll( '.fileupload' );
+	Array.prototype.forEach.call( inputs, function( input ){
+		var label	 = input.nextElementSibling,
+			labelVal = label.innerHTML;
+
+		input.addEventListener( 'change', function( e ){
+			var fileName = '';
+			/* if( this.files && this.files.length > 1 ) {
+				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+			} else { */
+				fileName = e.target.value.split( '\\' ).pop();
+			//}
+
+			var file = this.files[0];
+			console.log(file);
+
+			if( fileName && file ) {
+				label.innerHTML = fileName ? fileName : labelVal;
+				label.className += " hasFile";
+
+				if (file.type.match('image.*')) {
+					// http://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
+					var reader = new FileReader();		
+					reader.onload = function (e) {
+						$('#inputImg').html('<img src="'+e.target.result+'">');
+					}			
+					reader.readAsDataURL(this.files[0]);
+				}
+				if (file.type.match('application/pdf') || file.name.match('\.pdf')) { 
+					$('#inputImg').html('<span class="gros fichier pdf"></span>');
+				}
+				if (file.type.match('application/msword') || file.type.match('application\/.*officedocument') || file.name.match('\.doc') ) { 
+					$('#inputImg').html('<span class="gros fichier doc"></span>');
+				}
+			} else {
+				label.innerHTML = labelVal;
+			}
+		});
+	});
+
+	/* SELECT MENU */
+	var openMenu = false;
+	function closeMenu(){
+		openMenu.removeClass('open');
+		openMenu = false;
+	}
+
+	$(document).on('click', function(e) { 
+		if($(document).find('.message.ok').length && !okremoved) $(document).find('.message.ok').remove(); var okremoved = true;
+
+		if(openMenu != false){
+			if(!$(e.target).closest('.select-menu').length){
+				closeMenu();
+			} else {
+				if ($(e.target).is('li.status')) {
+					var $target = $(e.target);
+					var $menu = $target.closest('.select-menu');
+					var $old = $target.parent().find('.selected');
+					var newValue = $target.attr('data-value').replace(' ', '');
+					var oldValue = $old.attr('data-value');
+					var original = $menu.attr('data-original').replace(' ', '');
+
+					/*
+					if (original != newValue) {
+						$menu.find('input').show();
+					} else {
+						$menu.find('input').hide();
+					}
+					*/
+					
+					$target.addClass('selected');
+					$old.removeClass('selected');
+
+					$menu.find('.select-title .status').removeClass(oldValue).addClass(newValue);
+					$menu.find('select').val(newValue);
+					$menu.closest('form').submit();
+					closeMenu();
+				}
+			}
+		} 
+	}).on('click', '.select-title', function(e){
+		if ($(this).hasClass('open')){
+			closeMenu();
+		} else {
+			$(this).addClass('open');
+			openMenu = $(this);
+		}
+	});
+
+	$('.modal').on('click', function(e){
+		window.history.go(-1); 
+		return false;
+	}).on('click', 'section.edition', function(e){
+		e.stopPropagation();		
+	}).on('click', '.bouton.fermer', function(e){
+		window.history.go(-1); 
+		return false;
+	})
+
+	$('.modal').on('click', '.diapositive .supprimer-button', function(){
+		$(this).closest('.diapositive').addClass('deletemode');
+	}).on('click', '.diapositive .bouton.annuler', function(){
+		$(this).closest('.diapositive').removeClass('deletemode');
+	})
+
+	$('.modal').on('click', '.diapositive.fake .bouton.ajouter', function(){
+		$(this).closest('.diapositive').removeClass('fake').addClass('ajout');
+	}).on('click', '.diapositive.ajout .bouton.annuler', function(){
+		$(this).closest('.diapositive').removeClass('ajout').addClass('fake');
+	});
+
+
+
+
+
+	Ps.initialize(document.getElementById('menu'),{
+		suppressScrollX: true
+	});
+
+
+	/* slickers */
+	$(".slider").slick({
+		dots: true,
+		infinite: true,
+		speed: 300,
+		//slidesToShow: 1,
+		//centerMode: true,
+		//variableWidth: true,
+		prevArrow: '<img class="slider-arrow-left" src="squelettes/assets/images/arrow-left.png">',
+		nextArrow: '<img class="slider-arrow-right" src="squelettes/assets/images/arrow-right.png">'
+	});
+	$(".slick-zoom").on('click', function(e) {
+		$(".slider").addClass("slick-fullscreen");
+		$(".slider").slick('setPosition');
+	});
+	$(".slider").on('click', function(e) {
+		if( !$(e.target).hasClass('slick-arrow') ) {
+			if($(e.target).hasClass('slick-slide')) {
+				$(".slider").slick('slickNext');
+			} else {
+				$(this).removeClass("slick-fullscreen");
+				$(".slider").slick('setPosition');
+			}
+		}
+	})
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) { // escape key maps to keycode `27`
+			$(".slider").removeClass("slick-fullscreen")
+			$(".slider").slick('setPosition');
+		}
+	});
+
+	
+	/* Ancres dans les tabs */
+	$(".thematique-sommaire a").click(function(e) {
+		e.preventDefault();
+		var dest = $(this).attr('href'); 
+		$('html,body').animate({ scrollTop: $(dest).offset().top }, 'slow');
+	})
+	
+
+	
+	/* ----- gestion des onglets (tab) ---- */
+	
+	
+	$("#nav-tabs li a").click(function(e) {
+		e.preventDefault();
+		history.pushState({ path: this.path }, '', this.href);
+		var $inventaireMenu = $(this).closest('#nav-tabs');        
+		if (!$(this).hasClass('chapitre') && !$(this).hasClass('bouton')) {
+			if (!$(this).hasClass('strong') && $(this).siblings('ul.chapitres').find('a.strong').length <= 0) {
+				$inventaireMenu.find('.chapitres').slideUp(300);
+				$(this).next('.chapitres').slideDown(300, function(){
+					console.log('yo');
+					$inventaireMenu.sticky({topSpacing:12});     		
+				});
+			}
+		}
+
+		$(".tabs-wrapper article.tab").hide();
+		document.getElementById( this.getAttribute('data-cible') ).style.display = 'block'; 
+		$inventaireMenu.find("li a").removeClass('strong');
+		$(this).addClass('strong');
+		return false;
+	});
+	
+	/* Qu'est ce ce truc ? pas simplifiable juste pur css ? */
+	if ($('#nav-tabs').length > 0) {
+		var $inventaireMenu = $('#nav-tabs');
+		var minHeight = $inventaireMenu.find('header h5').outerHeight(true);  // hauteur du header
+		var itemHeight = $inventaireMenu.find('li').last().outerHeight(true); // hauteur d'une entrée
+		$inventaireMenu.find('ul.thematiques>li').each(function(){
+			minHeight += itemHeight; // hauteur du premier niveau
+		});
+		var maxlength = 0;
+		$inventaireMenu.find('ul.chapitres').each(function(){
+			var thislength = $(this).find('li').length;
+			if(thislength > maxlength) maxlength = thislength; // hauteur du menu chapitres le plus grand
+		});
+		minHeight += itemHeight * maxlength;
+		minHeight += $inventaireMenu.find('#topButton').outerHeight(true);
+		$('#inventaire-tabs').css('min-height', minHeight).find('article.tab').each(function(){
+			$(this).css('min-height', minHeight);
+		});
+	};
+
+	// pour afficher le premier article si aucun n'est ouvert. J'ai pas réussi à le faire en SPIP...
+	if ($('#nav-tabs').length > 0) {
+		if($('#nav-tabs').find('a.strong').length <= 0){
+			console.log('yol');
+			$('#nav-tabs').find('li a').first().trigger('click');
+		} else {
+			$('#nav-tabs').sticky({topSpacing:12});     		
+
+		}
+	}
+
+
+	/* ----- / fin gestion des onglets (tab) ---- */
+
+	
+	/* Init Mapbox */
+	if($("#welcome-map").length > 0) {
+		var map = L.mapbox.map('welcome-map', 'mapbox.streets', {zoomControl: false })
+	.setView([37, 16.5], 5);
+		map.scrollWheelZoom.disable();
+	}
+	
+	
+	if($("#inventaire-mapbox").length > 0){
+		var map = L.mapbox.map('inventaire-mapbox', 'mapbox.streets').setView([37, 16.5], 5);
+			map.scrollWheelZoom.disable();
+
+		if(typeof geojson !== 'undefined' && geojson.length > 0) {
+
+			var markers = L.mapbox.featureLayer()
+				.setGeoJSON(geojson)
+				.addTo(map);	
+
+			map.fitBounds(markers.getBounds(), { padding: L.point(60, 60), maxZoom: maxZoom });
+			
+			markers.on('click', function(e) {
+				if (!$("#inventaire-carte").hasClass('projet')) {
+					window.location = e.layer.feature.properties['url'];
+				};
+			});
+			markers.on('mouseover', function(e) {
+				e.layer.openPopup();
+			});
+			markers.on('mouseout', function(e) {
+				e.layer.closePopup();
+			});
+
+		} else {
+			//$('#inventaire-carte').remove();
+		}
+	}
+
+});

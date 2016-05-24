@@ -1,0 +1,58 @@
+
+<BOUCLE_chapitre (CHAPITRES) {id_chapitre} {tout} >
+	<tr>
+		<BOUCLE_thematiques (THEMATIQUES chapitres_liens.objet=thematique) {chapitres_liens.id_chapitre} {tout}>
+				<BOUCLE_pays (PAYS) {thematiques_liens.objet=pay} {thematiques_liens.id_thematique} {tout}>
+					#SET{lien, #URL_PAYS}
+					[(#SET{papa,
+						[ (#ENV{lang}|=={fr}|oui) #NOM_FR ]
+						[ (#ENV{lang}|=={en}|oui) [ (#NOM_EN|sinon{#NOM_FR}) ] ]
+					})]
+				</BOUCLE_pays>
+
+				<BOUCLE_villes (VILLES) {thematiques_liens.objet=ville} {thematiques_liens.id_thematique} {tout}>
+					#SET{lien, #URL_VILLE}
+					[(#SET{papa,
+						[ (#ENV{lang}|=={fr}|oui) #NOM_FR ]
+						[ (#ENV{lang}|=={en}|oui) [ (#NOM_EN|sinon{#NOM_FR}) ] ]
+					})]
+				</BOUCLE_villes>
+
+				<BOUCLE_projets (PROJETS) {thematiques_liens.objet=projet} {thematiques_liens.id_thematique} {tout}>
+					#SET{lien, #URL_PROJET}
+					[(#SET{papa,
+						[ (#ENV{lang}|=={fr}|oui) #TITRE_FR ]
+						[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE_FR}) ] ]
+					})]
+				</BOUCLE_projets>
+
+				#SET{thematique, #ID_THEMATIQUE}
+				[(#SET{papa,
+						[(#GET{papa})] >
+						[ (#ENV{lang}|=={fr}|oui) #TITRE_FR ]
+						[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE_FR}) ] ]
+				})]
+		</BOUCLE_thematiques>
+		<td class="statut">
+			<div class="status [(#VAL{#STATUT}|_T)] [(#ENV{lang}|sinon{fr})]"></div>
+		</td>
+		<td class="titre">
+			<a href="[(#GET{lien}|parametre_url{thematique,#GET{thematique}}|parametre_url{chapitre, #ID_CHAPITRE})]">
+				[(#GET{papa}) > ]
+				[ (#ENV{lang}|=={fr}|oui) #TITRE_FR ]
+				[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE_FR}) ] ]
+			</a>
+		</td>
+		<td class="contributeurs">
+			<BOUCLE_auteur (AUTEURS) {id_chapitre} {tout} >
+				[(#NOM)][,(#COMPTEUR_BOUCLE|!={#TOTAL_BOUCLE}|oui)]
+			</BOUCLE_auteur>
+		</td>
+		<td class="date">
+			[(#MAJ|affdate)]
+		</td>
+	</tr>
+
+		
+</BOUCLE_chapitre>
+

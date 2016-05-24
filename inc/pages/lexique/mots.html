@@ -1,0 +1,16 @@
+<BOUCLE_mot (GLOMOTS) {id_glomot} {tout}>
+
+	<div class="lexique-wrapper">
+		<span class="cible" id="mot-#ID_GLOMOT"></span>
+		<a title="#TITRE" href="#mot-#ID_GLOMOT" class="lexique-titre">#TITRE 							
+			[(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
+		</a>
+		[(#AUTORISER{modifier,glomot,#ID_GLOMOT}|oui) <INCLURE{fond=inc/administration/lexique/glomots, afficher, id_glomot, glomot} /> ]
+			<BOUCLE_definitions(GLODEFS){id_glomot}>
+				<div class="lexique-definition">
+					<BOUCLE_refs(GLOREFS){id_glodef}><div class="discret">#TITRE</div>[<div class="lexique-reference"><span class="source">SOURCE:</span>(#DESCRIPTION)</div>]</BOUCLE_refs>
+					#DEFINITION
+				</div>
+			</BOUCLE_definitions>
+	</div>
+</BOUCLE_mot>
