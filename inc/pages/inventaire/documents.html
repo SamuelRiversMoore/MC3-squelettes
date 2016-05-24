@@ -10,18 +10,10 @@
 
 	[(#REM) on affiche si nécessaire le formulaire d'édition pour un nouveau document ]
 
-	GROSLOLO / thematique = #THEMATIQUE / id thematique = #ID_THEMATIQUE
-	GROSLOLO / chapitre = #CHAPITRE / id chapitre = #ID_CHAPITRE
+	[(#THEMATIQUE|oui|et{#CHAPITRE|non}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui) #SET{courant, oui}]
+	[(#CHAPITRE|oui|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui) #SET{courant, oui}]
 
-	[(#THEMATIQUE|oui|et{#CHAPITRE|non}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui) thematique !]
-
-	[(#CHAPITRE|oui|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui) chapitre !]
-
-
-	[(#CHAPITRE|oui) ]
-	[(#CHAPITRE|=={#ID_CHAPITRE})]
-
-	[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={new}}|oui)
+	[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={new}}|et{#GET{courant}|=={oui}}|oui)
 	<section class="administration">
 		<div class="modal">
 			[(#FORMULAIRE_EDITION_DOC{'new',#GET{lien_objet},#GET{lien_id_objet},[(#SELF|parametre_url{'afficher',''}|parametre_url{'document',''})]})]
