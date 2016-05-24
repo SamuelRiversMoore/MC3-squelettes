@@ -1,4 +1,5 @@
 <div class="modal">
+	<a href="[(#SELF|parametre_url{afficher,''})]" class="retour"></a>
 	<section class="edition">
 		<form action='#ENV{action}' method='post'>
 			#ACTION_FORMULAIRE{#ENV{action}}
@@ -13,21 +14,21 @@
 				<div class="input-block demi"><label for='titre'>FR</label><span><input type='text' name='titre' value='#ENV{titre}' autocomplete="off"/></span></div>
 				<div class="input-block demi"><label for='titre_en'>EN</label><span><input type='text' name='titre_en' value='#ENV{titre_en}' autocomplete="off"/></span></div>
 			</section>
-							   
-			<div class="row switch"> 
+
+			<div class="row switch">
 				<input  id="newarticlechapolangueuniqueid" class="switchlang hideninput" type="checkbox"[(#LANG|=={fr}|oui) checked]>
 				<label for="newarticlechapolangueuniqueid"><span class="fr">FR</span><span class="en">EN</span></label>
 				<section class="langue fr full">
 					<header for='chapo'><:lped:article_chapo_fr:></header>
 					<textarea name='chapo' class="small">#ENV{chapo}</textarea>
-				</section>               
+				</section>
 				<section class="langue en full">
 					<header for='chapo_en'><:lped:article_chapo_en:></header>
 					<textarea name='chapo_en' class="small">#ENV{chapo_en}</textarea>
-				</section>           
+				</section>
 			</div>
 
-			<div class="row switch"> 
+			<div class="row switch">
 				<input  id="newarticletxtlangueuniqueid" class="switchlang hideninput" type="checkbox"[(#LANG|=={fr}|oui) checked]>
 				<label for="newarticletxtlangueuniqueid"><span class="fr">FR</span><span class="en">EN</span></label>
 				<section class="langue fr full">
@@ -37,33 +38,15 @@
 				<section class="langue en full">
 					<header for='texte_en'><:lped:article_texte_en:></header>
 					<textarea name='texte_fr'>#ENV{texte_en}</textarea>
-				</section>         
+				</section>
 			</div>
 
 			<section class="row boutons right">
-				<div class="full">                
-					<input type='button' class="gros bouton fermer"  value='<:lped:annuler:>'/>
+				<div class="full">
+					<a href="[(#SELF|parametre_url{afficher,''})]" class="gros bouton fermer"/><:lped:annuler:></a>
 					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
 				</div>
 			</section>
 		</form>
-
-		<section class="row">
-			<header class="full"><:lped:article_documents:></header>
-			<div class="diaporama">
-            	<BOUCLE_images (DOCUMENTS) {id_article} {extension==jpg|png|gif} {par num titre} {tout}>
-					<div class="diapositive">
-						<img src="[(#FICHIER|image_passe_partout{225,160}|image_recadre{225,160,'center center','#ffffff'}|extraire_attribut{src})]"/>
-					   [(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'projet', #ID_PROJET})]
-					</div>
-				</BOUCLE_images>
-				<div class="diapositive fake">
-					<input type="button" class="gros bouton ajouter" value="<:lped:article_ajouter_image:>">
-                	<!-- <a class="bouton gros ajouter" href="[(#URL_ARTICLE|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:article_ajouter_image:></a> -->
-                    [(#FORMULAIRE_EDITION_DOC{'new','article',#ID_ARTICLE,[(#SELF|parametre_url{afficher,article_ok})],'image','publie'})]
-				</div>
-			</div>
-		</section>
-
-	</section>   
-</div> 
+	</section>
+</div>
