@@ -8,6 +8,15 @@
 		<h1>[(#ENV{lang}|=={fr}|oui)[(#NOM_FR)]] [(#ENV{lang}|=={en}|oui)[(#NOM_EN|sinon{#NOM_FR})]]</h1>
 		[(#REM) on affiche le panneau d'administration]
 		[(#AUTORISER{modifier,ville,#ID_VILLE}|oui) <INCLURE{fond=inc/administration/inventaire/villes, afficher, id_ville} /> ]
+
+		[(#REM) pour ajouter un projet]
+		[(#AUTORISER{creer,projet}|oui)
+			[(#AFFICHER|=={'nouveau_projet'}|oui)
+				[(#FORMULAIRE_EDITION_PROJET{'new', 'ville', #ID_VILLE} )] ]
+				<a class="bouton moyen ajouter externe" href="[(#URL_VILLE{#ID_VILLE}|parametre_lang|parametre_url{afficher, nouveau_projet})]"><:lped:projet_ajouter:></a>
+		]
+
+
 	</header>
 
 
@@ -56,7 +65,7 @@
 
 	<BOUCLE_test_projets (PROJETS){id_ville}{longitude != ''}{0,1}>
 		<div id="inventaire-carte">
-			<h5>— <:lped:carte_projets:></h5>
+			<h5>— <:lped:carte_projets:>aa</h5>
 			<div id="inventaire-mapbox"></div>
 		</div>
 	</BOUCLE_test_projets>

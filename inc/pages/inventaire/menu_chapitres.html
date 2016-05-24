@@ -5,8 +5,8 @@
 <BOUCLE_chapitre_test (CHAPITRES) {id_thematique} {par num titre_fr} {statut IN #GET{statut}} {0,1} {si #SESSION{statut}|non}>#SET{test_chapitre, oui}</BOUCLE_chapitre_test>
 
 [(#REM) suite petit hack : pour ne pas les affiche le menu s'il n'y en a pas pour les utilisateurs non connectés ]
-<ul class="chapitres" [(#THEMATIQUE|=={#ID_THEMATIQUE}|oui) style="display:block"] [(#SESSION{statut}|non|et{#GET{test_chapitre}|non}|oui) style="display:none;"]>
-	<BOUCLE_chapitres (CHAPITRES) {id_thematique} {statut IN #GET{statut}} {statut IN #GET{statut}}>
+<ul class="chapitres" [(#THEMATIQUE|=={#ID_THEMATIQUE}|oui) style="display:block"] [(#PREMIER|=={oui}) style="display:block"] [(#SESSION{statut}|non|et{#GET{test_chapitre}|non}|oui) style="display:none;"]>
+	<BOUCLE_chapitres (CHAPITRES) {id_thematique} {statut IN #GET{statut}} >
 
 	  [(#REM) si on est autorisé à voir le chapitre ]
 	  [(#AUTORISER{voir,chapitre,#ID_CHAPITRE}|oui)
@@ -18,12 +18,16 @@
 			</a>
 		</li>
 	  ]
+
 	</BOUCLE_chapitres>
 
 	[(#REM) intégration du lien pour ajouter des chapitre ]
-	[(#SESSION{statut}|oui)
-		<li class="new">  
-			<a class="bouton moyen ajouter interne icon fa-level-up rotate90" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_chapitre}|parametre_url{chapitre, new})]" data-cible="chapitre_new" [(#CHAPITRE|=={new}|oui) class="strong" ]><:lped:chapitre_ajouter:></a>
-		</li>
-	]
+		[(#AUTORISER{creer,chapitre}|oui)
+			<li class="new">
+			 <a class="bouton moyen ajouter interne icon fa-level-up rotate90" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_chapitre}|parametre_url{chapitre, new})]" data-cible="chapitre_new" [(#CHAPITRE|=={new}|oui) class="strong" ]><:lped:chapitre_ajouter:></a>
+			</li>
+
+		]
+
+
 </ul>

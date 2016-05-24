@@ -18,16 +18,18 @@
 			[(#REM) on inclus le panneau d'administration pour le chapitre ]
 			[(#AUTORISER{modifier,chapitre,#ID_CHAPITRE}|oui) <INCLURE{fond=inc/administration/inventaire/chapitres, afficher, id_chapitre, chapitre} /> ]
 
-			<INCLURE{fond=inc/pages/inventaire/documents, afficher, document, id_chapitre} />
+			<INCLURE{fond=inc/pages/inventaire/documents, afficher, thematique, chapitre, document, id_chapitre} />
 
 		</article>
 	]
 
 </BOUCLE_chapitres>
 
-[(#REM) formulaire pour nouveaux chapitre ]
-[(#SESSION{statut}|oui)
-	<article class="thematique-chapitre" id="chapitre_new" [(#CHAPITRE|=={new}|oui) style="display:block" ]>
-		<section class="administration">[(#FORMULAIRE_EDITION_CHAPITRE{ 'new' , 'thematique' , #ID_THEMATIQUE ,[(#SELF|parametre_url{'afficher',''}|parametre_url{'chapitre',''})]})]</section>
-	</article>
-]
+
+[(#REM) intégration du lien pour ajouter des chapitre ]
+	[(#AUTORISER{creer,chapitre}|oui)
+		[(#AFFICHER|=={editer_chapitre}|et{#CHAPITRE|=={new}}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui)
+				<section class="administration">[(#FORMULAIRE_EDITION_CHAPITRE{ 'new' , 'thematique' , #ID_THEMATIQUE ,[(#SELF|parametre_url{'afficher',''}|parametre_url{'chapitre',''})]})]</section>
+		]
+
+	]

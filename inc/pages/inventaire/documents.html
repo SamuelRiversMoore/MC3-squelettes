@@ -1,13 +1,26 @@
 #SET{statut, #ARRAY{1,prepa,2,prop,3,publie,4,refuse,5,poubelle} }
 [ (#SESSION{statut}|non) #SET{statut, publie}  ]
 
-[(#REM) si on est connecté : éditer de nouveau documents ]
-[(#SESSION{statut}|oui)
+[(#REM) pour de nouveau docs ]
+[(#AUTORISER{creer,document}|oui)
+
 	[(#REM) on défini le parent pour envoi au formulaire ]
 	[(#ID_CHAPITRE|oui) #SET{lien_objet, chapitre} #SET{lien_id_objet, #ID_CHAPITRE} ]
 	[(#ID_THEMATIQUE|oui) #SET{lien_objet, thematique} #SET{lien_id_objet, #ID_THEMATIQUE} ]
 
 	[(#REM) on affiche si nécessaire le formulaire d'édition pour un nouveau document ]
+
+	GROSLOLO / thematique = #THEMATIQUE / id thematique = #ID_THEMATIQUE
+	GROSLOLO / chapitre = #CHAPITRE / id chapitre = #ID_CHAPITRE
+
+	[(#THEMATIQUE|oui|et{#CHAPITRE|non}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui) thematique !]
+
+	[(#CHAPITRE|oui|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui) chapitre !]
+
+
+	[(#CHAPITRE|oui) ]
+	[(#CHAPITRE|=={#ID_CHAPITRE})]
+
 	[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={new}}|oui)
 	<section class="administration">
 		<div class="modal">
@@ -16,11 +29,7 @@
 	</section>
 	]
 
-	[(#REM) sinon on affiche le lien pour le nouveau document ]
-	[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={new}}|non)
-		<a class="bouton gros ajouter icon fa-file" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_document}|parametre_url{document, new})]"><:lped:document_ajouter:></a>
-	]
-	
+	<a class="bouton gros ajouter icon fa-file" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_document}|parametre_url{document, new})]"><:lped:document_ajouter:></a>
 
 ]
 

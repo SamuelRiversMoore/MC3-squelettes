@@ -240,7 +240,7 @@ img.insertion{
 	position: fixed;
 	padding: 6px 7px;
 	display: none;
-	z-index: 9999;
+	z-index: 1500;
 	background: #FFC200;
 	border-radius: 2px;
 	top: 23px;
@@ -263,7 +263,7 @@ img.insertion{
 	height: 100%;
 	overflow-y: auto;
 	overflow-x: hidden;
-	z-index: 99999;
+	z-index: 1500;
 	left: 0;
 	top: 0;
 	-webkit-transition: left .3s ease-in-out;
@@ -1124,7 +1124,7 @@ article.apropos{
 /*----------  LOGIN  ----------*/
 
 #formulaire_login{
-	
+
 }
 
 

@@ -28,34 +28,24 @@
                 [(#AUTORISER{voir,thematique,#ID_THEMATIQUE}|oui)
 
                     [(#REM) le display:block permet d'afficher la thématique en cours, et de surcharger via javascript un comportement sans rechargement ]
-                    <article class="tab" id="thematique#ID_THEMATIQUE" [(#CHAPITRE|non|et{#THEMATIQUE|=={#ID_THEMATIQUE}|oui}) style="display:block" ]>
+                    <article class="tab" id="thematique#ID_THEMATIQUE" [(#CHAPITRE|non|et{#THEMATIQUE|=={#ID_THEMATIQUE}|oui}) style="display:block" ] [(#THEMATIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui) style="display:block" ] >
                         <header>
 
-                            [(#REM) contenu affiché quand même ]
                             <section class="thematique-intro">
                                 [ (#ENV{lang}|=={fr}|oui) [(#TEXTE_FR|liens_ouvrants)] ]
                                 [ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE_FR|liens_ouvrants}) ] ]
                             </section>
+
                             [(#REM) on inclus le panneau d'administration de la thématique pour ceux qui ont le droit  ]
                             [(#AUTORISER{modifier,thematique,#ID_THEMATIQUE}|oui) <INCLURE{fond=inc/administration/inventaire/thematiques, afficher, id_thematique, thematique} /> ]
-                            <INCLURE{fond=inc/pages/inventaire/documents, afficher, document, id_thematique} />
-                            
-                            <!-- [(#AFFICHER|=={editer_thematique}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|non) -->
-                                <!-- .thematique-intro est optionnel -->
-                                <!--
-                                <section class="thematique-intro">
-                                    [ (#ENV{lang}|=={fr}|oui) [(#TEXTE_FR|liens_ouvrants)] ]
-                                    [ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE_FR|liens_ouvrants}) ] ]
-                                </section>
-                                <INCLURE{fond=inc/pages/inventaire/documents, afficher, document, id_thematique} />
 
-
-                            ] -->
+                            <INCLURE{fond=inc/pages/inventaire/documents, afficher, thematique, chapitre, document, id_thematique} />
 
                         </header>
 
                     </article>
-                    <INCLURE{fond=inc/pages/inventaire/chapitres, afficher, chapitre, document, id_thematique } />
+                    <INCLURE{fond=inc/pages/inventaire/chapitres, afficher, thematique, chapitre, document, id_thematique } />
+
 
                 ]
             </BOUCLE_thematiques>

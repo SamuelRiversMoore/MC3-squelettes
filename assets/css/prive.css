@@ -51,7 +51,7 @@ div.compte ul li h3{
 /*----------  TAB PANEL  ----------*/
 /* https://css-tricks.com/functional-css-tabs-revisited/ */
 .onglets {
-	position: relative;	 
+	position: relative;
 	min-height: 20rem; /* This part sucks */
 	clear: both;
 	margin: 25px 0;
@@ -65,8 +65,8 @@ div.compte ul li h3{
 	display: inline-block;
 }
 .onglet label {
-	background: #eee; 
-	margin-left: 1px; 
+	background: #eee;
+	margin-left: 1px;
 	position: relative;
 	right: 0px;
 	height: 32px;
@@ -75,7 +75,7 @@ div.compte ul li h3{
 	cursor: pointer;
 }
 .onglets [type=radio] {
-	display: none;	 
+	display: none;
 }
 .onglet-content {
 	position: absolute;
@@ -117,8 +117,8 @@ div.compte ul li h3{
 
 /*----------  FILE UPLOAD BUTTON  ----------*/
 
-section.edition input[type="file"].fileupload + label { 
-	cursor: pointer; 
+section.edition input[type="file"].fileupload + label {
+	cursor: pointer;
 	background: #00ADFF;
 	color: #fff;
 	border: none;
@@ -134,7 +134,7 @@ section.edition input.[type="file"]fileupload:focus + label {
 section.edition input[type="file"].fileupload + label.hasFile {
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap; 
+	white-space: nowrap;
 	overflow: hidden;
 	max-width: 100%;
 	background: transparent;
@@ -155,7 +155,7 @@ section.edition #inputImg .fichier{
 
 /*----------  SELECT MENU  ----------*/
 .select-menu{
-}	
+}
 .select-menu ul, .select-menu li{
 	margin: 0;
 	list-style: none;
@@ -171,7 +171,7 @@ section.edition #inputImg .fichier{
 }
 .select-menu ul{
 	background: #fff;
-	position: absolute; 
+	position: absolute;
 	z-index: 99;
 	display: none;
 	box-shadow: 0 0 10px rgba(0,0,0,.4);
@@ -252,7 +252,7 @@ div.switch input.switchlang + label {
 	-webkit-user-select: none;   /* Chrome/Safari/Opera */
 	-khtml-user-select: none;    /* Konqueror */
 	-moz-user-select: none;      /* Firefox */
-	-ms-user-select: none;       /* Internet Explorer/Edge */                      
+	-ms-user-select: none;       /* Internet Explorer/Edge */
 	width: 84px;
 	height: 32px;
 	margin: 25px;
@@ -314,15 +314,15 @@ h1.inline{ margin-right: 5px; }
 body.logged a.item {
 	padding-right: 30px !important;
 }
-.tabs-wrapper #nav-tabs li.new a.bouton{ 
-	margin: 0; 
-	border-radius: 0 0 5px 5px; 
-	color:rgba(0, 0, 0, 0.5); 
+.tabs-wrapper #nav-tabs li.new a.bouton{
+	margin: 0;
+	border-radius: 0 0 5px 5px;
+	color:rgba(0, 0, 0, 0.5);
 	background: #fff;
 	padding-left: 4px;
 	text-align: left;
 }
-.tabs-wrapper #nav-tabs .chapitres li.new a.bouton{ 
+.tabs-wrapper #nav-tabs .chapitres li.new a.bouton{
 	padding-left: 20px;
 }
 
@@ -414,7 +414,7 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 	vertical-align: baseline;
 	font-size: 14px;
 	padding: 0px 4px;
-	height: 19px; 
+	height: 19px;
 }
 .bouton.modifier:not(:last-child){
 	border-right: 1px solid #bbb;
@@ -460,7 +460,7 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 }
 .bouton.enregistrer{
 	background: #23DD3A;
-	color: #fff;	
+	color: #fff;
 }
 .bouton.ok{
 	/* line-height: 24px; */
@@ -478,14 +478,14 @@ span.status.poubelle.en:before, div.status.poubelle.en:after, li.status.poubelle
 .auteurs .auteur:nth-last-child(2){margin-right: 17px;}
 .auteurs .auteur:not(:last-child):after{content:', '; line-height: 19px;}
 .auteurs .auteur:nth-last-child(2):after{content:' \& '; right: -15px; line-height: 19px;}
-	
+
 
 
 
 section.administration {
 	font-size: 12px;
 	color: #999;
-	margin-bottom: 8px; 
+	margin-bottom: 8px;
 	margin-top: 1em;
 }
 section.administration .controls{
@@ -513,9 +513,9 @@ section.thematique-document section.administration{
 	right: 0;
 	bottom: 0;
 	overflow: auto;
-	z-index: 999999;
+	z-index: 2000;
 	margin: 0;
-	padding: 60px 30px;
+	padding: 0;
 }
 .modal h1, .modal h2 {
 	font-weight: normal;
@@ -523,9 +523,20 @@ section.thematique-document section.administration{
 }
 
 .modal>section.edition{
+	position:relative;
+	z-index:2020;
 	max-width: 800px;
-	margin: 0 auto;
+	margin: 30px auto;
 	background: #fff;
+}
+
+.modal>.retour {
+	display:block;
+	z-index:2010;
+	width:100%;
+	height:100%;
+	position:absolute;
+	cursor:default;
 }
 
 section.administration .modification, section.administration .moderation{
@@ -661,7 +672,7 @@ section.edition .diaporama .diapositive{
 	width: 225px;
 	height: 160px;
 	overflow: hidden;
-	border: 1px solid #999; 
+	border: 1px solid #999;
 	position: relative;
 }
 section.edition .diaporama .diapositive img{
@@ -728,7 +739,7 @@ section.edition .diaporama .diapositive.fake:before{
 	vertical-align: middle;
 }
 section.edition .diaporama .diapositive.fake a.bouton{
-	vertical-align: middle;	
+	vertical-align: middle;
 	margin-right: 4px;
 }
 section.edition .diaporama .diapositive.ajout{
@@ -736,7 +747,7 @@ section.edition .diaporama .diapositive.ajout{
 	overflow: visible;
 	width: auto;
 	height: auto;
-	background: none;	
+	background: none;
 }
 section.edition .diaporama .diapositive.ajout>.bouton.ajouter{
 	display: none;
@@ -747,7 +758,7 @@ section.edition .diaporama .diapositive.fake section.edition.document{
 
 
 /**---------------- Media query ----------------**/
-@media only screen and (min-width: 48em) { 
+@media only screen and (min-width: 48em) {
 	.demi{
 		width: 50%;
 	}
@@ -758,4 +769,3 @@ section.edition .diaporama .diapositive.fake section.edition.document{
 		padding-left: 15px;
 	}
 }
-

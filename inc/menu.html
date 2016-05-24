@@ -36,7 +36,8 @@
 	</ul>
 
 </div>
-
-[(#AFFICHER|=={'nouveau_pays'}|oui)
-	[(#FORMULAIRE_EDITION_PAY)]  
+[(#AUTORISER{creer,pay}|oui)
+	[(#AFFICHER|=={'nouveau_pays'}|oui)
+		[(#FORMULAIRE_EDITION_PAY)]
+	]
 ]

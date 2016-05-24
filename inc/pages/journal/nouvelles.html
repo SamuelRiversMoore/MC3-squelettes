@@ -3,13 +3,11 @@
 
 <B_nouvelles>
 	[(#AUTORISER{creer,article}|oui)
-		[(#ACCUEIL|non)
-			[(#AFFICHER|=={'nouvelle_nouvelle'}|oui)
-			<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',9} )] </section>  ]
+		[(#AFFICHER|=={'nouvelle_nouvelle'}|oui)
+		<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',9} )] </section>  ]
 
-			[(#AFFICHER|=={'nouvelle_nouvelle'}|non)
-			<a class="bouton ajouter moyen" href="[(#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang|parametre_url{afficher, nouvelle_nouvelle})]"><:lped:nouvelle_ajouter:></a> ]
-		]
+		[(#AFFICHER|=={'nouvelle_nouvelle'}|non)
+		<a class="bouton ajouter moyen" href="[(#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang|parametre_url{afficher, nouvelle_nouvelle})]"><:lped:nouvelle_ajouter:></a> ]
 	]
 
 	<BOUCLE_nouvelles(ARTICLES){id_rubrique=9} {par statut, maj} {inverse} {statut IN #GET{statut}}>

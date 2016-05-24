@@ -3,17 +3,13 @@
 
 <B_journal>
 	[(#AUTORISER{creer,article}|oui)
-		[(#ACCUEIL|non)
-			[(#AFFICHER|=={'nouvel_article'}|oui)
-				<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',8} )]</section>
-			]
-
-
-			[(#AFFICHER|=={'nouvel_article'}|non)
-				<a class="bouton ajouter moyen" href="[(#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang|parametre_url{afficher, nouvel_article})]"><:lped:article_ajouter:></a> 
-			]
+		[(#AFFICHER|=={'nouvel_article'}|oui)
+			<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',8} )]</section>
 		]
-	]
+
+		[(#AFFICHER|=={'nouvel_article'}|non)
+			<a class="bouton ajouter moyen" href="[(#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang|parametre_url{afficher, nouvel_article})]"><:lped:article_ajouter:></a> ]
+		]
 
 	<BOUCLE_journal (ARTICLES) {id_rubrique=8} {par statut, maj} {inverse} {statut IN #GET{statut}}>
 		[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)

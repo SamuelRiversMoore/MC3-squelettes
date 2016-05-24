@@ -1,11 +1,12 @@
 
 [(#EDITABLE|oui)
 <div class="modal">
+  <a href="[(#SELF|parametre_url{afficher,''})]" class="retour"></a>
     <section class="edition">
         <form action='#ENV{action}' method='post'>
             #ACTION_FORMULAIRE{#ENV{action}}
             <section class="row head">
-                <h2 class="full"><:lped:pays_edition_titre:></h2>
+                <h2 class="full"> [(#ENV{id_pay}|=={new}|?{<:lped:pays_nouveau_titre:>,<:lped:pays_edition_titre:>})] </h2>
                 [<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
                 [<p class="message ok icon fa-check-square-o">(#ENV*{message_ok})</p>]
             </section>
@@ -17,8 +18,8 @@
             </section>
 
             <section class="row boutons right">
-                <div class="full">                
-                    <input type='button' class="gros bouton fermer"  value='<:lped:annuler:>'/>
+                <div class="full">
+                    <a href="[(#SELF|parametre_url{afficher,''})]" class="gros bouton fermer"/><:lped:annuler:></a>
                     <input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
                 </div>
             </section>
