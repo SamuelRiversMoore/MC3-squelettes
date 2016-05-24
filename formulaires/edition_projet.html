@@ -6,7 +6,7 @@
 		<form action='#ENV{action}' method='post'>
 			#ACTION_FORMULAIRE{#ENV{action}}
 			<section class="row head">
-				<h2 class="full"><:lped:projet_edition_titre:></h2>
+				<h2 class="full"> [(#ENV{id_projet}|=={new}|?{<:lped:projet_nouveau_titre:>,<:lped:projet_edition_titre:>})]</h2>
 				[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
 				[<p class="message ok icon fa-check">(#ENV*{message_ok})</p>]
 			</section>
@@ -37,7 +37,7 @@
 				</section>
 			</div>
 			<section class="row boutons right">
-				<div class="full">                
+				<div class="full">
 					<a href="[(#SELF|parametre_url{afficher,''})]" class="gros bouton fermer"/><:lped:annuler:></a>
 					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
 				</div>

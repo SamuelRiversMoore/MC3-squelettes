@@ -9,7 +9,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 function formulaires_edition_projet_charger_dist( $id_projet = 'new' ){
 
     if ( $id_projet == 'new' )
-        return array( '$id_projet' => 'new', 'nouveau' => 'oui' ); // Renvoi un objet vide
+        return array( 'id_projet' => 'new', 'nouveau' => 'oui' ); // Renvoi un objet vide
 
     return sql_fetsel( "*" , "spip_projets" , "id_projet=$id_projet" ); // Renvoi l'ensemble de l'objet
 }
