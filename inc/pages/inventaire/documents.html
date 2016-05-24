@@ -14,11 +14,7 @@
 	[(#CHAPITRE|oui|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui) #SET{courant, oui}]
 
 	[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={new}}|et{#GET{courant}|=={oui}}|oui)
-	<section class="administration">
-		<div class="modal">
 			[(#FORMULAIRE_EDITION_DOC{'new',#GET{lien_objet},#GET{lien_id_objet},[(#SELF|parametre_url{'afficher',''}|parametre_url{'document',''})]})]
-		</div>
-	</section>
 	]
 
 	<a class="bouton gros ajouter icon fa-file" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_document}|parametre_url{document, new})]"><:lped:document_ajouter:></a>

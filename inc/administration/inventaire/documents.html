@@ -20,9 +20,7 @@
 		[(#AFFICHER|=={document_ok}|et{#DOCUMENT|=={#ID_DOCUMENT}}|oui)<span class="message ok icon fa-check"></span>]
 
 		[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={#ID_DOCUMENT}}|oui)
-			<div class="modal">
 				[(#FORMULAIRE_EDITION_DOC{#ID_DOCUMENT,'','',[(#SELF|parametre_url{afficher,document_ok})] })]
-			</div>       
 		]
 
 

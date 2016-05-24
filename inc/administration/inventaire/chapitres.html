@@ -14,10 +14,9 @@
                 </span>
             </span>
         </div>
-        [(#AFFICHER|=={editer_chapitre}|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui)
+        [(#AFFICHER|=={editer_chapitre}|et{#CHAPITRE|=={#ID_CHAPITRE}}|oui) 
             [(#FORMULAIRE_EDITION_CHAPITRE{#ID_CHAPITRE, '' , '' , [(#SELF|parametre_url{'afficher','chapitre_ok'})] })]
         ]
-
 
     </BOUCLE_chapitre>
 </section>
