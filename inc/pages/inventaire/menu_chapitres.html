@@ -24,7 +24,7 @@
 	[(#REM) intégration du lien pour ajouter des chapitre ]
 		[(#AUTORISER{creer,chapitre}|oui)
 			<li class="new">
-			 <a class="bouton moyen ajouter interne icon fa-level-up rotate90" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_chapitre}|parametre_url{chapitre, new})]" data-cible="chapitre_new" [(#CHAPITRE|=={new}|oui) class="strong" ]><:lped:chapitre_ajouter:></a>
+			 <a class="bouton moyen ajouter interne icon fa-level-up rotate90" href="[(#SELF|parametre_lang|parametre_url{thematique, #ID_THEMATIQUE}|parametre_url{afficher, editer_chapitre}|parametre_url{chapitre, new})]" data-cible="chapitre_new" [(#CHAPITRE|=={new}|oui) class="strong" ]><:lped:chapitre_ajouter:></a>
 			</li>
 
 		]

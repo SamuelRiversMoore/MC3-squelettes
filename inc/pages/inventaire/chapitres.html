@@ -28,7 +28,7 @@
 
 [(#REM) intégration du lien pour ajouter des chapitre ]
 	[(#AUTORISER{creer,chapitre}|oui)
-		[(#AFFICHER|=={editer_chapitre}|et{#CHAPITRE|=={new}}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui) 
+		[(#AFFICHER|=={editer_chapitre}|et{#CHAPITRE|=={new}}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui)
 				<section class="administration">[(#FORMULAIRE_EDITION_CHAPITRE{ 'new' , 'thematique' , #ID_THEMATIQUE ,[(#SELF|parametre_url{'afficher',''}|parametre_url{'chapitre',''})]})]</section>
 		]
 
