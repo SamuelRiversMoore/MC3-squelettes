@@ -238,9 +238,11 @@ $( document ).ready(function() {
 
 		if(typeof geojson !== 'undefined' && geojson.length > 0) {
 
+
 			var markers = L.mapbox.featureLayer()
 				.setGeoJSON(geojson)
 				.addTo(map);
+
 
 			map.fitBounds(markers.getBounds(), { padding: L.point(60, 60), maxZoom: maxZoom });
 
@@ -262,3 +264,24 @@ $( document ).ready(function() {
 	}
 
 });
+
+// pour afficher des marqueurs customs 
+/*
+	"properties": {
+		"title": "#NOM_FR",
+		"url": "#URL_VILLE",
+		"icon": {
+			"className": "map-pointer", // class name to style
+			"html": "#NOM_FR", // add content inside the marker
+			"iconSize": null // size of icon, use null to set the size in CSS
+		}
+	}
+	var markers = L.mapbox.featureLayer().addTo(map);
+	markers.on('layeradd', function(e) {
+		var marker = e.layer,
+			feature = marker.feature;
+		marker.setIcon(L.divIcon(feature.properties.icon));
+	});
+	markers.setGeoJSON(geojson);
+
+*/
