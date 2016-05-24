@@ -46,8 +46,7 @@
 			                    <figure style="background-image: url('[(#FICHIER|image_passe_partout{390,265}|image_recadre{390,265}|extraire_attribut{src})]')">
 			                    </figure>
 			                </BOUCLE_images>
-		                    <figure>
-		                    </figure>
+											[(#AUTORISER{voir,projet,#ID_PROJET}|oui)<figure></figure>]
 			                <//B_images>
 
 				[(#REM) on on a le droit de voir la projet]

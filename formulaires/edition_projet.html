@@ -44,27 +44,6 @@
 			</section>
 		</form>
 
-		<section class="row">
-			<header class="full"><:lped:projet_documents:></header>
-			<div class="diaporama">
-				<BOUCLE_images (DOCUMENTS) {id_projet} {extension==jpg|png|gif} {par num titre} {tout}>
-					<div class="diapositive">
-						<img src="[(#FICHIER|image_passe_partout{225,160}|image_recadre{225,160,'center center','#ffffff'}|extraire_attribut{src})]"/>
-						<div class="supprimer">
-						   [(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'projet', #ID_PROJET})]
-						</div>
-					</div>
-				</BOUCLE_images>
-				[(#REM) les documents du diaporama — Est-ce qu'on l'afficherait pas tout le temps ce truc là? ]
-				[(#AFFICHER|=={ajouter_image}|oui)
-				]
-				<div class="diapositive fake">
-					<a class="bouton gros ajouter" href="[(#URL_PROJET|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:projet_ajouter_image:></a>
-				</div>
-
-			</div>
-		</section>
-
 
 	</section>
 </div>
