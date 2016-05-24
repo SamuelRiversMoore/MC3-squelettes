@@ -20,7 +20,6 @@ $( document ).ready(function() {
 			//}
 
 			var file = this.files[0];
-			console.log(file);
 
 			if( fileName && file ) {
 				label.innerHTML = fileName ? fileName : labelVal;
