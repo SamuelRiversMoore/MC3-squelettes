@@ -13,14 +13,16 @@
 		    [(#AUTORISER{modifier,projet,#ID_PROJET}|oui) <INCLURE{fond=inc/administration/inventaire/projets, afficher, id_projet} /> ]
 		</header>
 
-		<div id="inventaire-introduction">
-			<h5>— <:lped:introduction:></h5>
-			[ (#ENV{lang}|=={fr}|oui)  [(#DESCRIPTION_FR)] ]
-			[ (#ENV{lang}|=={en}|oui)  [(#DESCRIPTION_EN|sinon{#DESCRIPTION_FR})] ]
-	    </div>
+		<div class="col-wrap">
+			<div id="inventaire-introduction" class="col33">
+				<h5>— <:lped:introduction:></h5>
+				[ (#ENV{lang}|=={fr}|oui)  [(#DESCRIPTION_FR)] ]
+				[ (#ENV{lang}|=={en}|oui)  [(#DESCRIPTION_EN|sinon{#DESCRIPTION_FR})] ]
+		    </div>
 
-		<!-- inclusion diaporama -->
-		<INCLURE{fond=inc/pages/inventaire/diaporama, id_projet} />
+			<!-- inclusion diaporama -->
+			<INCLURE{fond=inc/pages/inventaire/diaporama, id_projet} />
+		</div>
 
 		<!-- inclusion thematiques -->
 		<INCLURE{fond=inc/pages/inventaire/thematiques, afficher, thematique, chapitre, document, id_projet} />

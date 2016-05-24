@@ -96,6 +96,7 @@ div.compte ul li h3{
 .onglet-content.centered>div{
 	display: inline-block;
 	vertical-align: middle;
+	max-width: 99%;
 }
 .onglet-content.centered:before{
 	content: "";
@@ -134,7 +135,6 @@ section.edition input.[type="file"]fileupload:focus + label {
 section.edition input[type="file"].fileupload + label.hasFile {
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
 	overflow: hidden;
 	max-width: 100%;
 	background: transparent;
