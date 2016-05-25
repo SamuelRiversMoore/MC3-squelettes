@@ -182,6 +182,7 @@ section.edition #inputImg .fichier{
 span.select-title{
 	display: inline-block;
 	padding: .25rem;
+	padding-left: 0;
 	height: 1.5rem;
 }
 span.select-title::after{
@@ -194,15 +195,12 @@ span.select-title::after{
 	text-align: center;
 	vertical-align: top;
 	color: rgba(0, 0, 0, 0.2);
-	margin-left: .25rem;
 }
 span.select-title:hover::after{
 	color: rgba(0, 0, 0, 0.4);
 }
 span.select-title>.status{
-	display: inline-block;
 	height: .85rem;
-	padding: 0;
 }
 
 .select-menu .select-title.open + ul::before{
@@ -336,33 +334,41 @@ span.status, div.status, li.status{
 	font-family: inherit;
 	line-height: inherit;
 	font-weight: 300;
-	padding: 5px 6px;
 	margin: inherit;
 }
+span.status, li.status{
+	padding: 5px 6px;
+}
+div.status{ display: inline-block; margin-right: .25rem;}
+
 li.status{ padding: 7px 6px; height: 28px; }
 span.status { height: 1.5rem; position: absolute; right: 0; top: -1px; opacity: .7; font-size: 0; padding: 5px 6px; }
 span.status:hover { background: #FFF; color: #555; opacity: .9; }
 #nav-tabs span.status { top: .5rem; }
 #ville-projet span.status { top: .5rem; right: .5rem; }
-
 span.status::before, div.status::after, li.status::after{
 	padding-left: 3px;
 	font-size: .75rem;
-	vertical-align: top;
 	text-transform: uppercase;
 	line-height: 1rem;
 }
+span.status::before, li.status::after{
+	vertical-align: top;
+}
+div.status::before{ padding-left:0; vertical-align: baseline;}
+
 span.status::after, div.status::before, li.status::before{
 	font: normal normal normal .85rem/1 FontAwesome;
 	width: 1rem;
 	height: 1rem;
+    line-height: 1rem;
 	display: inline-block;
 	text-align: center;
 	vertical-align: baseline;
 }
 
 span.status::before{ display: none; }
-span.status:hover::before{ display: inline; }
+span.status:hover::before{ display: inline-block; }
 div.status::before, li.status::before{ margin-right: 2px; }
 span.status::after{ margin-left: .5rem; }
 
@@ -383,7 +389,7 @@ span.status.refuse.en::before, div.status.refuse.en::after, li.status.refuse.en:
 span.status.poubelle.fr::before, div.status.poubelle.fr::after, li.status.poubelle.fr::after{ content:"à la poubelle"; }
 span.status.poubelle.en::before, div.status.poubelle.en::after, li.status.poubelle.en::after{ content:"trash"; }
 
-
+span.status-label{ margin-right: .25rem; }
 
 
 .boutons{ display: block; width: 100%; font-size: 0;}
@@ -395,7 +401,7 @@ span.status.poubelle.en::before, div.status.poubelle.en::after, li.status.poubel
 
 .bouton.gros{ font-size: 1rem; padding: .5rem .75rem; margin-right: .625rem; }
 .bouton.moyen{ font-size: .85rem; padding: .25rem .5rem; margin-right: .625rem;}
-.bouton.petit{ font-size: .75rem;  padding: 0 .25rem;	height: 1.25rem;}
+.bouton.petit{ font-size: .75rem; background: transparent; margin-right: .5rem;}
 
 .bouton{
 	font-weight: normal;
@@ -407,7 +413,7 @@ span.status.poubelle.en::before, div.status.poubelle.en::after, li.status.poubel
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 
-//.bouton.modifier{ background: #ddd; }
+
 .bouton.modifier{
 	border-radius: 0;
 	display: inline-block;
@@ -462,10 +468,9 @@ span.status.poubelle.en::before, div.status.poubelle.en::after, li.status.poubel
 	background: #23DD3A;
 	color: #fff;
 }
-.bouton.ok{
+.bouton.ok, .bouton.proposer{
 	text-decoration: underline;
 	color: #0AD534;
-	vertical-align: middle;
 	padding: 0;
 	margin-right: .5rem;
 	background: none;
@@ -538,7 +543,7 @@ section.thematique-document section.administration{
 section.administration .modification, section.administration .moderation{
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: .25rem;
+	margin-right: .5rem;
 }
 section.administration .meta{
 	margin-bottom: 3px;

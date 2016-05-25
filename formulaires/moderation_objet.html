@@ -6,7 +6,7 @@
 
         [(#ENV{role}|=={0minirezo}|oui)
             <div class="select-menu" data-original="[(#ENV{statut}|oui)[(#STATUT)]]">
-                <span>Statut : </span>
+                <span class="status-label">Statut : </span>
                 <span class="select-options">
                     <span class="select-title"><div class="status [(#ENV{statut}|oui)[(#STATUT)] [(#ENV{lang}|sinon{fr})]]"></div></span>
                     <ul>
@@ -32,11 +32,12 @@
 
         [(#ENV{role}|=={1comite}|et{#ENV{statut}|=={prepa}}|oui)
             <input type="hidden" value="prop" name="form_statut">
-            <input type='submit' name='ok' value='<:lped:proposer:>'  />
+            <input type='submit' name='ok' value='<:lped:proposer:>' class="petit bouton proposer" />
         ]
 
         [(#ENV{role}|=={1comite}|et{#ENV{statut}|!={prepa}}|oui)
-            Objet #ENV{statut}
+            <span class="status-label">Statut : </span>
+            <div class="status [(#ENV{lang}|sinon{fr})] #ENV{statut}"></div>
         ]
       </form>
 </span>
