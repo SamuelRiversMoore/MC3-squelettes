@@ -7,7 +7,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function formulaires_suppression_rubrique_charger_dist( $id_rubrique = null ){
 
-    $retour['id_rubrique'] = $id_document;
+    $retour['id_rubrique'] = $id_rubrique;
     return $retour; // Renvoi l'ensemble de l'objet
 
 }

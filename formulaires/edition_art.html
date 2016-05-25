@@ -4,7 +4,7 @@
 		<form action='#ENV{action}' method='post'>
 			#ACTION_FORMULAIRE{#ENV{action}}
 			<section class="row head">
-				<h2 class="full"><:lped:article_edition_titre:></h2>
+				<h2 class="full">[(#ENV{id_article}|=={new}|?{<:lped:article_nouveau_titre:>, <:lped:article_edition_titre:>})]</h2>
 				[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
 				[<p class="message ok icon fa-check">(#ENV*{message_ok})</p>]
 			</section>
