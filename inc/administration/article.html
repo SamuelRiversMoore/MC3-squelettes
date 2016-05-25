@@ -1,44 +1,43 @@
 <section class="administration">
-    <BOUCLE_article (ARTICLES) {id_article} {tout}>
-        <div class="controls">
-            <div class="modification boutons">
-                <a class="bouton gros modifier icon fa-pencil" alt="<:lped:article_modifier:>" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_article}|parametre_url{article, #ID_ARTICLE})]"><:lped:article_modifier:>[(#AFFICHER|=={article_ok}|oui)<span class="message ok icon fa-check"></span>]</a>
+	<BOUCLE_article (ARTICLES) {id_article} {tout}>
 
-                [(#REM) hack pour la page à propos]
-                [(#ARTICLE|non) #SET{condition,oui} ]
-                [(#ARTICLE|oui|et{#ID_ARTICLE|=={#ARTICLE}}|oui) #SET{condition,oui} ]
+		<a class="bouton moyen modifier icon fa-pencil" alt="<:lped:article_modifier:>" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_article}|parametre_url{article, #ID_ARTICLE})]"><:lped:article_modifier:>[(#AFFICHER|=={article_ok}|oui)<span class="message ok icon fa-check"></span>]</a>
 
-                [(#AFFICHER|=={editer_article}|et{#GET{condition}|oui}|oui)
-                    [(#FORMULAIRE_EDITION_ART{#ID_ARTICLE,#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,article_ok})] })]
-                ]
+		[(#FORMULAIRE_MODERATION_OBJET{articles,article,#ID_ARTICLE})]
 
-        </div>
-        <div class="meta">
-            [(#FORMULAIRE_MODERATION_OBJET{articles,article,#ID_ARTICLE})]
-            <span class="icon fa-calendar-o" alt="<:lped:creation:>" title="<:lped:creation:>">[(#DATE|affdate)]</span>
-            <span class="icon fa-pencil-square-o" alt="<:lped:modification:>" title="<:lped:modification:>">[(#MAJ|affdate)]</span>
-            <span class="auteurs icon fa-user" alt="<:lped:contributeurs:>" title="<:lped:contributeurs:>">
-                <BOUCLE_auteurs (AUTEURS) {id_article}>
-                    <span class="auteur">#NOM</span>
-                </BOUCLE_auteurs>
-            </span>
-        </div>
+		<div class="meta">
+			<span class="icon fa-calendar-o" alt="<:lped:creation:>" title="<:lped:creation:>">[(#DATE|affdate)]</span>
+			<span class="icon fa-pencil-square-o" alt="<:lped:modification:>" title="<:lped:modification:>">[(#MAJ|affdate)]</span>
+			<span class="auteurs icon fa-user" alt="<:lped:contributeurs:>" title="<:lped:contributeurs:>">
+				<BOUCLE_auteurs (AUTEURS) {id_article}>
+					<span class="auteur">#NOM</span>
+				</BOUCLE_auteurs>
+			</span>
+		</div>
 
-        <div class="diaporama">
-            <BOUCLE_images (DOCUMENTS) {id_article} {extension==jpg|png|gif} {par num titre} {tout}>
-                <img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
-                [(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'projet', #ID_PROJET})]
-            </BOUCLE_images>
+		[(#REM) hack pour la page à propos]
+		[(#ARTICLE|non) #SET{condition,oui} ]
+		[(#ARTICLE|oui|et{#ID_ARTICLE|=={#ARTICLE}}|oui) #SET{condition,oui} ]
 
-            [(#REM) les documents de l'article]
-            [(#AFFICHER|=={ajouter_image}|oui)
-                [(#FORMULAIRE_EDITION_DOC{'new','article',#ID_ARTICLE,[(#SELF|parametre_url{afficher,article_ok})],'image','publie' })]
-            ]
+		[(#AFFICHER|=={editer_article}|et{#GET{condition}|oui}|oui)
+			[(#FORMULAIRE_EDITION_ART{#ID_ARTICLE,#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,article_ok})] })]
+		]
 
-            [(#AFFICHER|=={ajouter_image}|non)
-                <a class="bouton prive" href="[(#URL_ARTICLE|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:article_ajouter_image:></a>
-            ]
-        </div>
+		<div class="diaporama">
+			<BOUCLE_images (DOCUMENTS) {id_article} {extension==jpg|png|gif} {par num titre} {tout}>
+				<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
+				[(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'projet', #ID_PROJET})]
+			</BOUCLE_images>
 
-    </BOUCLE_article>
+			[(#REM) les documents de l'article]
+			[(#AFFICHER|=={ajouter_image}|oui)
+				[(#FORMULAIRE_EDITION_DOC{'new','article',#ID_ARTICLE,[(#SELF|parametre_url{afficher,article_ok})],'image','publie' })]
+			]
+
+			[(#AFFICHER|=={ajouter_image}|non)
+				<a class="gros bouton ajouter" href="[(#URL_ARTICLE|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:article_ajouter_image:></a>
+			]
+		</div>
+
+	</BOUCLE_article>
 </section>

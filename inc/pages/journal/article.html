@@ -15,9 +15,10 @@
 
 	<section class="journal page-standard">
 		<article class="texte-courant">
-			[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/>]
-			<h1>[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ] [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]</h1>
-			<h5>&nbsp;</h5>
+			<header>			
+				<h1>[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ] [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]</h1>
+				[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/>]
+			</header>
 
 			<div class="grid-2">
 				<div>
@@ -34,7 +35,7 @@
 					</p>
 				</div>
 				<div>
-					<div class="big">
+					<div class="medium">
 						[ (#ENV{lang}|=={fr}|oui) [ (#CHAPO) ] ]
 						[ (#ENV{lang}|=={en}|oui) [ (#CHAPO_EN|sinon{#CHAPO}) ] ]
 					</div>

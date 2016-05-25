@@ -109,6 +109,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'nouvelle_chapo_fr' => 'Opening paragraph in french',
     'nouvelle_chapo_en' => 'Opening paragraph',
 
+    'rubrique_modifier' => 'Edit',
+    'rubrique_ajouter' => 'Add an entry',
+    'rubrique_ajouter_image' => 'Add a picture',
+    'rubrique_titre' => 'Entry\'s title',
+    'rubrique_texte_fr' => 'Content in french',
+    'rubrique_texte_en' => 'Content',
+    'rubrique_edition_titre' => 'Entry',
+    'rubrique_chapo_fr' => 'Opening paragraph in french',
+    'rubrique_chapo_en' => 'Opening paragraph',
+
     'document_modifier' => 'Edit this article',
     'document_ajouter' => 'Add a document',
     'document_supression_titre' => 'Remove this document ?',

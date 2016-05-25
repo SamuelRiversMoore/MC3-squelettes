@@ -63,17 +63,6 @@ body {
 /*----------  Grid ----------*/
 
 
-.grid-2>div {
-	width: 50%;
-	padding: 0;
-	min-height: 1px;
-}
-.grid-2>div:last-child {
-	padding-left: 1rem;
-}
-.grid-2>div:first-child {
-	padding-left: 0;
-}
 .col-wrap{ font-size: 0;}
 .col25, .col33, .col40, .col50, .col60, .col66, .col75{
 	min-width: 10rem;
@@ -451,7 +440,7 @@ ul#menu-footer {
 }
 
 .liste-articles>article, .liste-articles>li, .journal>article, .nouvelles article  {
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 	position: relative;
 }
 .article-icone {
@@ -476,10 +465,9 @@ ul#menu-footer {
 	background: rgb(241, 236, 231);
 }
 .liste-articles .billet h4, .journal>article h4 {
-	font-size: 1.25rem;
-	line-height: 1.2em;
-	margin-bottom: .5rem;
-	font-weight: bold;
+	font-size: 1.5rem;
+    line-height: 1.25em;
+    margin-bottom: 1rem;
 }
 .nouvelles article h4 {
 	text-transform: uppercase;
@@ -1090,7 +1078,7 @@ section.journal article.extrait a, section.nouvelles a {
 }
 
 article.extrait .extrait-contenu{
-	margin-bottom: .5rem;
+	margin-bottom: .75rem;
 }
 article.extrait .extrait-contenu p{
 	display: inline;
@@ -1116,17 +1104,29 @@ section.page-standard {
 	margin-right: 2rem;
 	padding-top: 3rem;
 }
+section.page-standard>article>header{
+	margin-bottom: 3rem;
+}
+section.page-standard article .grid-2{
+	font-size: 0;
+}
+section.page-standard article .grid-2>div{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 1rem;
+}
 section.page-standard article .grid-2>div:first-child {
 	width: 12rem;
-	padding-right: 1rem;
+	margin-right: 2rem;
 }
 section.page-standard article .grid-2>div:last-child {
-	width: calc(100% - 12rem);
+	width: calc(100% - 14rem);
+	min-width: 20rem;
 }
 article.apropos{
 	margin-bottom:6rem;
 }
-
+.diaporama{ display: none; }
 
 /*----------  AUTEURS  ----------*/
 

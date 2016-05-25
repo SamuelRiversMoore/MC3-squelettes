@@ -110,6 +110,17 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'nouvelle_chapo_en' => 'Introduction en anglais',
     'nouvelle_documents' => 'Documents liés',
 
+    'rubrique_modifier' => 'Éditer',
+    'rubrique_ajouter' => 'Ajouter une rubrique',
+    'rubrique_ajouter_image' => 'Ajouter une image',
+    'rubrique_titre' => 'Titre de la rubrique',
+    'rubrique_texte_fr' => 'Contenu de la rubrique',
+    'rubrique_texte_en' => 'Contenu en anglais',
+    'rubrique_edition_titre' => 'Rubrique',
+    'rubrique_chapo_fr' => 'Paragraphe d\'introduction',
+    'rubrique_chapo_en' => 'Introduction en anglais',
+    'rubrique_documents' => 'Documents liés',
+
     'document_modifier' => 'Éditer ce document',
     'document_ajouter' => 'Ajouter un document',    
     'document_supression_titre' => 'Supprimer ce document ?',

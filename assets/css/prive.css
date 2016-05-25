@@ -493,15 +493,8 @@ section.administration {
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 }
-section.page-standard section.administration {
-	margin-top: 0;
-	margin-bottom: 1.5rem;
-}
-section.page-standard .meta, section.page-standard .modification{
-	display: inline-block;
-	width: auto;
-	max-width: 28rem;
-	vertical-align: middle;
+section.administration .diaporama{
+	margin-top: 1rem;
 }
 section.thematique-document section.administration{
 	margin-top: 0;
