@@ -75,9 +75,9 @@
                     </article>
 						</BOUCLE_liste>
 						[(#AUTORISER{creer,rubrique}|oui)
-							<article class="tab texte-courant" [(#RUBRIQUE|=={new}|oui) style="display:block;"]>
+							[(#AFFICHER|=={nouvelle_rubrique}|et{#RUBRIQUE|=={new}}|oui)
 									<section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{ 'new' , '24' ,[(#URL_RUBRIQUE{24}|parametre_lang)]})]</section>
-							</article>
+							]
 						]
 
 					</div>
