@@ -510,6 +510,7 @@ ul#news, .mises-a-jour ul, ul#journal {
 #arbo~header h1{
 	margin:0;
 	line-height: 1.1em;
+    margin-bottom: .75rem;
 }
 #arbo a {
 	text-decoration: none;
@@ -744,7 +745,7 @@ figure.slick-slide {
 	width: 100%;
 	padding-bottom: 3rem;
 	min-height: 20rem;
-	padding-top: .75rem;
+	padding-top: .5rem;
 }
 .dashboard .tabs-wrapper article.tab{
 	padding-right: 0;
@@ -782,7 +783,7 @@ section.reseaux .tabs-wrapper article {
     z-index: 9;
     padding: .5rem;
 }
-#ville-projet h2 span{
+#ville-projet h2>span{
     padding-right: .25rem;
 }
 #ville-projet a {

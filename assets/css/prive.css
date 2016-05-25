@@ -345,7 +345,8 @@ li.status{ padding: 7px 6px; height: 28px; }
 span.status { height: 1.5rem; position: absolute; right: 0; top: -1px; opacity: .7; font-size: 0; padding: 5px 6px; }
 span.status:hover { background: #FFF; color: #555; opacity: .9; }
 #nav-tabs span.status { top: .5rem; }
-#ville-projet span.status { top: .5rem; right: .5rem; }
+#ville-projet span.status { top: 1rem; right: .75rem;}
+#ville-projet span.status::after{ vertical-align: top; }
 span.status::before, div.status::after, li.status::after{
 	padding-left: 3px;
 	font-size: .75rem;
@@ -488,8 +489,8 @@ span.status-label{ margin-right: .25rem; }
 section.administration {
 	font-size: .75rem;
 	color: #999;
-	margin-bottom: 1em;
-	margin-top: 1em;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
 }
 section.page-standard section.administration {
 	margin-top: 0;
