@@ -1,9 +1,7 @@
 
 <span class="moderation">
-
     <form action='#ENV{action}' method='post' class="inline">
     #ACTION_FORMULAIRE{#ENV{action}}
-
         [(#ENV{role}|=={0minirezo}|oui)
             <div class="select-menu" data-original="[(#ENV{statut}|oui)[(#STATUT)]]">
                 <span class="status-label">Statut : </span>

@@ -165,7 +165,7 @@ $( document ).ready(function() {
 
 	/* ----- gestion des onglets (tab) ---- */
 
-	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) {
+	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { // les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
 
 		$("#nav-tabs li a").click(function(e) {
 			console.log('yop')

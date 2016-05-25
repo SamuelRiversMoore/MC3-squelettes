@@ -36,9 +36,6 @@ div.dashboard ul li>span{
 	width:25%;
 	vertical-align: top;
 }
-.tabs-wrapper table tr .status{
-	padding: 0;
-}
 .tabs-wrapper table tr .status::before, .tabs-wrapper table tr .status::after{
 	vertical-align: baseline;
 }
@@ -344,7 +341,7 @@ span.status, li.status{
 }
 div.status{ display: inline-block; margin-right: .25rem;}
 
-li.status{ padding: 7px 6px; height: 28px; }
+li.status{ height: 28px; }
 span.status { height: 1.5rem; position: absolute; right: 0; top: -1px; opacity: .7; font-size: 0; padding: 5px 6px; }
 span.status:hover { background: #FFF; color: #555; opacity: .9; }
 #nav-tabs span.status { top: .5rem; }
@@ -501,6 +498,30 @@ section.administration .diaporama{
 section.thematique-document section.administration{
 	margin-top: 0;
 	margin-bottom: 1.5em;
+}
+td.personne{
+	position: relative;
+}
+td.personne>section.administration .bouton.modifier{
+	padding-right: .25rem;
+    margin-right: .25rem;
+}
+td.personne>section.administration{
+	margin: 0;
+    display: inline-block;
+}
+td.personne>section.administration .moderation{
+	margin-right: 0;
+}
+td.personne>section.administration .select-menu ul{
+	left: -.5rem;
+}
+td.personne>section.administration .select-menu .status-label,
+td.personne>section.administration .select-title .status::after{
+	display: none;
+}
+td.personne>section.administration .select-title .status{
+	margin-right: 0;
 }
 .modal {
 	position: fixed;
