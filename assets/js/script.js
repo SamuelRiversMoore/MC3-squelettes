@@ -165,9 +165,10 @@ $( document ).ready(function() {
 
 	/* ----- gestion des onglets (tab) ---- */
 
-	if (!$('body').hasClass('logged')) {
+	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) {
 
 		$("#nav-tabs li a").click(function(e) {
+			console.log('yop')
 			e.preventDefault();
 			history.pushState({ path: this.path }, '', this.href);
 			var $inventaireMenu = $(this).closest('#nav-tabs');

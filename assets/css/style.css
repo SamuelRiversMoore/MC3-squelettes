@@ -42,7 +42,7 @@ footer, header, hgroup, main, nav, section, summary {
 
 body, html {
 	font-size: 16px;
-	line-height: 1.2em;
+	line-height: 1.25em;
 }
 html {
 	height: 101%;
@@ -1063,7 +1063,20 @@ table td:first-child {
 }
 table td:last-child {
 }
-
+#sorttable_sortfwdind, #sorttable_sortrevind{
+	display: inline-block;
+	font: normal normal normal .75rem FontAwesome;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin-left: .5rem;
+}
+#sorttable_sortfwdind::after{
+	content:"\f0d7";
+}
+#sorttable_sortrevind::after{
+	content:"\f0d8";
+}
 
 /*-------------- Journal ------------*/
 section.journal {
