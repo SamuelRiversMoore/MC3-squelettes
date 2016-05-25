@@ -85,7 +85,6 @@ div.compte ul li h3{
 	right: 0;
 	bottom: 0;
 	padding: 1.25rem;
-	text-align: left;
 	font-size: 1rem;
 	border: 1px solid #cdcdcd;
 	display: none;
@@ -560,7 +559,7 @@ section.administration .meta>span.icon::before{
 
 
 section.edition textarea, section.edition input[type="text"], section.edition input[type="date"] {
-	padding : 0.5rem;
+	padding: 0.5rem;
 	font-size: 1rem;
 	font-family: "karmilla";
 	border: 1px solid #CDCDCD;

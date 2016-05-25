@@ -148,7 +148,7 @@ h6, .h6 {
     font-weight: bold;
 }
 .discret {
-	color: #989898;
+	color: #999;
 	font-family: 'Inconsolata';
 }
 .small{
@@ -1130,9 +1130,58 @@ article.apropos{
 /*----------  LOGIN  ----------*/
 
 #formulaire_login{
-
+	max-width: 20rem;
 }
-
+#formulaire_login fieldset{
+	margin-bottom: .5rem;
+}
+#formulaire_login legend{
+	display: none;
+}
+#formulaire_login label{
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    color: #999;
+    font-weight: normal;
+}
+#formulaire_login label:not(.nofx){
+    display: block;
+}
+#formulaire_login .editer_login, #formulaire_login .editer_password{
+	margin-bottom: 1.5rem;
+	position: relative;
+}
+#formulaire_login #pass_securise{
+    position: absolute;
+    top: 2.35rem;
+    right: .5rem;
+    opacity: .75;
+}
+#formulaire_login .details{
+	color: #999;
+	font-size: .75rem;
+	text-align: right;
+	line-height: 1.2em;
+	margin-top: .5rem;
+}
+input[type="text"], input[type="password"] {
+	width: 100%;
+	padding: 0.5rem;
+	font-size: 1rem;
+	font-family: "karmilla";
+	border: 1px solid #CDCDCD;
+}
+#formulaire_login .boutons input{
+	font-family: "karmilla";
+	font-size: 1rem;
+	font-weight: normal;
+	border-radius: .25rem;
+	text-align: center;
+	cursor: pointer;
+	padding: .5rem 1rem;
+	background: #23DD3A;
+	color: #fff;
+}
 
 /*----------  Responsiveness  ----------*/
 

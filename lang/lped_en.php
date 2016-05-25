@@ -1,6 +1,7 @@
 <?php
 $GLOBALS[$GLOBALS['idx_lang']] = array(
     
+    'connexion' => 'Log in',
     'nouvelles' => 'News',
     'nouvelle' => 'News',
     'dernieres_nouvelles' => 'Fresh news',
