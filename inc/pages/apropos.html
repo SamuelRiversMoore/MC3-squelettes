@@ -1,39 +1,45 @@
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
 	<div id="contenu" class="wrapper">
 		<div id="arbo">
-			<a href="[(#URL_SITE_SPIP|parametre_lang)]">#NOM_SITE_SPIP</a> >
-			<span class="arbo-current-page">
-				[ (#ENV{lang}|=={fr}|oui)#TITRE ]
-				[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-			</span>
-		</div>
+            <a href="[(#URL_SITE_SPIP|parametre_lang)]">#NOM_SITE_SPIP</a> >
+            <span class="arbo-current-page">
+                [ (#ENV{lang}|=={fr}|oui)#TITRE ]
+                [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+            </span>
+        </div>
 
 		<section class="page-standard">
 			<article class="texte-courant">
-				<header>
-					<h1>
-						[ (#ENV{lang}|=={fr}|oui)#TITRE ]
-						[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-					</h1>
-					<h5>&nbsp;</h5>
 
-					<div class="grid-2 cf">
-						<div>
-							<BOUCLE_article(ARTICLES){id_rubrique}{par num titre}>
-								<article class="apropos">
-									<h2>
-										[ (#ENV{lang}|=={fr}|oui)#TITRE ]
-										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-									</h2>
-									[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
-									[ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
-									[ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
-								</article>
-							</BOUCLE_article>
-						</div>
+				<h1>
+                    [ (#ENV{lang}|=={fr}|oui)#TITRE ]
+                    [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+                </h1>
+				<h5>&nbsp;</h5>
+
+				<div class="grid-2 cf">
+
+					<div>
+
+						<BOUCLE_article(ARTICLES) {id_rubrique} {par num titre}>
+							<article class="apropos">
+								<h2>
+	                  [ (#ENV{lang}|=={fr}|oui)#TITRE ]
+	                  [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+	              </h2>
+
+								[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
+
+                [ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
+                [ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
+							</article>
+						</BOUCLE_article>
 					</div>
-				</header>
+				</div>
+
 			</article>
 		</section>
+
+
 	</div>
 </BOUCLE_rubrique>
