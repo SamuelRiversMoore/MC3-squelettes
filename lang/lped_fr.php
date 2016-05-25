@@ -23,6 +23,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'anglais' => 'Anglais',
     'erreur' => 'Erreur',
     'enregistrer' => 'Enregistrer',
+    'proposer' => 'Proposer à la publication',
     'valider' => 'Valider',
     'oui' => 'Oui',
     'non' => 'Non',

@@ -22,6 +22,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'francais' => 'French',
     'anglais' => 'English',
     'enregistrer' => 'Save',
+    'proposer' => 'Propose for publication'
     'valider' => 'Confirm',
     'oui' => 'Yes',
     'non' => 'No',

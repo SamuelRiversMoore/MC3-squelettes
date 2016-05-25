@@ -1,6 +1,5 @@
 #SET{statut, #ARRAY{1,prepa,2,prop,3,publie,4,refuse,5,poubelle} }
 [ (#SESSION{statut}|non) #SET{statut, publie}  ] 
-
 <B_pays>
 	<ul class="tree pays">
 		<BOUCLE_pays (PAYS) {statut IN #GET{statut}, {icon IN #GET{staticon}} {par nom_fr}>

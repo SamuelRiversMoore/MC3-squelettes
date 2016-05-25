@@ -869,8 +869,8 @@ section.reseaux .tabs-wrapper article {
     text-align: center;
    	letter-spacing: .03em;
    	text-decoration: none;
-   	background: #E4E0D3 none repeat scroll 0% 0%;
-    color: #A9A9A9;
+   	background: #D8D4C8 none repeat scroll 0% 0%;
+    color: #A5A39C;
 }
 .fichier.petit{ font-size: .625rem; }
 .fichier.moyen{ font-size: 1rem; }
@@ -903,7 +903,7 @@ section.reseaux .tabs-wrapper article {
 	height: 0;
 	width: 0;
 	display: block;
-    border-color: #CECCC5 transparent;
+    border-color: #C1BDAE transparent;
 }
 .fichier.pdf{
 	background: #FFC200 none repeat scroll 0% 0%;

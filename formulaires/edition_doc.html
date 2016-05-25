@@ -15,7 +15,7 @@
 			[(#FICHIER|oui)
 				<section class="row">
 					<div class="affichage-document">
-						<div class="gros fichier #EXTENSION"></div>
+						<div class="gros fichier #EXTENSION">#EXTENSION</div>
 						<div class="document-nom">[(#FICHIER|basename)]</div>
 					</div>
 				</section>
@@ -80,7 +80,7 @@
 				<section class="row">
 					<div class="input-block demi">
 						<header><:lped:document_date:></header>
-						<input type="date"  name="date_document" value="#ENV{date_document}"/>
+						<input type="text"  name="date_document" value="#ENV{date_document}"/>
 					</div>
 					<div class="input-block demi">
 						<header><:lped:document_reference:></header>
@@ -101,7 +101,7 @@
 						</div>
 						<div class="input-block demi">
 							<header><:lped:resume_date:></header>
-							<input type="date"  name="date_resume" value="#ENV{date_resume}"/>
+							<input type="text"  name="date_resume" value="#ENV{date_resume}"/>
 						</div>
 					</div>
 				</section>

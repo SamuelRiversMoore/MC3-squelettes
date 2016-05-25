@@ -34,10 +34,10 @@ $( document ).ready(function() {
 					reader.readAsDataURL(this.files[0]);
 				}
 				if (file.type.match('application/pdf') || file.name.match('\.pdf')) {
-					$('#inputImg').html('<span class="gros fichier pdf"></span>');
+					$('#inputImg').html('<span class="gros fichier pdf">PDF</span>');
 				}
 				if (file.type.match('application/msword') || file.type.match('application\/.*officedocument') || file.name.match('\.doc') ) {
-					$('#inputImg').html('<span class="gros fichier doc"></span>');
+					$('#inputImg').html('<span class="gros fichier doc">DOC</span>');
 				}
 			} else {
 				label.innerHTML = labelVal;
