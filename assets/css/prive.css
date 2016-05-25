@@ -547,7 +547,7 @@ section.administration .modification, section.administration .moderation{
 	margin-right: .5rem;
 }
 section.administration .meta{
-	margin-bottom: 3px;
+	display: inline-block;
 }
 section.administration .meta>span:not(.moderation){
 	vertical-align: middle;

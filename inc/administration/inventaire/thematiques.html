@@ -1,9 +1,10 @@
 <section class="administration">
     <BOUCLE_thematiques (THEMATIQUES) {id_thematique} {tout}>
-        <div class="meta">
-            <a class="bouton moyen modifier icon fa-pencil" alt="<:lped:thematique_modifier:>" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_thematique}|parametre_url{thematique, #ID_THEMATIQUE}|parametre_url{document, ''})]"><:lped:editer:>[(#AFFICHER|=={thematique_ok}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui)<span class="message ok icon fa-check"></span>]</a>
+        <a class="bouton moyen modifier icon fa-pencil" alt="<:lped:thematique_modifier:>" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_thematique}|parametre_url{thematique, #ID_THEMATIQUE}|parametre_url{document, ''})]"><:lped:editer:>[(#AFFICHER|=={thematique_ok}|et{#THEMATIQUE|=={#ID_THEMATIQUE}}|oui)<span class="message ok icon fa-check"></span>]</a>
 
-            [(#FORMULAIRE_MODERATION_OBJET{thematiques,thematique,#ID_THEMATIQUE})]
+        [(#FORMULAIRE_MODERATION_OBJET{thematiques,thematique,#ID_THEMATIQUE})]
+
+        <div class="meta">
             <span class="icon fa-calendar-o" alt="<:lped:creation:>" title="<:lped:creation:>">[(#DATE|affdate)]</span>
             <span class="icon fa-pencil-square-o" alt="<:lped:modification:>" title="<:lped:modification:>">[(#MAJ|affdate)]</span>
             <span class="auteurs icon fa-user" alt="<:lped:contributeurs:>" title="<:lped:contributeurs:>">

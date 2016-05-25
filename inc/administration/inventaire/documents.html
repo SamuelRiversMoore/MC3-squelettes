@@ -1,12 +1,12 @@
 <section class="administration">
 	<BOUCLE_documents (DOCUMENTS) {id_document} {tout}>
+		[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={#ID_DOCUMENT}}|non)
+			<a class="bouton moyen modifier icon fa-pencil" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_document}|parametre_url{document, #ID_DOCUMENT})]"><:lped:editer:></a>
+		]
+
+		[(#FORMULAIRE_MODERATION_OBJET{documents,document,#ID_DOCUMENT})]
+		
 		<div class="meta">
-			[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={#ID_DOCUMENT}}|non)
-				<a class="bouton moyen modifier icon fa-pencil" href="[(#SELF|parametre_lang|parametre_url{afficher, editer_document}|parametre_url{document, #ID_DOCUMENT})]"><:lped:editer:></a>
-			]
-
-			[(#FORMULAIRE_MODERATION_OBJET{documents,document,#ID_DOCUMENT})]
-
 			<span class="icon fa-calendar-o" alt="<:lped:creation:>" title="<:lped:creation:>">[(#DATE|affdate)]</span>
 			<span class="icon fa-pencil-square-o" alt="<:lped:modification:>" title="<:lped:modification:>">[(#MAJ|affdate)]</span>
 			<span class="auteurs icon fa-user" alt="<:lped:contributeurs:>" title="<:lped:contributeurs:>">

@@ -1,9 +1,10 @@
 <BOUCLE_pays (PAYS) {id_pay} {tout}>
 	<section class="administration">
-		<div class="meta">
-			<a class="bouton moyen modifier icon fa-pencil" alt="<:lped:pays_modifier:>" href="[(#URL_PAY|parametre_lang|parametre_url{afficher, editer_pays})]"><:lped:editer:>[(#AFFICHER|=={pays_ok}|oui)<span class="message ok icon fa-check"></span>]</a>
+		<a class="bouton moyen modifier icon fa-pencil" alt="<:lped:pays_modifier:>" href="[(#URL_PAY|parametre_lang|parametre_url{afficher, editer_pays})]"><:lped:editer:>[(#AFFICHER|=={pays_ok}|oui)<span class="message ok icon fa-check"></span>]</a>
 
-			[(#FORMULAIRE_MODERATION_OBJET{pays,pay,#ID_PAY})]
+		[(#FORMULAIRE_MODERATION_OBJET{pays,pay,#ID_PAY})]
+
+		<div class="meta">
 			<span class="icon fa-calendar-o" alt="<:lped:creation:>" title="<:lped:creation:>">[(#DATE|affdate)]</span>
 			<span class="icon fa-pencil-square-o" alt="<:lped:modification:>" title="<:lped:modification:>">[(#MAJ|affdate)]</span>
 			<span class="auteurs icon fa-user" alt="<:lped:contributeurs:>" title="<:lped:contributeurs:>">
