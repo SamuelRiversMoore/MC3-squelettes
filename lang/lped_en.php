@@ -51,7 +51,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'chapitres' => 'Chapters',
     'documents' => 'Documents',
     'images' => 'Pictures',
-
     
     'pays_nom' => 'Country\'s name',
     'pays_erreur_champs' => 'Please fill one of the inputs',
@@ -91,7 +90,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'projet_documents' => 'Diaporama',
 
     'article_modifier' => 'Edit',
-    'article_ajouter' => 'New article',
+    'article_ajouter' => 'Write a new article',
     'article_ajouter_image' => 'Add a picture',
     'article_titre' => 'Title',
     'article_texte_fr' => 'Content in french',
@@ -99,6 +98,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'article_edition_titre' => 'Article',
     'article_chapo_fr' => 'Opening paragraph in french',
     'article_chapo_en' => 'Opening paragraph',
+
+    'nouvelle_modifier' => 'Edit',
+    'nouvelle_ajouter' => 'Write some news',
+    'nouvelle_ajouter_image' => 'Add a picture',
+    'nouvelle_titre' => 'News title',
+    'nouvelle_texte_fr' => 'Content in french',
+    'nouvelle_texte_en' => 'Content',
+    'nouvelle_edition_titre' => 'News',
+    'nouvelle_chapo_fr' => 'Opening paragraph in french',
+    'nouvelle_chapo_en' => 'Opening paragraph',
 
     'document_modifier' => 'Edit this article',
     'document_ajouter' => 'Add a document',

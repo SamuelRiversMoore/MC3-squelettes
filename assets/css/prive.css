@@ -308,9 +308,13 @@ input.switchlang:checked + label>span:last-child, input.switchlang:not(:checked)
 h1.inline{ margin-right: .25rem; }
 
 
+body.logged .liste-articles .billet h4, 
+body.logged .journal>article h4, 
+body.logged .nouvelles>article h4, 
 body.logged a.item {
 	padding-right: 2rem !important;
 }
+
 .tabs-wrapper #nav-tabs li.new a.bouton{
 	margin: 0;
 	border-radius: 0 0 .25rem .25rem;
@@ -390,7 +394,7 @@ span.status.poubelle.fr::before, div.status.poubelle.fr::after, li.status.poubel
 span.status.poubelle.en::before, div.status.poubelle.en::after, li.status.poubelle.en::after{ content:"trash"; }
 
 span.status-label{ margin-right: .25rem; }
-
+.discret .status{ margin: 0; }
 
 .boutons{ display: block; width: 100%; font-size: 0;}
 .boutons.right{ text-align: right; }
@@ -412,7 +416,6 @@ span.status-label{ margin-right: .25rem; }
 	text-align: center;
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
-
 
 .bouton.modifier{
 	border-radius: 0;
@@ -446,9 +449,13 @@ span.status-label{ margin-right: .25rem; }
 .bouton.ajouter.interne{
 	background: #88ABC1;
 }
-.bouton.ajouter.externe{
+.bouton.ajouter.externe, .bouton.ajouter.article{
 	background: #FFC200;
 }
+.bouton.ajouter.article{
+	margin-bottom: 1rem;
+}
+
 #menu .bouton.ajouter.pays{
 	background: rgb(226, 223, 215);
 	margin: .5rem 0 .25rem;
@@ -476,11 +483,6 @@ span.status-label{ margin-right: .25rem; }
 	background: none;
 }
 
-.auteurs .auteur { /* border-bottom: 1px solid #ddd; */ position: relative; margin-right: 5px;}
-.auteurs .auteur::after {position: absolute; right: -3px;}
-.auteurs .auteur:nth-last-child(2){margin-right: 17px;}
-.auteurs .auteur:not(:last-child)::after{content:', '; line-height: 1.25rem;}
-.auteurs .auteur:nth-last-child(2)::after{content:' \& '; right: -15px; line-height: 1.25rem;}
 
 
 
@@ -563,6 +565,7 @@ section.edition textarea, section.edition input[type="text"], section.edition in
 	font-size: 1rem;
 	font-family: "karmilla";
 	border: 1px solid #CDCDCD;
+	line-height: 1.25rem;
 }
 
 section.edition textarea {
