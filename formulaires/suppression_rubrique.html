@@ -3,10 +3,10 @@
 	[<p class="message erreur">(#ENV*{message_erreur})</p>]
 
 
-	<form method='post' action='#ENV{action}' enctype='multipart/form-data'><div>
+	<form method='post' action='#ENV{action}' enctype='multipart/form-data' class="inline">
         #ACTION_FORMULAIRE{#ENV{action}}
 
         [<p class="message erreur">(#ENV**{erreurs}|table_valeur{'formulaire'})</p>]
 
-        <input type='submit' class='submit' value='<:bouton_question_supprimer:>' />
+        <input type='submit' class='submit moyen bouton supprimer' value='<:lped:bouton_question_supprimer:>' />
 	</form>

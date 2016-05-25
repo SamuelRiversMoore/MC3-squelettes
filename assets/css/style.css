@@ -191,6 +191,9 @@ img.insertion{
 .hidden{
 	display: none;
 }
+button{
+	cursor: pointer;
+}
 
 /*----------  Footer ----------*/
 #footer {

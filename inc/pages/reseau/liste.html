@@ -8,7 +8,6 @@
 				<th>Fonction</th>
 				<th>Société</th>
 				<th>Pays </th>
-
 			</tr>
 		</thead>
 		<tbody>
@@ -28,8 +27,8 @@
 </B_personne>
 
 [(#AUTORISER{creer,personne}|oui)
-		<a href="[(#SELF|parametre_url{afficher,'nouvelle_personne'}|parametre_url{cible,#ID_RUBRIQUE})]"> <:lped:personne_ajouter:> </a>
-		[(#AFFICHER|=={nouvelle_personne}|et{#CIBLE|=={#ID_RUBRIQUE}}|oui) <section class="administration">[(#FORMULAIRE_EDITION_PERSONNE{'new',#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,''}|parametre_url{cible,''})]})] </section> ]
+	<a class="bouton gros ajouter" href="[(#SELF|parametre_url{afficher,'nouvelle_personne'}|parametre_url{cible,#ID_RUBRIQUE})]"> <:lped:personne_ajouter:> </a>
+	[(#AFFICHER|=={nouvelle_personne}|et{#CIBLE|=={#ID_RUBRIQUE}}|oui) <section class="administration">[(#FORMULAIRE_EDITION_PERSONNE{'new',#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,''}|parametre_url{cible,''})]})] </section> ]
 ]
 
 
@@ -45,6 +44,6 @@
 </BOUCLE_institution>
 
 [(#AUTORISER{creer,institution}|oui)
-		<a href="[(#SELF|parametre_url{afficher,'nouvelle_institution'}|parametre_url{cible,#ID_RUBRIQUE})]"> <:lped:institution_ajouter:> </a>
+		<a class="bouton gros ajouter" href="[(#SELF|parametre_url{afficher,'nouvelle_institution'}|parametre_url{cible,#ID_RUBRIQUE})]"> <:lped:institution_ajouter:> </a>
 		[(#AFFICHER|=={nouvelle_institution}|et{#CIBLE|=={#ID_RUBRIQUE}}|oui) <section class="administration">[(#FORMULAIRE_EDITION_INSTITUTION{'new',#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,''}|parametre_url{cible,''})]})] </section> ]
 ]

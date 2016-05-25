@@ -417,14 +417,16 @@ span.status-label{ margin-right: .25rem; }
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 
-.bouton.modifier{
+.bouton.modifier, .bouton.supprimer{
 	border-radius: 0;
 	display: inline-block;
 	vertical-align: middle;
 	font-size: .85rem;
 	padding: 0 .25rem;
 	height: 1.25rem;
+	background: transparent;
 }
+.bouton.supprimer{padding-left:0;}
 .bouton.modifier:not(:last-child){
 	border-right: 1px solid #bbb;
 	padding-right: .65rem;
