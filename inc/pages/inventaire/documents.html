@@ -29,14 +29,14 @@
 	[(#REM) si on a le droit de voir le document ]
 	[(#AUTORISER{voir,document,#ID_DOCUMENT}|oui)
 		<section class="thematique-document">
-			[(#REM) on affiche le panneau d'administration du document ]
-			[(#AUTORISER{modifier,document,#ID_DOCUMENT}|oui) <INCLURE{fond=inc/administration/inventaire/documents, id_document, afficher, document, thematique} /> ]
+			<div class="thematique-document-header">
+				[(#REM) on affiche le panneau d'administration du document ]
+				[(#AUTORISER{modifier,document,#ID_DOCUMENT}|oui) <INCLURE{fond=inc/administration/inventaire/documents, id_document, afficher, document, thematique} /> ]
 
-			[(#REM) si on édite pas le doc alors on affiche ses infos ]
-			[(#AFFICHER|=={editer_document}|et{#DOCUMENT|=={#ID_DOCUMENT}}|non)
+				[(#REM) si on édite pas le doc alors on affiche ses infos ]
 				<div class="thematique-document-fichiers">
 					<a href="#URL_DOCUMENT" class="gros fichier #EXTENSION" target="_blank">
-						<div class="titre-doc">[(#TITRE)]</div>
+						#EXTENSION
 					</a>
 				</div>
 
@@ -47,13 +47,13 @@
 						(#AUTEUR)<br /> [(#DATE_DOCUMENT)] [<br /><span class="small">(#REFERENCE|sinon{#FICHIER|basename})</span>]
 					</p>
 				</div>]
+			</div>
+			
+			<div class="thematique-document-description"> [(#DESCRIPTIF|liens_ouvrants)] </div>
 
-				<div class="thematique-document-description"> [(#DESCRIPTIF|liens_ouvrants)] </div>
-
-				[<div class="thematique-document-meta">
-				  <p class="discret"> (#AUTEUR_RESUME) <br /> [(#DATE_RESUME)] </p>
-				</div>]
-			]
+			[<div class="thematique-document-meta">
+			  <p class="discret"> (#AUTEUR_RESUME) <br /> [(#DATE_RESUME)] </p>
+			</div>]
 		</section>
 	]
 

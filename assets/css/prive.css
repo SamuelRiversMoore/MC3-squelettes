@@ -187,9 +187,9 @@ span.select-title{
 span.select-title::after{
 	content:"\f0dc";
 	font: normal normal normal 10px/1 FontAwesome;
-	width: .85rem;
-	height: .85rem;
-	line-height: .85rem;
+	width: .75rem;
+	height: .75rem;
+	line-height: 1rem;
 	display: inline-block;
 	text-align: center;
 	vertical-align: top;
@@ -358,7 +358,7 @@ span.status::after, div.status::before, li.status::before{
 	height: 1rem;
 	display: inline-block;
 	text-align: center;
-	vertical-align: top;
+	vertical-align: baseline;
 }
 
 span.status::before{ display: none; }
@@ -411,14 +411,14 @@ span.status.poubelle.en::before, div.status.poubelle.en::after, li.status.poubel
 .bouton.modifier{
 	border-radius: 0;
 	display: inline-block;
-	vertical-align: baseline;
+	vertical-align: middle;
 	font-size: .85rem;
 	padding: 0 .25rem;
 	height: 1.25rem;
 }
 .bouton.modifier:not(:last-child){
 	border-right: 1px solid #bbb;
-	padding-right: .5rem;
+	padding-right: .65rem;
 	margin-right: .5rem;
 }
 .bouton.modifier:not(:first-child){
@@ -497,7 +497,8 @@ section.page-standard .meta, section.page-standard .modification{
 	vertical-align: middle;
 }
 section.thematique-document section.administration{
-	margin-bottom: 2.5em;
+	margin-top: 0;
+	margin-bottom: 1.5em;
 }
 .modal {
 	position: fixed;
@@ -537,6 +538,7 @@ section.thematique-document section.administration{
 section.administration .modification, section.administration .moderation{
 	display: inline-block;
 	vertical-align: middle;
+	margin-right: .25rem;
 }
 section.administration .meta{
 	margin-bottom: 3px;
@@ -651,7 +653,6 @@ section.edition .affichage-document{
 }
 section.edition .affichage-document .fichier{
 	display: inline-block;
-
 }
 
 section.edition .diaporama{
