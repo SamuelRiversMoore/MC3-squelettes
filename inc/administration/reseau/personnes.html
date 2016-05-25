@@ -3,14 +3,14 @@
 
         [(#FORMULAIRE_MODERATION_OBJET{personnes,personne,#ID_PERSONNE})]
 
-        [(#AFFICHER|=={personne_ok}|et{#CIBLE|=={#ID_PERSONNE}}|oui)<span class="message ok icon fa-check"></span>]
+        [(#AFFICHER|=={personne_ok}|et{#CIBLE|=={#ID_PERSONNE}}|oui)<p class="message ok"><:lped:enregistrement_ok:></p>]
 
         [(#AFFICHER|=={editer_personne}|et{#CIBLE|=={#ID_PERSONNE}}|oui)
              [(#FORMULAIRE_EDITION_PERSONNE{#ID_PERSONNE,'',[(#SELF|parametre_url{'afficher','personne_ok'}|parametre_url{cible,#ID_PERSONNE})]})]
         ]
 
         [(#AFFICHER|=={editer_personne}|et{#CIBLE|=={#ID_PERSONNE}}|non)
-            <a class="bouton moyen modifier" href="[(#SELF|parametre_url{afficher, editer_personne}|parametre_url{cible,#ID_PERSONNE})]"><:lped:personne_modifier:></a>
+            <a class="bouton prive" href="[(#SELF|parametre_url{afficher, editer_personne}|parametre_url{cible,#ID_PERSONNE})]"><:lped:personne_modifier:></a>
         ]
 
     </BOUCLE_personne>

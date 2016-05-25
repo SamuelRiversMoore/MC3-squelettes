@@ -4,7 +4,7 @@
             <h3>
                 [ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
                 [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-                [(#SESSION{statut}|oui)<span class='status [(#STATUT)]'> [(#STATUT)]</span>]
+                [(#SESSION{statut}|oui) #STATUT ]
             </h3>
                 [ (#ENV{lang}|=={fr}|oui) [ (#CHAPO) ] ]
                 [ (#ENV{lang}|=={en}|oui) [ (#CHAPO_EN|sinon{#CHAPO}) ] ]

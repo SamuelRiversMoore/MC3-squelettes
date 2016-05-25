@@ -3,14 +3,14 @@
 
         [(#FORMULAIRE_MODERATION_OBJET{institutions,institution,#ID_INSTITUTION})]
 
-        [(#AFFICHER|=={institution_ok}|et{#CIBLE|=={#ID_INSTITUTION}}|oui)<span class="message ok icon fa-check"></span>]
+        [(#AFFICHER|=={institution_ok}|et{#CIBLE|=={#ID_INSTITUTION}}|oui)<p class="message ok"><:lped:enregistrement_ok:></p>]
 
         [(#AFFICHER|=={editer_institution}|et{#CIBLE|=={#ID_INSTITUTION}}|oui)
              [(#FORMULAIRE_EDITION_INSTITUTION{#ID_INSTITUTION,'',[(#SELF|parametre_url{'afficher','institution_ok'}|parametre_url{cible,#ID_INSTITUTION})]})]
         ]
 
         [(#AFFICHER|=={editer_institution}|et{#CIBLE|=={#ID_INSTITUTION}}|non)
-            <a class="bouton moyen modifier" href="[(#SELF|parametre_url{afficher, editer_institution}|parametre_url{cible,#ID_INSTITUTION})]"><:lped:institution_modifier:></a>
+            <a class="bouton prive" href="[(#SELF|parametre_url{afficher, editer_institution}|parametre_url{cible,#ID_INSTITUTION})]"><:lped:institution_modifier:></a>
         ]
 
     </BOUCLE_institution>
