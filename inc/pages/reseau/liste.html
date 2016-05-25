@@ -37,7 +37,7 @@
 	[(#AUTORISER{voir,institution,#ID_INSTITUTION}|oui)
 		<div class="bloc-membre">
 			[(#AUTORISER{modifier,institution,#ID_INSTITUTION}|oui)	<INCLURE{fond=inc/administration/reseau/institutions, afficher, cible, id_institution} />]
-			<h4>#NOM</h4>[(#SESSION{statut}|oui)<span class='status [(#STATUT)]'> [(#STATUT)]</span>]
+			<h4>#NOM [(#SESSION{statut}|oui) #STATUT]</h4>
 			#DESCRIPTION
 			<p class="membre-url discret"><a href="#LIEN" target="_blank">#LIEN</a></p>
 		</div>

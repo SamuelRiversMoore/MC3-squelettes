@@ -25,7 +25,6 @@
 									<a class="item" href="[(#URL_RUBRIQUE{24}|parametre_lang|parametre_url{rubrique,#ID_RUBRIQUE})]">
 										[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-										[(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
 									</a>
 								</li>
 							</BOUCLE_rubriques>
