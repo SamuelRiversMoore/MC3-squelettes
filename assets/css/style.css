@@ -1036,6 +1036,7 @@ table {
 	border-collapse: separate;
 	border-spacing: 0;
 	width: 100%;
+	margin-bottom: .75rem;
 }
 table thead {
 	background-color: #FFC200;
