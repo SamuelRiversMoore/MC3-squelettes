@@ -41,7 +41,7 @@
 				</B_rubriques>
 
 				<BOUCLE_liste (RUBRIQUES) {id_parent=6} {par num titre} {tout} >
-					<article class="tab texte-courant" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
+					<article class="tab" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
 						<header>
 							<h2>
 								[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]

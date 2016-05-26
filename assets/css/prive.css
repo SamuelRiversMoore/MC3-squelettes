@@ -533,7 +533,7 @@ section.administration.mini .select-title .status{
 }
 .bloc-membre section.administration.mini {
     display: block;
-    margin-bottom: .25rem;
+    margin-bottom: .5rem;
 }
 .modal {
 	position: fixed;

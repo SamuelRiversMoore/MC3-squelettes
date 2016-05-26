@@ -42,7 +42,7 @@ footer, header, hgroup, main, nav, section, summary {
 
 body, html {
 	font-size: 16px;
-	line-height: 1.25em;
+	line-height: 1.3em;
 }
 html {
 	height: 101%;
@@ -161,7 +161,7 @@ ul {
 ul.liste-lettres {
 	list-style-type: upper-alpha;
 }
-h3, p:not(.discret) {
+.texte-courant p {
 	margin-bottom: 1em;
 	line-height: 1.32em;
 }
@@ -443,7 +443,7 @@ ul#menu-footer {
 }
 
 .liste-articles>article, .liste-articles>li, .journal>article, .nouvelles article  {
-	margin-bottom: 3rem;
+	margin-bottom: 2.5rem;
 	position: relative;
 }
 .article-icone {
@@ -476,6 +476,7 @@ ul#menu-footer {
 	text-transform: uppercase;
 	line-height: 1.2em;
 	margin-bottom: .5rem;
+    font-size: 1rem;
 }
 .nouvelles article .discret{
 	margin-top: .5rem;
@@ -1037,6 +1038,14 @@ section.personnes, section.institutions{
 	margin: 0 2rem 2rem 0;
 	display: inline-block;
 	vertical-align: top;
+}
+.bloc-membre h4{
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+.bloc-membre p{
+	margin-bottom: .5rem;
 }
 .sous-rubrique h3{
 	margin: 0;
