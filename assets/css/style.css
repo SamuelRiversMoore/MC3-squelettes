@@ -1173,6 +1173,10 @@ article.apropos{
 
 /*----------  AUTEURS  ----------*/
 
+.auteurs {font-size: 0; }
+.auteurs::before{ font-size: .75rem; }
+.auteur { font-size: .75rem; }
+.discret .auteur{ font-size: .95rem; }
 .auteurs .auteur:not(:last-child)::after{content:', ';}
 .auteurs .auteur:nth-last-child(2)::after{content:' \&\00a0'; }
 

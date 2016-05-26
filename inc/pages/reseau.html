@@ -54,7 +54,7 @@
 							<section class="administration">
 								[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE}) <INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
 								[(#AUTORISER{creer,rubrique}|oui)
-									<a class="petit bouton ajouter" href="[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{afficher,'nouvelle_sous_rubrique'}|parametre_url{rubrique,#_liste:ID_RUBRIQUE})]"> <:lped:sous_rubrique_ajouter:> </a>
+									<a class="petit bouton ajouter icon fa-level-up rotate90" href="[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{afficher,'nouvelle_sous_rubrique'}|parametre_url{rubrique,#_liste:ID_RUBRIQUE})]"> <:lped:sous_rubrique_ajouter:> </a>
 									[(#AFFICHER|=={nouvelle_sous_rubrique}|oui) <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{rubrique,#_liste:ID_RUBRIQUE})],'sous_rubrique'})]</section> ]
 								]
 							</section>

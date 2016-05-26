@@ -586,6 +586,7 @@ section.administration .meta>span:not(.moderation){
 	vertical-align: middle;
 	margin-right: .75rem;
 	display: inline-block;
+	height: 1.25rem;
 }
 section.administration .meta>span.icon::before{
 	margin-right: .25rem;
