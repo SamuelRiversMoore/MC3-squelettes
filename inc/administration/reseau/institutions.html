@@ -1,8 +1,8 @@
-<section class="administration mini">
+<section class="administration">
     <BOUCLE_institution (INSTITUTIONS) {id_institution} {tout}>
 
         [(#AFFICHER|=={editer_institution}|et{#CIBLE|=={#ID_INSTITUTION}}|non)
-            <a class="bouton moyen modifier icon fa-pencil" href="[(#SELF|parametre_url{afficher, editer_institution}|parametre_url{cible,#ID_INSTITUTION})]"></a>
+            <a class="bouton moyen modifier icon fa-pencil" href="[(#SELF|parametre_url{afficher, editer_institution}|parametre_url{cible,#ID_INSTITUTION})]"><:lped:editer:></a>
         ]
 
         [(#FORMULAIRE_MODERATION_OBJET{institutions,institution,#ID_INSTITUTION})]

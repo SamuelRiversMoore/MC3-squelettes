@@ -42,8 +42,8 @@
 		<BOUCLE_institution (INSTITUTIONS) {id_rubrique} {statut IN #GET{statut}} {par statut}>
 			[(#AUTORISER{voir,institution,#ID_INSTITUTION}|oui)
 				<div class="bloc-membre">
-					[(#AUTORISER{modifier,institution,#ID_INSTITUTION}|oui)<INCLURE{fond=inc/administration/reseau/institutions, afficher, cible, id_institution} />]
 					<h4>#NOM</h4>
+					[(#AUTORISER{modifier,institution,#ID_INSTITUTION}|oui)<INCLURE{fond=inc/administration/reseau/institutions, afficher, cible, id_institution} />]
 					<p>#DESCRIPTION</p>
 					<p class="membre-url discret"><a href="#LIEN" target="_blank">#LIEN</a></p>
 				</div>

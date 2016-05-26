@@ -16,7 +16,7 @@ section form select.hiddeninput, .hiddeninput{
 	outline: none;
 	box-shadow: none;
 	border: none;
-	padding: 0;
+	padding: 0 !important;
 	margin: 0;
 	line-height: 0;
 	vertical-align: middle;
@@ -37,7 +37,7 @@ div.dashboard ul li>span{
 	vertical-align: top;
 }
 .tabs-wrapper table tr .status::before, .tabs-wrapper table tr .status::after{
-	vertical-align: baseline;
+	vertical-align: bottom;
 }
 div.compte ul li h3{
 	margin-top:2rem;
@@ -151,6 +151,8 @@ section.edition #inputImg .fichier{
 
 /*----------  SELECT MENU  ----------*/
 .select-menu{
+	margin-left: -0.15rem;
+
 }
 .select-menu ul, .select-menu li{
 	margin: 0;
@@ -161,9 +163,9 @@ section.edition #inputImg .fichier{
 }
 .select-menu .select-options{
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 	position: relative;
-	height: 1.5rem;
+	height: 1.25rem;
 }
 .select-menu ul{
 	background: #fff;
@@ -171,32 +173,30 @@ section.edition #inputImg .fichier{
 	z-index: 99;
 	display: none;
 	box-shadow: 0 0 10px rgba(0,0,0,.4);
-	top: 2rem;
-	left: -.25rem;
+	top: 1.75rem;
+	left: -.5rem;
 	min-width: 7.5rem;
 }
 span.select-title{
 	display: inline-block;
-	padding: .25rem;
 	padding-left: 0;
-	height: 1.5rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
 }
 span.select-title::after{
 	content:"\f0dc";
 	font: normal normal normal 10px/1 FontAwesome;
-	width: .75rem;
-	height: .75rem;
-	line-height: 1rem;
+	width: .5rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
 	display: inline-block;
 	text-align: center;
-	vertical-align: top;
 	color: rgba(0, 0, 0, 0.2);
 }
 span.select-title:hover::after{
 	color: rgba(0, 0, 0, 0.4);
 }
 span.select-title>.status{
-	height: .85rem;
 }
 
 .select-menu .select-title.open + ul::before{
@@ -204,10 +204,10 @@ span.select-title>.status{
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: 1.5rem;
+	left: 1.25rem;
 	top: 0;
 	box-sizing: border-box;
-	border: 6px solid black;
+	border: .3rem solid;
 	border-color: transparent transparent #fff #fff;
 	transform-origin: 0 0;
 	transform: rotate(-225deg);
@@ -336,36 +336,39 @@ span.status, div.status, li.status{
 	font-weight: 300;
 	margin: inherit;
 }
-span.status, li.status{
-	padding: 5px 6px;
+li.status{
+	padding: 4px 6px;
 }
-div.status{ display: inline-block; margin-right: .25rem;}
+div.status{ display: inline-block; margin-right: .25rem; height: 1.25rem; line-height: 1.25rem;}
 
-li.status{ height: 28px; }
-span.status { height: 1.5rem; position: absolute; right: 0; top: -1px; opacity: .7; font-size: 0; padding: 5px 6px; }
+li.status{ height: 1.75rem; }
+span.status { height: 1.5rem; position: absolute; right: 0; top: 0; opacity: .7; font-size: 0; padding: 2px 6px; }
 span.status:hover { background: #FFF; color: #555; opacity: .9; }
-#nav-tabs span.status { top: .5rem; }
+#nav-tabs span.status { top: .55rem; }
 #ville-projet span.status { top: 1rem; right: .75rem;}
 #ville-projet span.status::after{ vertical-align: top; }
 span.status::before, div.status::after, li.status::after{
 	padding-left: 3px;
 	font-size: .75rem;
 	text-transform: uppercase;
-	line-height: 1rem;
+	line-height: 1.25rem;
 }
 span.status::before, li.status::after{
 	vertical-align: top;
 }
-div.status::before{ padding-left:0; vertical-align: baseline;}
+span.status::after, li.status::before{
+	vertical-align: baseline;
+}
+
+div.status::before{ padding-left:0; vertical-align: top;}
 
 span.status::after, div.status::before, li.status::before{
 	font: normal normal normal .85rem/1 FontAwesome;
 	width: 1rem;
-	height: 1rem;
-    line-height: 1rem;
+	height: 1.25rem;
+    line-height: 1.25rem;
 	display: inline-block;
 	text-align: center;
-	vertical-align: baseline;
 }
 
 span.status::before{ display: none; }
@@ -414,7 +417,7 @@ span.status-label{ margin-right: .25rem; }
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 
-.bouton.modifier, .bouton.supprimer, .tab>header .bouton.ajouter{
+.bouton.modifier, .bouton.supprimer, .tab>header .petit.bouton{
 	border-radius: 0;
 	display: inline-block;
 	vertical-align: middle;
@@ -424,14 +427,14 @@ span.status-label{ margin-right: .25rem; }
 	background: transparent;
 	color: rgba(0, 0, 0, 0.5);
 }
-.tab>header .bouton.ajouter{padding-left: 0; vertical-align: middle;}
-input.bouton.supprimer{padding-left:0; vertical-align: top;}
-.bouton.modifier:not(:last-child), .bouton.supprimer:not(:last-child), .tab>header .bouton.supprimer{
+.tab>header .petit.bouton{padding-left: 0; vertical-align: middle;}
+input.bouton.supprimer{padding:0; margin:0; vertical-align: top;}
+.bouton.modifier:not(:last-child), section.administration>form:not(:last-child){
 	border-right: 1px solid #bbb;
 	padding-right: .65rem;
 	margin-right: .5rem;
 }
-.bouton.modifier:not(:first-child), .bouton.supprimer:not(:last-child){
+.bouton.modifier:not(:first-child) {
 	border-left: 1px solid #bbb;
 	padding-left: .5rem;
 	margin-left: .5rem;
@@ -522,7 +525,6 @@ section.administration.mini .select-menu ul{
 section.administration.mini .select-title,
 section.administration.mini .select-options{
 	padding: 0;
-	height: 19px;
 }
 section.administration.mini .select-menu .status-label,
 section.administration.mini .select-title .status::after{
@@ -531,8 +533,9 @@ section.administration.mini .select-title .status::after{
 section.administration.mini .select-title .status{
 	margin-right: 0;
 }
-.bloc-membre section.administration.mini {
+.bloc-membre section.administration {
     display: block;
+    margin-top: 0;
     margin-bottom: .5rem;
 }
 .modal {
@@ -577,6 +580,7 @@ section.administration .modification, section.administration .moderation{
 }
 section.administration .meta{
 	display: inline-block;
+    margin-left: .05rem;
 }
 section.administration .meta>span:not(.moderation){
 	vertical-align: middle;
