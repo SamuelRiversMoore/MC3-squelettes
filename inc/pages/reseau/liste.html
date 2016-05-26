@@ -1,7 +1,7 @@
 #SET{statut, #ARRAY{1,prepa,2,prop,3,publie,4,refuse,5,poubelle} }
 [ (#SESSION{statut}|non) #SET{statut, publie}  ]
 <section class="personnes">
-	<h5>— Personnes</h5>
+	<h5>— <:lped:personnes:></h5>
 	<B_personne>
 		<table class="sortable">
 			<thead>
@@ -37,7 +37,7 @@
 </section>
 
 <section class="institutions">
-	<h5>— Institutions</h5>
+	<h5>— <:lped:institutions:></h5>
 	<div class="insitutions-wrapper">	
 		<BOUCLE_institution (INSTITUTIONS) {id_rubrique} {statut IN #GET{statut}} {par statut}>
 			[(#AUTORISER{voir,institution,#ID_INSTITUTION}|oui)
