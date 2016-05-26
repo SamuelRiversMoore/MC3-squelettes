@@ -414,7 +414,7 @@ span.status-label{ margin-right: .25rem; }
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 
-.bouton.modifier, .bouton.supprimer{
+.bouton.modifier, .bouton.supprimer, .tab>header .bouton.ajouter{
 	border-radius: 0;
 	display: inline-block;
 	vertical-align: middle;
@@ -422,14 +422,16 @@ span.status-label{ margin-right: .25rem; }
 	padding: 0 .25rem;
 	height: 1.25rem;
 	background: transparent;
+	color: rgba(0, 0, 0, 0.5);
 }
-.bouton.supprimer{padding-left:0;}
-.bouton.modifier:not(:last-child){
+.tab>header .bouton.ajouter{padding-left: 0; vertical-align: middle;}
+input.bouton.supprimer{padding-left:0; vertical-align: top;}
+.bouton.modifier:not(:last-child), .bouton.supprimer:not(:last-child), .tab>header .bouton.supprimer{
 	border-right: 1px solid #bbb;
 	padding-right: .65rem;
 	margin-right: .5rem;
 }
-.bouton.modifier:not(:first-child){
+.bouton.modifier:not(:first-child), .bouton.supprimer:not(:last-child){
 	border-left: 1px solid #bbb;
 	padding-left: .5rem;
 	margin-left: .5rem;
@@ -482,15 +484,11 @@ span.status-label{ margin-right: .25rem; }
 	background: none;
 }
 
-
-
-
-
 section.administration {
 	font-size: .75rem;
 	color: #999;
 	margin-bottom: 1rem;
-	margin-top: 1rem;
+	margin-top: .75rem;
 }
 section.administration .diaporama{
 	margin-top: 1rem;
@@ -502,26 +500,40 @@ section.thematique-document section.administration{
 td.personne{
 	position: relative;
 }
-td.personne>section.administration .bouton.modifier{
+td.personne section.administration{
+	margin-left: -.25rem;
+	margin-right: .25rem ;
+}
+section.administration.mini .bouton.modifier{
 	padding-right: .25rem;
     margin-right: .25rem;
 }
-td.personne>section.administration{
+section.administration.mini{
 	margin: 0;
     display: inline-block;
+    vertical-align: top;
 }
-td.personne>section.administration .moderation{
+section.administration.mini .moderation{
 	margin-right: 0;
 }
-td.personne>section.administration .select-menu ul{
+section.administration.mini .select-menu ul{
 	left: -.5rem;
 }
-td.personne>section.administration .select-menu .status-label,
-td.personne>section.administration .select-title .status::after{
+section.administration.mini .select-title,
+section.administration.mini .select-options{
+	padding: 0;
+	height: 19px;
+}
+section.administration.mini .select-menu .status-label,
+section.administration.mini .select-title .status::after{
 	display: none;
 }
-td.personne>section.administration .select-title .status{
+section.administration.mini .select-title .status{
 	margin-right: 0;
+}
+.bloc-membre section.administration.mini {
+    display: block;
+    margin-bottom: .25rem;
 }
 .modal {
 	position: fixed;

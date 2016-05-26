@@ -113,12 +113,12 @@ h2, .h2 {
 	font-weight: normal;
 }
 h3, .h3 {
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	line-height: 1.2em;
 	font-weight: normal;
 }
 h4, .h4 {
-	font-size: 1rem;
+	font-size: 1.25rem;
 	line-height: 1.2em;
 	font-weight: normal;
 }
@@ -161,7 +161,7 @@ ul {
 ul.liste-lettres {
 	list-style-type: upper-alpha;
 }
-h3, p {
+h3, p:not(.discret) {
 	margin-bottom: 1em;
 	line-height: 1.32em;
 }
@@ -748,6 +748,13 @@ figure.slick-slide {
 section.reseaux .tabs-wrapper article {
 	padding-right: 0;
 }
+article.tab header{
+	margin-bottom: 2.5rem;
+}
+article.tab h2{
+	max-width: 40rem;
+	margin-bottom: .75rem;
+}
 
 
 #inventaire-mapbox {
@@ -1022,11 +1029,18 @@ section.reseaux .tabs-wrapper article {
 }
 
 /*--------------- Reseaux -------------*/
+section.personnes, section.institutions{
+	margin-bottom: 2.5rem;
+}
 .bloc-membre {
 	width: 18rem;
 	margin: 0 2rem 2rem 0;
 	display: inline-block;
 	vertical-align: top;
+}
+.sous-rubrique h3{
+	margin: 0;
+	font-weight: bold;
 }
 
 /*-------------- Table membres ------------*/
@@ -1056,10 +1070,13 @@ table td {
 	vertical-align: top;
 	min-width: 100px;
 	border-bottom: 1px solid #FFC200;
+	font-family: "karmilla";
+}
+table td a{
+	text-decoration: none;
 }
 table td:first-child {
 	white-space: nowrap;
-	font-family: "karmilla";
 	font-weight: bold;
 }
 table td:last-child {

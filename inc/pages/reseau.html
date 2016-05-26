@@ -7,12 +7,12 @@
 			[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
 		</span>
 	</div>
-
-		<h1>
-			[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
-			[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-		</h1>
-
+		<header>
+			<h1>
+				[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+				[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+			</h1>
+		</header>
 		<section class="reseaux">
 			<div class="tabs-wrapper">
 				<B_rubriques>
@@ -42,26 +42,43 @@
 
 				<BOUCLE_liste (RUBRIQUES) {id_parent=6} {par num titre} {tout} >
 					<article class="tab texte-courant" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
-						[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE}) <INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
-
-						<INCLURE{fond=inc/pages/reseau/liste, env, id_rubrique} />
-
-						<BOUCLE_sous_liste (RUBRIQUES) {id_parent} {par num titre} {tout}>
+						<header>
 							<h2>
 								[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 								[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
 							</h2>
-							[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE})	<INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
-							<INCLURE{fond=inc/pages/reseau/liste, env, id_rubrique} />
+
+							<section class="administration">
+								[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE}) <INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
+								[(#AUTORISER{creer,rubrique}|oui)
+									<a class="bouton moyen ajouter interne" href="[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{afficher,'nouvelle_sous_rubrique'}|parametre_url{rubrique,#_liste:ID_RUBRIQUE})]"> <:lped:sous_rubrique_ajouter:> </a>
+									[(#AFFICHER|=={nouvelle_sous_rubrique}|oui) <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{rubrique,#_liste:ID_RUBRIQUE})],'sous_rubrique'})]</section> ]
+								]
+							</section>
+						</header>
+
+
+						<INCLURE{fond=inc/pages/reseau/liste, env, id_rubrique} />
+
+						<BOUCLE_sous_liste (RUBRIQUES) {id_parent} {par num titre} {tout}>
+							<section class="sous-rubrique">
+								<header>	
+									<h3>
+										[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+									</h3>
+									<section class="administration">
+										[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE})	<INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
+									</section>
+								</header>
+								<INCLURE{fond=inc/pages/reseau/liste, env, id_rubrique} />
+							</section>
+
 						</BOUCLE_sous_liste>
 
-						[(#AUTORISER{creer,rubrique}|oui)
-							<a class="bouton gros ajouter" href="[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{afficher,'nouvelle_sous_rubrique'}|parametre_url{rubrique,#_liste:ID_RUBRIQUE})]"> <:lped:sous_rubrique_ajouter:> </a>
-							[(#AFFICHER|=={nouvelle_sous_rubrique}|oui) <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{rubrique,#_liste:ID_RUBRIQUE})],'sous_rubrique'})]</section> ]
-						]
 					</article>
 				</BOUCLE_liste>
-				[(#AUTORISER{creer,rubrique}|oui)
+				[(#AUTORISER{creer,rubrique}|oui) <!-- appeller cette partie que si il y une variable "new" ???-->
 					<article class="tab" [(#AFFICHER|=={nouvelle_rubrique}|oui) style="display:block;"]> <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#URL_RUBRIQUE|parametre_lang)]})]</section> </article>
 				]
 			</div>

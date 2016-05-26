@@ -115,15 +115,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
     'rubrique_modifier' => 'Éditer',
     'rubrique_ajouter' => 'Ajouter une rubrique',
-    'rubrique_ajouter_image' => 'Ajouter une image',
     'rubrique_titre' => 'Titre de la rubrique',
-    'rubrique_texte_fr' => 'Contenu de la rubrique',
-    'rubrique_texte_en' => 'Contenu en anglais',
     'rubrique_edition_titre' => 'Edition d\'une rubrique',
     'rubrique_nouveau_titre' => 'Création d\'une rubrique',
-    'rubrique_chapo_fr' => 'Paragraphe d\'introduction',
-    'rubrique_chapo_en' => 'Introduction en anglais',
-    'rubrique_documents' => 'Documents liés',
+
+    'sous_rubrique_modifier' => 'Éditer',
+    'sous_rubrique_ajouter' => 'Ajouter une sous-rubrique',
+    'sous_rubrique_titre' => 'Titre de la sous-rubrique',
+    'sous_rubrique_edition_titre' => 'Edition d\'une sous-rubrique',
+    'sous_rubrique_nouveau_titre' => 'Création d\'une sous-rubrique',
 
     'synthese_modifier' => 'Éditer',
     'synthese_ajouter' => 'Ajouter une synthèse',
