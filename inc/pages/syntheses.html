@@ -47,16 +47,24 @@
 
 				<BOUCLE_liste(RUBRIQUES) {id_parent} {tout} {par num titre} >
 					<article class="tab texte-courant" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
-						<h2>
-							[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
-							[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-						</h2>
-						[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE}) <INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
-						<h5>— Articles</h5>
-						[(#AUTORISER{creer,article}|oui)
-							[(#AFFICHER|=={'nouvel_article'}|oui) <section class="administration">[(#FORMULAIRE_EDITION_ART{'new',#ID_RUBRIQUE} )] </section>  ]
-							[(#AFFICHER|=={'nouvel_article'}|non) <a class="gros bouton ajouter" href="[(#SELF|parametre_url{afficher, nouvel_article})]"><:lped:synthese_ajouter:></a> ]
-						]
+						<header>
+							<h2>
+								[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+								[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+							</h2>
+							<section class="administration">
+								[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE}) <INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
+								[(#AUTORISER{creer,article}|oui)
+									[(#AFFICHER|=={'nouvel_article'}|oui)[(#FORMULAIRE_EDITION_ART{'new',#ID_RUBRIQUE} )]]
+									[(#AFFICHER|=={'nouvel_article'}|non)
+										<a class="moyen bouton ajouter" href="[(#SELF|parametre_url{afficher, nouvel_article})]"><:lped:synthese_ajouter:></a> 
+									]
+								]
+
+							</section>
+						</header>
+
+						<h5>— <:lped:syntheses:></h5>
 						<ul class="syntheses">
 							<BOUCLE_article(ARTICLES) {id_rubrique} {par statut, num titre} {statut IN #GET{statut}}>
 								[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)	<INCLURE{fond=inc/pages/syntheses/apercu, env, id_article} />	]

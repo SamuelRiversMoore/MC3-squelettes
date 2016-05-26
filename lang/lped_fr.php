@@ -12,6 +12,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'dernieres_maj' => 'Mises à jour récentes',
     'rubriques' => 'Rubriques',
     'personnes' => 'Personnes',
+    'syntheses' => 'Synthèses',
     'institutions' => 'Institutions',
 
 
