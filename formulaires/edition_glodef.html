@@ -1,0 +1,15 @@
+[<p class="message erreur">(#ENV*{message_erreur})</p>]
+[<p class="message ok">(#ENV*{message_ok})</p>]
+
+
+[(#EDITABLE|oui)
+    <form action='#ENV{action}' method='post'>
+            #ACTION_FORMULAIRE{#ENV{action}}
+
+            <label for='definition'><:lped:mot_definition:></label>
+            <textarea name='definition'> #ENV{definition} </textarea>
+
+        <input type='submit' name='ok' value='<:lped:enregistrer:>' />
+
+    </form>
+]

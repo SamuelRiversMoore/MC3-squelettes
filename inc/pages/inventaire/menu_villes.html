@@ -5,7 +5,7 @@
 				[(#AUTORISER{voir,ville,#ID_VILLE}|oui)
 					<a class="item" href="[(#URL_VILLE|parametre_lang)]" title="#NOM_FR">
 						<span class="menu-title">[(#ENV{lang}|=={fr}|oui)[(#NOM_FR)]][(#ENV{lang}|=={en}|oui)[(#NOM_EN|sinon{#NOM_FR})]]</span>
-						[(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
+						[(#AUTORISER{modifier,ville,#ID_VILLE}|oui) <span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
 					</a>
 				]
 				[(#EXPOSE|=={on}|oui) <INCLURE{fond=inc/pages/inventaire/menu_projets, afficher, id_pay, id_ville, id_projet=#ENV{id_projet}, statut=#ENV{statut}}>]

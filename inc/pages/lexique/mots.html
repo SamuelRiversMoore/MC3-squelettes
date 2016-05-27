@@ -1,14 +1,27 @@
+#SET{statut, #ARRAY{1,prepa,2,prop,3,publie,4,refuse,5,poubelle} }
+[ (#SESSION{statut}|non) #SET{statut, publie}  ]
+
 <BOUCLE_mot (GLOMOTS) {id_glomot} {tout}>
 
 	<div class="lexique-wrapper">
 		<span class="cible" id="mot-#ID_GLOMOT"></span>
 		<a title="#TITRE" href="#mot-#ID_GLOMOT" class="lexique-titre">#TITRE [(#SESSION{statut}|oui) #STATUT]</a>
 		[(#AUTORISER{modifier,glomot,#ID_GLOMOT}|oui) <INCLURE{fond=inc/administration/lexique/glomots, afficher, id_glomot, glomot} /> ]
-			<BOUCLE_definitions(GLODEFS){id_glomot}>
-				<div class="lexique-definition">
-					<BOUCLE_refs(GLOREFS){id_glodef}><p class="discret">#TITRE</p>[<p class="lexique-reference"><span class="source">SOURCE:</span>(#DESCRIPTION)</p>]</BOUCLE_refs>
-					#DEFINITION
-				</div>
+
+		[(#AUTORISER{creer,glodef}|oui)
+			<a href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouvelle_def'}|parametre_url{mot,#ID_GLOMOT})]"> <:lped:definition_ajouter:> </a>
+			[(#AFFICHER|=={nouvelle_def}|et{#MOT|=={#ID_GLOMOT}}|oui)
+				[(#FORMULAIRE_EDITION_GLODEF{'new',#ID_GLOMOT,[(#URL_RUBRIQUE)]})]
+			]
+		]
+
+
+			<BOUCLE_definitions (GLODEFS) {id_glomot} {statut IN #GET{statut}}>
+				[(#AUTORISER{voir,glodef,#ID_GLODEF}|oui)
+					<div class="lexique-definition">
+						<INCLURE{fond=inc/pages/lexique/definitions, env, id_glodef}>
+					</div>
+				]
 			</BOUCLE_definitions>
 	</div>
 </BOUCLE_mot>
