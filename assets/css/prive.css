@@ -152,7 +152,6 @@ section.edition #inputImg .fichier{
 /*----------  SELECT MENU  ----------*/
 .select-menu{
 	margin-left: -0.15rem;
-
 }
 .select-menu ul, .select-menu li{
 	margin: 0;
@@ -168,7 +167,7 @@ section.edition #inputImg .fichier{
 	height: 1.25rem;
 }
 .select-menu ul{
-	background: #fff;
+	background: #ECE8DD;
 	position: absolute;
 	z-index: 99;
 	display: none;
@@ -208,15 +207,15 @@ span.select-title>.status{
 	top: 0;
 	box-sizing: border-box;
 	border: .3rem solid;
-	border-color: transparent transparent #fff #fff;
+	border-color: transparent transparent #ECE8DD #ECE8DD;
 	transform-origin: 0 0;
 	transform: rotate(-225deg);
 	box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 .select-menu input[type="submit"]{margin: 0;}
 .select-menu li, .select-menu .select-title{ cursor: pointer; }
-.select-menu li:hover{ background: #eee; }
-.select-menu li.selected{ background: #ddd; }
+.select-menu li:hover{ background: #AEACA4; }
+.select-menu li.selected{ background: #B8B7AE; }
 .select-menu .select-title.open + ul{ display: block; }
 
 /*----------  INTERRUPTEUR POUR CHANGER DE LANGUE  ----------*/
@@ -404,7 +403,7 @@ span.status-label{ margin-right: .25rem; }
 .boutons.right .bouton:last-child, .boutons.center .bouton:last-child{ margin-right: 0;}
 
 .bouton.gros{ font-size: 1rem; padding: .5rem .75rem; margin-right: .625rem; }
-.bouton.moyen{ font-size: .85rem; padding: .25rem .5rem; margin-right: .625rem;}
+.bouton.moyen{ font-size: .85rem; padding: .25rem .5rem; margin-right: .625rem; line-height: 1rem;}
 .bouton.petit{ font-size: .75rem; background: transparent; margin-right: .5rem;}
 
 .bouton{
@@ -414,6 +413,7 @@ span.status-label{ margin-right: .25rem; }
 	color: rgba(0, 0, 0, 0.5);
 	border-radius: .25rem;
 	text-align: center;
+	cursor: pointer;
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 
@@ -696,29 +696,29 @@ section.edition .affichage-document .fichier{
 	display: inline-block;
 }
 
-section.edition .diaporama{
+.diaporama{
 	font-size: 0;
 	margin-right: -.75rem;
 	margin-left: -.75rem;
 }
-section.edition .diaporama .diapositive{
+.diaporama .diapositive{
 	display: inline-block;
 	font-size: 16px;
 	vertical-align: top;
 	margin: 0 .75rem 1.5rem .75rem;
-	width: 15rem;
-	height: 10rem;
+	width: 12rem;
+	height: 9rem;
 	overflow: hidden;
 	border: 1px solid #999;
 	position: relative;
 }
-section.edition .diaporama .diapositive img{
+.diaporama .diapositive img{
 	display: block;
 	width: 100%;
 	height: auto;
 }
 
-section.edition .diapositive .supprimer{
+.diapositive .supprimer{
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -729,7 +729,7 @@ section.edition .diapositive .supprimer{
 	text-align: center;
 	display: none;
 }
-section.edition .diapositive .supprimer-button{
+.diapositive .supprimer-button{
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -743,53 +743,56 @@ section.edition .diapositive .supprimer-button{
 	color: #fff;
 	cursor: pointer;
 }
-section.edition .diapositive .supprimer-button:hover{
+.diapositive .supprimer-button:hover{
 	opacity: .75;
 }
-section.edition .diapositive.deletemode .supprimer-button{
+.diapositive.deletemode .supprimer-button{
 	display: none;
 }
-section.edition .diapositive.deletemode .supprimer{
+.diapositive.deletemode .supprimer{
 	display: block;
 }
-section.edition .diapositive .supprimer::before{
+.diapositive .supprimer::before{
 	content: "";
 	display: inline-block;
 	height: 100%;
 	width: 0;
 	vertical-align: middle;
 }
-section.edition .diapositive .supprimer>.supprimer-wrap{
+.diapositive .supprimer>.supprimer-wrap{
 	display: inline-block;
 	vertical-align: middle;
+	width: 95%;
 }
-
-section.edition .diaporama .diapositive.fake{
+.diapositive .supprimer>.supprimer-wrap header{
+	margin-bottom: .5rem;
+}
+.diaporama .diapositive.fake{
 	background: #ddd;
 	text-align: center;
 }
-section.edition .diaporama .diapositive.fake::before{
+.diaporama .diapositive.fake::before{
 	content:"";
 	height:100%;
 	width: 0;
 	display: inline-block;
 	vertical-align: middle;
 }
-section.edition .diaporama .diapositive.fake a.bouton{
+.diaporama .diapositive.fake a.bouton{
 	vertical-align: middle;
 	margin-right: .25rem;
 }
-section.edition .diaporama .diapositive.ajout{
+.diaporama .diapositive.ajout{
 	display: block;
 	overflow: visible;
 	width: auto;
 	height: auto;
 	background: none;
 }
-section.edition .diaporama .diapositive.ajout>.bouton.ajouter{
+.diaporama .diapositive.ajout>.bouton.ajouter{
 	display: none;
 }
-section.edition .diaporama .diapositive.fake section.edition.document{
+.diaporama .diapositive.fake section.edition.document{
 	display: none;
 }
 

@@ -4,6 +4,9 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicGllcnJlcGllcnJlcGllcnJlIiwiYSI6IkdXdE5CRFEif
 
 $( document ).ready(function() {
 
+	$('#show-menu, #close-menu').on('click', function(){
+		$('#menu').toggleClass('shown');
+	});
 
 	/* UPLOAD FILES INPUT */
 	var inputs = document.querySelectorAll( '.fileupload' );
@@ -102,13 +105,13 @@ $( document ).ready(function() {
 
 
 	// pour le futur
-	$('.modal').on('click', '.diapositive .supprimer-button', function(){
+	$('.diaporama').on('click', '.diapositive .supprimer-button', function(){
 		$(this).closest('.diapositive').addClass('deletemode');
 	}).on('click', '.diapositive .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('deletemode');
 	})
 
-	$('.modal').on('click', '.diapositive.fake .bouton.ajouter', function(){
+	$('.diaporama').on('click', '.diapositive.fake .bouton.ajouter', function(){
 		$(this).closest('.diapositive').removeClass('fake').addClass('ajout');
 	}).on('click', '.diapositive.ajout .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('ajout').addClass('fake');

@@ -222,12 +222,13 @@ button{
 	cursor: pointer;
 }
 #close-menu{
-	top: -1px;
-	position: absolute;
-	right: 1px;
-	padding: 1rem;
-	display: none;
-	color: #1A578B;
+    top: 0;
+    position: absolute;
+    right: 1px;
+    padding: .45rem 1rem;
+    display: none;
+    color: #FFC200;
+    font-size: 1.5rem;
 }
 #show-menu{
 	position: fixed;
@@ -241,11 +242,7 @@ button{
 	font-family: 'karmilla', arial, sans-serif;
 	font-size: 1.125rem;
 }
-#show-menu:before{
-	padding-right: 3px;
-	font-size: .75rem;
-	font-family: 'Glyphicons Halflings';
-}
+
 
 #menu{
 	width: 20rem;
@@ -259,10 +256,6 @@ button{
 	z-index: 1500;
 	left: 0;
 	top: 0;
-	-webkit-transition: left .3s ease-in-out;
-	-moz-transition: left .3s ease-in-out;
-	-o-transition: left .3s ease-in-out;
-	transition: left .3s ease-in-out;
 	padding: 0 1.25rem;
 }
 #menu-logo{
@@ -451,6 +444,7 @@ ul#menu-footer {
 	float: left;
 	margin-right: 2rem;
 	margin-bottom: 1.5rem;
+	margin-top: .5rem;
 	border: 1px solid rgba(0,0,0,.5);
 }
 .accueil .journal.extrait .article-icone{
@@ -798,7 +792,8 @@ article.tab h2{
     padding-right: 1.5rem;
     display: inline-block;
     vertical-align: top;
-    min-width: 1.25rem;
+    min-width: 18rem;
+    max-width: 25rem;
     padding-bottom: 2.5rem;
     position: relative;
 }
@@ -843,6 +838,9 @@ article.tab h2{
 	display: inline-block;
 	float: left;
 	margin-right: 1.5rem;
+}
+.thematique-document-description p {
+    margin-bottom: 1rem;
 }
 .thematique-document-meta{
 	max-width: calc(100% - 6.25rem);
@@ -1106,15 +1104,17 @@ table td:last-child {
 }
 
 /*-------------- Journal ------------*/
-section.journal {
+.journal, .nouvelles{
+	margin-bottom: 5rem;
+}
+.journal {
     margin-right: 0;
     padding-right: 6rem;
 }
-
 section.journal article{
 	position: relative;
 	clear: both;
-	max-width: 45rem;
+	max-width: 48rem;
 }
 section.journal article.extrait a, section.nouvelles a {
 	text-decoration: none;
@@ -1130,8 +1130,7 @@ article.extrait .more{
     color: #FFC200;
     margin-left: .5rem;
 }
-
-section.nouvelles {
+.nouvelles {
 	display: inline-block;
 	max-width: 18rem;
 	vertical-align: top;
@@ -1143,12 +1142,12 @@ section.nouvelles {
 section.page-standard {
 	display: inline-block;
 	vertical-align: top;
-	max-width: 50rem;
+	max-width: 55rem;
 	margin-right: 2rem;
 	padding-top: 3rem;
 }
 section.page-standard>article>header{
-	margin-bottom: 3rem;
+	margin-bottom: 2.5rem;
 }
 section.page-standard article .grid-2{
 	font-size: 0;
@@ -1169,7 +1168,7 @@ section.page-standard article .grid-2>div:last-child {
 article.apropos{
 	margin-bottom:6rem;
 }
-.diaporama{ display: none; }
+.diaporama{ display: block; }
 
 /*----------  AUTEURS  ----------*/
 
@@ -1237,7 +1236,28 @@ input[type="text"], input[type="password"] {
 	color: #fff;
 }
 
+/*----------  ANIMATION  ----------*/
+
+#menu, #nav-tabs {
+	-webkit-transition: left .3s ease-in-out;
+	-moz-transition: left .3s ease-in-out;
+	-o-transition: left .3s ease-in-out;
+	transition: left .3s ease-in-out;
+}
+article.tab {
+	-webkit-transition: padding .3s ease-in-out;
+	-moz-transition: padding .3s ease-in-out;
+	-o-transition: padding .3s ease-in-out;
+	transition: padding .3s ease-in-out;
+}
+
+
+
 /*----------  Responsiveness  ----------*/
+
+.small-screen{
+	display: none;
+}
 
 @media screen and (max-width: 1100px){
 	#welcome-map {
@@ -1284,4 +1304,74 @@ input[type="text"], input[type="password"] {
 		top: 23px;
 		left: 115px;
 	}
+	.journal{
+		padding-right: 2rem;
+	}
+	#nav-tabs{
+		padding-left: 0;
+		left: 0rem;
+	}
+}
+@media screen and (max-width: 900px){
+	.thematique-document{
+		padding: 1.5rem;
+	}
+	#nav-tabs{
+		left: -22rem;
+	}
+	.tabs-wrapper article.tab{
+		padding-left: 7rem;
+		padding-right: calc(100% - 40rem);
+	}
+	body, html {
+		font-size: 14px;
+	}
+	#ville-projet article{
+		width: 49%;
+	}
+}
+@media screen and (max-width: 680px){
+	.col25, .col33, .col40, .col50, .col60, .col66, .col75{
+		display: block;
+		width: 100%;
+		padding: 0;
+		max-width: initial;
+	}
+	body, html {
+		font-size: 13px;
+	}
+	#contenu .wrapper{
+		padding: 1rem;
+	}
+	.small-screen{
+		display: block;
+	}
+	.large-screen{
+		display: none;
+	}
+	section.journal article{
+		padding: 0;
+	}
+	.accueil .journal.extrait .article-icone {
+	    width: auto;
+	    max-width: 100%;
+	}
+	section.journal>article:not(:nth-child(-n+4)),
+	section.nouvelles>article:not(:nth-child(-n+4)){
+		display: none;
+	}
+	.tabs-wrapper article.tab{
+		padding-left: 2rem;
+		padding-right: calc(100% - 40rem);
+	}
+	#ville-projet article{
+		width: 100%;
+		min-width: initial;
+	}
+}
+@media screen and (max-width: 450px){
+	body, html {
+		font-size: 12px;
+	}
+
 }
