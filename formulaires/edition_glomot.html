@@ -1,47 +1,15 @@
+[<p class="message erreur">(#ENV*{message_erreur})</p>]
+[<p class="message ok">(#ENV*{message_ok})</p>]
+
 
 [(#EDITABLE|oui)
-<div class="modal">
-    <section class="edition">
-        <form action='#ENV{action}' method='post'>
+    <form action='#ENV{action}' method='post'>
             #ACTION_FORMULAIRE{#ENV{action}}
-            <section class="row head">
-                <h2 class="full"><:lped:glomot_edition_titre:></h2>
-                [<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
-                [<p class="message ok icon fa-check">(#ENV*{message_ok})</p>]
-            </section>
 
-            <section class="row">
-                <header class="full"><:lped:glomot_titre:></header>
-                <div class="input-block"><label for='titre' class="icon fa-plus"></label><span><input type='text' name='titre' value='#ENV{titre}' autocomplete="off"/></span></div>
-            </section>
+            <label for='titre'><:lped:mot_titre:></label>
+            <input type='text' name='titre' value='#ENV{titre}' />
 
-            <section class="row">
-                <header class="full"><:lped:glomot_source:></header>
-                <div class="input-block"><label for='lien' class="icon fa-tag"></label><span><input type='text' name='lien' value='#ENV{source}' autocomplete="off"/></span></div>
-            </section>
-    
-            <div class="row switch"> 
-                <input  id="newmottxtlangueuniqueid" class="switchlang hideninput" type="checkbox"[(#LANG|=={fr}|oui) checked]>
-                <label for="newmottxtlangueuniqueid"><span class="fr">FR</span><span class="en">EN</span></label>
+        <input type='submit' name='ok' value='<:lped:enregistrer:>' />
 
-                <section class="langue fr full">
-                    <header for='definition_fr'><:lped:glomot_definition_fr:></header>
-                    <textarea name='definition_fr'>#ENV{definition_fr}</textarea>
-                </section>               
-                <section class="langue en full">
-                    <header for='definition_en'><:lped:glomot_definition_en:></header>
-                    <textarea name='definition_en'>#ENV{definition_en}</textarea>
-                </section>               
-            </div>
-
-            <section class="row boutons right">
-                <div class="full">                
-                    <input type='button' class="gros bouton fermer"  value='<:lped:annuler:>'/>
-                    <input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
-                </div>
-            </section>
-        </form>
-    </section> 
-</div>   
+    </form>
 ]
-

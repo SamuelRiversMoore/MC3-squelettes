@@ -25,7 +25,6 @@
 									<a class="item" href="[(#URL_RUBRIQUE{24}|parametre_lang|parametre_url{rubrique,#ID_RUBRIQUE})]">
 										[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ] 
-										[(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
 
 									</a>
 								</li>
@@ -57,7 +56,7 @@
 								[(#AUTORISER{creer,article}|oui)
 									[(#AFFICHER|=={'nouvel_article'}|oui)[(#FORMULAIRE_EDITION_ART{'new',#ID_RUBRIQUE} )]]
 									[(#AFFICHER|=={'nouvel_article'}|non)
-										<a class="petit bouton ajouter" href="[(#SELF|parametre_url{afficher, nouvel_article})]"><:lped:synthese_ajouter:></a> 
+										<a class="petit bouton ajouter" href="[(#SELF|parametre_url{afficher, nouvel_article})]"><:lped:synthese_ajouter:></a>
 									]
 								]
 
