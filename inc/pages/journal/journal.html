@@ -1,7 +1,7 @@
 #SET{statut, #ARRAY{1,prepa,2,prop,3,publie,4,refuse,5,poubelle} }
 [ (#SESSION{statut}|non) #SET{statut, publie}  ]
 
-<B_journal>
+
 	[(#AUTORISER{creer,article}|oui)
 		[(#ACCUEIL|non)
 				[(#AFFICHER|=={'nouvel_article'}|oui)
@@ -13,6 +13,7 @@
 		]
 	]
 
+<B_journal>
 	<BOUCLE_journal (ARTICLES) {id_rubrique=8} {par statut, maj} {inverse} {statut IN #GET{statut}}>
 		[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)
 			<article class="journal extrait">

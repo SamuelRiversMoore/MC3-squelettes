@@ -15,7 +15,6 @@
 		</header>
 		<section class="reseaux">
 			<div class="tabs-wrapper">
-				<B_rubriques>
 					<nav id="nav-tabs" class="gauche">
 						<ul>
 							<BOUCLE_rubriques (RUBRIQUES) {id_parent=6} {tout} {par num titre}>
@@ -26,10 +25,10 @@
 									</a>
 								</li>
 							</BOUCLE_rubriques>
-							[(#AUTORISER{creer,rubrique}|oui) 
+							[(#AUTORISER{creer,rubrique}|oui)
 								<li class="new">
-									<a class="bouton moyen ajouter interne icon fa-level-up rotate90" href="[(#URL_RUBRIQUE|parametre_lang|parametre_url{afficher,'nouvelle_rubrique'}|parametre_url{rubrique,'new'})]"><:lped:rubrique_ajouter:> </a> 
-								</li> 
+									<a class="bouton moyen ajouter interne icon fa-level-up rotate90" href="[(#URL_RUBRIQUE|parametre_lang|parametre_url{afficher,'nouvelle_rubrique'}|parametre_url{rubrique,'new'})]"><:lped:rubrique_ajouter:> </a>
+								</li>
 							]
 						</ul>
 
@@ -38,7 +37,6 @@
 							<span class="discret"> Remonter</span>
 						</footer>
 					</nav>
-				</B_rubriques>
 
 				<BOUCLE_liste (RUBRIQUES) {id_parent=6} {par num titre} {tout} >
 					<article class="tab" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
@@ -54,11 +52,12 @@
 									[(#AFFICHER|=={nouvelle_sous_rubrique}|oui) <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{rubrique,#_liste:ID_RUBRIQUE})],'sous_rubrique'})]</section> ]
 								]
 							</section>
-						
+
 						<INCLURE{fond=inc/pages/reseau/liste, env, id_rubrique} />
 
 						<BOUCLE_sous_liste (RUBRIQUES) {id_parent} {par num titre} {tout}>
 							<section class="sous-rubrique">
+
 									<h3>
 										[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
