@@ -29,7 +29,7 @@
 				<figure class="diapositive">
 					#SET{images_article, oui}
 					<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
-					[(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'projet', #ID_PROJET})]					
+					[(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'article', #ID_ARTICLE})]
 				</figure>
 			</BOUCLE_images>
 
@@ -40,7 +40,7 @@
 
 			[(#AFFICHER|=={ajouter_image}|non)
 				[(#GET{images_article}|=={non})
-					<figure class="diapositive fake">				
+					<figure class="diapositive fake">
 						<a class="gros bouton ajouter" href="[(#URL_ARTICLE|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:article_ajouter_image:></a>
 					</figure>
 				]
