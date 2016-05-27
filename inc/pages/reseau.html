@@ -17,9 +17,6 @@
 			<div class="tabs-wrapper">
 				<B_rubriques>
 					<nav id="nav-tabs" class="gauche">
-						<header>
-							<h5>— <:lped:rubriques:></h5>
-						</header>
 						<ul>
 							<BOUCLE_rubriques (RUBRIQUES) {id_parent=6} {tout} {par num titre}>
 								<li class="item">
@@ -45,7 +42,6 @@
 
 				<BOUCLE_liste (RUBRIQUES) {id_parent=6} {par num titre} {tout} >
 					<article class="tab" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
-						<header>
 							<h2>
 								[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 								[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
@@ -58,14 +54,11 @@
 									[(#AFFICHER|=={nouvelle_sous_rubrique}|oui) <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#_rubrique:URL_RUBRIQUE|parametre_lang|parametre_url{rubrique,#_liste:ID_RUBRIQUE})],'sous_rubrique'})]</section> ]
 								]
 							</section>
-						</header>
-
-
+						
 						<INCLURE{fond=inc/pages/reseau/liste, env, id_rubrique} />
 
 						<BOUCLE_sous_liste (RUBRIQUES) {id_parent} {par num titre} {tout}>
 							<section class="sous-rubrique">
-								<header>	
 									<h3>
 										[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
@@ -73,7 +66,6 @@
 									<section class="administration">
 										[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE})	<INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
 									</section>
-								</header>
 								<INCLURE{fond=inc/pages/reseau/liste, env, id_rubrique} />
 							</section>
 

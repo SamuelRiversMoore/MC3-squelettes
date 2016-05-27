@@ -1,15 +1,31 @@
-[<p class="message erreur">(#ENV*{message_erreur})</p>]
-[<p class="message ok">(#ENV*{message_ok})</p>]
-
 
 [(#EDITABLE|oui)
-    <form action='#ENV{action}' method='post'>
-            #ACTION_FORMULAIRE{#ENV{action}}
+	<div class="modal">
+		<a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="retour"></a>
+		<section class="edition">
 
-            <label for='titre'><:lped:mot_titre:></label>
-            <input type='text' name='titre' value='#ENV{titre}' />
+		    <form action='#ENV{action}' method='post'>
+	            #ACTION_FORMULAIRE{#ENV{action}}
+				<section class="row head">
+					<h2 class="full"> [(#ENV{id_glomot}|=={new}|?{<:lped:mot_nouveau_titre:>,<:lped:mot_edition_titre:>})] </h2>
+					[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
+					[<p class="message ok icon fa-check-square-o">(#ENV*{message_ok})</p>]
+				</section>
 
-        <input type='submit' name='ok' value='<:lped:enregistrer:>' />
+				<section class="row">
+					<div class="input-block">
+						<header class="full"><:lped:mot_titre:></header>
+						<label for='titre' class="icon fa-chevron-right"></label><span><input type='text' name='titre' value='#ENV{titre}' autocomplete="off"/></span>
+					</div>
+				</section>
 
-    </form>
+				<section class="row boutons right">
+					<div class="full">
+						<a href="[(#SELF|parametre_url{afficher,''})]" class="gros bouton fermer"/><:lped:annuler:></a>
+						<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
+					</div>
+				</section>
+			</form>
+		</section>
+	</div>
 ]

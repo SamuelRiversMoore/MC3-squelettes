@@ -417,7 +417,7 @@ div.bouton.moyen{ line-height: 1rem; }
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 
-.bouton.modifier, .bouton.supprimer, .tab>header .petit.bouton{
+.bouton.modifier, .bouton.supprimer, article.tab .petit.bouton{
 	border-radius: 0;
 	display: inline-block;
 	vertical-align: middle;
@@ -427,7 +427,7 @@ div.bouton.moyen{ line-height: 1rem; }
 	background: transparent;
 	color: rgba(0, 0, 0, 0.5);
 }
-.tab>header .petit.bouton{padding-left: 0; vertical-align: middle;}
+article.tab .petit.bouton{padding-left: 0; vertical-align: middle;}
 input.bouton.supprimer{padding:0; margin:0; vertical-align: top;}
 .bouton.modifier:not(:last-child), section.administration>form:not(:last-child){
 	border-right: 1px solid #bbb;
@@ -572,7 +572,9 @@ section.administration.mini .select-title .status{
 	position:absolute;
 	cursor:default;
 }
-
+section.controls{
+	margin-bottom:2.5rem;
+}
 section.administration .modification, section.administration .moderation{
 	display: inline-block;
 	vertical-align: middle;

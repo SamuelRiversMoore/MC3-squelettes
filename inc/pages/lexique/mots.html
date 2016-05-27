@@ -9,19 +9,19 @@
 		[(#AUTORISER{modifier,glomot,#ID_GLOMOT}|oui) <INCLURE{fond=inc/administration/lexique/glomots, afficher, id_glomot, glomot} /> ]
 
 		[(#AUTORISER{creer,glodef}|oui)
-			<a href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouvelle_def'}|parametre_url{mot,#ID_GLOMOT})]"> <:lped:definition_ajouter:> </a>
+			<a class="moyen bouton ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouvelle_def'}|parametre_url{mot,#ID_GLOMOT})]"> <:lped:definition_ajouter:> </a>
 			[(#AFFICHER|=={nouvelle_def}|et{#MOT|=={#ID_GLOMOT}}|oui)
 				[(#FORMULAIRE_EDITION_GLODEF{'new',#ID_GLOMOT,[(#URL_RUBRIQUE)]})]
 			]
 		]
 
 
-			<BOUCLE_definitions (GLODEFS) {id_glomot} {statut IN #GET{statut}}>
-				[(#AUTORISER{voir,glodef,#ID_GLODEF}|oui)
-					<div class="lexique-definition">
-						<INCLURE{fond=inc/pages/lexique/definitions, env, id_glodef}>
-					</div>
-				]
-			</BOUCLE_definitions>
+		<BOUCLE_definitions (GLODEFS) {id_glomot} {statut IN #GET{statut}}>
+			[(#AUTORISER{voir,glodef,#ID_GLODEF}|oui)
+				<div class="lexique-definition">
+					<INCLURE{fond=inc/pages/lexique/definitions, env, id_glodef}>
+				</div>
+			]
+		</BOUCLE_definitions>
 	</div>
 </BOUCLE_mot>

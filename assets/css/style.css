@@ -969,7 +969,9 @@ article.tab h2{
 #lexique-mots h1{
 	text-transform:uppercase;
 }
-.lexique-wrapper>div{
+
+/*----------  ????? ----------*/
+.lexique-wrapper>div:not(.modal){
 	display: none;
 }
 

@@ -30,7 +30,6 @@
 
                     [(#REM) le display:block permet d'afficher la thématique en cours, et de surcharger via javascript un comportement sans rechargement ]
                     <article class="tab" id="thematique#ID_THEMATIQUE" [(#CHAPITRE|non|et{#THEMATIQUE|=={#ID_THEMATIQUE}|oui}) style="display:block" ] [(#THEMATIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui) style="display:block" ] >
-                        <header>
                             <h2>
                               [ (#ENV{lang}|=={fr}|oui) [ (#TITRE_FR|supprimer_numero) ] ]
                               [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|supprimer_numero|sinon{#TITRE_FR|supprimer_numero}) ] ]
@@ -43,10 +42,7 @@
                                 [ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE_FR|liens_ouvrants}) ] ]
                             </section>
 
-
                             <INCLURE{fond=inc/pages/inventaire/documents, afficher, thematique, chapitre, document, id_thematique} />
-
-                        </header>
 
                     </article>
                     <INCLURE{fond=inc/pages/inventaire/chapitres, afficher, thematique, chapitre, document, id_thematique } />

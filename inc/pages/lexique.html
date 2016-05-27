@@ -2,19 +2,17 @@
 [ (#SESSION{statut}|non) #SET{statut, publie}  ]
 
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
-  <div id="contenu" class="wrapper">
-
-
+	<div id="contenu" class="wrapper">
 		<!-- construction du tableau d'initiales -->
 		[(#SET{tab_initiales,#ARRAY})]
 		<BOUCLE_remplir_tableau (GLOMOTS) {par titre} {statut IN #GET{statut}}>
-		  [(#SET{tab_initiales, #GET{tab_initiales}|push{#TITRE|mb_substr{0,1,'UTF-8'}|strtolower}})]
+			[(#SET{tab_initiales, #GET{tab_initiales}|push{#TITRE|mb_substr{0,1,'UTF-8'}|strtolower}})]
 		</BOUCLE_remplir_tableau>
 		[(#SET{tab_initiales, #GET{tab_initiales}|array_unique})]
 
 
 		<B_nav>
-			<nav id="lexique-lettres" class="cf">
+			<nav id="lexique-lettres">
 				<BOUCLE_nav(DATA){source tableau,#GET{tab_initiales}}>
 					<a href="##VALEUR">#VALEUR</a>
 				</BOUCLE_nav>
@@ -22,25 +20,23 @@
 		</B_nav>
 
 
-        <div id="lexique-mots">
+		<div id="lexique-mots">
 
+			[(#AUTORISER{creer,glomot}|oui)
+				<a class="gros bouton ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouveau_mot'})]"> <:lped:mot_ajouter:> </a>
+				[(#AFFICHER|=={nouveau_mot}|oui) <section class="administration">[(#FORMULAIRE_EDITION_GLOMOT{'new',[(#URL_RUBRIQUE)]})] </section> ]
+			]
 
-    [(#AUTORISER{creer,glomot}|oui)
-    		<a href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouveau_mot'})]"> <:lped:mot_ajouter:> </a>
-    		[(#AFFICHER|=={nouveau_mot}|oui) <section class="administration">[(#FORMULAIRE_EDITION_GLOMOT{'new',[(#URL_RUBRIQUE)]})] </section> ]
-    ]
-
-
-				<BOUCLE_lire_tableau (DATA) {source tableau,#GET{tab_initiales}} >
-					<h1 id="#VALEUR">#VALEUR</h1>
-						<BOUCLE_mots (GLOMOTS) {par titre} {tout}>
-              [(#AUTORISER{voir,glomot,#ID_GLOMOT}|oui)
-                  [(#REM) si le mot commence bien par la lettre]
-							    [(#TITRE|mb_substr{0,1,'UTF-8'}|strtolower|=={#VALEUR}|oui) <INCLURE{fond=inc/pages/lexique/mots, env, id_glomot}> ]
-              ]
-						</BOUCLE_mots>
-				</BOUCLE_lire_tableau>
-			</div>
+			<BOUCLE_lire_tableau (DATA) {source tableau,#GET{tab_initiales}} >
+				<h1 id="#VALEUR">#VALEUR</h1>
+				<BOUCLE_mots (GLOMOTS) {par titre} {tout}>
+					[(#AUTORISER{voir,glomot,#ID_GLOMOT}|oui)
+						[(#REM) si le mot commence bien par la lettre]
+						[(#TITRE|mb_substr{0,1,'UTF-8'}|strtolower|=={#VALEUR}|oui) <INCLURE{fond=inc/pages/lexique/mots, env, id_glomot}> ]
+					]
+				</BOUCLE_mots>
+			</BOUCLE_lire_tableau>
+		</div>
 
 	</div>
 </BOUCLE_rubrique>
