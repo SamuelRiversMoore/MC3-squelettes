@@ -1,10 +1,16 @@
 <BOUCLE_definition (GLODEFS) {id_glodef} {tout}>
+
+  [(#AUTORISER{modifier,glodef,#ID_GLODEF}|oui) <INCLURE{fond=inc/administration/lexique/glodefs, env, id_glodef} /> ]
+
+  [(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
+
+
   <BOUCLE_refs (GLOREFS) {id_glodef} {tout}>
     <p class="discret">#TITRE</p>
     [<p class="lexique-reference"><span class="source">SOURCE:</span>(#DESCRIPTION)</p>]
   </BOUCLE_refs>
 
-  [(#SESSION{statut}|oui)<span class='status [(#STATUT)] [(#ENV{lang}|sinon{fr})]'></span>]
+
 
   #DEFINITION
 

@@ -1,0 +1,15 @@
+<section class="administration">
+    <BOUCLE_defs (GLODEFS) {id_glodef} {tout}>
+
+        [(#FORMULAIRE_MODERATION_OBJET{glodefs,glodef,#ID_GLODEF})]
+
+        [(#AFFICHER|=={glodef_ok}|et{#GLODEF|=={#ID_GLODEF}}|oui)<p class="message ok"><:lped:enregistrement_ok:></p>]
+
+        <a class="bouton prive" href="[(#SELF|parametre_url{afficher, editer_def}|parametre_url{glodef,#ID_GLODEF})]"><:lped:glodef_modifier:></a>
+
+        [(#AFFICHER|=={editer_def}|et{#GLODEF|=={#ID_GLODEF}}|oui)
+             [(#FORMULAIRE_EDITION_GLODEF{#ID_GLODEF,'',[(#SELF|parametre_url{'afficher','glodef_ok'}|parametre_url{glodef,#ID_GLODEF})] })]
+        ]
+
+    </BOUCLE_defs>
+</section>
