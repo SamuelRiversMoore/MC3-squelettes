@@ -7,7 +7,7 @@
 [(#REM) suite petit hack : pour ne pas les afficher s'il n'y en a pas pour les utilisateurs non connectés ]
 <section id="inventaire-thematiques" [(#SESSION{statut}|non|et{#GET{test_thematique}|non}|oui) style="display:none;"]>
 
-    <div id="inventaire-tabs" class="tabs-wrapper cf">
+    <div id="inventaire-tabs" class="tabs-wrapper">
             <nav id="nav-tabs" class="gauche">
                 <header>
                     <h5>— <:lped:thematiques:></h5>
@@ -21,6 +21,7 @@
                     <span class="discret icon fa-angle-up"></span>
                     <span class="discret"> <:lped:remonter:></span>
                 </footer>
+                <div id="tabs-menu-button" class="icon fa-bars"></div>
             </nav>
 
             <BOUCLE_thematiques (THEMATIQUES) {id_pay?} {id_ville?} {id_projet?} {par num titre_fr} {statut IN #GET{statut}} >

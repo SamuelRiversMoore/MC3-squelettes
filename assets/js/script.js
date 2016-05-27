@@ -100,8 +100,10 @@ $( document ).ready(function() {
 		}
 	});
 
-
-
+	// responsive tabs pas fini
+	$('.tabs-wrapper').on('click', '#tabs-menu-button', function(){
+		$(this).closest('.tabs-wrapper').toggleClass('openmenu');
+	})
 
 
 	// pour le futur
@@ -171,7 +173,6 @@ $( document ).ready(function() {
 	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { // les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
 
 		$("#nav-tabs li a").click(function(e) {
-			console.log('yop')
 			e.preventDefault();
 			history.pushState({ path: this.path }, '', this.href);
 			var $inventaireMenu = $(this).closest('#nav-tabs');
@@ -190,6 +191,7 @@ $( document ).ready(function() {
 			}
 			$inventaireMenu.find("li a").removeClass('strong');
 			$(this).addClass('strong');
+			$inventaireMenu.closest('.tabs-wrapper').removeClass('openmenu')
 			return false;
 		});
 	}

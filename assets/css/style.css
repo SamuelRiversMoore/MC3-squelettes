@@ -726,6 +726,16 @@ figure.slick-slide {
 	padding-left: 1.25rem;
 }
 
+#tabs-menu-button{
+	position: absolute;
+    padding: .25rem .5rem;
+    top: .9rem;
+    right: -4rem;
+    cursor: pointer;
+    display: none;
+    font-size: 1.125rem;
+    color: #999;
+}
 
 .tabs-wrapper article.tab {
 	display: none;
@@ -1168,7 +1178,7 @@ section.page-standard article .grid-2>div:last-child {
 article.apropos{
 	margin-bottom:6rem;
 }
-.diaporama{ display: block; }
+.diaporama{ display: none; }
 
 /*----------  AUTEURS  ----------*/
 
@@ -1316,6 +1326,9 @@ article.tab {
 	.thematique-document{
 		padding: 1.5rem;
 	}
+	#tabs-menu-button{
+		display: block;
+	}
 	#nav-tabs{
 		left: -22rem;
 	}
@@ -1328,6 +1341,15 @@ article.tab {
 	}
 	#ville-projet article{
 		width: 49%;
+	}
+	.tabs-wrapper.openmenu #tabs-menu-button{
+		display: none;
+	}
+	.tabs-wrapper.openmenu #nav-tabs{
+		left: 0;
+	}
+	.tabs-wrapper.openmenu article.tab{
+		
 	}
 }
 @media screen and (max-width: 680px){

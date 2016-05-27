@@ -403,9 +403,9 @@ span.status-label{ margin-right: .25rem; }
 .boutons.right .bouton:last-child, .boutons.center .bouton:last-child{ margin-right: 0;}
 
 .bouton.gros{ font-size: 1rem; padding: .5rem .75rem; margin-right: .625rem; }
-.bouton.moyen{ font-size: .85rem; padding: .25rem .5rem; margin-right: .625rem; line-height: 1rem;}
+.bouton.moyen{ font-size: .85rem; padding: .25rem .5rem; margin-right: .625rem;}
 .bouton.petit{ font-size: .75rem; background: transparent; margin-right: .5rem;}
-
+div.bouton.moyen{ line-height: 1rem; }
 .bouton{
 	font-weight: normal;
 	text-decoration: none;
