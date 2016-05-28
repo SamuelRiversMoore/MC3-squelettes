@@ -28,10 +28,8 @@
 						</figure>
 					</BOUCLE_document>
 					<p class="discret">
-						— [(#DATE|affdate)], par
-						<BOUCLE_auteur (AUTEURS){id_article}>
-							#NOM
-						</BOUCLE_auteur>
+						<span>— [(#DATE|affdate)], <:lped:par:></span>
+						<span class="auteurs"><BOUCLE_auteur (AUTEURS){id_article}><span class="auteur">#NOM</span></BOUCLE_auteur></span>
 					</p>
 				</div>
 				<div>

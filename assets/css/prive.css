@@ -417,7 +417,7 @@ div.bouton.moyen{ line-height: 1rem; }
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 
-.bouton.modifier, .bouton.supprimer, article.tab .petit.bouton{
+.bouton.modifier, .bouton.supprimer, article.tab .petit.bouton:not(.proposer){
 	border-radius: 0;
 	display: inline-block;
 	vertical-align: middle;
@@ -428,7 +428,7 @@ div.bouton.moyen{ line-height: 1rem; }
 	color: rgba(0, 0, 0, 0.5);
 }
 article.tab .petit.bouton{padding-left: 0; vertical-align: middle;}
-input.bouton.supprimer{padding:0; margin:0; vertical-align: top;}
+section.administration form input.petit.bouton{padding:0; margin:0; margin-right: 0; vertical-align: top;}
 .bouton.modifier:not(:last-child), section.administration>form:not(:last-child){
 	border-right: 1px solid #bbb;
 	padding-right: .65rem;
@@ -439,7 +439,6 @@ input.bouton.supprimer{padding:0; margin:0; vertical-align: top;}
 	padding-left: .5rem;
 	margin-left: .5rem;
 }
-
 .bouton.icon::before{
 	font-size: inherit;
 	text-align: center;
@@ -485,6 +484,8 @@ input.bouton.supprimer{padding:0; margin:0; vertical-align: top;}
 	padding: 0;
 	margin-right: .5rem;
 	background: none;
+	vertical-align: top;
+	line-height: 1rem;
 }
 
 section.administration {
@@ -595,7 +596,7 @@ section.administration .meta>span.icon::before{
 }
 
 
-section.edition textarea, section.edition input[type="text"], section.edition input[type="date"] {
+.edition textarea, .edition input[type="text"], .edition input[type="date"] {
 	padding: 0.5rem;
 	font-size: 1rem;
 	font-family: "karmilla";
@@ -614,7 +615,7 @@ section.edition textarea.small{
 	min-height:10rem;
 }
 
-section.edition form input[type="file"] {
+.edition form input[type="file"] {
 	padding: 0 0.5rem;
 	line-height: 2rem;
 }
@@ -651,7 +652,7 @@ section.edition header, section.edition label{
 	display: block;
 }
 
-section.edition input[type="text"], section.edition input[type="date"], section.edition .input-block label{
+.edition input[type="text"], .edition input[type="date"], .edition .input-block label{
 	border: 1px solid #CDCDCD;
 	height: 2rem;
 }
@@ -797,6 +798,10 @@ section.edition .affichage-document .fichier{
 .diaporama .diapositive.fake section.edition.document{
 	display: none;
 }
+
+#administration-map{ height: 18rem; margin-top: 1rem; border: 1px solid #CDCDCD;}
+.leaflet-container input[type="text"]{ height: 26px; padding: 0 0 0 10px; border: none; }
+#administration-map .leaflet-control-zoom{ display: none; }
 
 
 /**---------------- Media query ----------------**/

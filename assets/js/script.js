@@ -233,25 +233,55 @@ $( document ).ready(function() {
 	/* Init Mapbox */
 	if($("#welcome-map").length > 0) {
 		var map = L.mapbox.map('welcome-map', 'mapbox.streets', {zoomControl: false })
-	.setView([37, 16.5], 5);
+		.setView([37, 16.5], 5);
 		map.scrollWheelZoom.disable();
 	}
 
+	if($('#administration-map').length){
+    	var wrapper = $('#administration-map').closest('section.row'),
+    		latInput = wrapper.find('input[name="latitude"]'),
+    		lonInput = wrapper.find('input[name="longitude"]');
+
+		var adminMap = L.mapbox.map('administration-map', 'mapbox.streets');
+    	var geocoderControl = L.mapbox.geocoderControl('mapbox.places', {keepOpen: false, autocomplete: true});
+    		geocoderControl.addTo(adminMap);
+
+    	if(latInput.val().length >= 1 && lonInput.val().length >= 1 ){
+    		var lat = latInput.val(), lon = lonInput.val();
+    		setMarker(lat, lon);
+    		adminMap.setView([lat, lon], 5);
+    	} else {
+ 			adminMap.setView([37, 16.5], 5);
+    	}
+
+	    geocoderControl.on('select', function(object){
+	    	var coord = object.feature.geometry.coordinates;
+	    		setMarker(coord[1], coord[0]);
+	    });
+	    function displayCoords(){
+	    	var m = marker.getLatLng();
+	    	latInput.val(m.lat);
+	    	lonInput.val(m.lng);
+	    };
+       	var marker;
+	    function setMarker(lat, lon){
+	    	if (undefined != marker) { adminMap.removeLayer(marker); }
+	    	marker = L.marker([lat, lon], { icon: L.mapbox.marker.icon({ 'marker-color': 'FFDB16'}), draggable: true });
+   			marker.addTo(adminMap);
+			marker.on('dragend', displayCoords);
+			displayCoords();
+	    }
+	}
 
 	if($("#inventaire-mapbox").length > 0){
 		var map = L.mapbox.map('inventaire-mapbox', 'mapbox.streets').setView([37, 16.5], 5);
 			map.scrollWheelZoom.disable();
 
 		if(typeof geojson !== 'undefined' && geojson.length > 0) {
-
-
 			var markers = L.mapbox.featureLayer()
 				.setGeoJSON(geojson)
 				.addTo(map);
-
-
 			map.fitBounds(markers.getBounds(), { padding: L.point(60, 60), maxZoom: maxZoom });
-
 			markers.on('click', function(e) {
 				if (!$("#inventaire-carte").hasClass('projet')) {
 					window.location = e.layer.feature.properties['url'];

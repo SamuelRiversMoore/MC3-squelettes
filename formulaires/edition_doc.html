@@ -9,23 +9,16 @@
 				[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
 			</section>
 
-			[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_manquant'})</p>]
-			[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_non_image'})</p>]
-
-			[(#FICHIER|oui)
-				<section class="row">
+			<section class="row">
+				[(#FICHIER|oui)
 					<div class="affichage-document">
 						<div class="gros fichier #EXTENSION">#EXTENSION</div>
 						<div class="document-nom">[(#FICHIER|basename)]</div>
 					</div>
-				</section>
-			]
-			[(#FICHIER|non)
-				<section class="row">
-
+				]
+				[(#FICHIER|non)
 					<div class="onglets">
 		    			<header><:lped:document_provenance:></header>
-
 						<div class="onglet">
 						   <input type="radio" id="onglet-1" name="onglet-group-1" checked>
 						   <label for="onglet-1">Mediathèque</label>
@@ -59,13 +52,13 @@
 								</div>
 						   </div>
 						</div>
-
 					</div>
-				</section>
-			]
+					[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_manquant'})</p>]
+					[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_non_image'})</p>]
+				]
+			</section>
 
 			[(#ENV{mode}|!={image}|oui)
-				[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'titre'})</p>]
 				<section class="row">
 					<div class="input-block demi">
 						<header><:lped:document_titre:></header>
@@ -75,12 +68,13 @@
 						<header><:lped:document_auteur:></header>
 						<input type="text"  name="auteur" value="#ENV{auteur}" autocomplete="off"/>
 					</div>
+					[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'titre'})</p>]
 				</section>
 
 				<section class="row">
 					<div class="input-block demi">
 						<header><:lped:document_date:></header>
-						<input type="text"  name="date_document" value="#ENV{date_document}"/>
+						<input type="text"  name="date_document" value="#ENV{date_document}" autocomplete="off"/>
 					</div>
 					<div class="input-block demi">
 						<header><:lped:document_reference:></header>
@@ -101,7 +95,7 @@
 						</div>
 						<div class="input-block demi">
 							<header><:lped:resume_date:></header>
-							<input type="text"  name="date_resume" value="#ENV{date_resume}"/>
+							<input type="text"  name="date_resume" value="#ENV{date_resume}" autocomplete="off"/>
 						</div>
 					</div>
 				</section>
