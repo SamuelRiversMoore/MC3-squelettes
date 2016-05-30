@@ -269,6 +269,7 @@ $( document ).ready(function() {
 	    	latInput.val(m.lat);
 	    	lonInput.val(m.lng);
 	    };
+	    
        	var marker;
 	    function setMarker(lat, lon){
 	    	if (undefined != marker) { adminMap.removeLayer(marker); }

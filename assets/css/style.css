@@ -1184,7 +1184,7 @@ article.apropos{
 
 /*----------  AUTEURS  ----------*/
 
-.auteurs {font-size: 0; line-height: 1rem; display: inline-block; }
+.auteurs {font-size: 0; line-height: 1.25rem; display: inline-block; }
 .auteurs::before{ font-size: .75rem; }
 .auteur { font-size: .75rem; }
 .discret .auteur{ font-size: .95rem; }
