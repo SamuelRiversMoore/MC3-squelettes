@@ -801,8 +801,8 @@ section.edition .affichage-document .fichier{
 
 #administration-map{ height: 18rem; margin-top: 1rem; border: 1px solid #CDCDCD;}
 .leaflet-container input[type="text"]{ height: 26px; padding: 0 0 0 10px; border: none; }
-#administration-map .leaflet-control-zoom{ display: none; }
-
+#administration-map .leaflet-control-mapbox-geocoder.active .leaflet-control-mapbox-geocoder-wrap { width: 280px; }
+#administration-map .leaflet-control-mapbox-geocoder-results { width: 280px; }
 
 /**---------------- Media query ----------------**/
 @media only screen and (min-width: 48em) {

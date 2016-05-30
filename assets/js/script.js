@@ -242,22 +242,28 @@ $( document ).ready(function() {
     		latInput = wrapper.find('input[name="latitude"]'),
     		lonInput = wrapper.find('input[name="longitude"]');
 
-		var adminMap = L.mapbox.map('administration-map', 'mapbox.streets');
-    	var geocoderControl = L.mapbox.geocoderControl('mapbox.places', {keepOpen: false, autocomplete: true});
+		var adminMap = L.mapbox.map('administration-map', 'mapbox.streets', {zoomControl: false});
+    	var geocoderControl = L.mapbox.geocoderControl('mapbox.places', {keepOpen: true, autocomplete: true});
     		geocoderControl.addTo(adminMap);
-
-    	if(latInput.val().length >= 1 && lonInput.val().length >= 1 ){
-    		var lat = latInput.val(), lon = lonInput.val();
-    		setMarker(lat, lon);
-    		adminMap.setView([lat, lon], 5);
-    	} else {
- 			adminMap.setView([37, 16.5], 5);
-    	}
+		
+		getInputVal();
 
 	    geocoderControl.on('select', function(object){
 	    	var coord = object.feature.geometry.coordinates;
 	    		setMarker(coord[1], coord[0]);
 	    });
+	    latInput.on('input', function(){ getInputVal(); });
+	    lonInput.on('input', function(){ getInputVal(); });
+	    function getInputVal(){
+	    	if(latInput.val().length >= 1 && lonInput.val().length >= 1 ){
+		    	var zoomVal = adminMap['_zoom'] ? adminMap['_zoom'] : 5;
+	    		var lat = latInput.val(), lon = lonInput.val();
+	    		setMarker(lat, lon);
+	    		adminMap.setView([lat, lon], zoomVal);
+	    	} else {
+	 			adminMap.setView([37, 16.5], 4);
+	    	}
+	    }
 	    function displayCoords(){
 	    	var m = marker.getLatLng();
 	    	latInput.val(m.lat);
