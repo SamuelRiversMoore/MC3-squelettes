@@ -8,7 +8,6 @@
         <a class="bouton modifier" href="[(#SELF|parametre_url{afficher, editer_def}|parametre_url{glodef,#ID_GLODEF})]"><:lped:editer:></a>
 
         [(#AFFICHER|=={editer_def}|et{#GLODEF|=={#ID_GLODEF}}|oui)
-        	aaa
              [(#FORMULAIRE_EDITION_GLODEF{#ID_GLODEF,'',[(#SELF|parametre_url{'afficher','glodef_ok'}|parametre_url{glodef,#ID_GLODEF})] })]
         ]
 

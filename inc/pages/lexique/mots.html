@@ -9,8 +9,8 @@
 		[(#AUTORISER{modifier,glomot,#ID_GLOMOT}|oui) <INCLURE{fond=inc/administration/lexique/glomots, afficher, id_glomot, glomot} /> ]
 
 		[(#AUTORISER{creer,glodef}|oui)
-			<a class="moyen bouton ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouvelle_def'}|parametre_url{mot,#ID_GLOMOT})]"> <:lped:definition_ajouter:> </a>
-			[(#AFFICHER|=={nouvelle_def}|et{#MOT|=={#ID_GLOMOT}}|oui)
+			<a class="moyen bouton ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouvelle_def'}|parametre_url{glomot,#ID_GLOMOT})]"> <:lped:definition_ajouter:> </a>
+			[(#AFFICHER|=={nouvelle_def}|et{#GLOMOT|=={#ID_GLOMOT}}|oui)
 				[(#FORMULAIRE_EDITION_GLODEF{'new',#ID_GLOMOT,[(#URL_RUBRIQUE)]})]
 			]
 		]

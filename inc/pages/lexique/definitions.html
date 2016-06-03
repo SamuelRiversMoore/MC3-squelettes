@@ -6,6 +6,7 @@
   [(#AUTORISER{modifier,glodef,#ID_GLODEF}|oui) <INCLURE{fond=inc/administration/lexique/glodefs, env, id_glodef} /> ]
 
 
+  <hr style='display:block; width:100%; border:1px solid black; clear:both;' />
   <BOUCLE_refs (GLOREFS) {id_glodef} {statut IN #GET{statut}}>
     [(#AUTORISER{voir,gloref,#ID_GLOREF}|oui)
       [(#AUTORISER{modifier,gloref,#ID_GLOREF}|oui) <INCLURE{fond=inc/administration/lexique/glorefs, env, id_gloref} /> ]
@@ -13,7 +14,19 @@
       [<p class="lexique-reference"><span class="source">SOURCE:</span>(#DESCRIPTION)</p>]
     ]
   </BOUCLE_refs>
-  [(#AUTORISER{creer,gloref,#ID_GLOREF}|oui) <a href="[(#SELF|parametre_url{afficher,nouvelle_reference}|parametre_url{def,#ID_GLODEF})]">Créer une référence</a> ]
+
+    [(#REM) si aucune ref on propose d'en créer]
+
+    [(#AUTORISER{creer,gloref}|oui)
+      <a href="[(#SELF|parametre_url{afficher,nouvelle_reference}|parametre_url{glodef,#ID_GLODEF})]"> <:lped:reference_ajouter:> </a>
+      [(#AFFICHER|=={nouvelle_reference}|et{#GLODEF|=={#ID_GLODEF}}|oui)
+        [(#FORMULAIRE_EDITION_GLOREF{'new',#ID_GLODEF,[(#URL_RUBRIQUE)]})]
+      ]
+    ]
+
+  <//B_refs>
+
+  <hr style='display:block; width:100%; border:1px solid black; clear:both;' />
 
   #DEFINITION
 

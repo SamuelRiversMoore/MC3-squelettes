@@ -972,7 +972,7 @@ article.tab h2{
 
 /*----------  ????? ----------*/
 .lexique-wrapper>div:not(.modal){
-	display: none;
+	/* display: none; */
 }
 
 .lexique-wrapper .cible {
@@ -1351,7 +1351,7 @@ article.tab {
 		left: 0;
 	}
 	.tabs-wrapper.openmenu article.tab{
-		
+
 	}
 }
 @media screen and (max-width: 680px){
