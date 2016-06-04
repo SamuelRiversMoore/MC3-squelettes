@@ -161,7 +161,7 @@ ul {
 ul.liste-lettres {
 	list-style-type: upper-alpha;
 }
-.texte-courant p {
+.texte-courant p:not(.message) {
 	margin-bottom: 1em;
 	line-height: 1.32em;
 }
@@ -534,11 +534,12 @@ ul.syntheses li h3{
 	line-height: 1.2em;
 	margin-bottom: .5rem;
 }
-ul.syntheses p{
+ul.syntheses p:not(.message){
     margin-bottom: 1rem;
 }
 ul.syntheses li{
 	list-style: none;
+	position: relative;
 }
 ul.syntheses a{
 	text-decoration: none;
@@ -849,7 +850,7 @@ article.tab h2{
 	float: left;
 	margin-right: 1.5rem;
 }
-.thematique-document-description p {
+.thematique-document-description p:not(.message) {
     margin-bottom: 1rem;
 }
 .thematique-document-meta{
@@ -995,21 +996,24 @@ article.tab h2{
 	font-weight: bold;
 	margin-top: 12px;
 }
-.lexique-definition p{
+
+
+.lexique-definition article.definition{
 	margin-bottom: 1.5rem;
-}
-.lexique-definition p:last-child {
 	border-left: 1px solid #FFC200;
 	padding-left: .75rem;
 }
 .lexique-definition p.discret{
-	margin: .5rem 0;
+	margin: .5rem;
+	margin-left: 0;
 	cursor: help;
 }
 .lexique-wrapper .lexique-definition {
 	margin-left: 1.5rem;
 	margin-bottom: 1.5rem;
 }
+
+
 
 .lexique-wrapper .lexique-definition .discret{
 	display:inline-block;
@@ -1020,9 +1024,10 @@ article.tab h2{
 	position:absolute;
 	background-color:#044984;
 	color:white;
-	padding:1rem;
+	padding:.75rem 1rem;
 	margin-right: 1.25rem;
-    max-width: 800px;
+    max-width: 660px;
+    line-height: 1.25rem;
 }
 .lexique-wrapper .lexique-definition .discret:hover ~ .lexique-reference {
 	display: block;

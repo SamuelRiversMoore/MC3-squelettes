@@ -428,7 +428,7 @@ div.bouton.moyen{ line-height: 1rem; }
 	color: rgba(0, 0, 0, 0.5);
 }
 article.tab .petit.bouton{padding-left: 0; vertical-align: middle;}
-section.administration form input.petit.bouton{padding:0; margin:0; margin-right: 0; vertical-align: top;}
+section.administration form input.petit.bouton{padding:0; margin:0; margin-right: 0; }
 .bouton.modifier:not(:last-child), section.administration>form:not(:last-child){
 	border-right: 1px solid #bbb;
 	padding-right: .65rem;
@@ -458,6 +458,10 @@ section.administration form input.petit.bouton{padding:0; margin:0; margin-right
 .bouton.ajouter.article{
 	margin-bottom: 1rem;
 }
+.lexique-wrapper>.bouton.ajouter{
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
 
 #menu .bouton.ajouter.pays{
 	background: rgb(226, 223, 215);
@@ -484,8 +488,7 @@ section.administration form input.petit.bouton{padding:0; margin:0; margin-right
 	padding: 0;
 	margin-right: .5rem;
 	background: none;
-	vertical-align: top;
-	line-height: 1rem;
+	line-height: 1.25rem;
 }
 form input.bouton.supprimer{ margin: 0; }
 section.administration {
@@ -642,6 +645,7 @@ section.edition textarea.small{
 }
 .message.ok {
 	color:#50AE50;
+    margin-left: .25rem;
 }
 
 section.edition section header{
