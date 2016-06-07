@@ -1,0 +1,57 @@
+
+
+<html>
+<head>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+
+  <!-- Parce que l'on en a jamais assez (PORTE PLUME & AJAX) -->
+  <link rel='stylesheet' type='text/css' media='all' href='plugins-dist/porte_plume/css/barre_outils.css' />
+  <link rel='stylesheet' type='text/css' media='all' href='spip.php?page=barre_outils_icones.css' />
+  <script src="prive/javascript/jquery.form.js?1460723772" type="text/javascript"></script>
+  <script src="prive/javascript/jquery.placeholder-label.js?1460723772" type="text/javascript"></script>
+  <script src="prive/javascript/ajaxCallback.js?1460723772" type="text/javascript"></script>
+  <script src="prive/javascript/jquery.cookie.js?1460723772" type="text/javascript"></script>
+  <script type='text/javascript' src='plugins-dist/porte_plume/javascript/jquery.markitup_pour_spip.js'></script>
+  <script type='text/javascript' src='plugins-dist/porte_plume/javascript/jquery.previsu_spip.js'></script>
+  <script type='text/javascript' src='spip.php?page=porte_plume_start.js&amp;lang=fr'></script>
+
+
+</head>
+
+
+<body style="background-color:yellow">
+<pre>
+  <?php
+
+  if (isset($_POST)) {
+    echo 'salut';
+    print_r ($_POST);
+    print_r ($_FILES);
+  }
+
+  ?>
+</pre>
+
+
+
+  		<form action='#' method='post' enctype='multipart/form-data'>
+
+  					<input type="file" name="fichier_upload" />
+            <input type="file" name="fichier_upload2" />
+            <input type="file" name="fichier_upload3" />
+
+  					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
+
+
+  		</form>
+
+
+
+
+<INCLURE{fond=test_2, ajax, env}>
+
+
+
+</body>
+</html>

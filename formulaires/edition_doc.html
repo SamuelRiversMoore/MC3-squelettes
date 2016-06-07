@@ -1,7 +1,22 @@
-<div class="modal">
+[(#ENV{mode}|=={image}|non) <div class="modal">
 	<a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="retour"></a>
+]
 	<section class="edition document">
-		<form action='#ENV{action}' method='post' enctype='multipart/form-data'>
+
+
+		<BOUCLE_images (DOCUMENTS documents_liens) {documents_liens.objet = #ENV{lien_objet}} {documents_liens.id_objet = #ENV{lien_id_objet}} {par num titre} {tout} {si #ENV{mode}|=={image}}>
+			<figure class="image">
+				<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
+				&#60;doc#ID_DOCUMENT&#62;
+				<form action='#ENV{action}' method='post' enctype='multipart/form-data'>
+					#ACTION_FORMULAIRE{#ENV{action}}
+					<input type='hidden' name='delier' value='#ID_DOCUMENT' />
+					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:supprimer:>' />
+				</form>
+			</figure>
+		</BOUCLE_images>
+
+		<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="formulaire_spip">
 			#ACTION_FORMULAIRE{#ENV{action}}
 			<section class="row head">
 				<h2 class="full"><:lped:document_edition_titre:></h2>
@@ -22,8 +37,14 @@
 						<div class="onglet">
 						   <input type="radio" id="onglet-1" name="onglet-group-1" checked>
 						   <label for="onglet-1">Mediathèque</label>
-						   <div class="onglet-content">
-						       vide
+						   <div class="onglet-content" style="overflow:scroll; text-align:left">
+									 <B_mediatheque>
+										<ul>
+								      <BOUCLE_mediatheque (DOCUMENTS) {tout}>
+												 <li> <input type="radio" name="mediatheque" value="#ID_DOCUMENT" style="display:inline-block">[(#TITRE|sinon{(sans titre)})] • #FICHIER</li>
+											</BOUCLE_mediatheque>
+										</ul>
+									</B_mediatheque>
 						   </div>
 						</div>
 
@@ -84,7 +105,7 @@
 
 				<section class="row">
 					<header><:lped:document_resume:></header>
-					<textarea name="descriptif" class="small">#ENV{descriptif}</textarea>
+					<textarea name="descriptif" class="small inserer_barre_edition">#ENV{descriptif}</textarea>
 				</section>
 
 				<section class="row">
@@ -103,10 +124,10 @@
 
 			<section class="row boutons right">
 				<div class="full">
-					<a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="gros bouton fermer"/><:lped:annuler:></a>
+					[(#ENV{mode}|=={image}|non) <a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="gros bouton fermer"><:lped:annuler:></a> ]
 					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
 				</div>
 			</section>
 		</form>
 	</section>
-</div>
+[(#ENV{mode}|=={image}|non) </div> ]
