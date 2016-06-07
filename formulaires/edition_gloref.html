@@ -1,8 +1,15 @@
 
-[(#EDITABLE|oui)
-	<div class="modal">
-		<a href="[(#SELF|parametre_url{afficher,''})]" class="retour"></a>
 		<section class="edition">
+
+					<BOUCLE_references (GLOREFS) {id_glodef = #ENV{id_glodef}} {tout}>
+								#TITRE
+								#DESCRIPTION
+								<form action='#ENV{action}' method='post'>
+									#ACTION_FORMULAIRE{#ENV{action}}
+									<input type='hidden' name='delier' value='#ID_GLOREF' />
+									<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:supprimer:>' />
+								</form>
+					</BOUCLE_references>
 
 		    <form action='#ENV{action}' method='post'>
 		        #ACTION_FORMULAIRE{#ENV{action}}
@@ -10,9 +17,9 @@
 				<B_refs>
 					<:lped:reference_selectionner:>
 					<ul>
-				<BOUCLE_refs (GLOREFS) {statut IN publie} {si #ENV{id_gloref}|=={new}}>
-						<li><input type="radio" name="gloref_lien" value="#ID_GLOREF"> #TITRE</li>
-				</BOUCLE_refs>
+						<BOUCLE_refs (GLOREFS) {si #ENV{id_gloref}|=={new}} {tout}>
+								<li><input type="radio" name="gloref_lien" value="#ID_GLOREF"> #TITRE</li>
+						</BOUCLE_refs>
 					</ul>
 				</B_refs>
 
@@ -40,12 +47,11 @@
 
 				<section class="row boutons right">
 					<div class="full">
-						<a href="[(#SELF|parametre_url{afficher,''})]" class="gros bouton fermer"/><:lped:annuler:></a>
 						<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
 					</div>
 				</section>
 
 			</form>
+
+			<//B_references>
 		</section>
-	</div>
-]

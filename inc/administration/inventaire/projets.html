@@ -17,21 +17,5 @@
             [(#FORMULAIRE_EDITION_PROJET{ #ID_PROJET,'','',[(#URL_PROJET|parametre_lang|parametre_url{afficher, projet_ok})]})]
         ]
 
-        <div class="diaporama">
-            <BOUCLE_images (DOCUMENTS) {id_projet} {extension==jpg|png|gif} {par num titre} {tout}>
-                <img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
-                [(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'projet', #ID_PROJET})]
-            </BOUCLE_images>
-
-            [(#REM) les documents du diaporama]
-            [(#AFFICHER|=={ajouter_image}|oui)
-                [(#FORMULAIRE_EDITION_DOC{'new','projet',#ID_PROJET,[(#SELF|parametre_url{afficher,document_ok})],'image','publie' })]
-            ]
-
-            [(#AFFICHER|=={ajouter_image}|non)
-                <a class="bouton prive" href="[(#URL_PROJET|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:projet_ajouter_image:></a>
-            ]
-        </div>
-
     </BOUCLE_projet>
 </section>

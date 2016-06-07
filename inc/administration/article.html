@@ -23,29 +23,6 @@
 			[(#FORMULAIRE_EDITION_ART{#ID_ARTICLE,#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,article_ok})] })]
 		]
 
-		<div class="diaporama">
-			#SET{images_article, non}
-			<BOUCLE_images (DOCUMENTS) {id_article} {extension==jpg|png|gif} {par num titre} {tout}>
-				<figure class="diapositive">
-					#SET{images_article, oui}
-					<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
-					[(#FORMULAIRE_SUPPRESSION_DOC{#ID_DOCUMENT, 'article', #ID_ARTICLE})]
-				</figure>
-			</BOUCLE_images>
-
-			[(#REM) les documents de l'article]
-			[(#AFFICHER|=={ajouter_image}|oui)
-				[(#FORMULAIRE_EDITION_DOC{'new','article',#ID_ARTICLE,[(#SELF|parametre_url{afficher,article_ok})],'image','publie' })]
-			]
-
-			[(#AFFICHER|=={ajouter_image}|non)
-				[(#GET{images_article}|=={non})
-					<figure class="diapositive fake">
-						<a class="gros bouton ajouter" href="[(#URL_ARTICLE|parametre_lang|parametre_url{afficher, ajouter_image})]"><:lped:article_ajouter_image:></a>
-					</figure>
-				]
-			]
-		</div>
 
 	</BOUCLE_article>
 </section>
