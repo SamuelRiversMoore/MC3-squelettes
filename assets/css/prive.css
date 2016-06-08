@@ -61,7 +61,7 @@ div.compte ul li h3{
 .onglet {
 	display: inline-block;
 }
-.onglet label {
+.onglet>label {
 	background: #eee;
 	margin-left: 1px;
 	position: relative;
@@ -71,7 +71,7 @@ div.compte ul li h3{
 	padding: 0 .5rem;
 	cursor: pointer;
 }
-.onglets [type=radio] {
+.onglet>[type=radio] {
 	display: none;
 }
 .onglet-content {
@@ -101,13 +101,13 @@ div.compte ul li h3{
 	display: inline-block;
 	vertical-align: middle;
 }
-.onglets [type=radio]:checked ~ label {
+.onglet>[type=radio]:checked ~ label{
 	background: #FFC200;
 	z-index: 2;
 	color: #666;
 	color: rgba(0, 0, 0, 0.56);
 }
-.onglets [type=radio]:checked ~ label ~ .onglet-content {
+.onglet>[type=radio]:checked ~ label ~ .onglet-content {
 	z-index: 1;
 	display: block;
 }
@@ -119,6 +119,7 @@ section.edition input[type="file"].fileupload + label {
 	background: #00ADFF;
 	color: #fff;
 	border: none;
+	padding: .5rem .75rem;
 }
 section.edition input[type="file"].fileupload:focus + label,
 section.edition input[type="file"].fileupload + label:hover {
@@ -774,6 +775,9 @@ section.edition .affichage-document .fichier{
 .diapositive .supprimer>.supprimer-wrap header{
 	margin-bottom: .5rem;
 }
+.diapositive .supprimer>.supprimer-wrap .bouton:last-child{
+	margin-right: 0;
+}
 .diaporama .diapositive.fake{
 	background: #ddd;
 	text-align: center;
@@ -802,11 +806,29 @@ section.edition .affichage-document .fichier{
 .diaporama .diapositive.fake section.edition.document{
 	display: none;
 }
-
+ul.mediatheque { margin: 0; padding: 0; font-size: 0; margin-right: -1rem;}
+ul.mediatheque li.media{
+	list-style: none;
+	display: inline-block;
+	font-size: 1rem;
+	margin: 0 1rem 1rem 0;
+	width: 6rem;
+	vertical-align: top;
+}
+ul.mediatheque li.media>label{font-size:.75rem; line-height: 1.2em; cursor: pointer; border-radius: .25rem; padding:.25rem;text-align: center;}
+ul.mediatheque li.media>label:hover{ background: rgba(0,0,0,.35); color:#555;}
+ul.mediatheque li.media>[type="radio"]:checked + label{ background: rgba(0,0,0,.35); color:#555;}
+ul.mediatheque li.media img{ width: 100%; }
+ul.mediatheque li.media .preview{
+    margin-left: auto; 
+    margin-right: auto; 
+   	margin-bottom: .25rem;
+}
 #administration-map{ height: 18rem; margin-top: 1rem; border: 1px solid #CDCDCD;}
 .leaflet-container input[type="text"]{ height: 26px; padding: 0 0 0 10px; border: none; }
 #administration-map .leaflet-control-mapbox-geocoder.active .leaflet-control-mapbox-geocoder-wrap { width: 280px; }
 #administration-map .leaflet-control-mapbox-geocoder-results { width: 280px; }
+#administration-map .leaflet-control-zoom.leaflet-bar.leaflet-control { position: absolute; top: 38px;}
 
 /**---------------- Media query ----------------**/
 @media only screen and (min-width: 48em) {

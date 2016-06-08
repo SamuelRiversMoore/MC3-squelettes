@@ -242,12 +242,13 @@ $( document ).ready(function() {
     		latInput = wrapper.find('input[name="latitude"]'),
     		lonInput = wrapper.find('input[name="longitude"]');
 
-		var adminMap = L.mapbox.map('administration-map', 'mapbox.streets', {zoomControl: false});
+		var adminMap = L.mapbox.map('administration-map', 'mapbox.streets');
+			adminMap.scrollWheelZoom.disable();
+			
     	var geocoderControl = L.mapbox.geocoderControl('mapbox.places', {keepOpen: true, autocomplete: true});
     		geocoderControl.addTo(adminMap);
 		
 		getInputVal();
-
 	    geocoderControl.on('select', function(object){
 	    	var coord = object.feature.geometry.coordinates;
 	    		setMarker(coord[1], coord[0]);

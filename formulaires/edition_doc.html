@@ -3,18 +3,24 @@
 ]
 	<section class="edition document">
 
-
-		<BOUCLE_images (DOCUMENTS documents_liens) {documents_liens.objet = #ENV{lien_objet}} {documents_liens.id_objet = #ENV{lien_id_objet}} {par num titre} {tout} {si #ENV{mode}|=={image}}>
-			<figure class="image">
-				<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
-				&#60;doc#ID_DOCUMENT&#62;
-				<form action='#ENV{action}' method='post' enctype='multipart/form-data'>
-					#ACTION_FORMULAIRE{#ENV{action}}
-					<input type='hidden' name='delier' value='#ID_DOCUMENT' />
-					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:supprimer:>' />
-				</form>
-			</figure>
-		</BOUCLE_images>
+		<section class="row diaporama">
+			<BOUCLE_images (DOCUMENTS documents_liens) {documents_liens.objet = #ENV{lien_objet}} {documents_liens.id_objet = #ENV{lien_id_objet}} {par num titre} {tout} {si #ENV{mode}|=={image}}>
+				<figure class="image diapositive">
+					<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
+					&#60;doc#ID_DOCUMENT&#62;
+					<div class="supprimer-button icon fa-trash"></div>
+					<div class="supprimer">
+						<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="supprimer-wrap">
+							#ACTION_FORMULAIRE{#ENV{action}}
+							<input type='hidden' name='delier' value='#ID_DOCUMENT' />
+							<header><:lped:document_supression_titre:></header>
+							<div class="moyen bouton annuler"><:lped:non:></div>
+							<input type='submit' class="moyen bouton enregistrer" name='ok' value='<:lped:oui:>' />
+						</form>						
+					</div>
+				</figure>
+			</BOUCLE_images>
+		</section>
 
 		<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="formulaire_spip">
 			#ACTION_FORMULAIRE{#ENV{action}}
@@ -25,6 +31,7 @@
 			</section>
 
 			<section class="row">
+				#SET{formats_images, #ARRAY{gif, jpg, jpeg, png}}
 				[(#FICHIER|oui)
 					<div class="affichage-document">
 						<div class="gros fichier #EXTENSION">#EXTENSION</div>
@@ -39,9 +46,20 @@
 						   <label for="onglet-1">Mediathèque</label>
 						   <div class="onglet-content" style="overflow:scroll; text-align:left">
 									 <B_mediatheque>
-										<ul>
-								      <BOUCLE_mediatheque (DOCUMENTS) {tout}>
-												 <li> <input type="radio" name="mediatheque" value="#ID_DOCUMENT" style="display:inline-block">[(#TITRE|sinon{(sans titre)})] • #FICHIER</li>
+										<ul class="mediatheque">
+											<BOUCLE_mediatheque (DOCUMENTS) {tout}>
+												<li class="media">
+													<input type="radio" name="mediatheque" value="#ID_DOCUMENT" id="input-#ID_DOCUMENT" class="hiddeninput">
+													<label for="input-#ID_DOCUMENT">
+														[(#GET{formats_images}|find{#EXTENSION}|oui)
+															<img class="preview" src="#FICHIER">
+														]
+														[(#GET{formats_images}|find{#EXTENSION}|non)
+															<div class="gros fichier #EXTENSION preview">#EXTENSION</div>
+														]
+														<div class="titre">[(#TITRE|sinon{(sans titre)})]</div>
+													</label>
+												</li>
 											</BOUCLE_mediatheque>
 										</ul>
 									</B_mediatheque>
@@ -57,7 +75,7 @@
 									<div id="inputImg">
 										<img src="">
 									</div>
-									<input type="file"  id="fileupload" name="fichier_upload" class="fileupload hiddeninput" />
+									<input type="file" id="fileupload" name="fichier_upload" class="fileupload hiddeninput" />
 									<label for="fileupload"><:lped:document_upload:></label>
 								</div>
 						   </div>
