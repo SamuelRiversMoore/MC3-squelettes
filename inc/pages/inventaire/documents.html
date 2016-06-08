@@ -24,7 +24,7 @@
 
 ]
 
-<BOUCLES_documents (DOCUMENTS) {id_chapitre?} {id_thematique?} {par num titre} {statut IN #GET{statut}}>
+<BOUCLES_documents (DOCUMENTS) {id_chapitre?} {id_thematique?} {par num titre} {par maj} {statut IN #GET{statut}}>
 
 	[(#REM) si on a le droit de voir le document ]
 	[(#AUTORISER{voir,document,#ID_DOCUMENT}|oui)
@@ -48,7 +48,7 @@
 					</p>
 				</div>]
 			</div>
-			
+
 			<div class="thematique-document-description"> [(#DESCRIPTIF|liens_ouvrants)] </div>
 
 			[<div class="thematique-document-meta">
