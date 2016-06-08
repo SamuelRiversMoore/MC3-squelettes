@@ -107,13 +107,13 @@ $( document ).ready(function() {
 
 
 	// pour le futur
-	$('.diaporama').on('click', '.diapositive .supprimer-button', function(){
+	$('section.edition').on('click', '.diapositive .supprimer-button', function(){
 		$(this).closest('.diapositive').addClass('deletemode');
 	}).on('click', '.diapositive .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('deletemode');
 	})
 
-	$('.diaporama').on('click', '.diapositive.fake .bouton.ajouter', function(){
+	$('section.edition').on('click', '.diapositive.fake .bouton.ajouter', function(){
 		$(this).closest('.diapositive').removeClass('fake').addClass('ajout');
 	}).on('click', '.diapositive.ajout .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('ajout').addClass('fake');

@@ -594,7 +594,7 @@ figure.slick-slide {
 	bottom: 6.25rem;
 	right: 1.25rem;
 	z-index: 9999;
-	background-image: url("../images/zoom.png");
+	background: center no-repeat url("../images/zoom.png");
 	height: 2rem;
 	width: 2rem;
 	text-indent: -99999px;
