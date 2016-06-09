@@ -4,6 +4,16 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicGllcnJlcGllcnJlcGllcnJlIiwiYSI6IkdXdE5CRFEif
 
 $( document ).ready(function() {
 
+	if($('body').find('.modal').length){ 
+		$('body').addClass('hasModal');
+/*		var modal = $('body').find('.modal');
+		var retour = modal.children('a.retour');
+		var contenu = modal.children('section.edition');
+		contenu.appendTo(retour);
+*/
+	}
+
+
 	$('#show-menu, #close-menu').on('click', function(){
 		$('#menu').toggleClass('shown');
 	});
@@ -118,8 +128,6 @@ $( document ).ready(function() {
 	}).on('click', '.diapositive.ajout .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('ajout').addClass('fake');
 	});
-
-
 
 	Ps.initialize(document.getElementById('menu'),{
 		suppressScrollX: true

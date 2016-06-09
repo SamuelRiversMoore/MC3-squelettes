@@ -1,15 +1,14 @@
 
 		<section class="edition">
-
-					<BOUCLE_references (GLOREFS) {id_glodef = #ENV{id_glodef}} {tout}>
-								#TITRE
-								#DESCRIPTION
-								<form action='#ENV{action}' method='post'>
-									#ACTION_FORMULAIRE{#ENV{action}}
-									<input type='hidden' name='delier' value='#ID_GLOREF' />
-									<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:supprimer:>' />
-								</form>
-					</BOUCLE_references>
+			<BOUCLE_references (GLOREFS) {id_glodef = #ENV{id_glodef}} {tout}>
+						#TITRE
+						#DESCRIPTION
+						<form action='#ENV{action}' method='post'>
+							#ACTION_FORMULAIRE{#ENV{action}}
+							<input type='hidden' name='delier' value='#ID_GLOREF' />
+							<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:supprimer:>' />
+						</form>
+			</BOUCLE_references>
 
 		    <form action='#ENV{action}' method='post'>
 		        #ACTION_FORMULAIRE{#ENV{action}}

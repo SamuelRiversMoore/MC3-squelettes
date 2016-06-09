@@ -1,4 +1,5 @@
 
+body.hasModal{ overflow: hidden; }
 
 input[type="submit"], input[type="button"]{ cursor:pointer; }
 input[type="submit"]:hover, input[type="button"]:hover{ opacity: .8; }
@@ -556,12 +557,15 @@ section.administration.mini .select-title .status{
 	margin: 0;
 	padding: 0;
 }
+.modal-container{
+	position: relative;
+}
 .modal h1, .modal h2 {
 	font-weight: normal;
 	margin: 0;
 }
 
-.modal>section.edition{
+.modal section.edition{
 	position:relative;
 	z-index:2020;
 	max-width: 50rem;
@@ -569,11 +573,12 @@ section.administration.mini .select-title .status{
 	background: #fff;
 }
 
-.modal>.retour {
+.modal .retour {
 	display:block;
 	z-index:2010;
 	width:100%;
-	height:100%;
+	top: -2rem;
+	bottom: -2rem;
 	position:absolute;
 	cursor:default;
 }
@@ -714,11 +719,12 @@ section.edition .affichage-document .fichier{
 	font-size: 16px;
 	vertical-align: top;
 	margin: 0 .75rem 1.5rem .75rem;
-	width: 12rem;
-	height: 9rem;
+	width: 10.625rem;
+	height: 8rem;
 	overflow: hidden;
 	border: 1px solid #999;
 	position: relative;
+	background: #eee;
 }
 .diaporama .diapositive img{
 	display: block;

@@ -1,13 +1,27 @@
-[(#ENV{mode}|=={image}|non) <div class="modal">
+[(#ENV{mode}|=={image}|non) 
+<div class="modal">
+	<div class="modal-container">
 	<a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="retour"></a>
 ]
+	#SET{formats_images, #ARRAY{gif, jpg, jpeg, png}}
+
 	<section class="edition document">
+
+		<section class="row head">
+			<h2 class="full"><:lped:document_edition_titre:></h2>
+			[<p class="message ok icon fa-check">(#ENV**{message_ok})</p>]
+			[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
+		</section>
 
 		<section class="row diaporama">
 			<BOUCLE_images (DOCUMENTS documents_liens) {documents_liens.objet = #ENV{lien_objet}} {documents_liens.id_objet = #ENV{lien_id_objet}} {par num titre} {tout} {si #ENV{mode}|=={image}}>
 				<figure class="image diapositive">
-					<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
-					&#60;doc#ID_DOCUMENT&#62;
+					[(#GET{formats_images}|find{#EXTENSION}|oui)
+						<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
+					]
+					[(#GET{formats_images}|find{#EXTENSION}|non)
+						<div class="gros fichier #EXTENSION">#EXTENSION</div>
+					]
 					<div class="supprimer-button icon fa-trash"></div>
 					<div class="supprimer">
 						<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="supprimer-wrap">
@@ -24,14 +38,13 @@
 
 		<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="formulaire_spip">
 			#ACTION_FORMULAIRE{#ENV{action}}
-			<section class="row head">
+<!--			<section class="row head">
 				<h2 class="full"><:lped:document_edition_titre:></h2>
 				[<p class="message ok icon fa-check">(#ENV**{message_ok})</p>]
 				[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
-			</section>
+			</section> -->
 
 			<section class="row">
-				#SET{formats_images, #ARRAY{gif, jpg, jpeg, png}}
 				[(#FICHIER|oui)
 					<div class="affichage-document">
 						<div class="gros fichier #EXTENSION">#EXTENSION</div>
@@ -148,4 +161,7 @@
 			</section>
 		</form>
 	</section>
-[(#ENV{mode}|=={image}|non) </div> ]
+[(#ENV{mode}|=={image}|non) 
+	</div>
+</div> 
+]
