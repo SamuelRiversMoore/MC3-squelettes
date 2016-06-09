@@ -176,5 +176,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'glomot_definition_en' => 'Definition',
     'glomot_source' => 'Source',
 
+    'definition_nouveau_titre' => 'New definition',
+    'definition_edition_titre' => 'Definition',
+    'mot_definition' => 'Definition\'s content',
+
+    'reference' => 'Reference',
+    'reference_ajouter' => 'Add a reference',
+    'reference_nouveau_titre' => 'New reference',
+    'reference_selectionner' => 'Chose a reference',
+    'reference_titre' => 'Name of the reference',
+    'reference_description' => 'Description of the reference',
 );
 ?>

@@ -5,12 +5,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicGllcnJlcGllcnJlcGllcnJlIiwiYSI6IkdXdE5CRFEif
 $( document ).ready(function() {
 
 	if($('body').find('.modal').length){ 
-		$('body').addClass('hasModal');
-/*		var modal = $('body').find('.modal');
-		var retour = modal.children('a.retour');
-		var contenu = modal.children('section.edition');
-		contenu.appendTo(retour);
-*/
+		$('body').addClass('hasModal'); // pour désactiver la scrollbar de l'arrière plan si le modal et visible
 	}
 
 

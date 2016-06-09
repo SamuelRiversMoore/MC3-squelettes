@@ -82,7 +82,7 @@ div.compte ul li h3{
 	background: #F2EFE4;
 	right: 0;
 	bottom: 0;
-	padding: 1.25rem;
+	padding: 1rem;
 	font-size: 1rem;
 	border: 1px solid #cdcdcd;
 	display: none;
@@ -305,7 +305,6 @@ input.switchlang:checked + label>span:last-child, input.switchlang:not(:checked)
 .inline{ display: inline-block; }
 h1.inline{ margin-right: .25rem; }
 
-
 body.logged .liste-articles .billet h4, 
 body.logged .journal>article h4, 
 body.logged .nouvelles>article h4, 
@@ -418,7 +417,6 @@ div.bouton.moyen{ line-height: 1rem; }
 	cursor: pointer;
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
-
 .bouton.modifier, .bouton.supprimer, article.tab .petit.bouton:not(.proposer){
 	border-radius: 0;
 	display: inline-block;
@@ -448,6 +446,10 @@ section.administration form input.petit.bouton{padding:0; margin:0; margin-right
 	vertical-align: baseline;
 }
 .bouton.ajouter{
+	background: #007AC8;
+	color: #fff;
+}
+.bouton.montrer{
 	background: #007AC8;
 	color: #fff;
 }
@@ -544,7 +546,7 @@ section.administration.mini .select-title .status{
     margin-top: 0;
     margin-bottom: .5rem;
 }
-.modal {
+.modal, .surmodal {
 	position: fixed;
 	background: #292929;
 	background: rgba(30,30,30,0.95);
@@ -605,7 +607,7 @@ section.administration .meta>span.icon::before{
 }
 
 
-.edition textarea, .edition input[type="text"], .edition input[type="date"] {
+.edition textarea, .edition textarea.small, .edition input[type="text"], .edition input[type="date"] {
 	padding: 0.5rem;
 	font-size: 1rem;
 	font-family: "karmilla";
@@ -690,6 +692,9 @@ section.edition .input-block input{
 	font-size: 0;
 	padding: 1.5rem;
 }
+.row ul{
+	font-size: 1rem;
+}
 .full, .demi{
 	display: inline-block;
 	position: relative;
@@ -699,6 +704,32 @@ section.edition .input-block input{
 		-moz-box-sizing: border-box;
 			box-sizing: border-box;
 }
+section.edition .edition-reference{
+	font-size: 1rem;
+	background-color: #044984;
+    color: #fff;
+    padding: .5rem 1rem;
+    display: inline-block;
+}
+section.edition .edition-reference form.inline{ 
+	vertical-align: top; 
+	float: right;
+}
+section.edition .edition-reference form.inline .bouton.mega{ 
+	font-size: 1.25rem; 
+	padding: .5rem .75rem; 
+	margin-left: .625rem; 
+	margin-top: -.5rem;
+    margin-right: -1rem;
+    margin-bottom: -.5rem;
+	line-height: 1rem; 
+	background: transparent; 
+	color: inherit; 
+	opacity: .5;
+}
+section.edition .edition-reference form.inline .bouton.mega:hover{ opacity: .85; }
+.mega.bouton.icon::before{ margin-right: 0;}
+
 section.edition .affichage-document{
 	padding: 1rem 0;
 	font-size: 1rem;
@@ -818,7 +849,7 @@ ul.mediatheque li.media{
 	display: inline-block;
 	font-size: 1rem;
 	margin: 0 1rem 1rem 0;
-	width: 6rem;
+	width: 6.625rem;
 	vertical-align: top;
 }
 ul.mediatheque li.media>label{font-size:.75rem; line-height: 1.2em; cursor: pointer; border-radius: .25rem; padding:.25rem;text-align: center;}
