@@ -1,5 +1,5 @@
-		
 
+	<B_references>
 			<section class="row">
 				<header for='titre'><:lped:reference:></header>
 				<BOUCLE_references (GLOREFS) {id_glodef = #ENV{id_glodef}} {tout}>
@@ -13,9 +13,15 @@
 						<span class="description">#DESCRIPTION</span>
 					</div>
 				</BOUCLE_references>
-				<div class="gros bouton montrer" data-target="referenceadmin"><:lped:reference_ajouter:></div>
-
 			</section>
+		</B_references>
+
+		[(#REM) si la première boucle n'a pas été executée]
+		
+		<section class="row">
+			<header for='titre'><:lped:reference:></header>
+			<div class="gros bouton montrer" data-target="referenceadmin"><:lped:reference_ajouter:></div>
+		</section>
 
 			<div class="surmodal hidden" id="referenceadmin">
 				<section class="edition">
