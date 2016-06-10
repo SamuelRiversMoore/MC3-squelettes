@@ -582,7 +582,7 @@ section.administration.mini .select-title .status{
 	background: #fff;
 }
 
-.modal>.retour {
+.modal-container>.retour {
 	display:block;
 	z-index:2010;
 	width:100%;
