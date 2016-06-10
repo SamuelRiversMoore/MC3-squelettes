@@ -972,15 +972,15 @@ article.tab h2{
 }
 
 /*----------  ????? ----------*/
-.lexique-wrapper>div:not(.modal){
-	/* display: none; */
+.lexique-wrapper>.glomot-contenu{
+	display: none; 
 }
 
 .lexique-wrapper .cible {
 	display:none;
 }
 
-.lexique-wrapper .cible:target ~ div{
+.lexique-wrapper .cible:target ~ .glomot-contenu{
 	display: block;
 }
 .lexique-wrapper .lexique-titre {
