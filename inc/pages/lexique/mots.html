@@ -4,9 +4,8 @@
 <BOUCLE_mot (GLOMOTS) {id_glomot} {tout}>
 
 	<div class="lexique-wrapper">
-		<span class="cible" id="mot-#ID_GLOMOT"></span>
-		<a title="#TITRE" href="#mot-#ID_GLOMOT" class="lexique-titre">#TITRE</a>
-		<div class="glomot-contenu">
+		<a title="#TITRE" href="[(#SELF|parametre_url{glomot, #ID_GLOMOT})]##ANCRE" class="lexique-titre">#TITRE</a>
+		<div class="glomot-contenu" id="glomot_#ID_GLOMOT" [(#GLOMOT|=={#ID_GLOMOT}|oui) style="display:block;"]>
 			[(#AUTORISER{modifier,glomot,#ID_GLOMOT}|oui) <INCLURE{fond=inc/administration/lexique/glomots, afficher, id_glomot, glomot} /> ]
 			<BOUCLE_definitions (GLODEFS) {id_glomot} {statut IN #GET{statut}}>
 				[(#AUTORISER{voir,glodef,#ID_GLODEF}|oui)

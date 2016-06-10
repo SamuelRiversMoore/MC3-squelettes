@@ -32,7 +32,7 @@
 				<BOUCLE_mots (GLOMOTS) {par titre} {tout}>
 					[(#AUTORISER{voir,glomot,#ID_GLOMOT}|oui)
 						[(#REM) si le mot commence bien par la lettre]
-						[(#TITRE|mb_substr{0,1,'UTF-8'}|strtolower|=={#VALEUR}|oui) <INCLURE{fond=inc/pages/lexique/mots, env, id_glomot}> ]
+						[(#TITRE|mb_substr{0,1,'UTF-8'}|strtolower|=={#VALEUR}|oui) <INCLURE{fond=inc/pages/lexique/mots, env, id_glomot, ancre=#VALEUR}> ]
 					]
 				</BOUCLE_mots>
 			</BOUCLE_lire_tableau>
