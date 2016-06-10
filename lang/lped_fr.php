@@ -36,6 +36,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'bouton_question_supprimer' => 'Supprimer',
     'proposer' => 'Proposer à la publication',
     'valider' => 'Valider',
+    'ajouter' => 'Ajouter',
     'oui' => 'Oui',
     'non' => 'Non',
     'annuler' => 'Annuler',

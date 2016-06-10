@@ -110,6 +110,23 @@ $( document ).ready(function() {
 		$(this).closest('.tabs-wrapper').toggleClass('openmenu');
 	})
 
+	// surmodal
+	$('section.edition').on('click', '.bouton.montrer', function(){
+		var target = $(this).attr('data-target');
+		target = document.getElementById(target);
+		if($(target).length){
+			$(target).removeClass('hidden')
+		}
+	});
+	$('section.edition').on('click', '.surmodal', function(e){
+		$(this).addClass('hidden');
+	}).on('click', '.surmodal>.edition', function(e){
+		e.stopPropagation();
+	}).on('click', '.surmodal .bouton.annuler', function(e){
+		$(this).closest('.surmodal').addClass('hidden');
+	})
+
+
 
 	// pour le futur
 	$('section.edition').on('click', '.diapositive .supprimer-button', function(){
