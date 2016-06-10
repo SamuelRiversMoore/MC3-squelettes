@@ -86,6 +86,8 @@ div.compte ul li h3{
 	font-size: 1rem;
 	border: 1px solid #cdcdcd;
 	display: none;
+	overflow:scroll; 
+	text-align:left;
 }
 .onglet-content.centered{
 	text-align: center;
@@ -169,7 +171,7 @@ section.edition #inputImg .fichier{
 	height: 1.25rem;
 }
 .select-menu ul{
-	background: #ECE8DD;
+	background: #EFEFEF;
 	position: absolute;
 	z-index: 99;
 	display: none;
@@ -209,15 +211,15 @@ span.select-title>.status{
 	top: 0;
 	box-sizing: border-box;
 	border: .3rem solid;
-	border-color: transparent transparent #ECE8DD #ECE8DD;
+	border-color: transparent transparent #EFEFEF #EFEFEF;
 	transform-origin: 0 0;
 	transform: rotate(-225deg);
 	box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 .select-menu input[type="submit"]{margin: 0;}
 .select-menu li, .select-menu .select-title{ cursor: pointer; }
-.select-menu li:hover{ background: #AEACA4; }
-.select-menu li.selected{ background: #B8B7AE; }
+.select-menu li:hover{ background: #ccc; }
+.select-menu li.selected{ background: #D8D8D8; }
 .select-menu .select-title.open + ul{ display: block; }
 
 /*----------  INTERRUPTEUR POUR CHANGER DE LANGUE  ----------*/

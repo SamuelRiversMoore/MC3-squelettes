@@ -26,38 +26,29 @@
 			<div class="surmodal hidden" id="referenceadmin">
 				<section class="edition">
 					<section class="row head">
-						<h2 class="full"> [(#ENV{id_gloref}|=={new}|?{<:lped:reference_nouveau_titre:>,<:lped:reference_edition_titre:>})] </h2>
+						<h2 class="full"><:lped:reference_ajouter:></h2>
 						[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
 						[<p class="message ok icon fa-check-square-o">(#ENV*{message_ok})</p>]
 					</section>
 
 				    <form action='#ENV{action}' method='post'>
-						<div class="row">
+						<section class="row">
 							#ACTION_FORMULAIRE{#ENV{action}}
-					        <header><:lped:reference_selectionner:></header>
+					        <header><:lped:reference_titre:></header>
+					        <input type="text" name='titre' id="default" list="glorefs" value="#ENV{titre}" autocomplete="false">
 							<B_refs>
-								<ul>
+								<datalist id="glorefs">
 									<BOUCLE_refs (GLOREFS) {si #ENV{id_gloref}|=={new}} {tout}>
-										<li><input type="radio" name="gloref_lien" value="#ID_GLOREF"> #TITRE</li>
+									  	<option name="gloref_lien" value="#TITRE">#ID_GLOREF</option>
 									</BOUCLE_refs>
-								</ul>
+								</datalist>
 							</B_refs>
-						</div>
+						</section>
 
-						<div class="row">
-							<section class="full">
-								<header for='titre'><:lped:reference_titre:></header>
-								<input type="text" name='titre' class="small" value="#ENV{titre}">
-							</section>
-						</div>
-
-
-						<div class="row">
-							<section class="full">
-								<header for='description'><:lped:reference_description:></header>
-								<textarea name='description' class="small">#ENV{description}</textarea>
-							</section>
-						</div>
+						<section class="row">
+							<header><:lped:reference_description:></header>
+							<textarea name='description' class="small">#ENV{description}</textarea>
+						</section>
 
 						<section class="row boutons right">
 							<div class="full">

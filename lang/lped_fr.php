@@ -204,10 +204,17 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'definition_edition_titre' => 'Définition',
     'mot_definition' => 'Contenu de la définition',
 
+    'mot_ajouter' => 'Ajouter une entrée',
+    'mot_nouveau_titre' => 'Nouvelle entrée',
+    'mot_edition_titre' => 'Edition d\'une entrée' ,
+    'mot_titre' => 'Nom de l\'entrée',
+
+
     'reference' => 'Référence',
     'reference_ajouter' => 'Ajouter une référence',
+    'reference_ou_ajouter' => 'ou ajoutez en une.',
     'reference_nouveau_titre' => 'Nouvelle référence',
-    'reference_selectionner' => 'Selectionnner une référence',
+    'reference_selectionner' => 'Selectionnnez une référence',
     'reference_titre' => 'Nom de la référence',
     'reference_description' => 'Descriptif de la référence',
 

@@ -943,12 +943,13 @@ article.tab h2{
 	font-size: 1.25rem;
 	position: fixed;
 	top: 1.25rem;
-	left: 24rem;
+	left: 22rem;
+	z-index: 1;
 }
-#lexique-lettres a {
+#lexique-lettres>a {
 	text-decoration: none;
 	text-transform:uppercase;
-	width: 2rem;
+	min-width: 2rem;
 	background-color: #FFC200;
 	text-align: center;
 	height: 2rem;
@@ -956,10 +957,35 @@ article.tab h2{
 	display: block;
 	float: left;
 }
-#lexique-lettres a:hover {
+#lexique-lettres a.ajouter{
+	width: auto;
+	text-transform:none;
+    background: #007AC8;
+    color: #fff;
+	font-weight: normal;
+	cursor: pointer;
+}
+#lexique-lettres a.ajouter .plus{
+	width: 2rem;
+	display: inline-block;
+	background: #000;
+}
+#lexique-lettres a.ajouter .text{
+	margin: 0 .5rem;
+	display: none;
+	font-size: 1rem;
+}
+#lexique-lettres a.ajouter:hover{
+	border: none;
+}
+
+#lexique-lettres a.ajouter:hover .text{
+	display: inline-block;
+}
+#lexique-lettres>a:hover {
 	border-bottom: .2rem solid #000;
 }
-#lexique-lettres a.active {
+#lexique-lettres>a.active {
 	background-color: #000;
 	color: rgb(255, 255, 255);
 }
@@ -967,20 +993,15 @@ article.tab h2{
 	margin-top: 3rem;
 	max-width: 40rem;
 }
-#lexique-mots h1{
+#lexique-mots>h1{
 	text-transform:uppercase;
 }
 
 /*----------  ????? ----------*/
-.lexique-wrapper>.glomot-contenu{
+.lexique-wrapper .glomot-contenu{
 	display: none; 
 }
-
-.lexique-wrapper .cible {
-	display:none;
-}
-
-.lexique-wrapper .cible:target ~ .glomot-contenu{
+.lexique-wrapper .glomot-contenu.ouvert{
 	display: block;
 }
 .lexique-wrapper .lexique-titre {
@@ -988,11 +1009,10 @@ article.tab h2{
 	font-size: 1.125rem;
 	line-height: 1.2em;
 	text-decoration: none;
-}
-.lexique-wrapper .cible:target ~ .lexique-titre {
-	font-size: 1.25rem;
-	line-height: 1.2em;
 	font-family: "karmilla";
+}
+.lexique-wrapper .lexique-titre.ouvert {
+	font-size: 1.5rem;
 	font-weight: bold;
 	margin-top: 12px;
 }

@@ -16,17 +16,17 @@
 				<BOUCLE_nav(DATA){source tableau,#GET{tab_initiales}}>
 					<a href="##VALEUR">#VALEUR</a>
 				</BOUCLE_nav>
+				[(#AUTORISER{creer,glomot}|oui)
+					<a class="ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouveau_mot'})]"><span class="plus">+</span><span class="text"><:lped:mot_ajouter:></span></a>
+				]
 			</nav>
+			[(#AUTORISER{creer,glomot}|oui)
+				[(#AFFICHER|=={nouveau_mot}|oui) <section class="administration">[(#FORMULAIRE_EDITION_GLOMOT{'new',[(#URL_RUBRIQUE)]})] </section> ]
+			]
 		</B_nav>
 
 
 		<div id="lexique-mots">
-
-			[(#AUTORISER{creer,glomot}|oui)
-				<a class="gros bouton ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouveau_mot'})]"> <:lped:mot_ajouter:> </a>
-				[(#AFFICHER|=={nouveau_mot}|oui) <section class="administration">[(#FORMULAIRE_EDITION_GLOMOT{'new',[(#URL_RUBRIQUE)]})] </section> ]
-			]
-
 			<BOUCLE_lire_tableau (DATA) {source tableau,#GET{tab_initiales}} >
 				<h1 id="#VALEUR">#VALEUR</h1>
 				<BOUCLE_mots (GLOMOTS) {par titre} {tout}>
