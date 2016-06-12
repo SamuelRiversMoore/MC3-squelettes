@@ -115,7 +115,9 @@ $( document ).ready(function() {
 		var target = $(this).attr('data-target');
 		target = document.getElementById(target);
 		if($(target).length){
-			$(target).removeClass('hidden')
+			$(target).removeClass('hidden');
+			// Reinitialiser autocomplete.js
+			AutoComplete.init();
 		}
 	});
 	$('section.edition').on('click', '.surmodal', function(e){
