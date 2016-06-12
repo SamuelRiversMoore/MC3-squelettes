@@ -879,6 +879,106 @@ ul.mediatheque li.media .preview{
 #administration-map .leaflet-control-mapbox-geocoder-results { width: 280px; }
 #administration-map .leaflet-control-zoom.leaflet-bar.leaflet-control { position: absolute; top: 38px;}
 
+/**---------------- Autocomplete dropdown ----------------**/
+
+#autosearch{
+	position: relative;
+}
+#search-bar{display: block; margin: .25em 0 0; width: 100%; padding: .25em .5em; font-size: 1rem; padding-right: 2.5rem;}
+.autosearch-results{
+	position: absolute;
+	display: none;
+	z-index: 5;
+	font-size: 1rem;
+	transition: min-height 0.2s;
+	margin: 0;
+	left: 0;
+	right: 2rem;
+	overflow: auto;
+	max-height: 12.5rem;
+	border-bottom: 1px solid #ccc;
+    box-shadow: 0px 3px 10px -3px rgba(0,0,0,.5);
+    background: #FFFFEC;
+}
+.autosearch-results>ul{
+	list-style: none;
+	min-height: 0px;
+	border-top: 0 !important;	
+	color: #333;
+	margin: 0;
+	width: 100%;
+}
+.autosearch-results>ul, #search-bar, #search-bar:focus {
+	border: 1px solid #ccc;
+	outline: none;
+}
+.autosearch-results>ul{
+	border-bottom: none;
+}
+.item {
+  padding: .5em .75em;
+  line-height: 1rem;
+}
+.output-partiel:hover .focus {
+  background: transparent;
+}
+.item:hover, .focus,
+.output-partiel:hover .focus:hover {
+	background: #F2EFE4;
+}
+.item:hover { cursor: pointer; }
+.item strong { color: #333; }
+.item:hover strong { color: #000; }
+
+.show-hide.bouton{ 
+	padding: .5rem;
+    position: absolute;
+    cursor: pointer;
+    line-height: 1rem;
+    height: 2rem;
+    width: 2rem;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    background: #eee;
+}
+.show-hide.bouton::before{
+	margin: 0;
+}
+#show-hide-menu:checked ~ .show-hide.bouton{
+    background: #4BA7F5;
+    border: none;
+}
+#show-hide-menu:checked ~ .show-hide.bouton::before{
+	content: "\f00d";
+    line-height: 0;
+}
+#show-hide-menu:checked ~ .autosearch-results{
+	display: block;
+}
+.output-partiel:empty{
+	display: none;
+}
+.output-partiel + .output-complet{
+	display: none;
+}
+.output-partiel:empty + .output-complet{
+	display: block;
+}
+.item-titre{
+	font-family: "Inconsolata";
+}
+.item-texte{
+	color: #aaa;
+    color: rgba(119, 119, 119, 0.76);
+	font-size: .85rem;
+}
+.item-texte::before{
+	content:' : ';
+}
+
+
 /**---------------- Media query ----------------**/
 @media only screen and (min-width: 48em) {
 	.demi{

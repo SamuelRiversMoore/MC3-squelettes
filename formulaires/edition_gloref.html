@@ -35,14 +35,26 @@
 						<section class="row">
 							#ACTION_FORMULAIRE{#ENV{action}}
 					        <header><:lped:reference_titre:></header>
+					        <div id="autosearch">
+								<input type="text" id="search-bar" autocomplete="off" />
+								<input type="checkbox" id="show-hide-menu" name="show-hide" class="hiddeninput">
+								<label for="show-hide-menu" class="show-hide bouton icon fa-angle-down"></label>
+								<div class="autosearch-results">
+									<ul class="output-partiel"></ul>
+									<ul class="output-complet">
+										<B_refs>
+											<BOUCLE_refs (GLOREFS) {si #ENV{id_gloref}|=={new}} {tout}>
+												<li class="item"><span class="item-titre">#TITRE</span><span class="item-texte">#DESCRIPTION</span></li>
+											</BOUCLE_refs>
+										</B_refs>
+									</ul>
+								</div>
+					        </div>
+
+
+							<!--
 					        <input type="text" name='titre' id="default" list="glorefs" value="#ENV{titre}" autocomplete="false">
-							<B_refs>
-								<datalist id="glorefs">
-									<BOUCLE_refs (GLOREFS) {si #ENV{id_gloref}|=={new}} {tout}>
-									  	<option name="gloref_lien" value="#TITRE">#ID_GLOREF</option>
-									</BOUCLE_refs>
-								</datalist>
-							</B_refs>
+							-->
 						</section>
 
 						<section class="row">
