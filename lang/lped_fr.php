@@ -203,6 +203,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'definition_nouveau_titre' => 'Nouvelle définition',
     'definition_edition_titre' => 'Définition',
     'mot_definition' => 'Contenu de la définition',
+    'definition_ajouter' => 'Ajouter une définition',
 
     'mot_ajouter' => 'Ajouter une entrée',
     'mot_nouveau_titre' => 'Nouvelle entrée',

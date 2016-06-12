@@ -20,14 +20,16 @@ var AutoComplete = {
 
 		count = 0;		
 		$complet.find('li.item').each(function(){
-			var titre = $(this).find('span.item-titre').text(), 
-				texte = $(this).find('span.item-texte').text();
-			$terms.push([titre,texte]);
+			var titre = $(this).find('.item-titre').text(), 
+				texte = $(this).find('.item-texte').text(),
+				target = $(this).find('label').attr('for');
+			$terms.push([titre,texte,target]);
 			count += 1;
 		});
 		$terms.sort();
 
 		// controls
+		var allowed = true;
 		$('section.edition')
 			.on('click', '.show-hide.bouton', function(){
 				$partiel.html('');
@@ -35,17 +37,26 @@ var AutoComplete = {
 			.on('click', '.autosearch-results li.item', function(){
 				AutoComplete.selectItem($(this));
 			})
-			.unbind('keydown').bind('keydown', '#search-bar', function(e){
+			.unbind('keydown').on('keydown', '#search-bar', function(e){
+				if (e.repeat != undefined) { allowed = !e.repeat; }
+				if (!allowed) return;
+				allowed = false;
+
 				$key = e.keyCode;
 				if ( $key == 38 || $key == 40 || $key == 13) {
 					e.preventDefault();
-				    e.stopPropagation();
+					e.stopPropagation();
 					AutoComplete.controlKey($key);
 					return;
 				}
 				setTimeout(function() { AutoComplete.rechercher(openMenu=true); }, 50);
+
 			})
-			.on('focus', '#search-bar', function(){
+			.on('keyup', '#search-bar', function(e) { 
+				allowed = true;
+			})
+			.on('focus', '#search-bar', function(e){
+				allowed = true;
 				if ( $partiel.find('.item').length > 0 ) {
 					AutoComplete.rechercher(openMenu=true);
 				}
@@ -60,15 +71,18 @@ var AutoComplete = {
 	filtrer: function(str, dict) {
 		var research = new RegExp(str,"gi");
 		for (var j=0; j<dict.length; j++) {
-			var $titre = dict[j][0], $texte = dict[j][1]
+			var $titre = dict[j][0], $texte = dict[j][1], $target = dict[j][2];
 			if ($titre.match(research)) {
 				var regex = new RegExp( '(' + str + ')', 'gi' );
     			var $titre = $titre.replace( regex, "<b>$1</b>" );
-				$return.push('<li class="item"><span class="item-titre">' + $titre + '</span><span class="item-texte">' + $texte + '</span></li>');
+				$return.push('<li class="item"><label for="'+$target+'"><span class="item-titre">' + $titre + '</span><span class="item-texte">' + $texte + '</span></label></li>');
 			}
 		}
 	},
 	rechercher: function(openMenu){
+		$complet.find('input:radio').prop("checked", false);
+		$description.val('');
+		
 		var $search = $searchbar.val();
 		$return = [];
 		AutoComplete.filtrer($search, $terms);
@@ -87,8 +101,8 @@ var AutoComplete = {
 		$container.find('.item:first-child').addClass('focus');
 	},
 	selectItem: function($item){
-		var $titre = $item.find('span.item-titre').text(),
-			$texte = $item.find('span.item-texte').text();
+		var $titre = $item.find('.item-titre').text(),
+			$texte = $item.find('.item-texte').text();
 		$menu.prop('checked', false);
 		$searchbar.val($titre);
 		$description.val($texte);//.prop( "disabled", true );

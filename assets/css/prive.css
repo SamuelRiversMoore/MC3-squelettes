@@ -916,8 +916,18 @@ ul.mediatheque li.media .preview{
 	border-bottom: none;
 }
 .item {
-  padding: .5em .75em;
   line-height: 1rem;
+}
+.item>label{
+	padding: .5em .75em;
+	cursor: pointer;
+}
+.item>input:checked + label{
+	background: #3C87B6;
+	color: #fff;
+}
+.item>input:checked + label .item-texte{
+	color: rgba(255, 255, 255, 0.65);
 }
 .output-partiel:hover .focus {
   background: transparent;
