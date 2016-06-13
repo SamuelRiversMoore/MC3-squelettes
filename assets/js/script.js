@@ -72,7 +72,7 @@ $( document ).ready(function() {
 	})
 
 	// surmodal
-	$('section.administration').on('click', '.bouton.montrer', function(){
+	$('.modal').on('click', '.bouton.montrer', function(){
 		var target = $(this).attr('data-target');
 		target = document.getElementById(target);
 		if($(target).length){
@@ -83,7 +83,7 @@ $( document ).ready(function() {
 
 		}
 	});
-	$('section.administration').on('click', '.surmodal', function(e){
+	$('.modal').on('click', '.surmodal', function(e){
 		$(this).addClass('hidden');
 	}).on('click', '.surmodal>.edition', function(e){
 		e.stopPropagation();
@@ -92,13 +92,13 @@ $( document ).ready(function() {
 	})
 
 	// pour le futur
-	$('section.administration').on('click', '.diapositive .supprimer-button', function(){
+	$('.modal').on('click', '.diapositive .supprimer-button', function(){
 		$(this).closest('.diapositive').addClass('deletemode');
 	}).on('click', '.diapositive .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('deletemode');
 	})
 
-	$('section.administration').on('click', '.diapositive.fake .bouton.ajouter', function(){
+	$('.modal').on('click', '.diapositive.fake .bouton.ajouter', function(){
 		$(this).closest('.diapositive').removeClass('fake').addClass('ajout');
 	}).on('click', '.diapositive.ajout .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('ajout').addClass('fake');
