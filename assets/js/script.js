@@ -13,45 +13,6 @@ $( document ).ready(function() {
 		$('#menu').toggleClass('shown');
 	});
 
-	/* UPLOAD FILES INPUT */
-	var inputs = document.querySelectorAll( '.fileupload' );
-	Array.prototype.forEach.call( inputs, function( input ){
-		var label	 = input.nextElementSibling,
-			labelVal = label.innerHTML;
-
-		input.addEventListener( 'change', function( e ){
-			var fileName = '';
-			/* if( this.files && this.files.length > 1 ) {
-				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-			} else { */
-				fileName = e.target.value.split( '\\' ).pop();
-			//}
-
-			var file = this.files[0];
-
-			if( fileName && file ) {
-				label.innerHTML = fileName ? fileName : labelVal;
-				label.className += " hasFile";
-
-				if (file.type.match('image.*')) {
-					// http://stackoverflow.com/questions/4459379/preview-an-image-before-it-is-uploaded
-					var reader = new FileReader();
-					reader.onload = function (e) {
-						$('#inputImg').html('<img src="'+e.target.result+'">');
-					}
-					reader.readAsDataURL(this.files[0]);
-				}
-				if (file.type.match('application/pdf') || file.name.match('\.pdf')) {
-					$('#inputImg').html('<span class="gros fichier pdf">PDF</span>');
-				}
-				if (file.type.match('application/msword') || file.type.match('application\/.*officedocument') || file.name.match('\.doc') ) {
-					$('#inputImg').html('<span class="gros fichier doc">DOC</span>');
-				}
-			} else {
-				label.innerHTML = labelVal;
-			}
-		});
-	});
 
 	/* SELECT MENU */
 	var openMenu = false;
@@ -111,16 +72,18 @@ $( document ).ready(function() {
 	})
 
 	// surmodal
-	$('section.edition').on('click', '.bouton.montrer', function(){
+	$('section.administration').on('click', '.bouton.montrer', function(){
 		var target = $(this).attr('data-target');
 		target = document.getElementById(target);
 		if($(target).length){
 			$(target).removeClass('hidden');
-			// Reinitialiser autocomplete.js
+			// Reinitialiser autocomplete.js & FileUpload.js
 			AutoComplete.init();
+			FileUpload.init();
+
 		}
 	});
-	$('section.edition').on('click', '.surmodal', function(e){
+	$('section.administration').on('click', '.surmodal', function(e){
 		$(this).addClass('hidden');
 	}).on('click', '.surmodal>.edition', function(e){
 		e.stopPropagation();
@@ -128,16 +91,14 @@ $( document ).ready(function() {
 		$(this).closest('.surmodal').addClass('hidden');
 	})
 
-
-
 	// pour le futur
-	$('section.edition').on('click', '.diapositive .supprimer-button', function(){
+	$('section.administration').on('click', '.diapositive .supprimer-button', function(){
 		$(this).closest('.diapositive').addClass('deletemode');
 	}).on('click', '.diapositive .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('deletemode');
 	})
 
-	$('section.edition').on('click', '.diapositive.fake .bouton.ajouter', function(){
+	$('section.administration').on('click', '.diapositive.fake .bouton.ajouter', function(){
 		$(this).closest('.diapositive').removeClass('fake').addClass('ajout');
 	}).on('click', '.diapositive.ajout .bouton.annuler', function(){
 		$(this).closest('.diapositive').removeClass('ajout').addClass('fake');
@@ -190,6 +151,8 @@ $( document ).ready(function() {
 
 
 
+
+
 	/* ----- gestion des onglets (tab) ---- */
 
 	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { // les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
@@ -217,6 +180,8 @@ $( document ).ready(function() {
 			return false;
 		});
 	}
+
+
 
 	/* Qu'est ce ce truc ? pas simplifiable juste pur css ? */
 	if ($('#nav-tabs').length > 0) {

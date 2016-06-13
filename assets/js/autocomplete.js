@@ -29,43 +29,45 @@ var AutoComplete = {
 		$terms.sort();
 
 		// controls
-		var allowed = true;
-		$('section.edition')
-			.on('click', '.show-hide.bouton', function(){
-				$partiel.html('');
-			})
-			.on('click', '.autosearch-results li.item', function(){
+		var allowed = true, $container = $('section.edition');
+		$container.on('click', '.show-hide.bouton', function(){
+			$partiel.html('');
+		});
+
+		$container.off().on('click', '.autosearch-results li.item>label', function(e){
+			AutoComplete.selectItem($(this));
+			e.stopPropagation();
+		});
+
+		$container.off('keydown').on('keydown', '#search-bar', function(e){
+			if (e.repeat != undefined) { allowed = !e.repeat; }
+			if (!allowed) return;
+			allowed = false;
+			$key = e.keyCode;
+			if ( $key == 38 || $key == 40 || $key == 13) {
+				e.preventDefault();
+				e.stopPropagation();
+				AutoComplete.controlKey($key);
+				return;
+			}
+			setTimeout(function() { AutoComplete.rechercher(openMenu=true); }, 50);
+		});
+
+		$container.on('keyup', '#search-bar', function(e) { 
+			allowed = true;
+		});
+
+		$container.on('focus', '#search-bar', function(e){
+			allowed = true;
+			if ( $partiel.find('.item').length > 0 ) {
+				AutoComplete.rechercher(openMenu=true);
+			}
+			$('#searchform').submit(function(e){
+				e.preventDefault();
 				AutoComplete.selectItem($(this));
-			})
-			.unbind('keydown').on('keydown', '#search-bar', function(e){
-				if (e.repeat != undefined) { allowed = !e.repeat; }
-				if (!allowed) return;
-				allowed = false;
-
-				$key = e.keyCode;
-				if ( $key == 38 || $key == 40 || $key == 13) {
-					e.preventDefault();
-					e.stopPropagation();
-					AutoComplete.controlKey($key);
-					return;
-				}
-				setTimeout(function() { AutoComplete.rechercher(openMenu=true); }, 50);
-
-			})
-			.on('keyup', '#search-bar', function(e) { 
-				allowed = true;
-			})
-			.on('focus', '#search-bar', function(e){
-				allowed = true;
-				if ( $partiel.find('.item').length > 0 ) {
-					AutoComplete.rechercher(openMenu=true);
-				}
-				$('#searchform').submit(function(e){
-					e.preventDefault();
-					AutoComplete.selectItem($(this));
-					$('input').blur();
-				});		
-			});
+				$('input').blur();
+			});		
+		});
 
 	},
 	filtrer: function(str, dict) {
@@ -82,7 +84,7 @@ var AutoComplete = {
 	rechercher: function(openMenu){
 		$complet.find('input:radio').prop("checked", false);
 		$description.val('');
-		
+
 		var $search = $searchbar.val();
 		$return = [];
 		AutoComplete.filtrer($search, $terms);
@@ -106,6 +108,11 @@ var AutoComplete = {
 		$menu.prop('checked', false);
 		$searchbar.val($titre);
 		$description.val($texte);//.prop( "disabled", true );
+		var $target = $item.attr('for'),
+			$checkbox = $('#'+$target);
+		if ($checkbox.is(':checked') == false) {
+			$checkbox.prop('checked', true);
+		}
 	},
 	getContainer: function(){
 		if ( $partiel.find('.item').length > 0 ) {
@@ -140,7 +147,7 @@ var AutoComplete = {
 			$next.addClass('focus');
 		}
 		if ( $key == 13 ) { // Enter
-			if ( $focus.length > 0 ) { AutoComplete.selectItem($focus); }
+			if ( $focus.length > 0 ) { AutoComplete.selectItem($focus.find('label')); }
 		}		
 	}
 }

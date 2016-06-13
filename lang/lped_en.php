@@ -121,6 +121,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
     'rubrique_modifier' => 'Edit',
     'rubrique_ajouter' => 'Add a section',
+    'rubrique_supprimer' => 'Delete this section',
     'rubrique_titre' => 'Section\'s title',
     'rubrique_edition_titre' => 'Section',
     'rubrique_nouveau_titre' => 'New section',

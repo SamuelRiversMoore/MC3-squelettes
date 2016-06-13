@@ -1048,6 +1048,7 @@ article.tab h2{
 	margin-right: 1.25rem;
     max-width: 660px;
     line-height: 1.25rem;
+    z-index: 1;
 }
 .lexique-wrapper .lexique-definition .discret:hover ~ .lexique-reference {
 	display: block;

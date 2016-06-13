@@ -16,10 +16,13 @@
 			</BOUCLE_definitions>
 
 			[(#AUTORISER{creer,glodef}|oui)
-				<a class="gros bouton ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouvelle_def'}|parametre_url{glomot,#ID_GLOMOT})]"> <:lped:definition_ajouter:> </a>
+				<div class="lexique-definition">
+					<a class="gros bouton ajouter" href="[(#URL_RUBRIQUE|parametre_url{afficher,'nouvelle_def'}|parametre_url{glomot,#ID_GLOMOT})]"><:lped:definition_ajouter:></a>
+				</div>
 				[(#AFFICHER|=={nouvelle_def}|et{#GLOMOT|=={#ID_GLOMOT}}|oui)
 					[(#FORMULAIRE_EDITION_GLODEF{'new',#ID_GLOMOT,[(#URL_RUBRIQUE)]})]
 				]
+
 			]
 		</div>
 	</div>

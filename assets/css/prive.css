@@ -838,7 +838,7 @@ section.edition .affichage-document .fichier{
 	display: inline-block;
 	vertical-align: middle;
 }
-.diaporama .diapositive.fake a.bouton{
+.diaporama .diapositive.fake .bouton{
 	vertical-align: middle;
 	margin-right: .25rem;
 }
@@ -861,7 +861,7 @@ ul.mediatheque li.media{
 	display: inline-block;
 	font-size: 1rem;
 	margin: 0 1rem 1rem 0;
-	width: 6.625rem;
+	width: 6.125rem;
 	vertical-align: top;
 }
 ul.mediatheque li.media>label{font-size:.75rem; line-height: 1.2em; cursor: pointer; border-radius: .25rem; padding:.25rem;text-align: center;}
@@ -916,7 +916,8 @@ ul.mediatheque li.media .preview{
 	border-bottom: none;
 }
 .item {
-  line-height: 1rem;
+	line-height: 1rem;
+	cursor: pointer;
 }
 .item>label{
 	padding: .5em .75em;

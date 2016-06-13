@@ -15,7 +15,7 @@
 
 		<section class="row diaporama">
 			<BOUCLE_images (DOCUMENTS documents_liens) {documents_liens.objet = #ENV{lien_objet}} {documents_liens.id_objet = #ENV{lien_id_objet}} {par num titre} {tout} {si #ENV{mode}|=={image}}>
-				<figure class="image diapositive">
+				<figure class="diapositive">
 					[(#GET{formats_images}|find{#EXTENSION}|oui)
 						<img src="[(#FICHIER|image_passe_partout{200,150}|image_recadre{200,150,'center center','#ffffff'}|extraire_attribut{src})]"/>
 					]
@@ -34,132 +34,139 @@
 					</div>
 				</figure>
 			</BOUCLE_images>
+			<figure class="diapositive fake">
+				<div class="moyen bouton montrer" data-target="documentadmin">Ajouter un fichier</div>
+			</figure>
 		</section>
 
-		<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="formulaire_spip">
-			#ACTION_FORMULAIRE{#ENV{action}}
-<!--			<section class="row head">
-				<h2 class="full"><:lped:document_edition_titre:></h2>
-				[<p class="message ok icon fa-check">(#ENV**{message_ok})</p>]
-				[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
-			</section> -->
+		<div class="surmodal hidden" id="documentadmin">
+			<section class="edition">
+				<section class="row head">
+					<h2 class="full"><:lped:document_edition_titre:></h2>
+					[<p class="message ok icon fa-check">(#ENV**{message_ok})</p>]
+					[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
+				</section> 
+				<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="formulaire_spip">
+					#ACTION_FORMULAIRE{#ENV{action}}
 
-			<section class="row">
-				[(#FICHIER|oui)
-					<div class="affichage-document">
-						<div class="gros fichier #EXTENSION">#EXTENSION</div>
-						<div class="document-nom">[(#FICHIER|basename)]</div>
-					</div>
-				]
-				[(#FICHIER|non)
-					<div class="onglets">
-		    			<header><:lped:document_provenance:></header>
-						<div class="onglet">
-						   <input type="radio" id="onglet-1" name="onglet-group-1" checked>
-						   <label for="onglet-1">Mediathèque</label>
-						   <div class="onglet-content" style="overflow:scroll; text-align:left">
-									 <B_mediatheque>
-										<ul class="mediatheque">
-											<BOUCLE_mediatheque (DOCUMENTS) {tout}>
-												<li class="media">
-													<input type="radio" name="mediatheque" value="#ID_DOCUMENT" id="input-#ID_DOCUMENT" class="hiddeninput">
-													<label for="input-#ID_DOCUMENT">
-														[(#GET{formats_images}|find{#EXTENSION}|oui)
-															<img class="preview" src="#FICHIER">
-														]
-														[(#GET{formats_images}|find{#EXTENSION}|non)
-															<div class="gros fichier #EXTENSION preview">#EXTENSION</div>
-														]
-														<div class="titre">[(#TITRE|sinon{(sans titre)})]</div>
-													</label>
-												</li>
-											</BOUCLE_mediatheque>
-										</ul>
-									</B_mediatheque>
-						   </div>
-						</div>
-
-						<div class="onglet">
-						   <input type="radio" id="onglet-2" name="onglet-group-1">
-						   <label for="onglet-2">Upload</label>
-						   <div class="onglet-content centered">
-								[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_upload_erreur'})</p>]
-								<div class="upload-block">
-									<div id="inputImg">
-										<img src="">
-									</div>
-									<input type="file" id="fileupload" name="fichier_upload" class="fileupload hiddeninput" />
-									<label for="fileupload"><:lped:document_upload:></label>
+					<section class="row">
+						[(#FICHIER|oui)
+							<div class="affichage-document">
+								<div class="gros fichier #EXTENSION">#EXTENSION</div>
+								<div class="document-nom">[(#FICHIER|basename)]</div>
+							</div>
+						]
+						[(#FICHIER|non)
+							<div class="onglets">
+				    			<header><:lped:document_provenance:></header>
+								<div class="onglet">
+								   <input type="radio" id="onglet-1" name="onglet-group-1" checked>
+								   <label for="onglet-1">Mediathèque</label>
+								   <div class="onglet-content" style="overflow:scroll; text-align:left">
+											 <B_mediatheque>
+												<ul class="mediatheque">
+													<BOUCLE_mediatheque (DOCUMENTS) {tout}>
+														<li class="media">
+															<input type="radio" name="mediatheque" value="#ID_DOCUMENT" id="input-#ID_DOCUMENT" class="hiddeninput">
+															<label for="input-#ID_DOCUMENT">
+																[(#GET{formats_images}|find{#EXTENSION}|oui)
+																	<img class="preview" src="#FICHIER">
+																]
+																[(#GET{formats_images}|find{#EXTENSION}|non)
+																	<div class="gros fichier #EXTENSION preview">#EXTENSION</div>
+																]
+																<div class="titre">[(#TITRE|sinon{(sans titre)})]</div>
+															</label>
+														</li>
+													</BOUCLE_mediatheque>
+												</ul>
+											</B_mediatheque>
+								   </div>
 								</div>
-						   </div>
-						</div>
 
-						<div class="onglet">
-						   <input type="radio" id="onglet-3" name="onglet-group-1">
-						   <label for="onglet-3">URL</label>
-						   <div class="onglet-content centered">
-				       			[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_distant_erreur'})</p>]
+								<div class="onglet">
+								   <input type="radio" id="onglet-2" name="onglet-group-1">
+								   <label for="onglet-2">Upload</label>
+								   <div class="onglet-content centered">
+										[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_upload_erreur'})</p>]
+										<div class="upload-block">
+											<div id="inputImg">
+												<img src="">
+											</div>
+											<input type="file" id="fileupload" name="fichier_upload" class="fileupload hiddeninput" />
+											<label for="fileupload"><:lped:document_upload:></label>
+										</div>
+								   </div>
+								</div>
+
+								<div class="onglet">
+								   <input type="radio" id="onglet-3" name="onglet-group-1">
+								   <label for="onglet-3">URL</label>
+								   <div class="onglet-content centered">
+						       			[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_distant_erreur'})</p>]
+										<div class="input-block demi">
+											<label for='fichier_distant' class="icon fa-link"></label><span><input type='text' name='fichier_distant' value='#ENV{lien}' placeholder="<:lped:document_lien:>" autocomplete="off"/></span>
+										</div>
+								   </div>
+								</div>
+							</div>
+							[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_manquant'})</p>]
+							[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_non_image'})</p>]
+						]
+					</section>
+
+					[(#ENV{mode}|!={image}|oui)
+						<section class="row">
+							<div class="input-block demi">
+								<header><:lped:document_titre:></header>
+								<input type="text"  name="titre" value="#ENV{titre}" autocomplete="off"/>
+							</div>
+							<div class="input-block demi">
+								<header><:lped:document_auteur:></header>
+								<input type="text"  name="auteur" value="#ENV{auteur}" autocomplete="off"/>
+							</div>
+							[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'titre'})</p>]
+						</section>
+
+						<section class="row">
+							<div class="input-block demi">
+								<header><:lped:document_date:></header>
+								<input type="text"  name="date_document" value="#ENV{date_document}" autocomplete="off"/>
+							</div>
+							<div class="input-block demi">
+								<header><:lped:document_reference:></header>
+								<input type="text"  name="reference" value="#ENV{reference}" autocomplete="off"/>
+							</div>
+						</section>
+
+						<section class="row">
+							<header><:lped:document_resume:></header>
+							<textarea name="descriptif" class="small inserer_barre_edition">#ENV{descriptif}</textarea>
+						</section>
+
+						<section class="row">
+							<div class="full">
 								<div class="input-block demi">
-									<label for='fichier_distant' class="icon fa-link"></label><span><input type='text' name='fichier_distant' value='#ENV{lien}' placeholder="<:lped:document_lien:>" autocomplete="off"/></span>
+									<header><:lped:resume_auteur:></header>
+									<input type="text"  name="auteur_resume" value="#ENV{auteur_resume}" autocomplete="off"/>
 								</div>
-						   </div>
+								<div class="input-block demi">
+									<header><:lped:resume_date:></header>
+									<input type="text"  name="date_resume" value="#ENV{date_resume}" autocomplete="off"/>
+								</div>
+							</div>
+						</section>
+					]
+
+					<section class="row boutons right">
+						<div class="full">
+							[(#ENV{mode}|=={image}|non) <a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="gros bouton fermer"><:lped:annuler:></a> ]
+							<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
 						</div>
-					</div>
-					[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_manquant'})</p>]
-					[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_non_image'})</p>]
-				]
+					</section>
+				</form>
 			</section>
-
-			[(#ENV{mode}|!={image}|oui)
-				<section class="row">
-					<div class="input-block demi">
-						<header><:lped:document_titre:></header>
-						<input type="text"  name="titre" value="#ENV{titre}" autocomplete="off"/>
-					</div>
-					<div class="input-block demi">
-						<header><:lped:document_auteur:></header>
-						<input type="text"  name="auteur" value="#ENV{auteur}" autocomplete="off"/>
-					</div>
-					[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'titre'})</p>]
-				</section>
-
-				<section class="row">
-					<div class="input-block demi">
-						<header><:lped:document_date:></header>
-						<input type="text"  name="date_document" value="#ENV{date_document}" autocomplete="off"/>
-					</div>
-					<div class="input-block demi">
-						<header><:lped:document_reference:></header>
-						<input type="text"  name="reference" value="#ENV{reference}" autocomplete="off"/>
-					</div>
-				</section>
-
-				<section class="row">
-					<header><:lped:document_resume:></header>
-					<textarea name="descriptif" class="small inserer_barre_edition">#ENV{descriptif}</textarea>
-				</section>
-
-				<section class="row">
-					<div class="full">
-						<div class="input-block demi">
-							<header><:lped:resume_auteur:></header>
-							<input type="text"  name="auteur_resume" value="#ENV{auteur_resume}" autocomplete="off"/>
-						</div>
-						<div class="input-block demi">
-							<header><:lped:resume_date:></header>
-							<input type="text"  name="date_resume" value="#ENV{date_resume}" autocomplete="off"/>
-						</div>
-					</div>
-				</section>
-			]
-
-			<section class="row boutons right">
-				<div class="full">
-					[(#ENV{mode}|=={image}|non) <a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="gros bouton fermer"><:lped:annuler:></a> ]
-					<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
-				</div>
-			</section>
-		</form>
+		</div>
 	</section>
 [(#ENV{mode}|=={image}|non) 
 	</div>
