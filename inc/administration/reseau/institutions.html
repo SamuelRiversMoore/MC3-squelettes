@@ -10,7 +10,7 @@
         [(#AFFICHER|=={institution_ok}|et{#CIBLE|=={#ID_INSTITUTION}}|oui)<p class="message ok"><:lped:enregistrement_ok:></p>]
 
         [(#AFFICHER|=={editer_institution}|et{#CIBLE|=={#ID_INSTITUTION}}|oui)
-             [(#FORMULAIRE_EDITION_INSTITUTION{#ID_INSTITUTION,'',[(#SELF|parametre_url{'afficher','institution_ok'}|parametre_url{cible,#ID_INSTITUTION})]})]
+             [(#FORMULAIRE_EDITION_INSTITUTION{#ID_INSTITUTION,'',[(#SELF|parametre_url{'afficher','institution_ok'}|parametre_url{cible,#ID_INSTITUTION}|parametre_url{annuler,''})],#ANNULER})]
         ]
 
     </BOUCLE_institution>

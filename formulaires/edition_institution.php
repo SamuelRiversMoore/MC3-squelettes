@@ -6,12 +6,14 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
     include_spip('action/editer_liens');
     include_spip('inc/invalideur');
 
-function formulaires_edition_institution_charger_dist( $id_institution = 'new' ){
+function formulaires_edition_institution_charger_dist( $id_institution = 'new' , $id_rubrique = null, $redirection = null, $annuler = null ){
 
     if ( $id_institution == 'new' )
-        return array( 'id_instituion' => 'new', 'nouveau' => 'oui' ); // Renvoi un objet vide
+        return array( 'id_institution' => 'new', 'nouveau' => 'oui' ); // Renvoi un objet vide
 
-    return sql_fetsel( "*" , "spip_institutions" , "id_institution=$id_institution" ); // Renvoi l'ensemble de l'objet
+    $retour = sql_fetsel( "*" , "spip_institutions" , "id_institution=$id_institution" ); // Renvoi l'ensemble de l'objet
+    if ($annuler) $retour['annuler'] = $annuler;
+    return $retour;
 }
 
 function formulaires_edition_institution_verifier_dist( $id_institution = 'new' ){
