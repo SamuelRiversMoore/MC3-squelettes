@@ -6,15 +6,17 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
     include_spip('action/editer_liens');
     include_spip('inc/invalideur');
 
-function formulaires_edition_art_charger_dist( $id_article = 'new' ){
+function formulaires_edition_art_charger_dist( $id_article = 'new', $id_rubrique, $redirection = null, $annuler = null ){
 
     if ( $id_article == 'new' )
         return array( 'id_article' => 'new', 'nouveau' => 'oui' ); // Renvoi un objet vide
 
-    return sql_fetsel( "*" , "spip_articles" , "id_article=$id_article" ); // Renvoi l'ensemble de l'objet
+    $retour = sql_fetsel( "*" , "spip_articles" , "id_article=$id_article" );
+    if ($annuler) { $retour['annuler'] = $annuler; }
+    return $retour; // Renvoi l'ensemble de l'objet
 }
 
-function formulaires_edition_art_verifier_dist( $id_article = 'new' ){
+function formulaires_edition_art_verifier_dist( $id_article = 'new', $id_rubrique, $redirection = null ){
     $erreurs = array();
     if ( !_request('titre') && !_request('titre_en') )
         $erreurs['message_erreur'] = _T('lped:pays_erreur_champs');

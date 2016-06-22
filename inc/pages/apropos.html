@@ -1,3 +1,6 @@
+#SET{statut, #ARRAY{1,prepa,2,prop,3,publie,4,refuse,5,poubelle} }
+[ (#SESSION{statut}|non) #SET{statut, publie}  ]
+
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}{tout}>
 	<div id="contenu" class="wrapper">
 		<div id="arbo">
@@ -21,23 +24,26 @@
 						<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',7} )]</section>
 					]
 					[(#AFFICHER|=={'nouvel_article'}|non)
-						<a class="gros bouton ajouter article icon fa-plus" href="[(#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang|parametre_url{afficher, nouvel_article})]"><:lped:article_ajouter:></a>
+						<a class="gros bouton ajouter article icon fa-plus" href="#URL_ACTION_AUTEUR{creer_art,7,#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang}"><:lped:article_ajouter:></a>
 					]
 
-				]		
+				]
 				<div class="grid-2">
 					<div>
-						<BOUCLE_article(ARTICLES) {id_rubrique} {par num titre}>
-							<article class="apropos">
-								<h2>
-									[ (#ENV{lang}|=={fr}|oui)#TITRE ]
-									[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-								</h2>
+						<BOUCLE_article(ARTICLES) {id_rubrique} {par statut, num titre} {statut IN #GET{statut}}>
+							[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)
+								<article class="apropos">
 
-								[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
-								[ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
-								[ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
-							</article>
+										<h2>
+											[ (#ENV{lang}|=={fr}|oui)#TITRE ]
+											[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+										</h2>
+
+										[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
+										[ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
+										[ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
+								</article>
+							]
 						</BOUCLE_article>
 					</div>
 				</div>

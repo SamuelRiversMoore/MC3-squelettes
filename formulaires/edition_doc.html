@@ -1,4 +1,4 @@
-[(#ENV{mode}|=={image}|non) 
+[(#ENV{mode}|=={image}|non)
 <div class="modal">
 	<div class="modal-container">
 	<a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="retour"></a>
@@ -30,7 +30,7 @@
 							<header><:lped:document_supression_titre:></header>
 							<div class="moyen bouton annuler"><:lped:non:></div>
 							<input type='submit' class="moyen bouton enregistrer" name='ok' value='<:lped:oui:>' />
-						</form>						
+						</form>
 					</div>
 				</figure>
 			</BOUCLE_images>
@@ -45,7 +45,7 @@
 					<h2 class="full"><:lped:document_edition_titre:></h2>
 					[<p class="message ok icon fa-check">(#ENV**{message_ok})</p>]
 					[<p class="message erreur icon fa-exclamation-triangle">(#ENV*{message_erreur})</p>]
-				</section> 
+				</section>
 				<form action='#ENV{action}' method='post' enctype='multipart/form-data' class="formulaire_spip">
 					#ACTION_FORMULAIRE{#ENV{action}}
 
@@ -57,61 +57,7 @@
 							</div>
 						]
 						[(#FICHIER|non)
-							<div class="onglets">
-				    			<header><:lped:document_provenance:></header>
-								<div class="onglet">
-								   <input type="radio" id="onglet-1" name="onglet-group-1" checked>
-								   <label for="onglet-1">Mediathèque</label>
-								   <div class="onglet-content" style="overflow:scroll; text-align:left">
-											 <B_mediatheque>
-												<ul class="mediatheque">
-													<BOUCLE_mediatheque (DOCUMENTS) {tout}>
-														<li class="media">
-															<input type="radio" name="mediatheque" value="#ID_DOCUMENT" id="input-#ID_DOCUMENT" class="hiddeninput">
-															<label for="input-#ID_DOCUMENT">
-																[(#GET{formats_images}|find{#EXTENSION}|oui)
-																	<img class="preview" src="#FICHIER">
-																]
-																[(#GET{formats_images}|find{#EXTENSION}|non)
-																	<div class="gros fichier #EXTENSION preview">#EXTENSION</div>
-																]
-																<div class="titre">[(#TITRE|sinon{(sans titre)})]</div>
-															</label>
-														</li>
-													</BOUCLE_mediatheque>
-												</ul>
-											</B_mediatheque>
-								   </div>
-								</div>
-
-								<div class="onglet">
-								   <input type="radio" id="onglet-2" name="onglet-group-1">
-								   <label for="onglet-2">Upload</label>
-								   <div class="onglet-content centered">
-										[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_upload_erreur'})</p>]
-										<div class="upload-block">
-											<div id="inputImg">
-												<img src="">
-											</div>
-											<input type="file" id="fileupload" name="fichier_upload" class="fileupload hiddeninput" />
-											<label for="fileupload"><:lped:document_upload:></label>
-										</div>
-								   </div>
-								</div>
-
-								<div class="onglet">
-								   <input type="radio" id="onglet-3" name="onglet-group-1">
-								   <label for="onglet-3">URL</label>
-								   <div class="onglet-content centered">
-						       			[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_distant_erreur'})</p>]
-										<div class="input-block demi">
-											<label for='fichier_distant' class="icon fa-link"></label><span><input type='text' name='fichier_distant' value='#ENV{lien}' placeholder="<:lped:document_lien:>" autocomplete="off"/></span>
-										</div>
-								   </div>
-								</div>
-							</div>
-							[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_manquant'})</p>]
-							[<p class="message erreur icon fa-exclamation-triangle">(#ENV**{erreurs}|table_valeur{'fichier_non_image'})</p>]
+							<INCLURE{fond=formulaires/edition_doc_onglets, env}>
 						]
 					</section>
 
@@ -168,7 +114,7 @@
 			</section>
 		</div>
 	</section>
-[(#ENV{mode}|=={image}|non) 
+[(#ENV{mode}|=={image}|non)
 	</div>
-</div> 
+</div>
 ]

@@ -8,7 +8,7 @@
 					<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',8} )]</section>
 				]
 				[(#AFFICHER|=={'nouvel_article'}|non)
-					<a class="gros bouton ajouter article icon fa-plus" href="[(#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang|parametre_url{afficher, nouvel_article})]"><:lped:article_ajouter:></a>
+					<a class="gros bouton ajouter article icon fa-plus" href="#URL_ACTION_AUTEUR{creer_art,8,#URL_RUBRIQUE{#ID_RUBRIQUE}|parametre_lang}"><:lped:article_ajouter:></a>
 				]
 		]
 	]

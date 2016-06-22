@@ -54,9 +54,9 @@
 							<section class="administration">
 								[(#AUTORISER{modifier,rubrique,#ID_RUBRIQUE}) <INCLURE{fond=inc/administration/rubrique, afficher, cible, id_rubrique} />]
 								[(#AUTORISER{creer,article}|oui)
-									[(#AFFICHER|=={'nouvel_article'}|oui)[(#FORMULAIRE_EDITION_ART{'new',#ID_RUBRIQUE} )]]
+									[(#AFFICHER|=={'nouvel_article'}|oui)	[(#FORMULAIRE_EDITION_ART{'new',#ID_RUBRIQUE} )]	]
 									[(#AFFICHER|=={'nouvel_article'}|non)
-										<a class="petit bouton ajouter" href="[(#SELF|parametre_url{afficher, nouvel_article})]"><:lped:synthese_ajouter:></a>
+										<a class="petit bouton ajouter" href="#URL_ACTION_AUTEUR{creer_art,#ID_RUBRIQUE,#URL_RUBRIQUE{24}|parametre_lang}"><:lped:synthese_ajouter:></a>
 									]
 								]
 

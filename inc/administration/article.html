@@ -20,7 +20,7 @@
 		[(#ARTICLE|oui|et{#ID_ARTICLE|=={#ARTICLE}}|oui) #SET{condition,oui} ]
 
 		[(#AFFICHER|=={editer_article}|et{#GET{condition}|oui}|oui)
-			[(#FORMULAIRE_EDITION_ART{#ID_ARTICLE,#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,article_ok})] })]
+			[(#FORMULAIRE_EDITION_ART{#ID_ARTICLE,#ID_RUBRIQUE,[(#SELF|parametre_url{afficher,article_ok}|parametre_url{annuler,''}|parametre_url{article,''})],#ANNULER})]
 		]
 
 
