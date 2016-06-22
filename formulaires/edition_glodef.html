@@ -2,7 +2,10 @@
 [(#EDITABLE|oui)
 	<div class="modal">
 		<div class="modal-container">
-			<a href="[(#SELF|parametre_url{afficher,''})]" class="retour"></a>
+
+			[(#ENV{annuler}|oui) <a href="#URL_ACTION_AUTEUR{supprimer_glodef,#ENV{id_glodef},#ANNULER}" class="retour"></a>]
+			[(#ENV{annuler}|non) <a href="[(#SELF|parametre_url{afficher,''})]" class="retour"></a> ]
+
 			<section class="edition">
 
 				<section class="row head">
@@ -24,7 +27,10 @@
 
 					<section class="row boutons right">
 						<div class="full">
-							<a href="[(#SELF|parametre_url{afficher,''})]" class="gros bouton fermer"><:lped:annuler:></a>
+							
+							[(#ENV{annuler}|oui) <a href="#URL_ACTION_AUTEUR{supprimer_glodef,#ENV{id_glodef},#ANNULER}" class="gros bouton fermer"><:lped:annuler:></a>]
+							[(#ENV{annuler}|non) <a href="[(#SELF|parametre_url{afficher,''})]" class="gros bouton fermer"><:lped:annuler:></a> ]
+
 							<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
 						</div>
 					</section>

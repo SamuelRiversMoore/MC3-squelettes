@@ -6,15 +6,17 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
     include_spip('action/editer_liens');
     include_spip('inc/invalideur');
 
-function formulaires_edition_glodef_charger_dist( $id_glodef = 'new' ){
+function formulaires_edition_glodef_charger_dist( $id_glodef = 'new' , $id_glomot = null, $redirection = null, $annuler = null ){
 
     if ( $id_glodef == 'new' )
         return array( 'id_glodef' => 'new', 'nouveau' => 'oui' ); // Renvoi un objet vide
 
-    return sql_fetsel( "*" , "spip_glodefs" , "id_glodef=$id_glodef" ); // Renvoi l'ensemble de l'objet
+    $retour = sql_fetsel( "*" , "spip_glodefs" , "id_glodef=$id_glodef" ); // Renvoi l'ensemble de l'objet
+    if ($annuler) $retour['annuler'] = $annuler;
+    return $retour;
 }
 
-function formulaires_edition_glodef_verifier_dist( $id_glodef = 'new' ){
+function formulaires_edition_glodef_verifier_dist( $id_glodef = 'new' , $id_glomot = null, $redirection = null ){
     $erreurs = array();
     if ( !_request('definition') )
         $erreurs['message_erreur'] = _T('lped:pays_erreur_champs');

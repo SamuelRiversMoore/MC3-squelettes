@@ -7,7 +7,7 @@
         [(#AFFICHER|=={glodef_ok}|et{#GLODEF|=={#ID_GLODEF}}|oui)<p class="message ok"><:lped:enregistrement_ok:></p>]
 
         [(#AFFICHER|=={editer_def}|et{#GLODEF|=={#ID_GLODEF}}|oui)
-             [(#FORMULAIRE_EDITION_GLODEF{#ID_GLODEF,'',[(#SELF|parametre_url{'afficher','glodef_ok'}|parametre_url{glodef,#ID_GLODEF})] })]
+             [(#FORMULAIRE_EDITION_GLODEF{#ID_GLODEF,'',[(#SELF|parametre_url{'afficher','glodef_ok'}|parametre_url{glodef,#ID_GLODEF}|parametre_url{annuler,''})],#ANNULER})]
         ]
 
     </BOUCLE_defs>
