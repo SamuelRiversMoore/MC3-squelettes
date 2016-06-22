@@ -50,11 +50,15 @@ function formulaires_edition_doc_verifier_dist( $id_document = 'new' , $lien_obj
             if ($infos_fichier['fichier_erreur']) $erreur['fichier_distant_erreur'] = $infos_fichier['fichier_erreur'];
         } // si un fichier distant est renseigné, alors on tente de récupérer les infos
 
+        /* Pour protéger le mode image
+
         if ($mode=='image' && !$mediatheque) {
           if (!in_array($infos_fichier['fichier_extension'],array('png','jpg','gif'))){
             $erreur['fichier_non_image'] = 'le fichier n\'est pas une image';
           }
         }
+
+        */
 
         if (!_request('titre') && $mode!='image' && !$mediatheque) {
             $erreur['titre'] = 'vous devez indiquer un titre';

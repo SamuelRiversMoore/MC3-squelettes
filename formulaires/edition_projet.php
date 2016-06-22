@@ -6,15 +6,17 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
     include_spip('action/editer_liens');
     include_spip('inc/invalideur');
 
-function formulaires_edition_projet_charger_dist( $id_projet = 'new' ){
+function formulaires_edition_projet_charger_dist( $id_projet = 'new' , $lien_objet = null, $lien_id_objet = null , $redirection = null, $annuler = null ){
 
     if ( $id_projet == 'new' )
         return array( 'id_projet' => 'new', 'nouveau' => 'oui' ); // Renvoi un objet vide
 
-    return sql_fetsel( "*" , "spip_projets" , "id_projet=$id_projet" ); // Renvoi l'ensemble de l'objet
+    $retour = sql_fetsel( "*" , "spip_projets" , "id_projet=$id_projet" ); // Renvoi l'ensemble de l'objet
+    if ($annuler) $retour['annuler'] = $annuler;
+    return $retour;
 }
 
-function formulaires_edition_projet_verifier_dist( $id_projet = 'new' ){
+function formulaires_edition_projet_verifier_dist( $id_projet = 'new' , $lien_objet = null, $lien_id_objet = null , $redirection = null ){
     $erreurs = array();
     if ( !_request('titre_fr') && !_request('titre_en') )
         $erreurs['message_erreur'] = _T('lped:pays_erreur_champs');

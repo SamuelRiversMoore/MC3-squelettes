@@ -12,8 +12,9 @@
 		[(#REM) pour ajouter un projet]
 		[(#AUTORISER{creer,projet}|oui)
 			[(#AFFICHER|=={'nouveau_projet'}|oui)
-				[(#FORMULAIRE_EDITION_PROJET{'new', 'ville', #ID_VILLE} )] ]
-				<a class="gros bouton ajouter externe icon fa-map-marker" href="[(#URL_VILLE{#ID_VILLE}|parametre_lang|parametre_url{afficher, nouveau_projet})]"><:lped:projet_ajouter:></a>
+				[(#FORMULAIRE_EDITION_PROJET{'new', 'ville', #ID_VILLE} )]
+			]
+			<a class="gros bouton ajouter article icon fa-map-marker" href="#URL_ACTION_AUTEUR{creer_projet,#ID_VILLE,#URL_VILLE{#ID_VILLE}|parametre_lang}"><:lped:projet_ajouter:></a>
 		]
 
 

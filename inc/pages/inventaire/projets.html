@@ -10,7 +10,7 @@
 		<header>
 			<h1>[ (#ENV{lang}|=={fr}|oui) [ (#TITRE_FR) ] ][ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE_FR}) ] ]</h1>
 			[(#REM) on affiche le panneau d'administration]
-		    [(#AUTORISER{modifier,projet,#ID_PROJET}|oui) <INCLURE{fond=inc/administration/inventaire/projets, afficher, id_projet} /> ]
+		    [(#AUTORISER{modifier,projet,#ID_PROJET}|oui) <INCLURE{fond=inc/administration/inventaire/projets, afficher, id_projet, env} /> ]
 		</header>
 
 		<div class="col-wrap">

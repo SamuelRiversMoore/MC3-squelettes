@@ -14,7 +14,7 @@
             </span>
         </div>
         [(#AFFICHER|=={editer_projet}|oui)
-            [(#FORMULAIRE_EDITION_PROJET{ #ID_PROJET,'','',[(#URL_PROJET|parametre_lang|parametre_url{afficher, projet_ok})]})]
+            [(#FORMULAIRE_EDITION_PROJET{ #ID_PROJET,'','',[(#URL_PROJET|parametre_lang|parametre_url{afficher, projet_ok})],#ANNULER})]
         ]
 
     </BOUCLE_projet>
