@@ -159,12 +159,19 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'document_date' => 'Document\'s date',
     'document_descriptif' => 'Document\'s summary',
     'document_reference' => 'Reference',
+    'document_resume' => 'Summary of the document',
+    'document_provenance' => 'Document\'s origin :',
 
     'document_description_fr' => 'Description in french',
     'document_description_en' => 'Document\'s description',
-    'document_edition_titre' => 'Document',
+    'document_edition_titre' => 'Linked documents',
+
+
+    'document_uploader' => 'Upload',
     'document_upload' => 'Upload a file',
+    'document_url' => 'URL',
     'document_lien' => 'Paste a url',
+    'document_mediatheque' => 'Media library',
 
     'resume' => 'Summary',
     'resume_date' => 'Summary\'s date',

@@ -72,6 +72,14 @@ div.compte ul li h3{
 	padding: 0 .5rem;
 	cursor: pointer;
 }
+.onglet>label:hover{
+	background: #ddd;
+}
+.onglet>label.icon::before{
+	margin-left: .25rem;
+	margin-right: .75rem;
+	opacity: .5;
+}
 .onglet>[type=radio] {
 	display: none;
 }
@@ -561,6 +569,23 @@ section.administration.mini .select-title .status{
 	margin: 0;
 	padding: 0;
 }
+
+/* Documen unoque : pas de surmodal*/
+#inventaire-thematiques .surmodal{
+	position: relative;
+	display: block;
+	background: transparent;
+	z-index: 1;
+}
+#inventaire-thematiques .modal .diaporama,
+#inventaire-thematiques .surmodal>.edition>.head,
+#inventaire-thematiques .surmodal>.edition>.retour{
+	display: none;
+}
+#inventaire-thematiques .surmodal>section.edition{
+	max-width: inherit;
+	margin: auto;
+}
 .modal-container{
 	position: relative;
 }
@@ -592,6 +617,7 @@ section.administration.mini .select-title .status{
 	bottom: -2rem;
 	position:absolute;
 	cursor:default;
+	min-height: 100vh;
 }
 section.controls{
 	margin-bottom:2.5rem;
