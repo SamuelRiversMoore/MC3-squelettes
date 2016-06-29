@@ -728,13 +728,13 @@ figure.slick-slide {
 }
 
 #tabs-menu-button{
-	position: absolute;
+    position: absolute;
     padding: .25rem .5rem;
-    top: .9rem;
-    right: -4rem;
+    top: .5rem;
+    right: -4.25rem;
     cursor: pointer;
     display: none;
-    font-size: 1.125rem;
+    font-size: 1.75rem;
     color: #999;
 }
 
@@ -1104,6 +1104,7 @@ table thead {
 table th {
 	padding: .5rem .25rem;
 	cursor: pointer;
+	min-width: 9rem;
 }
 table th:last-child {
 }
@@ -1113,7 +1114,7 @@ table tr {
 table td {
 	padding: .5rem .25rem;
 	vertical-align: top;
-	min-width: 100px;
+	min-width: 9rem;
 	border-bottom: 1px solid #FFC200;
 	font-family: "karmilla";
 }
@@ -1302,13 +1303,6 @@ article.tab {
 	#welcome-map {
 		height: 18rem;
 	}
-	.big{
-		font-size: 20px;
-	}
-	#menu-principal>li{
-		font-size: 20px;
-		line-height: 44px;
-	}
 	#contenu, #footer{
 		margin-left: 0;
 	}
@@ -1327,7 +1321,7 @@ article.tab {
 		left: 0;
 	}
 	#arbo{
-		left: 120px;
+		left: 7.5rem;
 	}
 	.article-icone{
 		float: none;
@@ -1340,8 +1334,8 @@ article.tab {
 		margin-left: 0;
 	}
 	#lexique-lettres{
-		top: 23px;
-		left: 115px;
+		top: 1.5rem;
+		left: 7.5rem;
 	}
 	.journal{
 		padding-right: 2rem;
@@ -1391,8 +1385,11 @@ article.tab {
 	body, html {
 		font-size: 13px;
 	}
-	#contenu .wrapper{
+	#contenu.wrapper{
 		padding: 1rem;
+	}
+	#show-menu{
+		left: 1rem;
 	}
 	.small-screen{
 		display: block;
@@ -1412,7 +1409,7 @@ article.tab {
 		display: none;
 	}
 	.tabs-wrapper article.tab{
-		padding-left: 2rem;
+		padding-left: 3rem;
 		padding-right: calc(100% - 40rem);
 	}
 	#ville-projet article{
@@ -1421,8 +1418,10 @@ article.tab {
 	}
 }
 @media screen and (max-width: 450px){
+
 	body, html {
 		font-size: 12px;
 	}
+
 
 }
