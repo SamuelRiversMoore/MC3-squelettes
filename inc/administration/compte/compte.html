@@ -1,16 +1,28 @@
 <BOUCLE_auteur (AUTEURS) {id_auteur} {tout}>
 <div id="contenu" class="wrapper compte">
 	<h1>#NOM</h1>
-	<dl>
-		<dt><:lped:role:></dt>
-		<dd>#STATUT</dd>
+	<section class="profil">
+		<div>
+			<span class="discret"><:lped:role:> :</span>
+			<span>#STATUT</span>			
+		</div>
 
-		<dt><:lped:email:></dt>
-		<dd>#EMAIL</dd>
+		<div>
+			<span class="discret"><:lped:email:> :</span>
+			<span>#EMAIL</span>
+		</div>
 
-		<dt><:lped:login:></dt>
-		<dd>#LOGIN</dd>
-	</dl>
+		<div>
+			<span class="discret"><:lped:login:> :</span>
+			<span>#LOGIN</span>
+		</div>
+
+		<div>
+			<span class="discret"><:lped:password:> :</span>
+			<span>***** (faux mot de passe?)</span>
+		</div>
+
+	</section>
 
 
 	<h1><:lped:tableau_de_bord:></h1>

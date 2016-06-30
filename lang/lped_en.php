@@ -19,6 +19,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'oui' => 'yes',
     'non' => 'no',
 
+    'role' => 'Role',
+    'email' => 'E-mail address',
+    'login' => 'Username',
+    'password' => 'Password',
+
     'images' => 'Pictures',
     'image' => 'Picture',
     'projets' => 'Projects',
