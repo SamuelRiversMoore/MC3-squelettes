@@ -1118,6 +1118,12 @@ table td {
 	border-bottom: 1px solid #FFC200;
 	font-family: "karmilla";
 }
+table td.date, table td.statut{
+	min-width: 9rem;
+}
+table td.contributeurs, table td.titre, table td.nom{
+	min-width: 12rem;
+}
 table td a{
 	text-decoration: none;
 }

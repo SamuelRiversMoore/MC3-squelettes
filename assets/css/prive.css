@@ -44,7 +44,16 @@ div.compte ul li h3{
 	margin-top:2rem;
 	font-size:1rem;
 }
-
+.parents{
+	font-size: .85rem;
+}
+.parents .parent, .parents .fleche{
+	color: #999;
+    color: rgba(134, 124, 115, 0.7);
+}
+.enfant, .contributeur{
+    white-space: nowrap;
+}
 
 /*----------  TAB PANEL  ----------*/
 /* https://css-tricks.com/functional-css-tabs-revisited/ */

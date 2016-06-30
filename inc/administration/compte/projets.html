@@ -10,7 +10,7 @@
 		</td>
 		<td class="contributeurs">
 			<BOUCLE_auteur (AUTEURS) {id_projet} {tout} >
-				[(#NOM)][,(#COMPTEUR_BOUCLE|!={#TOTAL_BOUCLE}|oui)]
+				<span class="contributeur">[(#NOM)][,(#COMPTEUR_BOUCLE|!={#TOTAL_BOUCLE}|oui)]</span>
 			</BOUCLE_auteur>
 		</td>
 		<td class="date">
