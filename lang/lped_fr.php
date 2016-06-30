@@ -235,7 +235,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'reference_description' => 'Descriptif de la référence',
 
     'recherche' => 'Recherche',
-    'resultat_pour' => 'Résultat pour',
+    'resultat_pour' => 'Résultats pour',
     'aucun_resultat' => 'Aucun résultat',
 
 );
