@@ -67,7 +67,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'chapitres' => 'Chapitres',
     'documents' => 'Documents',
     'images' => 'Images',
-    
+
     'pays_nom' => 'Nom du pays',
     'pays_modifier' => 'Éditer ce pays',
     'pays_ajouter' => 'Ajouter un pays',
@@ -76,7 +76,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'pays_coordonnees' => 'Coordonnées géographiques',
     'pays_edition_titre' => 'Pays',
     'pays_nouveau_titre' => 'Nouveau pays',
-    
+
     'thematique_modifier' => 'Éditer cette thématique',
     'thematique_ajouter' => 'Ajouter une thématique',
     'thematique_titre' => 'Titre de la thématique',
@@ -100,7 +100,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'ville_edition_titre' => 'Ville',
     'ville_nouveau_titre' => 'Nouvelle ville',
 
-    
+
     'projet_modifier' => 'Éditer ce projet',
     'projet_ajouter' => 'Ajouter un projet',
     'projet_ajouter_image' => 'Ajouter une image',
@@ -182,7 +182,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'synthese_documents' => 'Documents liés',
 
     'document_modifier' => 'Éditer ce document',
-    'document_ajouter' => 'Ajouter un document',    
+    'document_ajouter' => 'Ajouter un document',
     'document_supression_titre' => 'Supprimer ce document ?',
     'document_provenance' => 'Provenance du document :',
 
@@ -234,7 +234,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'reference_titre' => 'Nom de la référence',
     'reference_description' => 'Descriptif de la référence',
 
-    
+    'recherche' => 'Recherche',
+    'resultat_pour' => 'Résultat pour',
+    'aucun_resultat' => 'Aucun résultat',
 
 );
 ?>

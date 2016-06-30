@@ -1,6 +1,6 @@
 <?php
 $GLOBALS[$GLOBALS['idx_lang']] = array(
-    
+
     'statut' => 'Status',
     'connexion' => 'Log in',
     'nouvelles' => 'News',
@@ -38,7 +38,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'anglais' => 'English',
     'enregistrer' => 'Save',
     'bouton_question_supprimer' => 'Remove',
-    'proposer' => 'Propose for publication'
+    'proposer' => 'Propose for publication',
     'valider' => 'Confirm',
     'ajouter' => 'Add',
     'oui' => 'Yes',
@@ -59,15 +59,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'contributeurs' => 'Contributors',
     'editer' => 'Edit',
 
-    'lexique' => 'Lexicon',        
-    'pays' => 'Countries',    
+    'lexique' => 'Lexicon',
+    'pays' => 'Countries',
     'villes' => 'Cities',
     'projet' => 'Project',
     'thematiques' => 'Topics',
     'chapitres' => 'Chapters',
     'documents' => 'Documents',
     'images' => 'Pictures',
-    
+
     'pays_nom' => 'Country\'s name',
     'pays_erreur_champs' => 'Please fill one of the inputs',
     'pays_edition_titre' => 'Edition du projet',
@@ -82,7 +82,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'ville_coordonnees' => 'Geographic coordinates',
     'ville_description_fr' => 'Description in french',
     'ville_description_en' => 'City\'s description',
-    
+
     'thematique_modifier' => 'Edit this topic',
     'thematique_ajouter' => 'Add a topic',
     'thematique_titre' => 'Topic\'s title',
@@ -203,5 +203,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'reference_selectionner' => 'Chose a reference',
     'reference_titre' => 'Name of the reference',
     'reference_description' => 'Description of the reference',
+
+    'recherche' => 'Search',
+    'resultat_pour' => 'Results for',
+    'aucun_resultat' => 'No results',
 );
 ?>

@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html lang="[(#ENV{lang}|sinon{fr})]">
+<INCLURE{fond=inc/header, env}>
+	<body [(#SESSION{statut}|oui)class="logged"]>
+	<INCLURE{fond=inc/menu, env, id_rubrique}>
+	aa
+  <INCLURE{fond=inc/pages/recherche, env}>
+
+	<INCLURE{fond=inc/footer}>
+
+	</body>
+</html>

@@ -28,7 +28,7 @@
 
 	[(#REM) si on a le droit de voir le document ]
 	[(#AUTORISER{voir,document,#ID_DOCUMENT}|oui)
-		<section class="thematique-document">
+		<section class="thematique-document" id="document_#ID_DOCUMENT">
 			<div class="thematique-document-header">
 				[(#REM) on affiche le panneau d'administration du document ]
 				[(#AUTORISER{modifier,document,#ID_DOCUMENT}|oui) <INCLURE{fond=inc/administration/inventaire/documents, id_document, afficher, document, thematique} /> ]

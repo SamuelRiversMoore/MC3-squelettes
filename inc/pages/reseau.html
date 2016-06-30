@@ -73,8 +73,8 @@
 
 					</article>
 				</BOUCLE_liste>
-				[(#AUTORISER{creer,rubrique}|oui) <!-- appeller cette partie que si il y une variable "new" ???-->
-					<article class="tab" [(#AFFICHER|=={nouvelle_rubrique}|oui) style="display:block;"]> <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#URL_RUBRIQUE|parametre_lang)]})]</section> </article>
+				[(#AUTORISER{creer,rubrique}|et{#AFFICHER|=={nouvelle_rubrique}}|oui) <!-- appeller cette partie que si il y une variable "new" ???-->
+					<article class="tab" style="display:block;"> <section class="administration">[(#FORMULAIRE_EDITION_RUBRIQUE{'new',#ID_RUBRIQUE,[(#URL_RUBRIQUE|parametre_lang)]})]</section> </article>
 				]
 			</div>
 		</section>

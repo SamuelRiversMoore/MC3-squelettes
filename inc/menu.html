@@ -23,6 +23,12 @@
 		</BOUCLE_menu>
 	</ul>
 
+	<ul id="recherche">
+		<form action="[(#URL_PAGE{recherche}|parametre_lang)]" method='post'>
+			<input type="text" name="recherche"/>
+		</form>
+	</ul>
+
 	<ul id="menu-footer">
 		<B_auteur>
 			<BOUCLE_auteur (AUTEURS) {tout} {id_auteur=#SESSION{id_auteur}}>
