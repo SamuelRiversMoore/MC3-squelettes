@@ -162,21 +162,15 @@ $( document ).ready(function() {
 
 	// les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
 	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { 
-		console.log('aaa')
 
 		$("#nav-tabs li a").click(function(e) {
-			console.log('ok')
 			e.preventDefault();
 			history.pushState({ path: this.path }, '', this.href);
 			var $inventaireMenu = $(this).closest('#nav-tabs');
-			console.log('a');
 			if (!$(this).hasClass('chapitre') && !$(this).hasClass('bouton')) {
-				console.log('b');
 				if (!$(this).hasClass('strong') && $(this).siblings('ul.chapitres').find('a.strong').length <= 0) {
-					console.log('c');
 					$inventaireMenu.find('.chapitres').slideUp(300);
 					$(this).next('.chapitres').slideDown(300, function(){
-						console.log('d');
 						$(document.body).trigger("sticky_kit:recalc");
 					});
 				}
@@ -187,12 +181,15 @@ $( document ).ready(function() {
 				document.getElementById( this.getAttribute('data-cible') ).style.display = 'block';
 			}
 			$inventaireMenu.find("li a").removeClass('strong');
-			$(this).addClass('strong');
+			if($(this).hasClass('titre')){ 
+				$(this).next('.chapitres').find('li a').first().addClass('strong');
+			} else {
+				$(this).addClass('strong');
+			}
 			$inventaireMenu.closest('.tabs-wrapper').removeClass('openmenu')
 			return false;
 		});
 	}
-
 
 
 	/* Qu'est ce ce truc ? pas simplifiable juste pur css ? */

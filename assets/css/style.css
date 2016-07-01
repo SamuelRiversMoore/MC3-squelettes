@@ -330,7 +330,7 @@ div#menu-header {
     outline: none;
 }
 #content-searchbar input{
-	max-width: 30rem; 
+	max-width: 55rem; 
 }
 #searchbar-button:checked ~ #menu-searchbar input{
 	height: 2.5rem;
