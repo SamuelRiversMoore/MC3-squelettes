@@ -1471,4 +1471,12 @@ article.tab {
 		width: 100%;
 		min-width: initial;
 	}
+	#menu{
+
+	}
+}
+@media screen and (max-width: 320px){
+	#menu{
+		width: 100%;
+	}
 }
