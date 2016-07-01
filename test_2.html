@@ -1,9 +1,0 @@
-<BOUCLE_articles (ARTICLES) {tout} >
- <li><a href='[(#SELF|parametre_url{article,#ID_ARTICLE})]' class="ajax">#TITRE</a></li>
- [(#ID_ARTICLE|=={#ARTICLE}|oui) super]
-</BOUCLE_articles>
-
-
-<div class="ajax">
-#FORMULAIRE_EDITION_ART
-</div>

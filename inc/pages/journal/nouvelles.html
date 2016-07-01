@@ -3,7 +3,7 @@
 
 
 	[(#ACCUEIL|non)
-		[(#AUTORISER{creer,article}|oui)
+		[(#SESSION{statut}|=={0minirezo}|oui)
 			[(#AFFICHER|=={'nouvelle_nouvelle'}|oui)
 				<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',9} )] </section>
 			]

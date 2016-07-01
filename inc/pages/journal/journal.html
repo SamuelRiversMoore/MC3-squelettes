@@ -2,7 +2,7 @@
 [ (#SESSION{statut}|non) #SET{statut, publie}  ]
 
 
-	[(#AUTORISER{creer,article}|oui)
+	[(#SESSION{statut}|=={0minirezo}|oui)
 		[(#ACCUEIL|non)
 				[(#AFFICHER|=={'nouvel_article'}|oui)
 					<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',8} )]</section>
