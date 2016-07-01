@@ -289,9 +289,11 @@
 	                        <span class="discret">
                             [(#GET{date}|table_valeur{#CLE}|affdate{jour})].[(#GET{date}|table_valeur{#CLE}|affdate{mois})].[(#GET{date}|table_valeur{#CLE}|affdate{annee})]
                           </span>  •
-
-                          [(#GET{chemin_fr}|table_valeur{#CLE})] <br/>
-                          [(#GET{resume_fr}|table_valeur{#CLE})]
+                          [ (#ENV{lang}|=={fr}|oui) [(#GET{chemin_fr}|table_valeur{#CLE})] ]
+                          [ (#ENV{lang}|=={en}|oui) [(#GET{chemin_en}|table_valeur{#CLE})] ]
+                           <br/>
+                           [ (#ENV{lang}|=={fr}|oui) [(#GET{resume_fr}|table_valeur{#CLE})] ]
+                           [ (#ENV{lang}|=={en}|oui) [(#GET{resume_en}|table_valeur{#CLE})] ]
 
 	                    </li>
 
