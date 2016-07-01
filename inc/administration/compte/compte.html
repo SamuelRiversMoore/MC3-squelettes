@@ -45,6 +45,9 @@
 					<li class="item"><a href="#tab-mots" data-cible="tab-mots"><:lped:mots:></a></li>
 					<li class="item"><a href="#tab-defs" data-cible="tab-defs"><:lped:definitions:></a></li>
 					<li class="item"><a href="#tab-refs" data-cible="tab-refs"><:lped:references:></a></li>
+					<li class="titre"><:lped:membres_et_partenaires:></li>
+					<li class="item"><a href="#tab-personnes" data-cible="tab-personnes"><:lped:personnes:></a></li>
+					<li class="item"><a href="#tab-institutions" data-cible="tab-institutions"><:lped:institutions:></a></li>
 				</ul>
                 <div id="tabs-menu-button" class="icon fa-bars"></div>
 			</nav>
@@ -260,6 +263,24 @@
 						<BOUCLE_refs (GLOREFS) {tout} {par statut, maj} {inverse}>
 							[(#AUTORISER{modifier,gloref,#ID_GLOREF}|oui) <INCLURE{fond=inc/administration/compte/glorefs, env, id_gloref}> ]
 						</BOUCLE_refs>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-personnes">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_personnes (PERSONNES) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,personnes,#ID_PERSONNE}|oui) <INCLURE{fond=inc/administration/compte/personnes, env, id_personne}> ]
+						</BOUCLE_personnes>
 					</tbody>
 				</table>
 			</article>

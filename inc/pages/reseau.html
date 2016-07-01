@@ -19,7 +19,7 @@
 						<ul>
 							<BOUCLE_rubriques (RUBRIQUES) {id_parent=6} {tout} {par num titre}>
 								<li class="item">
-								<a class="item [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui)strong] [(#RUBRIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui)strong]" href="[(#URL_RUBRIQUE{24}|parametre_lang|parametre_url{rubrique,#ID_RUBRIQUE})]" data-cible="rubrique#ID_RUBRIQUE">
+								<a class="item [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui)strong] [(#RUBRIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui)strong]" href="[(#URL_RUBRIQUE{6}|parametre_lang|parametre_url{rubrique,#ID_RUBRIQUE})]" data-cible="rubrique#ID_RUBRIQUE">
 										[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
 									</a>
