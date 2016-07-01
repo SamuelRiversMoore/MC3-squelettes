@@ -285,6 +285,24 @@
 				</table>
 			</article>
 
+			<article class="tab" id="tab-institutions">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_institutions (INSTITUTIONS) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,institutions,#ID_INSTITUTION}|oui) <INCLURE{fond=inc/administration/compte/institutions, env, id_institution}> ]
+						</BOUCLE_institutions>
+					</tbody>
+				</table>
+			</article>
+
 		</div>
 	</section>
 </div>
