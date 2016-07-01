@@ -238,8 +238,8 @@ $( document ).ready(function() {
 	// pour afficher le premier article si aucun n'est ouvert. J'ai pas réussi à le faire en SPIP...
 	if ($('#nav-tabs').length > 0) {
 		if (window.location.hash) {
+			// interception d'url
 			var target = $('#nav-tabs').find('a[href="'+window.location.hash+'"]');
-			console.log(target);
 			setTimeout(function() {
 				target.trigger('click');
 			}, 200);
