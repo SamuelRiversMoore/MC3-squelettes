@@ -34,7 +34,8 @@
 				})]
 		</BOUCLE_thematiques>
 		<td class="statut">
-			<div class="status [(#VAL{#STATUT}|_T)] [(#ENV{lang}|sinon{fr})]"></div>
+			[(#SESSION{statut}|=={0minirezo}|oui) [(#FORMULAIRE_MODERATION_OBJET{chapitres,chapitre,#ID_CHAPITRE})] ]
+			[(#SESSION{statut}|=={1comite}|oui) <div class="status [(#VAL{#STATUT}|_T)] [(#ENV{lang}|sinon{fr})]"></div> ]
 		</td>
 		<td class="titre">
 			<a href="[(#GET{lien}|parametre_url{thematique,#GET{thematique}}|parametre_url{chapitre, #ID_CHAPITRE})]">
@@ -53,6 +54,5 @@
 		</td>
 	</tr>
 
-		
-</BOUCLE_chapitre>
 
+</BOUCLE_chapitre>

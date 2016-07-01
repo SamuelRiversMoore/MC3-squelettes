@@ -76,7 +76,8 @@
 	[(#REM) petit hack pour cacher ceux qui ne font pas parti de l'inventaire]
 	<tr [(#GET{thematique}|non|et{#GET{chapitre}|non}|oui) style=""]>
 		<td class="statut">
-			<div class="status [(#VAL{#STATUT}|_T)] [(#ENV{lang}|sinon{fr})]"></div>
+			[(#SESSION{statut}|=={0minirezo}|oui) [(#FORMULAIRE_MODERATION_OBJET{documents,document,#ID_DOCUMENT})] ]
+			[(#SESSION{statut}|=={1comite}|oui) <div class="status [(#VAL{#STATUT}|_T)] [(#ENV{lang}|sinon{fr})]"></div> ]
 		</td>
 		<td class="titre">
 			<a href="[(#GET{lien}|parametre_url{thematique,#GET{thematique}}|parametre_url{chapitre, #GET{chapitre}}|parametre_url{document, #ID_DOCUMENT})]">

@@ -4,7 +4,7 @@
 	<section class="profil">
 		<div>
 			<span class="discret"><:lped:role:> :</span>
-			<span>#STATUT</span>			
+			<span>[(#STATUT|=={0minirezo}|oui)Administrateur][(#STATUT|=={1comite}|oui)Rédacteur]</span>
 		</div>
 
 		<div>
@@ -26,7 +26,7 @@
 
 
 	<h2><:lped:tableau_de_bord:></h2>
-	<section class="dashboard">	
+	<section class="dashboard">
 		<div class="tabs-wrapper">
 			<nav id="nav-tabs" class="gauche">
 				<ul>
@@ -36,6 +36,7 @@
 					<li class="item"><a href="#tab-thematiques" data-cible="tab-thematiques"><:lped:thematiques:></a></li>
 					<li class="item"><a href="#tab-chapitres" data-cible="tab-chapitres"><:lped:chapitres:></a></li>
 					<li class="item"><a href="#tab-documents" data-cible="tab-documents"><:lped:documents:></a></li>
+					<li class="item"><a href="#tab-syntheses" data-cible="tab-syntheses"><:lped:syntheses:></a></li>
 				</ul>
                 <div id="tabs-menu-button" class="icon fa-bars"></div>
 			</nav>
@@ -146,6 +147,25 @@
 					</tbody>
 				</table>
 			</article>
+
+			<article class="tab" id="tab-syntheses">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_articles (ARTICLES) {tout} {par statut, maj} {inverse} {id_secteur=24}>
+							[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/compte/articles, env, id_article}> ]
+						</BOUCLE_articles>
+					</tbody>
+				</table>
+			</article>
+
 		</div>
 	</section>
 </div>
