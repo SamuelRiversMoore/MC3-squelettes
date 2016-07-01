@@ -30,13 +30,21 @@
 		<div class="tabs-wrapper">
 			<nav id="nav-tabs" class="gauche">
 				<ul>
+					<li class="titre"><:lped:inventaire:></li>
 					<li class="item"><a href="#tab-pays" data-cible="tab-pays"><:lped:pays:></a></li>
 					<li class="item"><a href="#tab-villes" data-cible="tab-villes"><:lped:villes:></a></li>
 					<li class="item"><a href="#tab-projets" data-cible="tab-projets"><:lped:projets:></a></li>
 					<li class="item"><a href="#tab-thematiques" data-cible="tab-thematiques"><:lped:thematiques:></a></li>
 					<li class="item"><a href="#tab-chapitres" data-cible="tab-chapitres"><:lped:chapitres:></a></li>
 					<li class="item"><a href="#tab-documents" data-cible="tab-documents"><:lped:documents:></a></li>
+					<li class="titre"><:lped:articles:></li>
 					<li class="item"><a href="#tab-syntheses" data-cible="tab-syntheses"><:lped:syntheses:></a></li>
+					<li class="item"><a href="#tab-journal" data-cible="tab-journal"><:lped:journal:></a></li>
+					<li class="item"><a href="#tab-apropos" data-cible="tab-apropos"><:lped:a_propos:></a></li>
+					<li class="titre"><:lped:lexique:></li>
+					<li class="item"><a href="#tab-mots" data-cible="tab-mots"><:lped:mots:></a></li>
+					<li class="item"><a href="#tab-defs" data-cible="tab-defs"><:lped:definitions:></a></li>
+					<li class="item"><a href="#tab-refs" data-cible="tab-refs"><:lped:references:></a></li>
 				</ul>
                 <div id="tabs-menu-button" class="icon fa-bars"></div>
 			</nav>
@@ -162,6 +170,96 @@
 						<BOUCLE_articles (ARTICLES) {tout} {par statut, maj} {inverse} {id_secteur=24}>
 							[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/compte/articles, env, id_article}> ]
 						</BOUCLE_articles>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-journal">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_articles_journal (ARTICLES) {tout} {par statut, maj} {inverse} {id_secteur=2}>
+							[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/compte/articles, env, id_article}> ]
+						</BOUCLE_articles_journal>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-apropos">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_articles_apropos (ARTICLES) {tout} {par statut, maj} {inverse} {id_secteur=7}>
+							[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/compte/articles, env, id_article}> ]
+						</BOUCLE_articles_apropos>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-mots">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_mots (GLOMOTS) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,glomot,#ID_GLOMOT}|oui) <INCLURE{fond=inc/administration/compte/glomots, env, id_glomot}> ]
+						</BOUCLE_mots>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-defs">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_defs (GLODEFS) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,glodef,#ID_GLODEF}|oui) <INCLURE{fond=inc/administration/compte/glodefs, env, id_glodef}> ]
+						</BOUCLE_defs>
+					</tbody>
+				</table>
+			</article>
+
+			<article class="tab" id="tab-refs">
+				<table class="sortable">
+					<thead>
+						<tr class="row_first">
+							<th>Statut</th>
+							<th>Titre</th>
+							<th>Contributeurs</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<BOUCLE_refs (GLOREFS) {tout} {par statut, maj} {inverse}>
+							[(#AUTORISER{modifier,gloref,#ID_GLOREF}|oui) <INCLURE{fond=inc/administration/compte/glorefs, env, id_gloref}> ]
+						</BOUCLE_refs>
 					</tbody>
 				</table>
 			</article>
