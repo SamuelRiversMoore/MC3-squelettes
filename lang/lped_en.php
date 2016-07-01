@@ -208,5 +208,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'recherche' => 'Search',
     'resultat_pour' => 'Results for',
     'aucun_resultat' => 'No results',
+
+    'administrateur' => 'Administrator',
+    'redacteur' => 'Redactor',
+    'inventaire' => 'Inventory',
+    'journal' => 'Journal',
+    'a_propos' => 'About',
+    'lexique' => 'Glossary',
+    'mots' => 'Words',
+    'definitions' => 'Definitions',
+    'references' => 'References',
+    'membres_et_partenaires' => 'The Network',
 );
 ?>
