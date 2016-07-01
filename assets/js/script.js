@@ -162,20 +162,24 @@ $( document ).ready(function() {
 
 	// les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
 	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { 
-
 		$("#nav-tabs li a").click(function(e) {
 			e.preventDefault();
 			history.pushState({ path: this.path }, '', this.href);
 			var $inventaireMenu = $(this).closest('#nav-tabs');
-			if (!$(this).hasClass('chapitre') && !$(this).hasClass('bouton')) {
-				if (!$(this).hasClass('strong') && $(this).siblings('ul.chapitres').find('a.strong').length <= 0) {
-					$inventaireMenu.find('.chapitres').slideUp(300);
-					$(this).next('.chapitres').slideDown(300, function(){
+			if (!$(this).hasClass('bouton')) {
+				if($(this).hasClass('chapitre') && $(this).closest('.chapitres').is(':hidden')){
+					$(this).closest('.chapitres').slideDown(300, function(){
 						$(document.body).trigger("sticky_kit:recalc");
 					});
+				} else {
+					if (!$(this).hasClass('chapitre') && !$(this).hasClass('strong') && $(this).siblings('ul.chapitres').find('a.strong').length <= 0) {
+						$inventaireMenu.find('.chapitres').slideUp(300);
+						$(this).next('.chapitres').slideDown(300, function(){
+							$(document.body).trigger("sticky_kit:recalc");
+						});
+					}
 				}
 			}
-
 			$(".tabs-wrapper article.tab").hide();
 			if (document.getElementById( this.getAttribute('data-cible') )){
 				document.getElementById( this.getAttribute('data-cible') ).style.display = 'block';
@@ -233,9 +237,17 @@ $( document ).ready(function() {
 
 	// pour afficher le premier article si aucun n'est ouvert. J'ai pas réussi à le faire en SPIP...
 	if ($('#nav-tabs').length > 0) {
-		if($('#nav-tabs').find('a.strong').length <= 0){
-			$('#nav-tabs').find('li a').first().trigger('click');
-		} 
+		if (window.location.hash) {
+			var target = $('#nav-tabs').find('a[href="'+window.location.hash+'"]');
+			console.log(target);
+			setTimeout(function() {
+				target.trigger('click');
+			}, 200);
+		} else {
+			if($('#nav-tabs').find('a.strong').length <= 0){
+				$('#nav-tabs').find('li a').first().trigger('click');
+			}			
+		}
 		set_offset();
 		console.log('stick!')
 		var sticky = $('#nav-tabs').stick_in_parent({offset_top : stick_offset});
