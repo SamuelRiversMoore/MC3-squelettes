@@ -543,8 +543,12 @@ ul#news, .mises-a-jour ul, ul#journal {
 #arbo~h1{
 	margin-top: 4rem;
 }
-#arbo~header, header.gros{
+#arbo~header{
 	margin: 4rem 0 4rem 0;
+	max-width: 62rem;
+}
+#arbo~header, header.gros{
+	margin: 4rem 0 0rem 0;
 	max-width: 62rem;
 }
 #arbo~header h1, header.gros h1{
@@ -1344,10 +1348,43 @@ input[type="text"], input[type="search"], input[type="password"]{
 	margin: 0;
 	margin-top: 2rem;
 }
-#resultats li{
+#resultats li.resultat{
 	list-style: none;
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
+	max-width: 38rem;
 }
+li.resultat a{
+	text-decoration: none; 
+}
+li.resultat .meta{
+	color: #999;
+	margin-bottom: .25rem;
+}
+li.resultat .meta>span{
+	margin-right: .5rem;
+}
+li.resultat h3{
+	color: #3592CE;
+	margin-bottom: .25rem;
+}
+.type{
+    font-size: .75rem;
+    line-height: 1em;
+    text-transform: uppercase;
+    border: 1px solid;
+    padding: .125em .25em .05em;
+}
+.type.document{ color:#FF8600; }
+
+.type.nouvelle,
+.type.lexique,
+.type.article{ color:#607D8B; }
+
+.type.pays,
+.type.thématique, .type.thematique, .type.chapitre,
+.type.ville,
+.type.projet{ color:#28D04F; }
+
 
 /*----------  ANIMATION  ----------*/
 
