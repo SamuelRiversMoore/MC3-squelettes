@@ -176,9 +176,8 @@
             </BOUCLE_defs>
 
             <BOUCLE_article(ARTICLES) {recherche} {!par points}>
-                #SET{date, #GET{date}|push{#MAJ}}
 
-                #SET{type_article, Article}
+                #SET{type_article,''}
                 [(#ID_RUBRIQUE|=={8}|oui) #SET{type_article, Article} ]
                 [(#ID_RUBRIQUE|=={9}|oui) #SET{type_article, Nouvelle} ]
                 <BOUCLE_rubrique (RUBRIQUES) {id_rubrique}>
@@ -187,12 +186,15 @@
                 </BOUCLE_papa>
                 </BOUCLE_rubrique>
 
-                #SET{type, #GET{type}|push{#GET{type_article}}}
+                [(#GET{type_article}|!={''}|oui)
+                  #SET{date, #GET{date}|push{#MAJ}}
+                  #SET{type, #GET{type}|push{#GET{type_article}}}
+                  #SET{titre, #GET{titre}|push{#TITRE}}
+                  #SET{titre_en, #GET{titre_en}|push{#TITRE_EN}}
+                  #SET{lien, #GET{lien}|push{#URL_ARTICLE}}
+                  #SET{points, #GET{points}|push{#POINTS}}
+                ]
 
-                #SET{titre, #GET{titre}|push{#TITRE}}
-                #SET{titre_en, #GET{titre_en}|push{#TITRE_EN}}
-                #SET{lien, #GET{lien}|push{#URL_ARTICLE}}
-                #SET{points, #GET{points}|push{#POINTS}}
             </BOUCLE_article>
 
     <ul>
