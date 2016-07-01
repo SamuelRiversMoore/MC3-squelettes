@@ -10,15 +10,14 @@
 				[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
 			</span>
 		</div>
-
+		<header>
+			<h1>
+				[ (#ENV{lang}|=={fr}|oui)#TITRE ]
+				[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+			</h1>
+		</header>
 		<section class="page-standard">
 			<article class="texte-courant">
-				<header>
-					<h1>
-						[ (#ENV{lang}|=={fr}|oui)#TITRE ]
-						[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-					</h1>
-				</header>
 				[(#SESSION{statut}|=={0minirezo}|oui)
 					[(#AFFICHER|=={'nouvel_article'}|oui)
 						<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',7} )]</section>

@@ -279,16 +279,16 @@ button{
 
 
 /* ??? checker la coupure de mots */
-#menu ul, #menu li {
+#menu ul, #menu li #menu>div {
 	margin:0;
 	list-style-type: none;
     text-overflow: ellipsis;
     color: #9F9F9F;
 }
-ul#menu-header {
+div#menu-header {
 	margin-top: .75rem;
 	font-size: 0;
-	height: 1.5rem;
+	position: relative;
 }
 #menu-header li {
 	display: inline-block;
@@ -297,8 +297,50 @@ ul#menu-header {
 	margin-right: .5rem;
 }
 #menu-header li:last-child {
-	float: right;
+/*	float: right;
 	margin: 0;
+*/
+}
+#menu-header>ul.languages{
+	display: inline-block;
+    margin-bottom: .125rem;
+}
+#search-button {
+    font-size: 1rem;
+    padding: .5rem .75rem;
+    margin-right: -.75rem;
+    margin-top: -.5rem;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	cursor: pointer;
+}
+#searchbar-button:checked ~ #search-button::before{
+	content: "\f00d";
+}
+#menu-searchbar input{
+    height: 0;
+    padding: 0;
+    border: none;
+    opacity: 0;
+    margin: 0;
+    transition: height .2s ease-in-out, opacity .2s ease-in-out, margin .2s ease-in-out;
+    overflow: hidden;
+    padding-right: .5rem;
+    outline: none;
+}
+#searchbar-button:checked ~ #menu-searchbar input{
+	height: 2.5rem;
+    opacity: 1;
+	margin-bottom: 1rem;
+    margin-top: .125rem;
+}
+
+#menu-searchbar form{
+	display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+	display: -ms-flexbox;  /* TWEENER - IE 10 */
+	display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+	display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
 }
 ul#menu-footer {
 	margin-bottom: 1.5rem;
@@ -498,14 +540,14 @@ ul#news, .mises-a-jour ul, ul#journal {
 #arbo~h1{
 	margin-top: 4rem;
 }
-#arbo~header{
+#arbo~header, header.gros{
 	margin: 4rem 0 4rem 0;
 	max-width: 62rem;
 }
-#arbo~header h1{
+#arbo~header h1, header.gros h1{
 	margin:0;
 	line-height: 1.1em;
-    margin-bottom: .75rem;
+    margin-bottom: .75rem; 
 }
 #arbo a {
 	text-decoration: none;
@@ -1272,7 +1314,7 @@ article.apropos{
 	line-height: 1.2em;
 	margin-top: .5rem;
 }
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="search"], input[type="password"]{
 	width: 100%;
 	padding: 0.5rem;
 	font-size: 1rem;
@@ -1289,6 +1331,19 @@ input[type="text"], input[type="password"] {
 	padding: .5rem 1rem;
 	background: #23DD3A;
 	color: #fff;
+}
+#search-button{
+	font-size: 1rem;
+    padding: .5rem .75rem;
+    margin-right: -.75rem;
+}
+#resultats{
+	margin: 0;
+	margin-top: 2rem;
+}
+#resultats li{
+	list-style: none;
+	margin-bottom: 2rem;
 }
 
 /*----------  ANIMATION  ----------*/

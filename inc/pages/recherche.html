@@ -1,216 +1,218 @@
 <div id="contenu" class="wrapper">
 
-  <form action="[(#SELF)]" method='post'>
-    <input type="text" name="recherche" value="#RECHERCHE"/>
-  </form>
+	<header class="gros">	
+		<h1><:lped:rechercher:></h1>
 
+		<form action="[(#SELF)]" method='post'>
+			<input type="search" name="recherche" value="#RECHERCHE" autocomplete="off"/>
+		</form>
+	</header>
 
-[<:lped:resultat_pour:> (#RECHERCHE)]
+	<section class="page-standard">
+		<h2 class="discret">[<:lped:resultat_pour:> "(#RECHERCHE)"] :</h2>
+		#SET{type, #ARRAY}
+		#SET{date, #ARRAY}
+		#SET{titre, #ARRAY}
+		#SET{titre_en, #ARRAY}
+		#SET{lien, #ARRAY}
+		#SET{points, #ARRAY}
 
+			<BOUCLE_projets(PROJETS) {recherche} {!par points}>
+				#SET{date, #GET{date}|push{#MAJ}}
+				#SET{type, #GET{type}|push{Projet}}
+				#SET{titre, #GET{titre}|push{#TITRE_FR}}
+				#SET{titre_en, #GET{titre_en}|push{#TITRE_EN}}
+				#SET{lien, #GET{lien}|push{#URL_PROJET}}
+				#SET{points, #GET{points}|push{#POINTS}}
+			</BOUCLE_projets>
 
+			<BOUCLE_villes(VILLES) {recherche} {!par points}>
+				#SET{date, #GET{date}|push{#MAJ}}
+				#SET{type, #GET{type}|push{Ville}}
+				#SET{titre, #GET{titre}|push{#NOM_FR}}
+				#SET{titre_en, #GET{titre_en}|push{#NOM_EN}}
+				#SET{lien, #GET{lien}|push{#URL_VILLE}}
+				#SET{points, #GET{points}|push{#POINTS}}
+			</BOUCLE_villes>
 
-        #SET{type, #ARRAY}
-        #SET{date, #ARRAY}
-        #SET{titre, #ARRAY}
-        #SET{titre_en, #ARRAY}
-        #SET{lien, #ARRAY}
-        #SET{points, #ARRAY}
+			<BOUCLE_pays(PAYS) {recherche} {!par points}>
+				#SET{date, #GET{date}|push{#MAJ}}
+				#SET{type, #GET{type}|push{Pays}}
+				#SET{titre, #GET{titre}|push{#NOM_FR}}
+				#SET{titre_en, #GET{nom_en}|push{#NOM_FR}}
+				#SET{lien, #GET{lien}|push{#URL_PAY}}
+				#SET{points, #GET{points}|push{#POINTS}}
+			</BOUCLE_pays>
 
-            <BOUCLE_projets(PROJETS) {recherche} {!par points}>
-                #SET{date, #GET{date}|push{#MAJ}}
-                #SET{type, #GET{type}|push{Projet}}
-                #SET{titre, #GET{titre}|push{#TITRE_FR}}
-                #SET{titre_en, #GET{titre_en}|push{#TITRE_EN}}
-                #SET{lien, #GET{lien}|push{#URL_PROJET}}
-                #SET{points, #GET{points}|push{#POINTS}}
-            </BOUCLE_projets>
+			<BOUCLE_thematiques(THEMATIQUES) {recherche} {!par points}>
+				#SET{date, #GET{date}|push{#MAJ}}
+				#SET{points, #GET{points}|push{#POINTS}}
 
-            <BOUCLE_villes(VILLES) {recherche} {!par points}>
-                #SET{date, #GET{date}|push{#MAJ}}
-                #SET{type, #GET{type}|push{Ville}}
-                #SET{titre, #GET{titre}|push{#NOM_FR}}
-                #SET{titre_en, #GET{titre_en}|push{#NOM_EN}}
-                #SET{lien, #GET{lien}|push{#URL_VILLE}}
-                #SET{points, #GET{points}|push{#POINTS}}
-            </BOUCLE_villes>
+				<BOUCLE_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
+					#SET{type, #GET{type}|push{Thématique / Projet}}
+					#SET{titre, #GET{titre}|push{#_thematiques:TITRE_FR / #TITRE_FR}}
+					#SET{titre_en, #GET{titre_en}|push{#_thematiques:TITRE_EN / #TITRE_EN}}
+					#SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_thematiques:ID_THEMATIQUE}}}
+				</BOUCLE_them_projets>
+				<BOUCLE_them_villes(VILLES spip_thematiques_liens){id_thematique}>
+					#SET{type, #GET{type}|push{Thématique / Ville}}
+					#SET{titre, #GET{titre}|push{#_thematiques:TITRE_FR / #NOM_FR}}
+					#SET{titre_en, #GET{titre_en}|push{#_thematiques:TITRE_EN / #NOM_EN}}
+					#SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_thematiques:ID_THEMATIQUE}}}
+				</BOUCLE_them_villes>
+				<BOUCLE_them_pays(PAYS spip_thematiques_liens){id_thematique}>
+					#SET{type, #GET{type}|push{Thématique / Pays}}
+					#SET{titre, #GET{titre}|push{#_thematiques:TITRE_FR / #NOM_FR}}
+					#SET{titre_en, #GET{titre_en}|push{#_thematiques:TITRE_EN / #NOM_EN}}
+					#SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_thematiques:ID_THEMATIQUE}}}
+				</BOUCLE_them_pays>
+			</BOUCLE_thematiques>
 
-            <BOUCLE_pays(PAYS) {recherche} {!par points}>
-                #SET{date, #GET{date}|push{#MAJ}}
-                #SET{type, #GET{type}|push{Pays}}
-                #SET{titre, #GET{titre}|push{#NOM_FR}}
-                #SET{titre_en, #GET{nom_en}|push{#NOM_FR}}
-                #SET{lien, #GET{lien}|push{#URL_PAY}}
-                #SET{points, #GET{points}|push{#POINTS}}
-            </BOUCLE_pays>
+			<BOUCLE_chapitre(CHAPITRES) {recherche} {!par points}>
+				<BOUCLE_chap_thematiques(THEMATIQUES spip_chapitres_liens){id_chapitre}>
+					<BOUCLE_chap_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
+						#SET{date, #GET{date}|push{#_chapitre:MAJ}}
+						#SET{type, #GET{type}|push{Chapitre / Thématique / Projet}}
+						#SET{titre, #GET{titre}|push{#_chapitre:TITRE_FR / #_chap_thematiques:TITRE_FR / #TITRE_FR}}
+						#SET{titre_en, #GET{titre_en}|push{#_chapitre:TITRE_EN / #_chap_thematiques:TITRE_EN / #TITRE_EN}}
+						#SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
+						#SET{points, #GET{points}|push{#_chapitre:POINTS}}
+					</BOUCLE_chap_them_projets>
+					<BOUCLE_chap_them_villes(VILLES spip_thematiques_liens){id_thematique}>
+						#SET{date, #GET{date}|push{#_chapitre:MAJ}}
+						#SET{type, #GET{type}|push{Chapitre / Thématique / Ville}}
+						#SET{titre, #GET{titre}|push{#_chapitre:TITRE_FR / #_chap_thematiques:TITRE_FR / #NOM_FR}}
+						#SET{titre_en, #GET{titre_en}|push{#_chapitre:TITRE_EN / #_chap_thematiques:TITRE_EN / #NOM_EN}}
+						#SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
+						#SET{points, #GET{points}|push{#_chapitre:POINTS}}
+					</BOUCLE_chap_them_villes>
+					<BOUCLE_chap_them_pays(PAYS spip_thematiques_liens){id_thematique}>
+						#SET{date, #GET{date}|push{#_chapitre:MAJ}}
+						#SET{type, #GET{type}|push{Chapitre / Thématique / Pays}}
+						#SET{titre, #GET{titre}|push{#_chapitre:TITRE_FR / #_chap_thematiques:TITRE_FR / #NOM_FR}}
+						#SET{titre_en, #GET{titre_en}|push{#_chapitre:TITRE_EN / #_chap_thematiques:TITRE_EN / #NOM_EN}}
+						#SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
+						#SET{points, #GET{points}|push{#_chapitre:POINTS}}
+					</BOUCLE_chap_them_pays>
+				</BOUCLE_chap_thematiques>
+			</BOUCLE_chapitre>
 
-            <BOUCLE_thematiques(THEMATIQUES) {recherche} {!par points}>
-                #SET{date, #GET{date}|push{#MAJ}}
-                #SET{points, #GET{points}|push{#POINTS}}
+			<BOUCLE_document(DOCUMENTS) {recherche} {!par points}>
+				<BOUCLE_docs_thematiques(THEMATIQUES spip_documents_liens){id_document}>
+					<BOUCLE_docs_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
+						#SET{date, #GET{date}|push{#_document:MAJ}}
+						#SET{type, #GET{type}|push{Document / Thématique / Projet}}
+						#SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_thematiques:TITRE_FR / #TITRE_FR}}
+						#SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_thematiques:TITRE_EN / #TITRE_EN}}
+						#SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
+						#SET{points, #GET{points}|push{#_document:POINTS}}
+					</BOUCLE_docs_them_projets>
+					<BOUCLE_docs_them_villes(VILLES spip_thematiques_liens){id_thematique}>
+						#SET{date, #GET{date}|push{#_document:MAJ}}
+						#SET{type, #GET{type}|push{Document / Thématique / Ville}}
+						#SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_thematiques:TITRE_FR / #NOM_FR}}
+						#SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_thematiques:TITRE_EN / #NOM_EN}}
+						#SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
+						#SET{points, #GET{points}|push{#_document:POINTS}}
+					</BOUCLE_docs_them_villes>
+					<BOUCLE_docs_them_pays(PAYS spip_thematiques_liens){id_thematique}>
+						#SET{date, #GET{date}|push{#_document:MAJ}}
+						#SET{type, #GET{type}|push{Document / Thématique / Pays}}
+						#SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_thematiques:TITRE_FR / #NOM_FR}}
+						#SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_thematiques:TITRE_EN / #NOM_EN}}
+						#SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
+						#SET{points, #GET{points}|push{#_document:POINTS}}
+					</BOUCLE_docs_them_pays>
+				</BOUCLE_docs_thematiques>
 
-                <BOUCLE_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
-                    #SET{type, #GET{type}|push{Thématique / Projet}}
-                    #SET{titre, #GET{titre}|push{#_thematiques:TITRE_FR / #TITRE_FR}}
-                    #SET{titre_en, #GET{titre_en}|push{#_thematiques:TITRE_EN / #TITRE_EN}}
-                    #SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_thematiques:ID_THEMATIQUE}}}
-                </BOUCLE_them_projets>
-                <BOUCLE_them_villes(VILLES spip_thematiques_liens){id_thematique}>
-                    #SET{type, #GET{type}|push{Thématique / Ville}}
-                    #SET{titre, #GET{titre}|push{#_thematiques:TITRE_FR / #NOM_FR}}
-                    #SET{titre_en, #GET{titre_en}|push{#_thematiques:TITRE_EN / #NOM_EN}}
-                    #SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_thematiques:ID_THEMATIQUE}}}
-                </BOUCLE_them_villes>
-                <BOUCLE_them_pays(PAYS spip_thematiques_liens){id_thematique}>
-                    #SET{type, #GET{type}|push{Thématique / Pays}}
-                    #SET{titre, #GET{titre}|push{#_thematiques:TITRE_FR / #NOM_FR}}
-                    #SET{titre_en, #GET{titre_en}|push{#_thematiques:TITRE_EN / #NOM_EN}}
-                    #SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_thematiques:ID_THEMATIQUE}}}
-                </BOUCLE_them_pays>
-            </BOUCLE_thematiques>
+				<BOUCLE_docs_chapitre(CHAPITRES spip_documents_liens){id_document}>
+					<BOUCLE_docs_chap_thematiques(THEMATIQUES spip_chapitres_liens){id_chapitre}>
+						<BOUCLE_docs_chap_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
+							#SET{date, #GET{date}|push{#_document:MAJ}}
+							#SET{type, #GET{type}|push{Document / Chapitre / Thématique / Projet}}
+							#SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_chapitre:TITRE_FR / #_docs_chap_thematiques:TITRE_FR / #TITRE_FR}}
+							#SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_chapitre:TITRE_EN / #_docs_chap_thematiques:TITRE_EN / #TITRE_EN}}
+							#SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
+							#SET{points, #GET{points}|push{#_document:POINTS}}
+						</BOUCLE_docs_chap_them_projets>
+						<BOUCLE_docs_chap_them_villes(VILLES spip_thematiques_liens){id_thematique}>
+							#SET{date, #GET{date}|push{#_document:MAJ}}
+							#SET{type, #GET{type}|push{Document / Chapitre / Thématique / Ville}}
+							#SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_chapitre:TITRE_FR / #_docs_chap_thematiques:TITRE_FR / #NOM_FR}}
+							#SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_chapitre:TITRE_EN / #_docs_chap_thematiques:TITRE_EN / #NOM_EN}}
+							#SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
+							#SET{points, #GET{points}|push{#_document:POINTS}}
+						</BOUCLE_docs_chap_them_villes>
+						<BOUCLE_docs_chap_them_pays(PAYS spip_thematiques_liens){id_thematique}>
+							#SET{date, #GET{date}|push{#_document:MAJ}}
+							#SET{type, #GET{type}|push{Document / Chapitre / Thématique / Pays}}
+							#SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_chapitre:TITRE_FR / #_docs_chap_thematiques:TITRE_FR / #NOM_FR}}
+							#SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_chapitre:TITRE_EN / #_docs_chap_thematiques:TITRE_EN / #NOM_EN}}
+							#SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
+							#SET{points, #GET{points}|push{#_document:POINTS}}
+						</BOUCLE_docs_chap_them_pays>
+					</BOUCLE_docs_chap_thematiques>
+				</BOUCLE_docs_chapitre>
 
-            <BOUCLE_chapitre(CHAPITRES) {recherche} {!par points}>
-                <BOUCLE_chap_thematiques(THEMATIQUES spip_chapitres_liens){id_chapitre}>
-                    <BOUCLE_chap_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
-                        #SET{date, #GET{date}|push{#_chapitre:MAJ}}
-                        #SET{type, #GET{type}|push{Chapitre / Thématique / Projet}}
-                        #SET{titre, #GET{titre}|push{#_chapitre:TITRE_FR / #_chap_thematiques:TITRE_FR / #TITRE_FR}}
-                        #SET{titre_en, #GET{titre_en}|push{#_chapitre:TITRE_EN / #_chap_thematiques:TITRE_EN / #TITRE_EN}}
-                        #SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
-                        #SET{points, #GET{points}|push{#_chapitre:POINTS}}
-                    </BOUCLE_chap_them_projets>
-                    <BOUCLE_chap_them_villes(VILLES spip_thematiques_liens){id_thematique}>
-                        #SET{date, #GET{date}|push{#_chapitre:MAJ}}
-                        #SET{type, #GET{type}|push{Chapitre / Thématique / Ville}}
-                        #SET{titre, #GET{titre}|push{#_chapitre:TITRE_FR / #_chap_thematiques:TITRE_FR / #NOM_FR}}
-                        #SET{titre_en, #GET{titre_en}|push{#_chapitre:TITRE_EN / #_chap_thematiques:TITRE_EN / #NOM_EN}}
-                        #SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
-                        #SET{points, #GET{points}|push{#_chapitre:POINTS}}
-                    </BOUCLE_chap_them_villes>
-                    <BOUCLE_chap_them_pays(PAYS spip_thematiques_liens){id_thematique}>
-                        #SET{date, #GET{date}|push{#_chapitre:MAJ}}
-                        #SET{type, #GET{type}|push{Chapitre / Thématique / Pays}}
-                        #SET{titre, #GET{titre}|push{#_chapitre:TITRE_FR / #_chap_thematiques:TITRE_FR / #NOM_FR}}
-                        #SET{titre_en, #GET{titre_en}|push{#_chapitre:TITRE_EN / #_chap_thematiques:TITRE_EN / #NOM_EN}}
-                        #SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
-                        #SET{points, #GET{points}|push{#_chapitre:POINTS}}
-                    </BOUCLE_chap_them_pays>
-                </BOUCLE_chap_thematiques>
-            </BOUCLE_chapitre>
+			</BOUCLE_document>
 
-            <BOUCLE_document(DOCUMENTS) {recherche} {!par points}>
-                <BOUCLE_docs_thematiques(THEMATIQUES spip_documents_liens){id_document}>
-                    <BOUCLE_docs_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
-                        #SET{date, #GET{date}|push{#_document:MAJ}}
-                        #SET{type, #GET{type}|push{Document / Thématique / Projet}}
-                        #SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_thematiques:TITRE_FR / #TITRE_FR}}
-                        #SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_thematiques:TITRE_EN / #TITRE_EN}}
-                        #SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
-                        #SET{points, #GET{points}|push{#_document:POINTS}}
-                    </BOUCLE_docs_them_projets>
-                    <BOUCLE_docs_them_villes(VILLES spip_thematiques_liens){id_thematique}>
-                        #SET{date, #GET{date}|push{#_document:MAJ}}
-                        #SET{type, #GET{type}|push{Document / Thématique / Ville}}
-                        #SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_thematiques:TITRE_FR / #NOM_FR}}
-                        #SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_thematiques:TITRE_EN / #NOM_EN}}
-                        #SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
-                        #SET{points, #GET{points}|push{#_document:POINTS}}
-                    </BOUCLE_docs_them_villes>
-                    <BOUCLE_docs_them_pays(PAYS spip_thematiques_liens){id_thematique}>
-                        #SET{date, #GET{date}|push{#_document:MAJ}}
-                        #SET{type, #GET{type}|push{Document / Thématique / Pays}}
-                        #SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_thematiques:TITRE_FR / #NOM_FR}}
-                        #SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_thematiques:TITRE_EN / #NOM_EN}}
-                        #SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
-                        #SET{points, #GET{points}|push{#_document:POINTS}}
-                    </BOUCLE_docs_them_pays>
-                </BOUCLE_docs_thematiques>
+			<BOUCLE_mots(GLOMOTS) {recherche} {!par points}>
+				#SET{date, #GET{date}|push{#MAJ}}
+				#SET{type, #GET{type}|push{Lexique}}
+				#SET{titre, #GET{titre}|push{#TITRE}}
+				#SET{titre_en, #GET{titre_en}|push{#TITRE}}
+				#SET{lien, #GET{lien}|push{#INFO_URL{rubrique,5}|parametre_url{glomot,#ID_GLOMOT}|ancre_url{#TITRE|substr{0,1}}}}
+				#SET{points, #GET{points}|push{#POINTS}}
+			</BOUCLE_mots>
 
-                <BOUCLE_docs_chapitre(CHAPITRES spip_documents_liens){id_document}>
-                    <BOUCLE_docs_chap_thematiques(THEMATIQUES spip_chapitres_liens){id_chapitre}>
-                        <BOUCLE_docs_chap_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
-                            #SET{date, #GET{date}|push{#_document:MAJ}}
-                            #SET{type, #GET{type}|push{Document / Chapitre / Thématique / Projet}}
-                            #SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_chapitre:TITRE_FR / #_docs_chap_thematiques:TITRE_FR / #TITRE_FR}}
-                            #SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_chapitre:TITRE_EN / #_docs_chap_thematiques:TITRE_EN / #TITRE_EN}}
-                            #SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
-                            #SET{points, #GET{points}|push{#_document:POINTS}}
-                        </BOUCLE_docs_chap_them_projets>
-                        <BOUCLE_docs_chap_them_villes(VILLES spip_thematiques_liens){id_thematique}>
-                            #SET{date, #GET{date}|push{#_document:MAJ}}
-                            #SET{type, #GET{type}|push{Document / Chapitre / Thématique / Ville}}
-                            #SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_chapitre:TITRE_FR / #_docs_chap_thematiques:TITRE_FR / #NOM_FR}}
-                            #SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_chapitre:TITRE_EN / #_docs_chap_thematiques:TITRE_EN / #NOM_EN}}
-                            #SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
-                            #SET{points, #GET{points}|push{#_document:POINTS}}
-                        </BOUCLE_docs_chap_them_villes>
-                        <BOUCLE_docs_chap_them_pays(PAYS spip_thematiques_liens){id_thematique}>
-                            #SET{date, #GET{date}|push{#_document:MAJ}}
-                            #SET{type, #GET{type}|push{Document / Chapitre / Thématique / Pays}}
-                            #SET{titre, #GET{titre}|push{#_document:TITRE / #_docs_chapitre:TITRE_FR / #_docs_chap_thematiques:TITRE_FR / #NOM_FR}}
-                            #SET{titre_en, #GET{titre_en}|push{#_document:TITRE / #_docs_chapitre:TITRE_EN / #_docs_chap_thematiques:TITRE_EN / #NOM_EN}}
-                            #SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
-                            #SET{points, #GET{points}|push{#_document:POINTS}}
-                        </BOUCLE_docs_chap_them_pays>
-                    </BOUCLE_docs_chap_thematiques>
-                </BOUCLE_docs_chapitre>
+			<BOUCLE_defs(GLODEFS) {recherche} {!par points}>
+				<BOUCLE_glomots_def(GLOMOTS spip_glodefs_liens){id_glodef}>
+				#SET{date, #GET{date}|push{#_defs:MAJ}}
+				#SET{type, #GET{type}|push{Lexique}}
+				#SET{titre, #GET{titre}|push{#TITRE}}
+				#SET{titre_en, #GET{titre_en}|push{#TITRE}}
+				#SET{lien, #GET{lien}|push{#INFO_URL{rubrique,5}|parametre_url{glomot,#ID_GLOMOT}|ancre_url{#TITRE|substr{0,1}}}}
+				#SET{points, #GET{points}|push{#_defs:POINTS}}
+				</BOUCLE_glomots_def>
+			</BOUCLE_defs>
 
-            </BOUCLE_document>
+			<BOUCLE_article(ARTICLES) {recherche} {!par points}>
+				#SET{date, #GET{date}|push{#MAJ}}
 
-            <BOUCLE_mots(GLOMOTS) {recherche} {!par points}>
-                #SET{date, #GET{date}|push{#MAJ}}
-                #SET{type, #GET{type}|push{Lexique}}
-                #SET{titre, #GET{titre}|push{#TITRE}}
-                #SET{titre_en, #GET{titre_en}|push{#TITRE}}
-                #SET{lien, #GET{lien}|push{#INFO_URL{rubrique,5}|parametre_url{glomot,#ID_GLOMOT}|ancre_url{#TITRE|substr{0,1}}}}
-                #SET{points, #GET{points}|push{#POINTS}}
-            </BOUCLE_mots>
+				#SET{type_article, Article}
+				[(#ID_RUBRIQUE|=={8}|oui) #SET{type_article, Article} ]
+				[(#ID_RUBRIQUE|=={9}|oui) #SET{type_article, Nouvelle} ]
+				<BOUCLE_rubrique (RUBRIQUES) {id_rubrique}>
+				<BOUCLE_papa (RUBRIQUES){id_enfant}{tout}>
+				  [(#ID_RUBRIQUE|=={24}|oui) #SET{type_article, Synthèse} ]
+				</BOUCLE_papa>
+				</BOUCLE_rubrique>
 
-            <BOUCLE_defs(GLODEFS) {recherche} {!par points}>
-                <BOUCLE_glomots_def(GLOMOTS spip_glodefs_liens){id_glodef}>
-                #SET{date, #GET{date}|push{#_defs:MAJ}}
-                #SET{type, #GET{type}|push{Lexique}}
-                #SET{titre, #GET{titre}|push{#TITRE}}
-                #SET{titre_en, #GET{titre_en}|push{#TITRE}}
-                #SET{lien, #GET{lien}|push{#INFO_URL{rubrique,5}|parametre_url{glomot,#ID_GLOMOT}|ancre_url{#TITRE|substr{0,1}}}}
-                #SET{points, #GET{points}|push{#_defs:POINTS}}
-                </BOUCLE_glomots_def>
-            </BOUCLE_defs>
+				#SET{type, #GET{type}|push{#GET{type_article}}}
 
-            <BOUCLE_article(ARTICLES) {recherche} {!par points}>
-                #SET{date, #GET{date}|push{#MAJ}}
+				#SET{titre, #GET{titre}|push{#TITRE}}
+				#SET{titre_en, #GET{titre_en}|push{#TITRE_EN}}
+				#SET{lien, #GET{lien}|push{#URL_ARTICLE}}
+				#SET{points, #GET{points}|push{#POINTS}}
+			</BOUCLE_article>
 
-                #SET{type_article, Article}
-                [(#ID_RUBRIQUE|=={8}|oui) #SET{type_article, Article} ]
-                [(#ID_RUBRIQUE|=={9}|oui) #SET{type_article, Nouvelle} ]
-                <BOUCLE_rubrique (RUBRIQUES) {id_rubrique}>
-                <BOUCLE_papa (RUBRIQUES){id_enfant}{tout}>
-                  [(#ID_RUBRIQUE|=={24}|oui) #SET{type_article, Synthèse} ]
-                </BOUCLE_papa>
-                </BOUCLE_rubrique>
+		<ul id="resultats">
+			<BOUCLE_lecture(DATA){source tableau, #GET{points}}{par valeur}{inverse}>
 
-                #SET{type, #GET{type}|push{#GET{type_article}}}
+						<li>
+							<span class="discret">[(#GET{date}|table_valeur{#CLE}|affdate{jour})].[(#GET{date}|table_valeur{#CLE}|affdate{mois})].[(#GET{date}|table_valeur{#CLE}|affdate{annee})]
+						   – [(#GET{type}|table_valeur{#CLE})] </span> <br/>
+							<a href="[(#GET{lien}|table_valeur{#CLE}|parametre_lang)]">
+								[ (#ENV{lang}|=={fr}|oui) [(#GET{titre}|table_valeur{#CLE})] ]
+								[ (#ENV{lang}|=={en}|oui) [(#GET{titre_en}|table_valeur{#CLE}|sinon{#GET{titre}|table_valeur{#CLE}})] ] / #VALEUR
+							</a>
+						</li>
 
-                #SET{titre, #GET{titre}|push{#TITRE}}
-                #SET{titre_en, #GET{titre_en}|push{#TITRE_EN}}
-                #SET{lien, #GET{lien}|push{#URL_ARTICLE}}
-                #SET{points, #GET{points}|push{#POINTS}}
-            </BOUCLE_article>
-
-    <ul>
-        <BOUCLE_lecture(DATA){source tableau, #GET{points}}{par valeur}{inverse}>
-
-                    <li>
-                        <span class="discret">[(#GET{date}|table_valeur{#CLE}|affdate{jour})].[(#GET{date}|table_valeur{#CLE}|affdate{mois})].[(#GET{date}|table_valeur{#CLE}|affdate{annee})]
-                       – [(#GET{type}|table_valeur{#CLE})] </span> <br/>
-                        <a href="[(#GET{lien}|table_valeur{#CLE}|parametre_lang)]">
-                            [ (#ENV{lang}|=={fr}|oui) [(#GET{titre}|table_valeur{#CLE})] ]
-                            [ (#ENV{lang}|=={en}|oui) [(#GET{titre_en}|table_valeur{#CLE}|sinon{#GET{titre}|table_valeur{#CLE}})] ] / #VALEUR
-                        </a>
-                    </li>
-
-        </BOUCLE_lecture>
-          [(#RECHERCHE|oui) <:lped:aucun_resultat:>]
-        <//B_lecture>
-    </ul>
+			</BOUCLE_lecture>
+			  [(#RECHERCHE|oui) <:lped:aucun_resultat:>]
+			<//B_lecture>
+		</ul>
+	</section>
 
 
 </div>

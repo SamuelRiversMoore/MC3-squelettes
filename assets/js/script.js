@@ -149,6 +149,11 @@ $( document ).ready(function() {
 		$('html,body').animate({ scrollTop: $(dest).offset().top }, 'slow');
 	})
 
+	$("#searchbar-button").on('change', function() {
+	    if($(this).is(':checked')) {
+	    	$('#menu-searchbar input').focus();
+	    }
+	});
 
 
 
