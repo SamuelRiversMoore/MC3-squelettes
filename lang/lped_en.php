@@ -19,6 +19,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'oui' => 'yes',
     'non' => 'no',
 
+    'tableau_de_bord' => 'Dashboard',
     'role' => 'Role',
     'email' => 'E-mail address',
     'login' => 'Username',
@@ -125,6 +126,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'nouvelle_chapo_en' => 'Opening paragraph',
 
     'rubrique_modifier' => 'Edit',
+    'rubrique_nom' => 'Section\'s name',
     'rubrique_ajouter' => 'Add a section',
     'rubrique_supprimer' => 'Delete this section',
     'rubrique_titre' => 'Section\'s title',

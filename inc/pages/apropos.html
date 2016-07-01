@@ -28,24 +28,22 @@
 					]
 
 				]
-				<div class="grid-2">
-					<div>
-						<BOUCLE_article(ARTICLES) {id_rubrique} {par statut, num titre} {statut IN #GET{statut}}>
-							[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)
-								<article class="apropos">
+				<div class="colonne">
+					<BOUCLE_article(ARTICLES) {id_rubrique} {par statut, num titre} {statut IN #GET{statut}}>
+						[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)
+							<article class="apropos">
 
-										<h2>
-											[ (#ENV{lang}|=={fr}|oui)#TITRE ]
-											[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-										</h2>
+									<h2>
+										[ (#ENV{lang}|=={fr}|oui)#TITRE ]
+										[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+									</h2>
 
-										[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
-										[ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
-										[ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
-								</article>
-							]
-						</BOUCLE_article>
-					</div>
+									[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
+									[ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
+									[ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
+							</article>
+						]
+					</BOUCLE_article>
 				</div>
 
 			</article>

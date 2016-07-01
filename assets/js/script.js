@@ -155,7 +155,8 @@ $( document ).ready(function() {
 
 	/* ----- gestion des onglets (tab) ---- */
 
-	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { // les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
+	// les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
+	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { 
 
 		$("#nav-tabs li a").click(function(e) {
 			e.preventDefault();
@@ -165,7 +166,7 @@ $( document ).ready(function() {
 				if (!$(this).hasClass('strong') && $(this).siblings('ul.chapitres').find('a.strong').length <= 0) {
 					$inventaireMenu.find('.chapitres').slideUp(300);
 					$(this).next('.chapitres').slideDown(300, function(){
-						//$inventaireMenu.sticky({topSpacing:12});
+						$(document.body).trigger("sticky_kit:recalc");
 					});
 				}
 			}
@@ -203,15 +204,42 @@ $( document ).ready(function() {
 		});
 	};
 
+
+	$(window).on('resize', function(){
+		set_offset();
+	});
+
+	var stick_offset = 0;
+	function set_offset(){
+		var wwidth = $(window).width();
+		if(wwidth <= 1100){
+			stick_offset = 65;
+		} else {
+			stick_offset = 0;
+		}
+		if(typeof sticky != 'undefined'){
+			sticky.trigger("sticky_kit:detach");
+			sticky.stick_in_parent({offset_top : stick_offset});
+		}
+	}
+
 	// pour afficher le premier article si aucun n'est ouvert. J'ai pas réussi à le faire en SPIP...
 	if ($('#nav-tabs').length > 0) {
 		if($('#nav-tabs').find('a.strong').length <= 0){
 			$('#nav-tabs').find('li a').first().trigger('click');
 		} else {
-			// $('#nav-tabs').sticky({topSpacing:12});
+			var sticky = $('#nav-tabs').stick_in_parent({offset_top : stick_offset});
+			$('#nav-tabs').on("sticky_kit:bottom", function(e) {
+				$(this).addClass('is_bottom');
+			}).on("sticky_kit:unbottom", function(e) {
+				$(this).removeClass('is_bottom');
+			});
+			set_offset();
 
 		}
 	}
+
+
 
 
 	/* ----- / fin gestion des onglets (tab) ---- */

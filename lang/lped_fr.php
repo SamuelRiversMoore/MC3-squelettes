@@ -18,7 +18,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'par' => 'par',
     'oui' => 'oui',
     'non' => 'non',
-    
+
+
+    'tableau_de_bord' => 'Tableau de bord',
     'role' => 'Rôle',
     'email' => 'Adresse e-mail',
     'login' => 'Identifiant',
@@ -136,6 +138,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'nouvelle_documents' => 'Documents liés',
 
     'rubrique_modifier' => 'Éditer',
+    'rubrique_nom' => 'Nom de la rubrique',
     'rubrique_ajouter' => 'Ajouter une rubrique',
     'rubrique_titre' => 'Titre de la rubrique',
     'rubrique_supprimer' => 'Supprimer cette rubrique',

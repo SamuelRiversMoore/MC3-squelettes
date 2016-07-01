@@ -31,7 +31,7 @@ div.compte a{
 div.compte h2{
 	margin-top:4rem;
 }
-div.dashboard ul li>span{
+section.dashboard ul li>span{
 	font-size: 1rem;
 	display:inline-block;
 	width:25%;
@@ -44,14 +44,14 @@ div.compte ul li h3{
 	margin-top:2rem;
 	font-size:1rem;
 }
-.parents{
+section.dashboard .parents{
 	font-size: .85rem;
 }
-.parents .parent, .parents .fleche{
+section.dashboard .parents .parent, section.dashboard .parents .fleche{
 	color: #999;
     color: rgba(134, 124, 115, 0.7);
 }
-.enfant, .contributeur{
+section.dashboard .enfant, section.dashboard .contributeur{
     white-space: nowrap;
 }
 
@@ -1026,7 +1026,7 @@ ul.mediatheque li.media .preview{
 
 
 /**---------------- Media query ----------------**/
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: 700px) {
 	.demi{
 		width: 50%;
 	}
@@ -1035,5 +1035,14 @@ ul.mediatheque li.media .preview{
 	}
 	.row .demi:last-of-type{
 		padding-left: 1rem;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.modal section.edition{
+		margin: 2rem;
+	}
+	.demi:first-of-type{
+		margin-bottom: 1rem;
 	}
 }

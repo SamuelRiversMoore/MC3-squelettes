@@ -36,10 +36,11 @@
 							<span class="discret glyphicon glyphicon-arrow-up"></span>
 							<span class="discret"> Remonter</span>
 						</footer>
+		                <div id="tabs-menu-button" class="icon fa-bars"></div>
 					</nav>
 
 				<BOUCLE_liste (RUBRIQUES) {id_parent=6} {par num titre} {tout} >
-					<article class="tab" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"]>
+					<article class="tab" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"] [(#RUBRIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui) style="display:block" ]>
 							<h2>
 								[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 								[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]

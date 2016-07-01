@@ -227,22 +227,27 @@ button{
     right: 1px;
     padding: .45rem 1rem;
     display: none;
-    color: #FFC200;
+    color: #AEACA4;
     font-size: 1.5rem;
 }
 #show-menu{
 	position: fixed;
-	padding: 6px 7px;
+	padding: 5px 8px;
 	display: none;
 	z-index: 1500;
-	background: #FFC200;
+	background: #ECE8DD;
 	border-radius: 2px;
 	top: 1.5rem;
 	left: 2rem;
 	font-family: 'karmilla', arial, sans-serif;
 	font-size: 1.125rem;
 }
-
+#show-menu::before{
+	margin:0;
+}
+#show-menu>span{
+	margin-left: .75rem;
+}
 
 #menu{
 	width: 20rem;
@@ -595,8 +600,8 @@ figure.slick-slide {
 	right: 1.25rem;
 	z-index: 9;
 	background: center no-repeat url("../images/zoom.png");
-	height: 2rem;
-	width: 2rem;
+    height: 31px;
+    width: 31px;
 	text-indent: -99999px;
 	cursor: zoom-in;
 }
@@ -797,6 +802,7 @@ article.tab h2{
 #ville-projet a {
     position: relative;
 	text-decoration: none;
+	font-size: 0;
 }
 #ville-projet article {
     width: 33%;
@@ -1210,6 +1216,9 @@ section.page-standard article .grid-2>div:last-child {
 	width: calc(100% - 14rem);
 	min-width: 20rem;
 }
+.colonne{
+	max-width: 42rem;
+}
 article.apropos{
 	margin-bottom:6rem;
 }
@@ -1327,7 +1336,10 @@ article.tab {
 		left: 0;
 	}
 	#arbo{
-		left: 7.5rem;
+		left: 9rem;
+	}
+	#arbo~header{
+		margin-left: 7rem;
 	}
 	.article-icone{
 		float: none;
@@ -1341,14 +1353,13 @@ article.tab {
 	}
 	#lexique-lettres{
 		top: 1.5rem;
-		left: 7.5rem;
+		left: 9rem;
 	}
 	.journal{
 		padding-right: 2rem;
 	}
 	#nav-tabs{
 		padding-left: 0;
-		left: 0rem;
 	}
 }
 @media screen and (max-width: 900px){
@@ -1361,6 +1372,9 @@ article.tab {
 	#nav-tabs{
 		left: -22rem;
 	}
+	#nav-tabs.is_stuck:not(.is_bottom){
+		margin-left: 2rem;
+	}
 	.tabs-wrapper article.tab{
 		padding-left: 7rem;
 		padding-right: calc(100% - 40rem);
@@ -1369,7 +1383,7 @@ article.tab {
 		font-size: 14px;
 	}
 	#ville-projet article{
-		width: 49%;
+		width: 50%;
 	}
 	.tabs-wrapper.openmenu #tabs-menu-button{
 		display: none;
@@ -1381,7 +1395,7 @@ article.tab {
 
 	}
 }
-@media screen and (max-width: 680px){
+@media screen and (max-width: 700px){
 	.col25, .col33, .col40, .col50, .col60, .col66, .col75{
 		display: block;
 		width: 100%;
@@ -1391,14 +1405,42 @@ article.tab {
 	body, html {
 		font-size: 13px;
 	}
-	#contenu.wrapper{
+	#contenu.wrapper, #contenu>.wrapper{
 		padding: 1rem;
+		padding-left: 4rem;
 	}
 	#show-menu{
-		left: 1rem;
-	}
+		transform: rotate(-90deg);
+		transform-origin: 0 100%;
+		top: 5.25rem;
+		left: 3rem;
+   	}
+   	#show-menu::before{
+   		transform: rotate(90deg);
+   	}
 	.small-screen{
 		display: block;
+	}
+	#arbo{
+		left:4.125rem;
+	}
+	#arbo~header{
+		margin-left: 0rem;
+	}
+	#nav-tabs.is_stuck:not(.is_bottom){
+		margin-left: 4em;
+	}
+	#tabs-menu-button{
+		right: -1.25rem;
+	}
+	#lexique-lettres{
+		left: 4rem;
+	}
+	#inventaire-introduction, #inventaire-images{
+		width: 100%;
+	}
+	#ville-projet{
+		margin-right: 0;
 	}
 	.large-screen{
 		display: none;
@@ -1415,19 +1457,18 @@ article.tab {
 		display: none;
 	}
 	.tabs-wrapper article.tab{
-		padding-left: 3rem;
+		padding-left: 0;
 		padding-right: calc(100% - 40rem);
 	}
-	#ville-projet article{
-		width: 100%;
-		min-width: initial;
-	}
+
 }
 @media screen and (max-width: 450px){
 
 	body, html {
 		font-size: 12px;
 	}
-
-
+	#ville-projet article{
+		width: 100%;
+		min-width: initial;
+	}
 }
