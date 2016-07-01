@@ -329,6 +329,9 @@ div#menu-header {
     padding-right: .5rem;
     outline: none;
 }
+#content-searchbar input{
+	max-width: 30rem; 
+}
 #searchbar-button:checked ~ #menu-searchbar input{
 	height: 2.5rem;
     opacity: 1;

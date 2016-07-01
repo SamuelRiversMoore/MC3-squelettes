@@ -434,6 +434,13 @@ div.bouton.moyen{ line-height: 1rem; }
 	border-radius: .25rem;
 	text-align: center;
 	cursor: pointer;
+	opacity: .8;
+}
+.bouton:hover{
+	opacity: 1;
+}
+.bouton:active{
+	opacity: .65;
 }
 .bouton.inline { margin-top: 0; display: inline-block; }
 .bouton.modifier, .bouton.supprimer, article.tab .petit.bouton:not(.proposer){
