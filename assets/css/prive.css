@@ -362,7 +362,7 @@ div.status{ display: inline-block; margin-right: .25rem; height: 1.25rem; line-h
 
 li.status{ height: 1.75rem; }
 span.status { height: 1.5rem; position: absolute; right: 0; top: 0; opacity: .7; font-size: 0; padding: 2px 6px; }
-span.status:hover { background: #FFF; color: #555; opacity: .9; }
+span.status:not(.somme):hover { background: #FFF; color: #555; opacity: .9; }
 #nav-tabs span.status { top: .55rem; }
 #ville-projet span.status { top: 1rem; right: .75rem;}
 #ville-projet span.status::after{ vertical-align: top; }
@@ -378,7 +378,9 @@ span.status::before, li.status::after{
 span.status::after, li.status::before{
 	vertical-align: baseline;
 }
-
+span.status>.count{
+	font-size: 1rem;
+}
 div.status::before{ padding-left:0; vertical-align: top;}
 
 span.status::after, div.status::before, li.status::before{
@@ -393,7 +395,8 @@ span.status::after, div.status::before, li.status::before{
 span.status::before{ display: none; }
 span.status:hover::before{ display: inline-block; }
 div.status::before, li.status::before{ margin-right: 2px; }
-span.status::after{ margin-left: .5rem; }
+span.status:not(.somme)::after{ margin-left: .5rem; }
+span.status .somme{margin-right: .25rem;}
 
 span.status.prepa::after, div.status.prepa::before, li.status.prepa::before{ content: "\f1db"; content:"\f110"; }
 span.status.prop::after, div.status.prop::before, li.status.prop::before{ content: "\f29c"; }
@@ -1030,6 +1033,8 @@ ul.mediatheque li.media .preview{
 .item-texte::before{
 	content:' : ';
 }
+
+
 
 
 /**---------------- Media query ----------------**/

@@ -260,10 +260,36 @@ $( document ).ready(function() {
 		
 	}
 
-
-
-
 	/* ----- / fin gestion des onglets (tab) ---- */
+
+
+
+	if($('#contenu.compte').length > 0 && $('#contenu').find('.dashboard .tabs-wrapper')){
+		var dashboard = $('section.dashboard .tabs-wrapper');
+		var nav = dashboard.find('#nav-tabs');
+		dashboard.find('article.tab').each(function(){
+			var target = $(this).attr('id').replace('#', '');
+			var props = $(this).find('tr>td.statut .select-menu div.status.prop').length;
+			if (props>0) {
+				var prop = $('<span class="somme status prop" data-count="'+props+'"><span class="count">'+props+'</span></span>')
+				nav.find('.item:not(titre)[data-cible='+target+']').append(prop);
+			}
+		});
+		nav.find('li.section').each(function(){
+			var section = $(this);
+			var somme = 0;
+			section.find('ul.chapitres span.somme').each(function(){
+				somme += parseInt($(this).attr('data-count'));
+			});
+			if(somme > 0){
+				var total = $('<span class="somme status prop" data-count="'+somme+'"><span class="count">'+somme+'</span></span>');
+				section.find('.item.titre').append(total);
+			}
+		});
+	}
+
+
+
 
 
 	/* Init Mapbox */
