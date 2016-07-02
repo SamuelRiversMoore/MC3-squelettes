@@ -104,6 +104,7 @@ $( document ).ready(function() {
 		if ($(this).hasClass('open')){
 			closeMenu();
 		} else {
+			$('.select-title.open').removeClass('open');
 			$(this).addClass('open');
 			openMenu = $(this);
 		}
@@ -204,7 +205,6 @@ $( document ).ready(function() {
 				0 : { sorter: 'statuts' },
 				3 : { sorter: 'dates' }
 			},
-			debug: true
 		});
 	});
 
@@ -213,7 +213,6 @@ $( document ).ready(function() {
 			headers: {
 				0 : { sorter: 'personnes' },
 			},
-			debug: true
 		}); 
 	});
 
