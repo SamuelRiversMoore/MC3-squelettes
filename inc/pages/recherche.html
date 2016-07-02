@@ -29,8 +29,8 @@
 				#SET{type, #GET{type}|push{Projet}}
 				<BOUCLE_projet_ville (VILLES projets_liens) {id_projet}>
 				  <BOUCLE_projet_pays (PAYS villes_liens) {id_ville}>
-					#SET{chemin_fr, #GET{chemin_fr}|push{ #NOM_FR > #_projet_ville:NOM_FR}}
-					#SET{chemin_en, #GET{chemin_en}|push{ #NOM_EN > #_projet_ville:NOM_EN}}
+					#SET{chemin_fr, #GET{chemin_fr}|push{ #NOM_FR<span class="icon fleche fa-angle-right"></span>#_projet_ville:NOM_FR}}
+					#SET{chemin_en, #GET{chemin_en}|push{ #NOM_EN<span class="icon fleche fa-angle-right"></span>#_projet_ville:NOM_EN}}
 				  </BOUCLE_projet_pays>
 				</BOUCLE_projet_ville>
 
@@ -119,18 +119,18 @@
 				#SET{points, #GET{points}|push{#_chapitre:POINTS}}
 				<BOUCLE_chap_thematiques(THEMATIQUES spip_chapitres_liens){id_chapitre}>
 					<BOUCLE_chap_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
-						#SET{chemin_fr, #GET{chemin_fr}|push{#TITRE_FR > #_chap_thematiques:TITRE_FR}}
-						#SET{chemin_en, #GET{chemin_en}|push{#TITRE_EN > #_chap_thematiques:TITRE_EN}}
+						#SET{chemin_fr, #GET{chemin_fr}|push{#TITRE_FR<span class="icon fleche fa-angle-right"></span>#_chap_thematiques:TITRE_FR}}
+						#SET{chemin_en, #GET{chemin_en}|push{#TITRE_EN<span class="icon fleche fa-angle-right"></span>#_chap_thematiques:TITRE_EN}}
 						#SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
 					</BOUCLE_chap_them_projets>
 					<BOUCLE_chap_them_villes(VILLES spip_thematiques_liens){id_thematique}>
-						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_chap_thematiques:TITRE_FR}}
-						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_chap_thematiques:TITRE_EN}}
+						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR<span class="icon fleche fa-angle-right"></span>#_chap_thematiques:TITRE_FR}}
+						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN<span class="icon fleche fa-angle-right"></span>#_chap_thematiques:TITRE_EN}}
 						#SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
 					</BOUCLE_chap_them_villes>
 					<BOUCLE_chap_them_pays(PAYS spip_thematiques_liens){id_thematique}>
-						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_chap_thematiques:TITRE_FR}}
-						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_chap_thematiques:TITRE_EN}}
+						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR<span class="icon fleche fa-angle-right"></span>#_chap_thematiques:TITRE_FR}}
+						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN<span class="icon fleche fa-angle-right"></span>#_chap_thematiques:TITRE_EN}}
 						#SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_chapitre:ID_CHAPITRE}}}
 					</BOUCLE_chap_them_pays>
 				</BOUCLE_chap_thematiques>
@@ -147,8 +147,8 @@
 						#SET{titre, #GET{titre}|push{#_document:TITRE}}
 						#SET{titre_en, #GET{titre_en}|push{#_document:TITRE}}
 						#SET{points, #GET{points}|push{#_document:POINTS}}
-						#SET{chemin_fr, #GET{chemin_fr}|push{#TITRE_FR > #_docs_thematiques:TITRE_FR }}
-						#SET{chemin_en, #GET{chemin_en}|push{#TITRE_EN > #_docs_thematiques:TITRE_EN }}
+						#SET{chemin_fr, #GET{chemin_fr}|push{#TITRE_FR<span class="icon fleche fa-angle-right"></span>#_docs_thematiques:TITRE_FR }}
+						#SET{chemin_en, #GET{chemin_en}|push{#TITRE_EN<span class="icon fleche fa-angle-right"></span>#_docs_thematiques:TITRE_EN }}
 						#SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
 					</BOUCLE_docs_them_projets>
 					<BOUCLE_docs_them_villes(VILLES spip_thematiques_liens){id_thematique}>
@@ -159,8 +159,8 @@
 						#SET{titre, #GET{titre}|push{#_document:TITRE}}
 						#SET{titre_en, #GET{titre_en}|push{#_document:TITRE}}
 						#SET{points, #GET{points}|push{#_document:POINTS}}
-						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_docs_thematiques:TITRE_FR}}
-						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_docs_thematiques:TITRE_EN}}
+						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR<span class="icon fleche fa-angle-right"></span>#_docs_thematiques:TITRE_FR}}
+						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN<span class="icon fleche fa-angle-right"></span>#_docs_thematiques:TITRE_EN}}
 						#SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
 					</BOUCLE_docs_them_villes>
 					<BOUCLE_docs_them_pays(PAYS spip_thematiques_liens){id_thematique}>
@@ -171,8 +171,8 @@
 						#SET{titre, #GET{titre}|push{#_document:TITRE}}
 						#SET{titre_en, #GET{titre_en}|push{#_document:TITRE}}
 						#SET{points, #GET{points}|push{#_document:POINTS}}
-						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_docs_thematiques:TITRE_FR}}
-						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_docs_thematiques:TITRE_EN}}
+						#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR<span class="icon fleche fa-angle-right"></span>#_docs_thematiques:TITRE_FR}}
+						#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN<span class="icon fleche fa-angle-right"></span>#_docs_thematiques:TITRE_EN}}
 						#SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_docs_thematiques:ID_THEMATIQUE}|ancre_url{document_#ID_DOCUMENT}}}
 					</BOUCLE_docs_them_pays>
 				</BOUCLE_docs_thematiques>
@@ -187,8 +187,8 @@
 							#SET{titre, #GET{titre}|push{#_document:TITRE}}
 							#SET{titre_en, #GET{titre_en}|push{#_document:TITRE}}
 							#SET{points, #GET{points}|push{#_document:POINTS}}
-							#SET{chemin_fr, #GET{chemin_fr}|push{#TITRE_FR > #_docs_chap_thematiques:TITRE_FR > #_docs_chapitre:TITRE_FR}}
-							#SET{chemin_en, #GET{chemin_en}|push{#TITRE_EN > #_docs_chap_thematiques:TITRE_EN > #_docs_chapitre:TITRE_EN}}
+							#SET{chemin_fr, #GET{chemin_fr}|push{#TITRE_FR > #_docs_chap_thematiques:TITRE_FR<span class="icon fleche fa-angle-right"></span>#_docs_chapitre:TITRE_FR}}
+							#SET{chemin_en, #GET{chemin_en}|push{#TITRE_EN > #_docs_chap_thematiques:TITRE_EN<span class="icon fleche fa-angle-right"></span>#_docs_chapitre:TITRE_EN}}
 							#SET{lien, #GET{lien}|push{#URL_PROJET|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
 						</BOUCLE_docs_chap_them_projets>
 						<BOUCLE_docs_chap_them_villes(VILLES spip_thematiques_liens){id_thematique}>
@@ -199,8 +199,8 @@
 							#SET{titre, #GET{titre}|push{#_document:TITRE}}
 							#SET{titre_en, #GET{titre_en}|push{#_document:TITRE}}
 							#SET{points, #GET{points}|push{#_document:POINTS}}
-							#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_docs_chap_thematiques:TITRE_FR > #_docs_chapitre:TITRE_FR}}
-							#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_docs_chap_thematiques:TITRE_EN > #_docs_chapitre:TITRE_EN}}
+							#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_docs_chap_thematiques:TITRE_FR<span class="icon fleche fa-angle-right"></span>#_docs_chapitre:TITRE_FR}}
+							#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_docs_chap_thematiques:TITRE_EN<span class="icon fleche fa-angle-right"></span>#_docs_chapitre:TITRE_EN}}
 							#SET{lien, #GET{lien}|push{#URL_VILLE|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
 						</BOUCLE_docs_chap_them_villes>
 						<BOUCLE_docs_chap_them_pays(PAYS spip_thematiques_liens){id_thematique}>
@@ -211,8 +211,8 @@
 							#SET{titre, #GET{titre}|push{#_document:TITRE}}
 							#SET{titre_en, #GET{titre_en}|push{#_document:TITRE}}
 							#SET{points, #GET{points}|push{#_document:POINTS}}
-							#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_docs_chap_thematiques:TITRE_FR > #_docs_chapitre:TITRE_FR}}
-							#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_docs_chap_thematiques:TITRE_EN > #_docs_chapitre:TITRE_EN}}
+							#SET{chemin_fr, #GET{chemin_fr}|push{#NOM_FR > #_docs_chap_thematiques:TITRE_FR<span class="icon fleche fa-angle-right"></span>#_docs_chapitre:TITRE_FR}}
+							#SET{chemin_en, #GET{chemin_en}|push{#NOM_EN > #_docs_chap_thematiques:TITRE_EN<span class="icon fleche fa-angle-right"></span>#_docs_chapitre:TITRE_EN}}
 							#SET{lien, #GET{lien}|push{#URL_PAY|parametre_url{thematique,#_docs_chap_thematiques:ID_THEMATIQUE}|parametre_url{chapitre,#_docs_chapitre:ID_CHAPITRE}|ancre_url{document_#ID_DOCUMENT}}}
 						</BOUCLE_docs_chap_them_pays>
 					</BOUCLE_docs_chap_thematiques>
@@ -290,7 +290,9 @@
 									<span class="date discret">
 										[(#GET{date}|table_valeur{#CLE}|affdate{jour})].[(#GET{date}|table_valeur{#CLE}|affdate{mois})].[(#GET{date}|table_valeur{#CLE}|affdate{annee})]
 									</span>
-									<span class="chemin">[ (#ENV{lang}|=={fr}|oui) [(#GET{chemin_fr}|table_valeur{#CLE})] ][ (#ENV{lang}|=={en}|oui) [(#GET{chemin_en}|table_valeur{#CLE})] ]
+									<span class="chemin">
+										<span class="icon fa-folder-o"></span>
+										[(#ENV{lang}|=={fr}|oui) [(#GET{chemin_fr}|table_valeur{#CLE})] ][ (#ENV{lang}|=={en}|oui) [(#GET{chemin_en}|table_valeur{#CLE})]]
 									</span>
 								</div>
 								<div>
