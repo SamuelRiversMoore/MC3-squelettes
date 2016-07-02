@@ -802,6 +802,9 @@ figure.slick-slide {
 	min-height: 20rem;
 	padding-top: .5rem;
 }
+.tabs-wrapper article.tab:target{
+	display: block;
+}
 .dashboard .tabs-wrapper article.tab{
 	padding-right: 0;
 }
@@ -1188,7 +1191,8 @@ table td:first-child {
 }
 table td:last-child {
 }
-#sorttable_sortfwdind, #sorttable_sortrevind{
+
+.headerSortUp::after, .headerSortDown::after{
 	display: inline-block;
 	font: normal normal normal .75rem FontAwesome;
 	text-rendering: auto;
@@ -1196,10 +1200,10 @@ table td:last-child {
 	-moz-osx-font-smoothing: grayscale;
 	margin-left: .5rem;
 }
-#sorttable_sortfwdind::after{
+.headerSortUp::after{
 	content:"\f0d7";
 }
-#sorttable_sortrevind::after{
+.headerSortDown::after{
 	content:"\f0d8";
 }
 

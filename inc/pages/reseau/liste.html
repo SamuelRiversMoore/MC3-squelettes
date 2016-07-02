@@ -31,7 +31,7 @@
 				<BOUCLE_personne (PERSONNES) {id_rubrique} {statut IN #GET{statut}} {par statut}>
 					[(#AUTORISER{voir,personne,#ID_PERSONNE}|oui)
 						<tr class="[(#COMPTEUR_BOUCLE|modulo{2}|=={0}|?{row_odd odd,row_even even})]">
-							<td class="personne">
+							<td class="personne" data-personne="#NOM">
 								[(#AUTORISER{modifier,personne,#ID_PERSONNE}|oui)<INCLURE{fond=inc/administration/reseau/personnes, afficher, cible, id_personne} />]
 								[<a href="mailto:(#EMAIL)">]#NOM[(#EMAIL|oui)</a>]
 							</td>

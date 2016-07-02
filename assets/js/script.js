@@ -1,6 +1,49 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoicGllcnJlcGllcnJlcGllcnJlIiwiYSI6IkdXdE5CRFEifQ.3zLbKVYfHituW8BVU-bl5g';
 
 
+$(function(){
+	$.tablesorter.addParser({
+		id: 'dates',
+		is: function(s, table, cell, $cell) { return false; },
+		format: function(s, table, cell, cellIndex) {
+			var $cell = $(cell);
+			var date = $cell.attr('data-date');
+			if( date ){
+				date = date.split(' ')[0];
+				date = parseInt(date.split('-').join(''));
+				console.log(date)
+				return date || s;
+			}
+			else {
+				return s;
+			}
+		},
+		parsed: false,
+		type: 'numeric'
+	});
+
+	$.tablesorter.addParser({
+		id: 'statuts',
+		is: function(s, table, cell, $cell) { return false; },
+		format: function(s, table, cell, cellIndex) {
+			var $cell = $(cell);
+			return $cell.attr('data-statut') || s;
+		},
+		parsed: false,
+		type: 'text'
+	});
+
+	$.tablesorter.addParser({
+		id: 'personnes',
+		is: function(s, table, cell, $cell) { return false; },
+		format: function(s, table, cell, cellIndex) {
+			var $cell = $(cell);
+			return $cell.attr('data-personne') || s;
+		},
+		parsed: false,
+		type: 'text'
+	});
+});
 
 $( document ).ready(function() {
 
@@ -155,8 +198,24 @@ $( document ).ready(function() {
 	    }
 	});
 
+	$('#contenu.compte article.tab table.sortable').each(function(){
+		$(this).tablesorter({   
+			headers: {
+				0 : { sorter: 'statuts' },
+				3 : { sorter: 'dates' }
+			},
+			debug: true
+		});
+	});
 
-
+	$('section.personnes table.sortable').each(function(){
+		$(this).tablesorter({   
+			headers: {
+				0 : { sorter: 'personnes' },
+			},
+			debug: true
+		}); 
+	});
 
 	/* ----- gestion des onglets (tab) ---- */
 
