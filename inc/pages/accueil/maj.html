@@ -1,5 +1,5 @@
 
-    
+
         #SET{type, #ARRAY}
         #SET{date, #ARRAY}
         #SET{titre, #ARRAY}
@@ -86,7 +86,7 @@
                     #SET{type, #GET{type}|push{Projet}}
                     #SET{titre, #GET{titre}|push{#TITRE_FR}}
                     #SET{titre_en, #GET{titre_en}|push{#TITRE_EN}}
-                    #SET{lien, #GET{lien}|push{#URL_PROJET}}             
+                    #SET{lien, #GET{lien}|push{#URL_PROJET}}
                 </BOUCLE_docs_projets>
                 <BOUCLE_docs_villes(VILLES spip_documents_liens){id_document}>
                     #SET{date, #GET{date}|push{#_document:MAJ}}
@@ -125,7 +125,7 @@
                         #SET{lien, #GET{lien}|push{#URL_PAY}}
                     </BOUCLE_docs_them_pays>
                 </BOUCLE_docs_thematiques>
-                
+
                 <BOUCLE_docs_chapitre(CHAPITRES spip_documents_liens){id_document}>
                     <BOUCLE_docs_chap_thematiques(THEMATIQUES spip_chapitres_liens){id_chapitre}>
                         <BOUCLE_docs_chap_them_projets(PROJETS spip_thematiques_liens){id_thematique}>
@@ -151,9 +151,9 @@
                         </BOUCLE_docs_chap_them_pays>
                     </BOUCLE_docs_chap_thematiques>
                 </BOUCLE_docs_chapitre>
-                
+
             </BOUCLE_document>
-    
+
             <BOUCLE_mots(GLOMOTS)>
                 #SET{date, #GET{date}|push{#MAJ}}
                 #SET{type, #GET{type}|push{Lexique}}
@@ -161,7 +161,7 @@
                 #SET{titre_en, #GET{titre_en}|push{#TITRE}}
                 #SET{lien, #GET{lien}|push{#INFO_URL{rubrique,5}#mot-#ID_GLOMOT}}
             </BOUCLE_mots>
-    
+
             <BOUCLE_defs(GLODEFS)>
                 <BOUCLE_glomots_def(GLOMOTS spip_glodefs_liens){id_glodef}>
                 #SET{date, #GET{date}|push{#_defs:MAJ}}
@@ -175,17 +175,17 @@
     <ul>
         #SET{compteur,0}
         <BOUCLE_lecture(DATA){source tableau, #GET{date}}{par valeur}{inverse}>
-            [(#SET{doublons, [(#GET{type}|table_valeur{#CLE})]-[(#GET{titre}|table_valeur{#CLE})] })] 
-            
+            [(#SET{doublons, [(#GET{type}|table_valeur{#CLE})]-[(#GET{titre}|table_valeur{#CLE})] })]
+
             [(#GET{compteur}|<{8}|oui)
                 [(#GET{doublons}|unique|oui)
                     <li>
-                        <span class="discret">[(#VALEUR|affdate{jour})].[(#VALEUR|affdate{mois})].[(#VALEUR|affdate{annee})] 
+                        <span class="discret">[(#GET{date}|table_valeur{#CLE}|affdate{'d.m.Y'})]
                        – [(#GET{type}|table_valeur{#CLE})] </span> <br/>
                         <a href="[(#GET{lien}|table_valeur{#CLE}|parametre_lang)]">
-                            [ (#ENV{lang}|=={fr}|oui) [(#GET{titre}|table_valeur{#CLE})] ] 
-                            [ (#ENV{lang}|=={en}|oui) [(#GET{titre_en}|table_valeur{#CLE}|sinon{#GET{titre}|table_valeur{#CLE}})] ] 
-                            
+                            [ (#ENV{lang}|=={fr}|oui) [(#GET{titre}|table_valeur{#CLE})] ]
+                            [ (#ENV{lang}|=={en}|oui) [(#GET{titre_en}|table_valeur{#CLE}|sinon{#GET{titre}|table_valeur{#CLE}})] ]
+
                         </a>
                     </li>
                     #SET{compteur, #GET{compteur}|plus{1}}
@@ -193,4 +193,3 @@
             ]
         </BOUCLE_lecture>
     </ul>
-    
