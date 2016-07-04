@@ -948,6 +948,7 @@ article.tab h2{
    	background: #D8D4C8 none repeat scroll 0% 0%;
     color: #A5A39C;
 }
+.fichier.integre{ margin-top: 2em; margin-bottom: 1em; }
 .fichier.petit{ font-size: .625rem; }
 .fichier.moyen{ font-size: 1rem; }
 .fichier.gros{ font-size: 1.25rem; }
@@ -958,7 +959,25 @@ article.tab h2{
 	color: #888;
 	vertical-align: middle;
 	display: inline-block;
-	margin-left: 4em;
+	text-align: left;
+    position: absolute;
+    left: 4em;
+    top: -1em;
+    bottom: 0;
+}
+.fichier.petit .titre-doc{ left: 3.5em; }
+.fichier.moyen .titre-doc{ left: 5em; }
+.fichier.gros .titre-doc{ left: 6em; }
+.fichier .titre-doc::before{
+	content:"";
+	height: 100%;
+	width: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+.fichier .titre-doc>span{
+	display: inline-block;
+	vertical-align: middle;	
 }
 .fichier::before {
 	content:"";
