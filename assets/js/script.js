@@ -227,9 +227,11 @@ $( document ).ready(function() {
 				} else {
 					if (!$(this).hasClass('chapitre') && !$(this).hasClass('strong') && $(this).siblings('ul.chapitres').find('a.strong').length <= 0) {
 						$inventaireMenu.find('.chapitres').slideUp(300);
-						$(this).next('.chapitres').slideDown(300, function(){
-							$(document.body).trigger("sticky_kit:recalc");
-						});
+						if ($(this).next('.chapitres').children().length >= 1) {
+							$(this).next('.chapitres').slideDown(300, function(){
+								$(document.body).trigger("sticky_kit:recalc");
+							});
+						}
 					}
 				}
 			}
@@ -247,27 +249,6 @@ $( document ).ready(function() {
 			return false;
 		});
 	}
-
-
-	/* Qu'est ce ce truc ? pas simplifiable juste pur css ? */
-	if ($('#nav-tabs').length > 0) {
-		var $inventaireMenu = $('#nav-tabs');
-		var minHeight = $inventaireMenu.find('header h5').outerHeight(true);  // hauteur du header
-		var itemHeight = $inventaireMenu.find('li').last().outerHeight(true); // hauteur d'une entrée
-		$inventaireMenu.find('ul.thematiques>li').each(function(){
-			minHeight += itemHeight; // hauteur du premier niveau
-		});
-		var maxlength = 0;
-		$inventaireMenu.find('ul.chapitres').each(function(){
-			var thislength = $(this).find('li').length;
-			if(thislength > maxlength) maxlength = thislength; // hauteur du menu chapitres le plus grand
-		});
-		minHeight += itemHeight * maxlength;
-		minHeight += $inventaireMenu.find('#topButton').outerHeight(true);
-		$('#inventaire-tabs').css('min-height', minHeight).find('article.tab').each(function(){
-			$(this).css('min-height', minHeight);
-		});
-	};
 
 
 	$(window).on('resize', function(){
@@ -309,8 +290,29 @@ $( document ).ready(function() {
 			$(this).removeClass('is_bottom');
 		});
 
+		/* Qu'est ce ce truc ? pas simplifiable juste pur css ? */
+		var $inventaireMenu = $('#nav-tabs');
+		var minHeight = $inventaireMenu.find('header h5').outerHeight(true);  // hauteur du header
+		var itemHeight = $inventaireMenu.find('li').last().outerHeight(true); // hauteur d'une entrée
+		$inventaireMenu.find('ul.thematiques>li').each(function(){
+			minHeight += itemHeight; // hauteur du premier niveau
+		});
+		var maxlength = 0;
+		$inventaireMenu.find('ul.chapitres').each(function(){
+			var thislength = $(this).find('li').length;
+			if(thislength > maxlength) maxlength = thislength; // hauteur du menu chapitres le plus grand
+		});
+		minHeight += itemHeight * maxlength;
+		minHeight += $inventaireMenu.find('#topButton').outerHeight(true);
+		minHeight += 40; //par sécurité
+		$('#inventaire-tabs').css('min-height', minHeight).find('article.tab').each(function(){
+			$(this).css('min-height', minHeight);
+		});
 		
 	}
+
+
+
 
 	/* ----- / fin gestion des onglets (tab) ---- */
 
@@ -420,6 +422,7 @@ $( document ).ready(function() {
 			//$('#inventaire-carte').remove();
 		}
 	}
+
 
 });
 

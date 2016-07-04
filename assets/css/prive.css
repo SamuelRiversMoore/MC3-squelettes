@@ -52,7 +52,6 @@ section.dashboard .parents .parent, section.dashboard .parents .fleche{
     color: rgba(134, 124, 115, 0.7);
 }
 section.dashboard .enfant, section.dashboard .contributeur{
-    white-space: nowrap;
 }
 
 /*----------  TAB PANEL  ----------*/
@@ -813,11 +812,27 @@ section.edition .affichage-document .fichier{
 	border: 1px solid #999;
 	position: relative;
 	background: #eee;
+	text-align: center;
 }
 .diaporama .diapositive img{
 	display: block;
 	width: 100%;
 	height: auto;
+}
+.diapositive .fichier{
+    margin: 2rem auto .5rem;
+}
+.diapositive>figcaption{
+	position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    padding: .25rem 0;
+    background: rgba(255, 255, 255, 0.65);
+    color: #000;
+    font-size: .85rem;
+    line-height: 1.25em;
 }
 
 .diapositive .supprimer{

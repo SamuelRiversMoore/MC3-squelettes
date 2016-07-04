@@ -422,6 +422,7 @@ ul#menu-footer {
 	cursor: pointer;
 	display: inline-block;
 	padding: 5px 0;
+	display: none;
 }
 #topButton > .glyphicon{
 	font-size: 14px;
