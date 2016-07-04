@@ -11,7 +11,6 @@ $(function(){
 			if( date ){
 				date = date.split(' ')[0];
 				date = parseInt(date.split('-').join(''));
-				console.log(date)
 				return date || s;
 			}
 			else {
@@ -60,8 +59,10 @@ $( document ).ready(function() {
 	/* SELECT MENU */
 	var openMenu = false;
 	function closeMenu(){
-		openMenu.removeClass('open');
-		openMenu = false;
+		if(openMenu != false){
+			openMenu.removeClass('open');
+			openMenu = false;
+		}
 	}
 
 	$(document).on('click', function(e) {
@@ -81,14 +82,6 @@ $( document ).ready(function() {
 					var newValue = $target.attr('data-value').replace(' ', '');
 					var oldValue = $old.attr('data-value');
 					var original = $menu.attr('data-original').replace(' ', '');
-
-					/*
-					if (original != newValue) {
-						$menu.find('input').show();
-					} else {
-						$menu.find('input').hide();
-					}
-					*/
 
 					$target.addClass('selected');
 					$old.removeClass('selected');
@@ -188,6 +181,7 @@ $( document ).ready(function() {
 
 	/* Ancres dans les tabs */
 	$(".thematique-sommaire a").click(function(e) {
+		closeMenu();
 		e.preventDefault();
 		var dest = $(this).attr('href');
 		$('html,body').animate({ scrollTop: $(dest).offset().top }, 'slow');
@@ -221,6 +215,7 @@ $( document ).ready(function() {
 	// les tabs du compte fonctionnent sur un système d'ancres et pas de liens en dur
 	if (!$('body').hasClass('logged') || $('#contenu').hasClass('compte')) { 
 		$("#nav-tabs li a").click(function(e) {
+			closeMenu();
 			e.preventDefault();
 			history.pushState({ path: this.path }, '', this.href);
 			var $inventaireMenu = $(this).closest('#nav-tabs');
@@ -307,7 +302,6 @@ $( document ).ready(function() {
 			}			
 		}
 		set_offset();
-		console.log('stick!')
 		var sticky = $('#nav-tabs').stick_in_parent({offset_top : stick_offset});
 		$('#nav-tabs').on("sticky_kit:bottom", function(e) {
 			$(this).addClass('is_bottom');

@@ -358,8 +358,12 @@ ul#menu-footer {
 	font-size: 1.25rem;
 	line-height: 1.2em;
 	border-top: 1px solid #007AC8;
+}
+#menu-principal>li>a{
+	display: block;
 	padding: .75rem 0;
 }
+
 #menu-principal li.active>a:not(.bouton), #menu-principal li li.active>a:not(.bouton) {
 	font-family: "karmilla";
 	font-weight: bold;
