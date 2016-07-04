@@ -32,7 +32,7 @@
 							<input type='submit' class="moyen bouton enregistrer" name='ok' value='<:lped:oui:>' />
 						</form>
 					</div>
-					<figcaption>#ID_DOCUMENT</figcaption>
+					<figcaption>[(#GET{formats_images}|find{#EXTENSION}|oui)&#139;img#ID_DOCUMENT&#155;][(#GET{formats_images}|find{#EXTENSION}|non)&#139;doc#ID_DOCUMENT&#155;]</figcaption>
 				</figure>
 			</BOUCLE_images>
 			<figure class="diapositive fake">
