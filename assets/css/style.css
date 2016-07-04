@@ -1442,9 +1442,12 @@ article.extrait .extrait-contenu p{
 	display: inline;
 }
 article.extrait .more{
-    color: #FFC200;
+    color: #3C87B6;
     margin-left: 8px;
     margin-left: .5rem;
+    font-size: .85rem;
+    border-bottom: 1px;
+
 }
 .nouvelles {
 	display: inline-block;

@@ -310,7 +310,9 @@ $( document ).ready(function() {
 		});
 		
 	}
-
+	if (window.location.hash && $('#nav-tabs').length == 0) {
+		console.log('jaja')
+	}
 
 
 
@@ -361,13 +363,14 @@ $( document ).ready(function() {
 		var adminMap = L.mapbox.map('administration-map', 'mapbox.streets');
 			adminMap.scrollWheelZoom.disable();
 			
-    	var geocoderControl = L.mapbox.geocoderControl('mapbox.places', {keepOpen: true, autocomplete: true});
+    	var geocoderControl = L.mapbox.geocoderControl('mapbox.places', {keepOpen: false, autocomplete: true});
     		geocoderControl.addTo(adminMap);
 		
 		getInputVal();
 	    geocoderControl.on('select', function(object){
 	    	var coord = object.feature.geometry.coordinates;
 	    		setMarker(coord[1], coord[0]);
+	    	geocoderControl._toggle();
 	    });
 	    latInput.on('input', function(){ getInputVal(); });
 	    lonInput.on('input', function(){ getInputVal(); });
