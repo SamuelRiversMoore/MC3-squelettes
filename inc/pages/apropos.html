@@ -17,7 +17,7 @@
 			</h1>
 		</header>
 		<section class="page-standard">
-			<article class="texte-courant">
+			<article>
 				[(#SESSION{statut}|=={0minirezo}|oui)
 					[(#AFFICHER|=={'nouvel_article'}|oui)
 						<section class="administration">[(#FORMULAIRE_EDITION_ART{'new',7} )]</section>
@@ -38,8 +38,10 @@
 									</h2>
 
 									[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
-									[ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
-									[ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
+									<div class="texte-courant">
+										[ (#ENV{lang}|=={fr}|oui) [(#TEXTE|liens_ouvrants)] ]
+										[ (#ENV{lang}|=={en}|oui) [ (#TEXTE_EN|liens_ouvrants|sinon{#TEXTE|liens_ouvrants}) ] ]
+									</div>
 							</article>
 						]
 					</BOUCLE_article>

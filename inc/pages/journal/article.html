@@ -14,13 +14,13 @@
 	</div>
 
 	<section class="journal page-standard">
-		<article class="texte-courant">
+		<article>
 			<header>			
 				<h1>[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ] [ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]</h1>
 				[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/>]
 			</header>
 
-			<div class="grid-2">
+			<div class="grid-2 texte-courant">
 				<div>
 					<BOUCLE_document (DOCUMENTS){id_article}{extension==jpg|png|gif}{0,1}>
 						<figure>

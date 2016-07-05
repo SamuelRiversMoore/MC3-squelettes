@@ -47,7 +47,7 @@
 
 
 				<BOUCLE_liste(RUBRIQUES) {id_parent} {tout} {par num titre} >
-					<article class="tab texte-courant" id="rubrique#ID_RUBRIQUE" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"] [(#RUBRIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui) style="display:block" ]>
+					<article class="tab" id="rubrique#ID_RUBRIQUE" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"] [(#RUBRIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui) style="display:block" ]>
 						<header>
 							<h2>
 								[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]

@@ -13,16 +13,16 @@
 	</div>
 
 	<section class="synthese page-standard">
-		<article class="texte-courant">
-		<header>
-			<h1>
-				[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
-				[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
-			</h1>
-			
-			[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
-		</header>
-			<div class="grid-2">
+		<article>
+			<header>
+				<h1>
+					[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
+					[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]
+				</h1>
+				
+				[(#AUTORISER{modifier,article,#ID_ARTICLE}|oui) <INCLURE{fond=inc/administration/article, id_article, env }/> ]
+			</header>
+			<div class="grid-2 texte-courant">
 				<div>
 					<span class="discret">— [(#DATE|affdate)]</span>
 				</div>

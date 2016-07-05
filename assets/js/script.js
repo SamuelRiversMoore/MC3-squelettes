@@ -125,6 +125,7 @@ $( document ).ready(function() {
 	}).on('click', '.surmodal>.edition', function(e){
 		e.stopPropagation();
 	}).on('click', '.surmodal .bouton.annuler', function(e){
+		e.preventDefault();
 		$(this).closest('.surmodal').addClass('hidden');
 	})
 

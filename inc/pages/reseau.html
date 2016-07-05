@@ -40,7 +40,7 @@
 					</nav>
 
 				<BOUCLE_liste (RUBRIQUES) {id_parent=6} {par num titre} {tout} >
-					<article class="tab texte-courant" id="rubrique#ID_RUBRIQUE" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"] [(#RUBRIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui) style="display:block" ]>
+					<article class="tab" id="rubrique#ID_RUBRIQUE" [(#RUBRIQUE|=={#ID_RUBRIQUE}|oui) style="display:block;"] [(#RUBRIQUE|=={''}|et{#COMPTEUR_BOUCLE|=={1}}|oui) style="display:block" ]>
 							<h2>
 								[ (#ENV{lang}|=={fr}|oui) [ (#TITRE) ] ]
 								[ (#ENV{lang}|=={en}|oui) [ (#TITRE_EN|sinon{#TITRE}) ] ]

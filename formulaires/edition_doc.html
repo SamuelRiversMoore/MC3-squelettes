@@ -108,6 +108,7 @@
 					<section class="row boutons right">
 						<div class="full">
 							[(#ENV{mode}|=={image}|non) <a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="gros bouton fermer"><:lped:annuler:></a> ]
+							[(#ENV{mode}|=={image}|oui) <a href="[(#SELF|parametre_url{afficher,''}|parametre_url{document,''})]" class="gros bouton annuler"><:lped:annuler:></a> ]
 							<input type='submit' class="gros bouton enregistrer" name='ok' value='<:lped:enregistrer:>' />
 						</div>
 					</section>

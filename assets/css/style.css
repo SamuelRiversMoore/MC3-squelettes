@@ -32,7 +32,14 @@
 	border: 0;
 	box-sizing: border-box;
 }
-
+#menu-logo, .bouton, .more, .select-menu, .icon, .meta{
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;   
+}
 article, aside, details, figcaption, figure,
 footer, header, hgroup, main, nav, section, summary {
 	display: block;
@@ -182,6 +189,11 @@ ul.liste-lettres {
 	margin-bottom: 1em;
 	width: 100%;
 }
+.texte-courant li, .texte-courant .medium{
+	margin-bottom: 16px;
+    margin-bottom: 1rem;
+}
+
 #page-standard {
 	max-width: 800px;
 	max-width: 50rem;

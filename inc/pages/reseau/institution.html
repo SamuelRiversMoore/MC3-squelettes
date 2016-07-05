@@ -1,5 +1,5 @@
 <BOUCLE_institution (INSTITUTIONS) {id_institution} {tout}>
-  <div class="bloc-membre">
+  <div class="bloc-membre texte-courant">
     <h4>#NOM</h4>
     [(#AUTORISER{modifier,institution,#ID_INSTITUTION}|oui)<INCLURE{fond=inc/administration/reseau/institutions, afficher, cible, id_institution, env} />]
 
