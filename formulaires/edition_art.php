@@ -44,7 +44,7 @@ function formulaires_edition_art_traiter_dist( $id_article = 'new', $id_rubrique
     $set['chapo'] = _request('chapo');
     $set['chapo_en'] = _request('chapo_en');
     $set['texte'] = _request('texte');
-    $set['texte_en'] = _request('text_en');
+    $set['texte_en'] = _request('texte_en');
 
 
     objet_modifier($objet, $id_objet, $set);
