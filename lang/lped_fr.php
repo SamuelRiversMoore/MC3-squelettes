@@ -251,6 +251,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'references' => 'Références',
     'membres_et_partenaires' => 'Le réseau',
 
+    'mon_compte' => 'Mon compte',
+    'se_deconnecter' => 'Se déconnecter',
+
 
 );
 ?>

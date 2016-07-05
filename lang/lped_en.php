@@ -220,5 +220,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'definitions' => 'Definitions',
     'references' => 'References',
     'membres_et_partenaires' => 'The Network',
+
+    'mon_compte' => 'My account',
+    'se_deconnecter' => 'Deconnexion',
+
 );
 ?>
