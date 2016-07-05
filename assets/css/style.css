@@ -583,6 +583,10 @@ ul#menu-footer {
 	margin-top: .5rem;
 	border: 1px solid rgba(0,0,0,.5);
 }
+.logo-institution{
+    margin-bottom: 8px;
+    margin-bottom: .5rem;
+}
 .accueil .journal.extrait .article-icone{
 	width: 160px;
 	width: 10rem;
