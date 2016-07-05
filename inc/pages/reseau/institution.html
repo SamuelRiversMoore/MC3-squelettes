@@ -5,7 +5,7 @@
 
     <BOUCLE_document (DOCUMENTS){id_institution}{extension==jpg|png|gif}>
       <figure>
-        <img src="[(#FICHIER|image_passe_partout{225,315}|image_recadre{225,315,'center center','#ffffff'}|extraire_attribut{src})]"  class="article-icone" />
+        <img src="[(#FICHIER|image_reduire{225,315}|extraire_attribut{src})]"  class="article-icone" />
       </figure>
     </BOUCLE_document>
 
