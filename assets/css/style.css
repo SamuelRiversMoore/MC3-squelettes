@@ -392,8 +392,8 @@ div#menu-header {
 	display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
 }
 ul#menu-footer {
-	margin-bottom: 24px;
-	margin-bottom: 1.5rem;
+	margin-bottom: 32px;
+	margin-bottom: 2rem;
 	border-top: 1px solid #007AC8;
 	padding-top: 8px;
 	padding-top: .5rem;
@@ -1445,8 +1445,10 @@ article.extrait .more{
     color: #3C87B6;
     margin-left: 8px;
     margin-left: .5rem;
+    font-size: 13px;
     font-size: .85rem;
-    border-bottom: 1px;
+    border-bottom: 1px solid;
+    white-space: nowrap;
 
 }
 .nouvelles {
@@ -1501,7 +1503,21 @@ article.apropos{
 	margin-bottom: 96px;
 	margin-bottom:6rem;
 }
-
+.logos{
+	margin-top: 16px;
+	margin-top: 1rem;
+}
+.logos>img{
+    max-width: 80px;
+    max-width: 5rem;
+    max-height: 100px;
+    max-height: 6.25rem;
+    width: auto;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 8px;`
+    margin: .5rem;`
+}
 /*----------  AUTEURS  ----------*/
 
 .auteurs {font-size: 0; line-height: 20px; line-height: 1.25rem; display: inline-block; }

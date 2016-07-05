@@ -572,12 +572,12 @@ section.administration form input.petit.bouton{padding:0; margin:0; margin-right
 
 #menu .bouton.ajouter.pays{
 	background: rgb(226, 223, 215);
-	margin: 8px 0 4px;
-	margin: .5rem 0 .25rem;
+	margin: 8px 0 16px;
+	margin: .5rem 0 1rem;
 	color: #8D8D8D;
 	color: rgba(0,0,0,.4);
-	font-size: 16px;
-	font-size: 1rem;
+	font-size: 18px;
+	font-size: 1.125rem;
 	display: block;
 }
 #menu .bouton.ajouter.pays:hover{
@@ -1221,18 +1221,22 @@ ul.mediatheque li.media .preview{
 		width: 50%;
 	}
 	.row .demi:first-of-type{
-		padding-right: 1rem;
+		padding-right: 12px;
+		padding-right: .75rem;
 	}
-	.row .demi:last-of-type{
-		padding-left: 1rem;
+	.row .demi:nth-of-type(2){
+		padding-left: 12px;
+		padding-left: .75rem;
 	}
 }
 
 @media screen and (max-width: 700px){
 	.modal section.edition{
+		margin: 32px;
 		margin: 2rem;
 	}
 	.demi:first-of-type{
+		margin-bottom: 16px;
 		margin-bottom: 1rem;
 	}
 }
