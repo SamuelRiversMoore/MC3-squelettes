@@ -277,6 +277,8 @@ button{
 	font-family: 'karmilla', arial, sans-serif;
 	font-size: 18px;
 	font-size: 1.125rem;
+	opacity: 1;
+    filter: alpha(opacity=1);
 }
 #show-menu:before{
 	margin:0;
@@ -1699,18 +1701,24 @@ li.resultat h3{
     text-transform: uppercase;
     border: 1px solid;
     padding: .125em .25em .05em;
+    color: #999;
 }
+
 .type.document{ color:#FF8600; }
 
-.type.nouvelle,
-.type.lexique,
-.type.article{ color:#607D8B; }
+.type.synthèse, .type.synthese, .type.synthesis{ color: #a27f69;}
 
-.type.pays,
-.type.thématique, .type.thematique, .type.chapitre,
-.type.ville,
-.type.projet{ color:#28D04F; }
+.type.nouvelle, .type.news, .type.article
+{ color: #4ba7f5; }
 
+.type.lexique, .type.entrée, .type.entree, .type.entry, .type.definition
+{ color:#607D8B; }
+
+.type.pays, .type.country,
+.type.thématique, .type.thematique, .type.chapitre, .type.topic, .type.chapter,
+.type.ville, .type.city,
+.type.projet, .type.project
+{ color:#28D04F; }
 
 .icon.fleche {
     margin: 0 .25em;
