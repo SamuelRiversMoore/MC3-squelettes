@@ -572,24 +572,30 @@ ul#menu-footer {
 	position: relative;
 }
 .article-icone {
-	width: 192px;
-	width: 12rem;
-	float: left;
-	margin-right: 32px;
-	margin-right: 2rem;
-	margin-bottom: 24px;
-	margin-bottom: 1.5rem;
-	margin-top: 8px;
-	margin-top: .5rem;
-	border: 1px solid rgba(0,0,0,.5);
+    width: 30%;
+    max-width: 192px;
+    max-width: 12rem;
+    float: left;
+    margin-right: 32px;
+    margin-right: 2rem;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
+    margin-top: 8px;
+    margin-top: .5rem;
+    border: 1px solid rgba(0,0,0,.5);
+}
+figure.article-icone{
+	width: auto;
+	max-width: 100%;
+	margin-right: 0;
+}
+.article-icone>img {
+    width: 100%;
+    display: block;
 }
 .logo-institution{
     margin-bottom: 8px;
     margin-bottom: .5rem;
-}
-.accueil .journal.extrait .article-icone{
-	width: 160px;
-	width: 10rem;
 }
 .liste-articles .billet{
 	-webkit-transition: background .2s ease-in-out;
@@ -1437,14 +1443,17 @@ table td:last-child {
 }
 .journal {
     margin-right: 0;
-    padding-right: 96px;
-    padding-right: 6rem;
+    padding-right: 6%;
 }
 section.journal article{
 	position: relative;
-	clear: both;
-	max-width: 768px;
-	max-width: 48rem;
+	max-width: 640px;
+	max-width: 40rem;
+}
+.extrait:after {
+    content: "";
+    clear: both;
+    display: table;
 }
 section.journal article.extrait a, section.nouvelles a {
 	text-decoration: none;
@@ -1531,8 +1540,8 @@ article.apropos{
     width: auto;
     vertical-align: middle;
     display: inline-block;
-    margin: 8px;`
-    margin: .5rem;`
+    margin: 8px;
+    margin: .5rem;
 }
 /*----------  AUTEURS  ----------*/
 
@@ -1722,9 +1731,6 @@ article.tab {
 	#arbo~header{
 		margin-left: 7rem;
 	}
-	.article-icone{
-		float: none;
-	}
 	#contenu.accueil .col40 .col60, #contenu.accueil .col40 .col40{
 		width: 100%;
 		padding-left: 0;
@@ -1835,10 +1841,6 @@ article.tab {
 	section.journal article{
 		padding: 0;
 	}
-	.accueil .journal.extrait .article-icone {
-	    width: auto;
-	    max-width: 100%;
-	}
 	section.journal>article:not(:nth-child(-n+4)),
 	section.nouvelles>article:not(:nth-child(-n+4)){
 		display: none;
@@ -1858,8 +1860,9 @@ article.tab {
 		width: 100%;
 		min-width: initial;
 	}
-	#menu{
-
+	section.page-standard article .grid-2>div:last-child {
+	    width: auto;
+	    min-width: initial;
 	}
 }
 @media screen and (max-width: 320px){
