@@ -1567,6 +1567,19 @@ article.apropos{
     margin: 8px;
     margin: .5rem;
 }
+section.credits {
+    padding: 1rem;
+    background: #eee;
+    border: 1px solid #ccc;
+    line-height: 1.4em;
+    max-width: 40rem;
+}
+section.credits h3{
+	margin-bottom: .5rem;
+}
+section.credits a{
+	border-color: #bbb;
+}
 /*----------  AUTEURS  ----------*/
 
 .auteurs {font-size: 0; line-height: 20px; line-height: 1.25rem; display: inline-block; }
