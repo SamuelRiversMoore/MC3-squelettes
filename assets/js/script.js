@@ -66,7 +66,6 @@ $( document ).ready(function() {
 	}
 
 	$(document).on('click', function(e) {
-
 		// Pour supprimer les messages d'avertissement des formulaires au clique.
 		if($(document).find('.message.ok').length && !okremoved) $(document).find('.message.ok').remove(); var okremoved = true;
 
@@ -145,6 +144,45 @@ $( document ).ready(function() {
 	Ps.initialize(document.getElementById('menu'),{
 		suppressScrollX: true
 	});
+
+	
+	// lexique interception
+	var lexique = {
+		ouvre:function($mot){
+			$mot.addClass('ouvert').siblings('.glomot-contenu').addClass('ouvert');
+		},
+		ferme:function($mot){
+			$mot.removeClass('ouvert').siblings('.glomot-contenu').removeClass('ouvert');
+		},
+		montre:function($mot){
+			$('html, body').animate({ scrollTop: $mot.offset().top - 64}, 0);
+		}
+	}
+	if($('#lexique-mots').length){
+		if ( $('#lexique-mots').find('.lexique-titre.ouvert').length ){
+			var $mot_ouvert = $('#lexique-mots').find('.lexique-titre.ouvert')
+			lexique.montre($mot_ouvert);
+		} else {
+			var $mot_ouvert;
+		}
+		$('#lexique-mots').on('click', 'a.lexique-titre', function(e){
+			e.preventDefault();
+			history.pushState({ path: this.path }, '', this.href);
+			if ($(this).hasClass('ouvert')) {
+				lexique.ferme($(this));
+			} else{
+				if ($mot_ouvert.length > 0) {
+					lexique.ferme($mot_ouvert);
+				}
+				$mot_ouvert = $(this);
+				lexique.ouvre($mot_ouvert);
+				lexique.montre($mot_ouvert);
+			}
+		});
+	}
+
+
+
 
 
 	/* slickers */
@@ -311,13 +349,10 @@ $( document ).ready(function() {
 		});
 		
 	}
-	if (window.location.hash && $('#nav-tabs').length == 0) {
-		console.log('jaja')
-	}
-
-
 
 	/* ----- / fin gestion des onglets (tab) ---- */
+
+
 
 
 
