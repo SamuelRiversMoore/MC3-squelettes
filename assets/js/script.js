@@ -145,13 +145,15 @@ $( document ).ready(function() {
 		suppressScrollX: true
 	});
 
-	
 	// lexique interception
 	var lexique = {
 		ouvre:function($mot){
 			$mot.addClass('ouvert').siblings('.glomot-contenu').addClass('ouvert');
 		},
-		ferme:function($mot){
+		ferme:function($mot, ajuste){
+			if(ajuste == true){
+				$('html, body').animate({ scrollTop: $(document).scrollTop() - $mot.parent().height()}, 0);
+			}
 			$mot.removeClass('ouvert').siblings('.glomot-contenu').removeClass('ouvert');
 		},
 		montre:function($mot){
@@ -160,8 +162,10 @@ $( document ).ready(function() {
 	}
 	if($('#lexique-mots').length){
 		if ( $('#lexique-mots').find('.lexique-titre.ouvert').length ){
-			var $mot_ouvert = $('#lexique-mots').find('.lexique-titre.ouvert')
-			lexique.montre($mot_ouvert);
+			var $mot_ouvert = $('#lexique-mots').find('.lexique-titre.ouvert');
+			setTimeout(function() {
+				lexique.montre($mot_ouvert);
+			}, 100);
 		} else {
 			var $mot_ouvert;
 		}
@@ -169,14 +173,18 @@ $( document ).ready(function() {
 			e.preventDefault();
 			history.pushState({ path: this.path }, '', this.href);
 			if ($(this).hasClass('ouvert')) {
-				lexique.ferme($(this));
-			} else{
-				if ($mot_ouvert.length > 0) {
-					lexique.ferme($mot_ouvert);
+				lexique.ferme($(this), ajuste = false);
+			} else {
+				if (typeof $mot_ouvert != 'undefined' && $mot_ouvert.length > 0) {
+					if(($mot_ouvert.parent().index() - $(this).parent().index()) < 0){
+						var ajuste = true;
+					} else {
+						var ajuste = false;
+					}
+					lexique.ferme($mot_ouvert, ajuste);
 				}
 				$mot_ouvert = $(this);
 				lexique.ouvre($mot_ouvert);
-				lexique.montre($mot_ouvert);
 			}
 		});
 	}
