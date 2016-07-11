@@ -185,7 +185,7 @@ ul {
 ul.liste-lettres {
 	list-style-type: upper-alpha;
 }
-.texte-courant p:not(.message) {
+.texte-courant p:not(.message){
 	margin-bottom: 1em;
 	line-height: 1.32em;
 }
@@ -1444,10 +1444,6 @@ table td {
 	border-bottom: 1px solid #FFC200;
 	font-family: 'karmilla', helvetica, arial, sans-serif;
 }
-table td.date, table td.statut{
-	min-width: 144px;
-	min-width: 9rem;
-}
 table td.contributeurs, table td.titre, table td.nom{
 	min-width: 192px;
 	min-width: 12rem;
@@ -1460,6 +1456,22 @@ table td:first-child {
 	font-weight: bold;
 }
 table td:last-child {
+}
+th.trad, td.trad{
+	max-width: 64px;
+    max-width: 4rem;
+}
+html[lang="en"] th.trad, html[lang="en"] td.trad{
+	max-width: 48px;
+    max-width: 3rem;
+}
+th.statut, td.statut{
+	max-width: 128px;
+	max-width: 8rem;
+}
+html[lang="en"] th.statut, html[lang="en"] td.statut{
+	max-width: 112px;
+	max-width: 7rem;
 }
 
 .headerSortUp:after, .headerSortDown:after{
@@ -1492,6 +1504,9 @@ section.journal article{
 	position: relative;
 	max-width: 640px;
 	max-width: 40rem;
+}
+.extrait{
+	line-height: 1.32em;
 }
 .extrait:after {
     content: "";
