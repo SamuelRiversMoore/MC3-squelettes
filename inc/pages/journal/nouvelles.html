@@ -14,7 +14,7 @@
 	]
 
 <B_nouvelles>
-	<BOUCLE_nouvelles(ARTICLES){id_rubrique=9} {par statut, maj} {inverse} {statut IN #GET{statut}}>
+	<BOUCLE_nouvelles(ARTICLES){id_rubrique=9} {par statut, date} {inverse} {statut IN #GET{statut}}>
 		[(#AUTORISER{voir,article,#ID_ARTICLE}|oui)
 			<article class="nouvelle extrait">
 				<INCLURE{fond=inc/pages/journal/apercu, env, id_article} />
