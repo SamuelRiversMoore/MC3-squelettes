@@ -43,6 +43,9 @@
 		<td class="date" data-date="[(#MAJ)]">
 			[(#MAJ|affdate)]
 		</td>
+		<td class="trad">
+			[(#TITRE_EN|oui|et{#TITRE_FR|oui}|et{#TEXTE_FR|oui}|et{#TEXTE_EN|oui}|?{ok,non})]
+		</td>
 	</tr>
 
 </BOUCLE_thematique>
