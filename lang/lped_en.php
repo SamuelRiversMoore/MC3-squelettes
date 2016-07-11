@@ -2,6 +2,12 @@
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
     'statut' => 'Status',
+    'titre' => 'Title',
+    'contributeurs' => 'Contributors',
+    'nom' => 'Name',
+    'date' => 'Date',
+    'traduction' => 'Tr.',
+
     'connexion' => 'Log in',
     'nouvelles' => 'News',
     'nouvelle' => 'News',

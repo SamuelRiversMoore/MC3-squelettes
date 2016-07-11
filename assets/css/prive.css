@@ -59,6 +59,9 @@ section.dashboard .parents .parent, section.dashboard .parents .fleche{
 }
 section.dashboard .enfant, section.dashboard .contributeur{
 }
+th.trad, td.trad{
+    max-width: 4rem;
+}
 
 /*----------  TAB PANEL  ----------*/
 /* https://css-tricks.com/functional-css-tabs-revisited/ */
