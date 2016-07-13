@@ -1553,7 +1553,7 @@ section.page-standard {
 	margin-right: 2rem;
 	padding-top: 48px;
 	padding-top: 3rem;
-}
+} 
 section.page-standard>article>header{
 	margin-bottom: 40px;
 	margin-bottom: 2.5rem;
@@ -1572,6 +1572,12 @@ section.page-standard article .grid-2>div:first-child {
 	width: 12rem;
 	margin-right: 32px;
 	margin-right: 2rem;
+    margin-top: 3.2px;
+    margin-top: .2rem;
+}
+section.page-standard article .grid-2>div:first-child>.discret{
+	line-height: 20.8px;
+	line-height:  1.3rem;
 }
 section.page-standard article .grid-2>div:last-child {
 	width: calc(100% - 14rem);
@@ -1621,7 +1627,7 @@ section.credits a{
 .discret .auteur{ line-height: 16px; line-height: 1rem; }
 .auteurs:before{ font-size: 12px; font-size: .75rem; }
 .auteur { font-size: 12px; font-size: .75rem; }
-.discret .auteur{ font-size: 15px; font-size: .95rem; }
+.discret .auteur{ font-size: 15px; font-size: .95rem; line-height: 20.8px; line-height: 1.3rem;}
 .auteurs .auteur:not(:last-child):after{content:', ';}
 .auteurs .auteur:nth-last-child(2):after{content:' \&\00a0'; }
 
